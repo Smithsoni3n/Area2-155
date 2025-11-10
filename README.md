@@ -1,3 +1,6 @@
+# Area2-155 — Live site links
+
+This repository contains multiple standalone static site folders. Below are the folders and the *basic* GitHub Pages URLs you can use in your main README or hand to your professor. Replace `USERNAME` with your GitHub username.
 <<<<<<< HEAD
 # Area2-155 — Live site links
 
@@ -13,6 +16,10 @@ Each folder is published as a project subpath when GitHub Pages is enabled from 
   - https://USERNAME.github.io/Area2-155/DUDE3/
 - DUDE4
   - https://USERNAME.github.io/Area2-155/DUDE4/
+Each folder is published as a project subpath when GitHub Pages is enabled from the repo root (branch: `main` / root or branch: `gh-pages` / root).
+
+## Folders and live URL placeholders
+
 - FUGLY4
   - https://USERNAME.github.io/Area2-155/FUGLY4/
 
@@ -43,6 +50,34 @@ Folders and links
   - GitHub folder: https://github.com/Smithsoni3n/Area2-155/tree/main/DUDE4
   - GitHub Pages (subpath): https://Smithsoni3n.github.io/Area2-155/DUDE4
   - Live site: REPLACE_WITH_LIVE_URL
+# Area2-155
+
+This repository contains four separate folders, each intended to be a standalone static site. The GitHub Pages site is published; the live subpaths are listed below.
+
+Folders and live URLs
+
+- ALWAYS
+  - GitHub folder: https://github.com/Smithsoni3n/Area2-155/tree/main/ALWAYS
+  - Live site: https://smithsoni3n.github.io/Area2-155/ALWAYS/
+
+- DUDE3
+  - GitHub folder: https://github.com/Smithsoni3n/Area2-155/tree/main/DUDE3
+  - Live site: https://smithsoni3n.github.io/Area2-155/DUDE3/
+
+- DUDE4
+  - GitHub folder: https://github.com/Smithsoni3n/Area2-155/tree/main/DUDE4
+  - Live site: https://smithsoni3n.github.io/Area2-155/DUDE4/
+
+- FUGLY4
+  - GitHub folder: https://github.com/Smithsoni3n/Area2-155/tree/main/FUGLY4
+  - Live site: https://smithsoni3n.github.io/Area2-155/FUGLY4/
+
+Notes
+
+- These URLs are served from the repository Pages site and should be reachable after GitHub finished publishing (it may take a minute).
+- If any CSS or images are missing, it is likely because that folder's `index.html` uses absolute paths like `/styles.css`. Prefer relative paths (e.g., `styles.css`) or add a `<base>` tag to the folder's `index.html`.
+
+If you want me to push this README to the remote `main` branch for you, say "push README" and I'll push the commit.
 
 - FUGLY4
   - GitHub folder: https://github.com/Smithsoni3n/Area2-155/tree/main/FUGLY4
