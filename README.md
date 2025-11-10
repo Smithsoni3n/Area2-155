@@ -6,4 +6,4 @@
 | ALWAYS | https://smithsoni3n.github.io/Area2-155/ALWAYS/ |
 | DUDE3 | https://smithsoni3n.github.io/Area2-155/DUDE3/ |
 | DUDE4 | https://smithsoni3n.github.io/Area2-155/DUDE4/ |
-| FUGLY4 | Visit Site[(http://127.0.0.1:5500/index.html)]
+| FUGLY4 | Module 5 | [View Site](http://127.0.0.1:5500/index.html) |
