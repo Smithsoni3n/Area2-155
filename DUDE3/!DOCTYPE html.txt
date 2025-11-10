@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dude is my Service Dog</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f6f8fa;
+            color: #222;
+            margin: 0;
+            padding: 40px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #2a4d69;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #41729f;
+            margin-top: 30px;
+            margin-bottom: 8px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Dude is my Service Dog</h1>
+
+    <h2>Facts about Dude</h2>
+    <ul>
+        <li>Dude is a professionally trained Psychiatric Service Animal.</li>
+        <li>He assists with grounding and anxiety interruption.</li>
+        <li>Dude knows over 40 commands.</li>
+        <li>He helps provide stability, support, and confidence in daily life.</li>
+    </ul>
+
+    <footer>© 2025 Crystal Reise</footer>
+
+</body>
+</html>

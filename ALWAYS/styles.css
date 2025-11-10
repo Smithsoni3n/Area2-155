@@ -1,0 +1,66 @@
+/* Base styles */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fffafc;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #f8bbd0; /* soft pink */
+    text-align: center;
+    padding: 2em;
+}
+
+header h1 {
+    color: #6a1b9a; /* deep purple */
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #4a4a4a;
+}
+
+/* Sections */
+section {
+    padding: 2em;
+    border-bottom: 1px solid #ddd;
+}
+
+#about {
+    background-color: #f3e5f5; /* lavender */
+}
+
+#memories {
+    background-color: #e8f5e9; /* light green */
+}
+
+#closing {
+    background-color: #fce4ec; /* pale pink */
+}
+
+h2 {
+    color: #388e3c; /* soft green */
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 1.5em;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    background-color: #f3e5f5; /* lavender */
+    text-align: center;
+    padding: 1em;
+    font-size: 0.9em;
+    color: #555;
+}
