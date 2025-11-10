@@ -92,17 +92,31 @@ Quick notes
 How to publish (short)
 
 1. Push your repository to GitHub (add remote if needed):
+# Area2-155
 
-```powershell
-git remote add origin <REMOTE_URL>
-git push -u origin main
-```
+This repository contains four separate folders, each intended to be a standalone static site. The GitHub Pages site is published; the live subpaths are listed below.
 
-2. Go to your repository on GitHub → Settings → Pages. Set the source to:
-   - Branch: `main`, Folder: `/ (root)`
-   OR
-   - Branch: `gh-pages`, Folder: `/ (root)` if you prefer a dedicated publishing branch.
+Folders and live URLs
 
-3. Wait a minute and visit one of the URLs above (replace `USERNAME`).
+- ALWAYS
+  - GitHub folder: https://github.com/Smithsoni3n/Area2-155/tree/main/ALWAYS
+  - Live site: https://smithsoni3n.github.io/Area2-155/ALWAYS/
 
-If you want, I can push the local commits to your GitHub repo and enable the `gh-pages` deployment for you — paste the remote URL here and confirm you want me to push (I will not force-push any data unless you explicitly ask).
+- DUDE3
+  - GitHub folder: https://github.com/Smithsoni3n/Area2-155/tree/main/DUDE3
+  - Live site: https://smithsoni3n.github.io/Area2-155/DUDE3/
+
+- DUDE4
+  - GitHub folder: https://github.com/Smithsoni3n/Area2-155/tree/main/DUDE4
+  - Live site: https://smithsoni3n.github.io/Area2-155/DUDE4/
+
+- FUGLY4
+  - GitHub folder: https://github.com/Smithsoni3n/Area2-155/tree/main/FUGLY4
+  - Live site: https://smithsoni3n.github.io/Area2-155/FUGLY4/
+
+Notes
+
+- These URLs are served from the repository Pages site and should be reachable after GitHub finished publishing (it may take a minute).
+- If any CSS or images are missing, it is likely because that folder's `index.html` uses absolute paths like `/styles.css`. Prefer relative paths (e.g., `styles.css`) or add a `<base>` tag to the folder's `index.html`.
+
+If you want me to push this README to the remote `main` branch for you, say "push README" and I'll push the commit.
