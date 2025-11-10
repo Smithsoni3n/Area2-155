@@ -1,11 +1,9 @@
-# Area2-155 — Live folders
+# Area2-155 — Sites
 
-This repository contains multiple folders with prebuilt static pages. Each folder includes an `index.html` so they can be served directly by GitHub Pages.
-
-Links (added one folder at a time)
-
-- ALWAYS
-  - Live: https://smithsoni3n.github.io/Area2-155/ALWAYS/
-  - Source: https://github.com/Smithsoni3n/Area2-155/tree/main/ALWAYS
-
-(Other folders will be added to this README as they are deployed.)
+| Folder | Live URL |
+|---|---|
+| root | https://smithsoni3n.github.io/Area2-155/ |
+| ALWAYS | https://smithsoni3n.github.io/Area2-155/ALWAYS/ |
+| DUDE3 | https://smithsoni3n.github.io/Area2-155/DUDE3/ |
+| DUDE4 | https://smithsoni3n.github.io/Area2-155/DUDE4/ |
+| FUGLY4 | https://smithsoni3n.github.io/Area2-155/FUGLY4/ |
