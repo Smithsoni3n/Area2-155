@@ -10,7 +10,7 @@
 | DUDE4 | WEBSITE | [View Site](https://Smithsoni3n.github.io/Area2-155/DUDE4/)
 | ALWAYS | WEBSITE | [View Site](https://Smithsoni3n.github.io/Area2-155/ALWAYS/)
 | DudeEngine | WEBSITE | [View Site]( https://smithsoni3n.github.io/DudeEngine/)
-| DUDE3| WEBSITE | [View Site](file:///C:/Users/CIS-155/Week4/DUDE3/DUDE3/index.html)
+| DUDE3| WEBSITE | [View Site](CIS-155/Week4/DUDE3/DUDE3/index.html)
 
 ---
 
