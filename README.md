@@ -6,7 +6,7 @@
 
 | Project | Description | Live Page |
 |----------|--------------|-----------|
-| FUGLY | WEBSITE | [View Site](http://127.0.0.1:5500/index.html)
+| FUGLY | WEBSITE | [View Site](https://raw.githack.com/Smithsoni3n/Area2-155/main/FUGLY4/index.html)
 
 
 
