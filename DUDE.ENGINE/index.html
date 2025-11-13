@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dude: My Service Animal</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body id="top">
+  
+  <header class="header-gradient shadow-xl sticky top-0 z-10">
+    <div class="main-container flex justify-between items-center">
+      <h1 class="text-3xl font-extrabold tracking-tight text-white">Dude: My Service Animal</h1>
+      <nav>
+        <button onclick="showPage('story')" id="story-link" class="nav-link active">Story & Pics</button>
+        <button onclick="showPage('facts')" id="facts-link" class="nav-link">Facts & Safety</button>
+      </nav>
+    </div>
+  </header>
+
+  
+  <main class="main-container page-content">
+
+    
+    <section id="story-page" class="space-y-12">
+      <div class="text-center pt-4">
+        <p class="text-lg font-medium text-gray-700">
+          Meet my bestfriend, Dude! A Pitbull and German Shepherd mix.
+        </p>
+      </div>
+
+      <div class="card story-card">
+        <h2 class="text-3xl font-bold mb-4 border-b-2 border-golden-brown pb-3 text-golden-brown">Our Story</h2>
+        <p class="text-lg leading-relaxed mb-4">
+          Dude isn’t just a dog, he’s a grounded, working partner. A 100 pound Pitbull–German Shepherd mix, he’s got both brains and brawn. 
+          Calm when he needs to be, fast when he has to be, and smart enough to know which is which.
+        </p>
+        <p class="text-lg leading-relaxed mb-4">
+          He’s goofy, loyal, and built from instinct. He doesn’t ask for attention he earns it by reading every room, staying aware, and never missing a beat. 
+          Working with him is simple, our trust goes both ways.
+        </p>
+        <p class="text-lg leading-relaxed">
+          This page is for Dude a reminder that real service work isn’t about obedience. It’s about balance, awareness, and heart.
+        </p>
+      </div>
+
+      <div class="card text-center">
+        <h2 class="text-2xl font-bold mb-6 border-b-2 text-golden-brown">Picture: Dude by the Flowers</h2>
+        <img src="Flowers.jpg.jpg" alt="Dude sitting by the flowers" class="rounded-lg shadow-md mx-auto max-w-md my-6">
+        <p class="text-sm italic text-gray-700">
+          Dude's very aware, compassionate, and strong.
+        </p>
+      </div>
+
+      <div class="text-center">
+        <button onclick="showPage('facts')" class="primary-btn">
+          Continue to Facts & Safety →
+        </button>
+      </div>
+    </section>
+
+    <!-- FACTS PAGE -->
+    <section id="facts-page" class="space-y-12 hidden">
+      <div class="text-center pt-6">
+        <h2 class="text-3xl font-bold text-golden-brown mb-4 border-b-2 pb-2">Dude’s Breeds, Facts & Safety</h2>
+        <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+          Understanding Dude means understanding the strength, focus, and heart behind his breeds. Power meets patience,
+          loyalty meets intelligence, and together they make a partner built for trust.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="card">
+          <h3 class="text-xl font-bold border-b-2 pb-2 text-golden-brown">Dude’s Heritage</h3>
+          <p class="text-lg leading-relaxed">
+            The Pitbull and German Shepherd mix blends courage, control, and connection. Shepherds bring instinct and intelligence,
+            while Pitbulls add heart and durability, a combination made for balance under pressure.
+          </p>
+          <ul class="list-disc pl-6 mt-3 space-y-1 text-gray-700">
+            <li><strong>Focus:</strong> Shepherd intelligence keeps him thinking two steps ahead.</li>
+            <li><strong>Heart:</strong> Pitbull loyalty keeps him centered on his person.</li>
+            <li><strong>Balance:</strong> Together they make a steady, clear-minded partner.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 class="text-xl font-bold border-b-2 pb-2 text-golden-brown">Service & Working Roles</h3>
+          <p class="text-lg leading-relaxed">
+            Dogs like Dude don’t just follow they work alongside you. From search-and-rescue to medical alert, this mix
+            is known for reading the room before the human ever speaks.
+          </p>
+          <ul class="list-disc pl-6 mt-3 space-y-1 text-gray-700">
+            <li><strong>Search & Rescue:</strong> Endurance and focus under chaos.</li>
+            <li><strong>Support & Therapy:</strong> Calm strength that grounds the people he helps.</li>
+            <li><strong>Protection:</strong> Reads threat versus comfort with precision.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card text-center">
+        <h2 class="text-2xl font-bold mb-6 border-b-2 text-golden-brown">Picture: Dude with His Stick</h2>
+        <img src="stick.jpg" alt="Dude with a stick in his mouth" class="rounded-lg shadow-md mx-auto max-w-md my-6">
+        <p class="text-sm italic text-gray-700">
+          Dude at work proud, focused, and happy with his favorite stick.
+        </p>
+      </div>
+
+      <div class="text-center space-x-4">
+        <button onclick="showPage('story')" class="secondary-btn">← Back to Story & Pics</button>
+        <a href="#top" class="primary-btn inline-block">Back to Top ↑</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-bar text-center py-4 mt-8">
+    © 2025 Dude's Web Page. All rights reserved.
+  </footer>
+
+  <script>
+    function showPage(page) {
+      const story = document.getElementById('story-page');
+      const facts = document.getElementById('facts-page');
+      const storyLink = document.getElementById('story-link');
+      const factsLink = document.getElementById('facts-link');
+
+      if (page === 'story') {
+        story.classList.remove('hidden');
+        facts.classList.add('hidden');
+        storyLink.classList.add('active');
+        factsLink.classList.remove('active');
+      } else {
+        facts.classList.remove('hidden');
+        story.classList.add('hidden');
+        factsLink.classList.add('active');
+        storyLink.classList.remove('active');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
