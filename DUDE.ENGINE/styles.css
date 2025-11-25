@@ -204,17 +204,11 @@ figcaption {
 
 .breed-table td {
   padding: 1rem;
+  border-bottom: 1px solid #f0f0f0;
   color: var(--text-earth);
-  border-bottom: 1px solid var(--divider);       /* fallback */
-  border-block-end: 1px solid var(--divider);   /* logical property for RTL */
 }
 
 .breed-table tr:nth-child(even) { background-color: #fcfcfc; }
-
-.breed-table tr:last-child td {
-  border-bottom: none;
-  border-block-end: none;
-}
 
 .footer-bar {
   background: var(--hunter-green);
@@ -229,5 +223,3 @@ figcaption {
   .site-nav { flex-wrap: wrap; justify-content: center; }
   .primary-btn, .secondary-btn { width: 100%; text-align: center; }
 }
-
-
