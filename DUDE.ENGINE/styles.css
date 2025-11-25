@@ -3,16 +3,11 @@
   --golden-brown: #B99551;
   --pearl-white: #FAF5E6;
   --accent-yellow: #FFD06B;
-  --shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-body {
-  background-color: var(--pearl-white);
-  color: var(--hunter-green);
-  font-family: 'Inter', sans-serif;
-  line-height: 1.7;
-  margin: 0;
-  min-height: 100vh;
+  --text-earth: #4E3629;
+  --card-bg: #ffffff;
+  --shadow-depth: 0 15px 35px -5px rgba(53, 94, 59, 0.15);
+  --shadow-hover: 0 25px 50px -10px rgba(53, 94, 59, 0.25);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 *, *::before, *::after {
@@ -234,4 +229,5 @@ figcaption {
   .site-nav { flex-wrap: wrap; justify-content: center; }
   .primary-btn, .secondary-btn { width: 100%; text-align: center; }
 }
+
 
