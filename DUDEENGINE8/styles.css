@@ -155,14 +155,14 @@ a { color: inherit; }
 }
 
 .inline-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  object-fit: cover;
+  width: 90px;
+  height: auto;
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: -10px;
   margin: 0 0.45rem;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.18);
+  border-radius: 0;
+  object-fit: contain;
+  box-shadow: none;
 }
 
 .lead {
@@ -435,6 +435,7 @@ a { color: inherit; }
   0% { background-position: 0% 50%; }
   100% { background-position: 200% 50%; }
 }
+
 
 
 
