@@ -154,6 +154,17 @@ a { color: inherit; }
   margin-bottom: 0.75rem;
 }
 
+.inline-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0.45rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.18);
+}
+
 .lead {
   font-size: 1.12rem;
   color: #4a3d30;
@@ -424,5 +435,6 @@ a { color: inherit; }
   0% { background-position: 0% 50%; }
   100% { background-position: 200% 50%; }
 }
+
 
 
