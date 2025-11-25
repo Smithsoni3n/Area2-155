@@ -4,6 +4,7 @@
   --pearl-white: #FAF5E6;
   --accent-yellow: #FFD06B;
   --text-earth: #4E3629;
+  --divider: rgba(78, 54, 41, 0.06);
   --card-bg: #ffffff;
   --shadow-depth: 0 15px 35px -5px rgba(53, 94, 59, 0.15);
   --shadow-hover: 0 25px 50px -10px rgba(53, 94, 59, 0.25);
@@ -204,11 +205,17 @@ figcaption {
 
 .breed-table td {
   padding: 1rem;
-  border-bottom: 1px solid #f0f0f0;
   color: var(--text-earth);
+  border-bottom: 1px solid var(--divider);       /* fallback */
+  border-block-end: 1px solid var(--divider);   /* logical property for RTL */
 }
 
 .breed-table tr:nth-child(even) { background-color: #fcfcfc; }
+
+.breed-table tr:last-child td {
+  border-bottom: none;
+  border-block-end: none;
+}
 
 .footer-bar {
   background: var(--hunter-green);
