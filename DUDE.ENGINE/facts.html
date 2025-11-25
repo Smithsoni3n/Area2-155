@@ -12,10 +12,10 @@
 </head>
 
 <body id="top">
-  <header class="header-gradient shadow-xl sticky top-0 z-10">
-    <div class="main-container flex justify-between items-center py-0">
-      <h1><i class="fas fa-anchor mr-3"></i> My Anchor To My Storm</h1>
-      <nav>
+  <header class="header-gradient">
+    <div class="main-container header-flex" style="padding: 0;">
+      <div class="site-logo"><i class="fas fa-anchor mr-2"></i> Anchor To My Storm</div>
+      <nav class="site-nav">
         <a href="index.html" class="nav-link">Story</a>
         <a href="facts.html" class="nav-link active">Facts</a>
         <a href="safety.html" class="nav-link">Safety</a>
@@ -25,67 +25,62 @@
   </header>
 
   <main class="main-container page-content">
-    <section class="space-y-16">
-      <div class="text-center pt-8 pb-4">
-        <h2 style="border: none; font-size: 3.5rem;">Dude’s Breeds & Data</h2>
-        <p class="text-2xl" style="color: var(--hunter-green); font-weight: 600;">
-          Understanding the strength, focus, and heart behind the mix.
-        </p>
+    <div style="text-align: center; margin-bottom: 3rem;">
+      <p style="font-size: 1.4rem; color: var(--hunter-green); font-weight: 600;">
+        Understanding the strength, focus, and heart behind the mix.
+      </p>
+    </div>
+
+    <section class="card">
+      <h2>Dude’s Breeds & Data</h2>
+      <p>The Pitbull and German Shepherd mix blends courage, control, and connection.</p>
+
+      <h3 style="margin-top: 2rem;"><i class="fas fa-table mr-2"></i> Breed Comparison</h3>
+      <div style="overflow-x: auto;">
+        <table class="breed-table">
+          <thead>
+            <tr>
+              <th>Trait</th>
+              <th>German Shepherd</th>
+              <th>Pitbull</th>
+              <th>Dude (The Mix)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Focus</strong></td>
+              <td>High Alert</td>
+              <td>Hyper-fixated</td>
+              <td>Balanced</td>
+            </tr>
+            <tr>
+              <td><strong>Loyalty</strong></td>
+              <td>Protective</td>
+              <td>People Pleaser</td>
+              <td>Intuitive</td>
+            </tr>
+            <tr>
+              <td><strong>Energy</strong></td>
+              <td>Endurance</td>
+              <td>Sprint Power</td>
+              <td>Stamina</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
-      <!-- Extra Credit Table -->
-      <div class="card">
-        <h3><i class="fas fa-table mr-3"></i> Breed Comparison</h3>
-        <div class="overflow-x-auto mt-6">
-          <table class="breed-table">
-            <thead>
-              <tr>
-                <th>Trait</th>
-                <th>German Shepherd</th>
-                <th>Pitbull</th>
-                <th>Dude (The Mix)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Focus</strong></td>
-                <td>High Alert</td>
-                <td>Hyper-fixated</td>
-                <td>Balanced</td>
-              </tr>
-              <tr>
-                <td><strong>Loyalty</strong></td>
-                <td>Protective</td>
-                <td>People Pleaser</td>
-                <td>Intuitive</td>
-              </tr>
-              <tr>
-                <td><strong>Energy</strong></td>
-                <td>Endurance</td>
-                <td>Sprint Power</td>
-                <td>Stamina</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Grid Layout -->
-      <div class="grid md:grid-cols-2 gap-10">
-        <div class="card">
+      <div class="grid-layout">
+        <div>
           <h3>Heritage</h3>
-          <p>The Pitbull and German Shepherd mix blends courage, control, and connection.</p>
-          <ul class="list-disc mt-6 space-y-3 pl-6 text-lg">
+          <ul style="list-style-position: inside; padding-left: 10px;">
             <li><strong>Focus:</strong> Shepherd intelligence.</li>
             <li><strong>Heart:</strong> Pitbull loyalty.</li>
             <li><strong>Balance:</strong> Steady partner.</li>
           </ul>
         </div>
-
-        <div class="card">
+        <div>
           <h3>Service Roles</h3>
-          <p>Dogs like Dude work alongside you, reading the room before a word is spoken.</p>
-          <ul class="list-disc mt-6 space-y-3 pl-6 text-lg">
+          <ul style="list-style-position: inside; padding-left: 10px;">
             <li><strong>Search & Rescue:</strong> Endurance under chaos.</li>
             <li><strong>Therapy:</strong> Calm strength.</li>
             <li><strong>Protection:</strong> Reads threats precisely.</li>
@@ -93,18 +88,17 @@
         </div>
       </div>
 
-      <div class="card text-center">
-        <figure>
-          <img src="stick.jpg" alt="Dude with a stick" style="max-width: 800px; margin: 0 auto;">
-          <figcaption>Dude at work: proud, focused, and happy.</figcaption>
-        </figure>
-      </div>
-
-      <div class="text-center space-x-6">
-        <a href="index.html" class="secondary-btn"><i class="fas fa-arrow-left mr-3"></i> Story</a>
-        <a href="safety.html" class="primary-btn">Safety <i class="fas fa-arrow-right ml-3"></i></a>
-      </div>
+      <figure style="margin-top: 3rem;">
+       
+        <img src="stick.jpg" alt="Dude with a stick" style="max-width: 400px; margin: 0 auto;">
+        <figcaption>Dude at work: proud, focused, and happy.</figcaption>
+      </figure>
     </section>
+
+    <div class="btn-group">
+      <a href="index.html" class="secondary-btn">← Story</a>
+      <a href="safety.html" class="primary-btn">Safety Protocols →</a>
+    </div>
   </main>
 
   <footer class="footer-bar">
