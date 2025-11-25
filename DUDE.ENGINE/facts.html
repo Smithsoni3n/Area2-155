@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dude: Facts</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/jpg" href="stick.jpg">
+</head>
+
+<body id="top">
+  <header class="header-gradient shadow-xl sticky top-0 z-10">
+    <div class="main-container flex justify-between items-center py-0">
+      <h1><i class="fas fa-anchor mr-3"></i> My Anchor To My Storm</h1>
+      <nav>
+        <a href="index.html" class="nav-link">Story</a>
+        <a href="facts.html" class="nav-link active">Facts</a>
+        <a href="safety.html" class="nav-link">Safety</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-container page-content">
+    <section class="space-y-16">
+      <div class="text-center pt-8 pb-4">
+        <h2 style="border: none; font-size: 3.5rem;">Dude’s Breeds & Data</h2>
+        <p class="text-2xl" style="color: var(--hunter-green); font-weight: 600;">
+          Understanding the strength, focus, and heart behind the mix.
+        </p>
+      </div>
+
+      <!-- Extra Credit Table -->
+      <div class="card">
+        <h3><i class="fas fa-table mr-3"></i> Breed Comparison</h3>
+        <div class="overflow-x-auto mt-6">
+          <table class="breed-table">
+            <thead>
+              <tr>
+                <th>Trait</th>
+                <th>German Shepherd</th>
+                <th>Pitbull</th>
+                <th>Dude (The Mix)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Focus</strong></td>
+                <td>High Alert</td>
+                <td>Hyper-fixated</td>
+                <td>Balanced</td>
+              </tr>
+              <tr>
+                <td><strong>Loyalty</strong></td>
+                <td>Protective</td>
+                <td>People Pleaser</td>
+                <td>Intuitive</td>
+              </tr>
+              <tr>
+                <td><strong>Energy</strong></td>
+                <td>Endurance</td>
+                <td>Sprint Power</td>
+                <td>Stamina</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Grid Layout -->
+      <div class="grid md:grid-cols-2 gap-10">
+        <div class="card">
+          <h3>Heritage</h3>
+          <p>The Pitbull and German Shepherd mix blends courage, control, and connection.</p>
+          <ul class="list-disc mt-6 space-y-3 pl-6 text-lg">
+            <li><strong>Focus:</strong> Shepherd intelligence.</li>
+            <li><strong>Heart:</strong> Pitbull loyalty.</li>
+            <li><strong>Balance:</strong> Steady partner.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Service Roles</h3>
+          <p>Dogs like Dude work alongside you, reading the room before a word is spoken.</p>
+          <ul class="list-disc mt-6 space-y-3 pl-6 text-lg">
+            <li><strong>Search & Rescue:</strong> Endurance under chaos.</li>
+            <li><strong>Therapy:</strong> Calm strength.</li>
+            <li><strong>Protection:</strong> Reads threats precisely.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card text-center">
+        <figure>
+          <img src="stick.jpg" alt="Dude with a stick" style="max-width: 800px; margin: 0 auto;">
+          <figcaption>Dude at work: proud, focused, and happy.</figcaption>
+        </figure>
+      </div>
+
+      <div class="text-center space-x-6">
+        <a href="index.html" class="secondary-btn"><i class="fas fa-arrow-left mr-3"></i> Story</a>
+        <a href="safety.html" class="primary-btn">Safety <i class="fas fa-arrow-right ml-3"></i></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-bar">
+    <p>© 2025 Dude: My Anchor To My Storm.</p>
+  </footer>
+</body>
+</html>
