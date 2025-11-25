@@ -12,10 +12,10 @@
 </head>
 
 <body id="top">
-  <header class="header-gradient shadow-xl sticky top-0 z-10">
-    <div class="main-container flex justify-between items-center py-0">
-      <h1><i class="fas fa-anchor mr-3"></i> My Anchor To My Storm</h1>
-      <nav>
+  <header class="header-gradient">
+    <div class="main-container header-flex" style="padding: 0;">
+      <div class="site-logo"><i class="fas fa-anchor mr-2"></i> Anchor To My Storm</div>
+      <nav class="site-nav">
         <a href="index.html" class="nav-link">Story</a>
         <a href="facts.html" class="nav-link">Facts</a>
         <a href="safety.html" class="nav-link">Safety</a>
@@ -25,54 +25,49 @@
   </header>
 
   <main class="main-container page-content">
-    <section class="space-y-16">
-      <div class="text-center pt-8 pb-4">
-        <h2 style="border: none; font-size: 3.5rem;">Handler Resources</h2>
-        <p class="text-2xl" style="color: var(--hunter-green); font-weight: 600;">
-          Essential Gear & Focus for the Service Dog Team.
-        </p>
-      </div>
+    <div style="text-align: center; margin-bottom: 3rem;">
+      <p style="font-size: 1.4rem; color: var(--hunter-green); font-weight: 600;">
+        Essential Gear & Focus for the Service Dog Team.
+      </p>
+    </div>
 
-      <div class="card text-center">
-        <figure>
-          <img src="dude.jpg" alt="Portrait of Dude" style="max-width: 800px; margin: 0 auto;">
-          <figcaption>The Anchor: Ready to work, ready to support.</figcaption>
-        </figure>
-      </div>
+    <section class="card">
+      <figure style="margin-top: 0; margin-bottom: 3rem;">
+        <img src="dude.jpg" alt="Portrait of Dude">
+        <figcaption>The Anchor: Ready to work, ready to support.</figcaption>
+      </figure>
 
-      <div class="card">
-        <h3><i class="fas fa-toolbox mr-3"></i> Handler Focus</h3>
-        <p>Being a handler isn't just about having a dog; it's about maintaining a constant connection.</p>
-        
-        <div class="grid md:grid-cols-2 gap-10 mt-10">
-          <div class="bg-[#fdfbf7] p-8 rounded-xl border border-[#B99551]">
-            <h4 class="font-bold text-[#B99551] text-xl mb-3"><i class="fas fa-vest mr-2"></i> The Vest</h4>
-            <p>A clear, labeled vest is the first line of defense against public interference. It signals "I am working" to the world.</p>
-          </div>
-          <div class="bg-[#fdfbf7] p-8 rounded-xl border border-[#B99551]">
-            <h4 class="font-bold text-[#B99551] text-xl mb-3"><i class="fas fa-shoe-prints mr-2"></i> Boots</h4>
-            <p>Essential for protecting paws from hot asphalt in summer and road salt in winter. Healthy paws mean a working dog.</p>
-          </div>
-          <div class="bg-[#fdfbf7] p-8 rounded-xl border border-[#B99551]">
-            <h4 class="font-bold text-[#B99551] text-xl mb-3"><i class="fas fa-medkit mr-2"></i> Field First Aid</h4>
-            <p>I always carry a kit specific to canine trauma: gauze, vet wrap, and hydrogen peroxide.</p>
-          </div>
-           <div class="bg-[#fdfbf7] p-8 rounded-xl border border-[#B99551]">
-            <h4 class="font-bold text-[#B99551] text-xl mb-3"><i class="fas fa-id-card mr-2"></i> ADA Info Cards</h4>
-            <p>Small handouts that explain federal access rights to business owners who may not know the law.</p>
-          </div>
+      <h2>Handler Focus</h2>
+      <p>Being a handler isn't just about having a dog; it's about maintaining a constant connection.</p>
+      
+      <div class="grid-layout">
+        <div>
+          <h3>The Vest</h3>
+          <p>A clear, labeled vest is the first line of defense against public interference.</p>
+        </div>
+        <div>
+          <h3>Boots</h3>
+          <p>Essential for protecting paws from hot asphalt in summer and road salt in winter.</p>
+        </div>
+        <div>
+          <h3>Field First Aid</h3>
+          <p>I always carry a kit specific to canine trauma: gauze, vet wrap, and hydrogen peroxide.</p>
+        </div>
+        <div>
+          <h3>ADA Info Cards</h3>
+          <p>Small handouts that explain federal access rights to business owners who may not know the law.</p>
         </div>
       </div>
-
-      <div class="text-center space-x-6">
-        <a href="safety.html" class="secondary-btn"><i class="fas fa-arrow-left mr-3"></i> Safety</a>
-        <a href="index.html" class="primary-btn">Back Home <i class="fas fa-home ml-3"></i></a>
-      </div>
     </section>
+
+    <div class="btn-group">
+      <a href="safety.html" class="secondary-btn">← Back to Safety</a>
+      <a href="index.html" class="primary-btn">Back Home →</a>
+    </div>
   </main>
 
   <footer class="footer-bar">
-    <p>© 2025 Dude: My Anchor To My Storm. All Rights Reserved.</p>
+    <p>© 2025 Dude: My Anchor To My Storm.</p>
   </footer>
 </body>
 </html>
