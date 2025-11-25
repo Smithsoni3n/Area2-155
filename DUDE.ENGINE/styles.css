@@ -31,7 +31,7 @@ body {
   padding: 3rem 1.5rem;
 }
 
-/* HEADER */
+
 .header-gradient {
   background: linear-gradient(135deg, var(--hunter-green), #2a452e);
   padding: 1.2rem 0;
@@ -57,7 +57,6 @@ body {
   letter-spacing: 1px;
 }
 
-/* NAVIGATION */
 .nav-link {
   color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
@@ -80,7 +79,6 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* CARDS */
 .card {
   background: var(--card-bg);
   border-radius: 12px;
@@ -96,7 +94,6 @@ body {
   box-shadow: var(--shadow-hover);
 }
 
-/* TYPOGRAPHY */
 h2 {
   font-family: 'Playfair Display', serif;
   font-size: 2.5rem;
@@ -120,7 +117,6 @@ p {
   font-size: 1.1rem;
 }
 
-/* IMAGES */
 img {
   max-width: 100%;
   height: auto;
@@ -143,7 +139,6 @@ figcaption {
   font-weight: 600;
 }
 
-/* BUTTONS */
 .primary-btn, .secondary-btn {
   display: inline-block;
   padding: 1rem 2.5rem;
@@ -180,7 +175,6 @@ figcaption {
   transform: translateY(-3px);
 }
 
-/* GRID & TABLE */
 .grid-layout {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -223,3 +217,4 @@ figcaption {
   .site-nav { flex-wrap: wrap; justify-content: center; }
   .primary-btn, .secondary-btn { width: 100%; text-align: center; }
 }
+
