@@ -68,5 +68,3 @@ index 949decd4a42a17b71bdc64e4c7db86372c4d8646..6cb8f682338d8da5dcb4347389b996b1
  @ 2025 Crystal Lyn Reise
    "We are the ArchTechs of Digital Frontier!"
 
-
-
