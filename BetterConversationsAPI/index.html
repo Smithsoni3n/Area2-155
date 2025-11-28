@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Better Conversations API</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header class="hero">
+        <div class="hero__text">
+            <p class="tag">v1.0 • Playful API Spec</p>
+            <h1>Better Conversations API</h1>
+            <p class="lede">
+                A neutral, tongue-in-cheek REST API for people who talk, listen, and sometimes forget which one they’re supposed to be doing.
+            </p>
+            <div class="hero__meta">
+                <span class="pill">Base URL: https://api.conversations.local/v1</span>
+                <span class="pill pill--ghost">No politics. Just vibes.</span>
+            </div>
+        </div>
+        <div class="hero__aside">
+            <div class="callout">
+                <p class="label">Usage</p>
+                <p>Chain polite requests. Avoid unauthorized <code>/interrupt</code> calls. Rate limits reset after a deep breath.</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="overview">
+            <div class="overview__content">
+                <div>
+                    <p class="label">Solo deck</p>
+                    <h3>Flip, try, reflect</h3>
+                    <p class="muted">
+                        The Better Conversations API deck is a one-player practice game. Each card is a conversational skill
+                        written like an API endpoint: flip a prompt, try it in your next interaction, and reflect on the
+                        “response” you get. There’s no competition—just a playful way to level up listening, empathy, and
+                        trust-building one card at a time.
+                    </p>
+                    <p class="muted">
+                        The deck lives right here—no separate site or download. Scroll, pick an endpoint, and treat it like a
+                        mentor whispering in your ear as you talk.
+                    </p>
+                </div>
+                <div class="quote">
+                    <p class="quote__text">
+                        “Nothing I say this day will teach me anything. So if I’m going to learn, I must do it by listening.”
+                    </p>
+                    <p class="quote__cite">Larry King</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-to">
+            <div>
+                <p class="label">How it works</p>
+                <h3>One-player practice deck</h3>
+                <p class="muted">
+                    The deck is your personal sandbox: flip a card, try that conversational skill in your next chat, and notice the
+                    “response” you get back. No competition—just a playful way to level up listening, empathy, and trust one call at a
+                    time.
+                </p>
+            </div>
+            <div class="how-to__list">
+                <div class="step">
+                    <p class="step__label">Step 1</p>
+                    <p class="step__text">Pick a card and commit to that endpoint for your next interaction.</p>
+                </div>
+                <div class="step">
+                    <p class="step__label">Step 2</p>
+                    <p class="step__text">Ship the request in real life—/listen, /validate, or /keepConversationGoing.</p>
+                </div>
+                <div class="step">
+                    <p class="step__label">Step 3</p>
+                    <p class="step__text">Log the “response”: what changed in tone, trust, or talk-time balance?</p>
+                </div>
+                <div class="step">
+                    <p class="step__label">Step 4</p>
+                    <p class="step__text">Repeat with a new card to build uptime for empathy and curiosity.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="bonus">
+            <div class="bonus__header">
+                <p class="label">Bonus mentor cards</p>
+                <h3>TED-inspired side quests</h3>
+                <p class="muted">
+                    Along the way you’ll encounter bonus cards inspired by TED speakers and thought leaders: Jia Jiang’s
+                    courage in “100 Days of Rejection,” Celeste Headlee’s “10 Ways to Have a Better Conversation,” Simon
+                    Sinek’s listening insights, and Larry King’s daily reminder to learn by listening.
+                </p>
+            </div>
+            <div class="bonus__grid">
+                <article class="card bonus-card">
+                    <div class="card__header">
+                        <span class="pill pill--ghost">🎤 Jia Jiang</span>
+                        <h2>/embraceRejection</h2>
+                    </div>
+                    <p class="muted"><strong>Challenge:</strong> Ask for something you expect to be refused.</p>
+                    <p class="muted"><strong>Win Condition:</strong> You survive the “no” and learn something new.</p>
+                    <p class="muted"><strong>Bonus XP:</strong> You get a “yes” when you least expect it.</p>
+                </article>
+
+                <article class="card bonus-card">
+                    <div class="card__header">
+                        <span class="pill pill--ghost">🎤 Celeste Headlee</span>
+                        <h2>/10Ways</h2>
+                    </div>
+                    <p class="muted"><strong>Challenge:</strong> Pick one of her 10 tips and apply it.</p>
+                    <p class="muted"><strong>Win Condition:</strong> The conversation feels smoother.</p>
+                    <p class="muted"><strong>Bonus XP:</strong> You notice the other person leaning in.</p>
+                </article>
+
+                <article class="card bonus-card">
+                    <div class="card__header">
+                        <span class="pill pill--ghost">🎤 Simon Sinek</span>
+                        <h2>/artOfListening</h2>
+                    </div>
+                    <p class="muted"><strong>Challenge:</strong> Ask a follow-up that proves you truly heard.</p>
+                    <p class="muted"><strong>Win Condition:</strong> The other person expands their thought.</p>
+                    <p class="muted"><strong>Bonus XP:</strong> They say “that’s a good question.”</p>
+                </article>
+
+                <article class="card bonus-card">
+                    <div class="card__header">
+                        <span class="pill pill--ghost">🎤 Larry King</span>
+                        <h2>/dailyReminder</h2>
+                    </div>
+                    <p class="muted"><strong>Challenge:</strong> Start your day with his mantra to listen first.</p>
+                    <p class="muted"><strong>Win Condition:</strong> You catch yourself listening more than talking.</p>
+                    <p class="muted"><strong>Bonus XP:</strong> You discover something you didn’t expect.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="grid">
+            <article class="card">
+                <div class="card__header">
+                    <span class="method method--get">GET</span>
+                    <h2>/listen</h2>
+                </div>
+                <p class="muted">Activates listening mode and echoes what was actually said instead of what you assumed.</p>
+                <pre><code>{
+  "status": "listening",
+  "filters": ["no multitasking", "no rehearsing comebacks"],
+  "payload": "full human sentence received"
+}</code></pre>
+            </article>
+
+            <article class="card">
+                <div class="card__header">
+                    <span class="method method--post">POST</span>
+                    <h2>/elevatorPitch</h2>
+                </div>
+                <p class="muted">Uploads a short intro so everyone knows why you’re here.</p>
+                <pre><code>{
+  "name": "Your Name",
+  "project": "What you're working on",
+  "duration": "15 seconds"
+}</code></pre>
+                <div class="note">Response: <span class="code">{"message": "Pitch accepted. Conversation initiated."}</span></div>
+            </article>
+
+            <article class="card">
+                <div class="card__header">
+                    <span class="method method--patch">PATCH</span>
+                    <h2>/keepConversationGoing</h2>
+                </div>
+                <p class="muted">Keeps the flow alive so the chat doesn’t die 14 seconds in.</p>
+                <pre><code>{
+  "questions": "open-ended",
+  "validated": true
+}</code></pre>
+                <div class="note">Response flow: <span class="code">{"flow": "smooth", "awkwardSilence": false}</span></div>
+            </article>
+
+            <article class="card">
+                <div class="card__header">
+                    <span class="method method--put">PUT</span>
+                    <h2>/activeListening</h2>
+                </div>
+                <p class="muted">Engages real listening protocols. Fake nodding is rejected with a 409.</p>
+                <ul class="bullet-list">
+                    <li>Paraphrase and confirm</li>
+                    <li>Ask follow-up questions</li>
+                    <li>Notice tone and cadence</li>
+                    <li>Don’t hijack with your own story</li>
+                </ul>
+            </article>
+
+            <article class="card">
+                <div class="card__header">
+                    <span class="method method--post">POST</span>
+                    <h2>/emptyTheBucket</h2>
+                </div>
+                <p class="muted">Lets someone empty their thoughts without interruptions.</p>
+                <pre><code>{
+  "bucket": "empty",
+  "listener": "quiet",
+  "speaker": "heard"
+}</code></pre>
+            </article>
+
+            <article class="card">
+                <div class="card__header">
+                    <span class="method method--get">GET</span>
+                    <h2>/conversationHealth</h2>
+                </div>
+                <p class="muted">Returns diagnostics so you know if the chat needs a reboot.</p>
+                <pre><code>{
+  "eyeContact": "fair",
+  "engagementLevel": 82,
+  "talkTimeBalance": "56% them / 44% you",
+  "interruptions": 0,
+  "empathy": "operational"
+}</code></pre>
+            </article>
+
+            <article class="card">
+                <div class="card__header">
+                    <span class="method method--delete">DELETE</span>
+                    <h2>/assumptions</h2>
+                </div>
+                <p class="muted">Clears cached biases so you can listen like a human.</p>
+                <div class="note">Response: <span class="code">{"message": "Assumptions successfully deleted.", "biasCache": "cleared"}</span></div>
+            </article>
+
+            <article class="card">
+                <div class="card__header">
+                    <span class="method method--post">POST</span>
+                    <h2>/trust</h2>
+                </div>
+                <p class="muted">Trust is earned through repeated <code>/listen</code> calls plus consistent behavior.</p>
+                <div class="note">Response: <span class="code">{"trust": "building", "note": "Trust requires uptime, not just bandwidth."}</span></div>
+            </article>
+
+            <article class="card">
+                <div class="card__header">
+                    <span class="method method--get">GET</span>
+                    <h2>/awkwardSilence</h2>
+                </div>
+                <p class="muted">Returns a reflective pause to let ideas catch up.</p>
+                <pre><code>{
+  "duration": "3-7 seconds",
+  "status": "productive",
+  "tip": "Hold steady. Someone’s brain is buffering."
+}</code></pre>
+            </article>
+        </section>
+
+        <section class="panel">
+            <div>
+                <p class="label">Pro Tips</p>
+                <h3>How to avoid a 4XX Conversation Error</h3>
+                <ul class="bullet-list">
+                    <li>Pair <code>/listen</code> with <code>/validate</code> before any <code>/interrupt</code> attempts.</li>
+                    <li>Throttle yourself to 120 words per minute to prevent rate limiting.</li>
+                    <li>Use <code>/keepConversationGoing</code> if silence lasts longer than your comfort zone.</li>
+                    <li>Call <code>/assumptions</code> daily for best performance.</li>
+                </ul>
+            </div>
+            <div class="panel__aside">
+                <p class="label">Error Codes</p>
+                <ul class="chips">
+                    <li><span class="chip code">409</span> Topic collision — you hijacked their story.</li>
+                    <li><span class="chip code">429</span> Too many words — slow your roll.</li>
+                    <li><span class="chip code">451</span> Content unavailable — maybe this isn’t the time.</li>
+                    <li><span class="chip code">520</span> Uncaught sarcasm exception — request clarification.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="cards">
+            <div class="card card--flip">
+                <p class="label">Card 1</p>
+                <p class="muted">What starts every good conversation?</p>
+                <p class="answer">A clean API call to <code>/listen</code>.</p>
+            </div>
+            <div class="card card--flip">
+                <p class="label">Card 2</p>
+                <p class="muted">What kills a conversation fastest?</p>
+                <p class="answer"><code>/interrupt</code> without permission.</p>
+            </div>
+            <div class="card card--flip">
+                <p class="label">Card 3</p>
+                <p class="muted">What’s the hardest skill in the API?</p>
+                <p class="answer"><code>/activeListening</code> — no background apps allowed.</p>
+            </div>
+            <div class="card card--flip">
+                <p class="label">Card 4</p>
+                <p class="muted">What improves connection immediately?</p>
+                <p class="answer"><code>/validate</code> the other person’s perspective.</p>
+            </div>
+            <div class="card card--flip">
+                <p class="label">Card 5</p>
+                <p class="muted">What never auto-installs?</p>
+                <p class="answer"><code>/trust</code> — must be manually earned.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Better Conversations API is satire, not ideology. Have fun, be kind, and ship good chats.</p>
+    </footer>
+</body>
+</html>
