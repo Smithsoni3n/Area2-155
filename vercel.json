@@ -5,6 +5,10 @@
       "runtime": "nodejs18.x"
     }
   },
+  "builds": [
+    { "src": "api/**/*.js", "use": "@vercel/node" },
+    { "src": "BetterConversationsAPI/**", "use": "@vercel/static" }
+  ],
   "headers": [
     {
       "source": "/api/(.*)",
@@ -34,17 +38,8 @@
     }
   ],
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
-    },
-    {
-      "src": "/BetterConversationsAPI/(.*)",
-      "dest": "/BetterConversationsAPI/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/BetterConversationsAPI/index.html"
-    }
+    { "src": "/api/(.*)", "dest": "/api/$1" },
+    { "src": "/BetterConversationsAPI/(.*)", "dest": "/BetterConversationsAPI/$1" },
+    { "src": "/(.*)", "dest": "/BetterConversationsAPI/index.html" }
   ]
 }
