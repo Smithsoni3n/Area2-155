@@ -14,26 +14,13 @@
       "source": "/api/(.*)",
       "headers": [
         { "key": "Access-Control-Allow-Origin", "value": "*" },
-        { "key": "Cache-Control", "value": "no-store" },
-        { "key": "Content-Security-Policy", "value": "default-src 'self' data: blob:; img-src * data: blob:;" }
+        { "key": "Cache-Control", "value": "no-store" }
       ]
     },
     {
       "source": "/BetterConversationsAPI/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
-      ]
-    },
-    {
-      "source": "/BetterConversationsAPI/index.html",
-      "headers": [
-        { "key": "Content-Type", "value": "text/html; charset=utf-8" }
-      ]
-    },
-    {
-      "source": "/BetterConversationsAPI/cards.json",
-      "headers": [
-        { "key": "Content-Type", "value": "application/json; charset=utf-8" }
       ]
     }
   ],
