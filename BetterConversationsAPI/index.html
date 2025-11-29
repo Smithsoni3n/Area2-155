@@ -113,7 +113,7 @@
     <h1 id="deckTitle">Supercommunicator Protocols</h1>
     <div class="phone" aria-label="Teal Z Flip mockup">
       <div class="screen">
-        <img id="cardImg" src="/api/card?id=1&side=front" alt="Card" />
+        <img id="cardImg" src="" alt="Card" />
         <div class="controls" role="toolbar" aria-label="Card controls">
           <button id="backBtn" class="foil-btn back-action" title="Previous card">Back</button>
           <button id="flipBtn" class="foil-btn flip-action" title="Flip the card">Flip</button>
@@ -130,6 +130,10 @@ const flipBtn = document.getElementById('flipBtn');
 const newBtn = document.getElementById('newBtn');
 const backBtn = document.getElementById('backBtn');
 const deckTitle = document.getElementById('deckTitle');
+
+// Absolute API base for GitHub Pages calling Vercel; override by setting window.API_BASE
+const API_BASE = window.API_BASE
+  || (location.hostname.includes('vercel.app') ? `${location.protocol}//${location.host}` : 'https://area2-155.vercel.app');
 
 let deckSize = 12;
 let currentId = 1;
@@ -162,7 +166,7 @@ const fallbackSvg = encodeURIComponent(`<?xml version="1.0" encoding="utf-8"?>
 </svg>`);
 
 function setImgUrl() {
-  const url = new URL(window.location.origin + '/api/card');
+  const url = new URL('/api/card', API_BASE);
   url.searchParams.set('id', currentId);
   url.searchParams.set('side', showingBack ? 'back' : 'front');
   url.searchParams.set('_cb', Date.now());
@@ -173,7 +177,7 @@ function setImgUrl() {
 
 async function loadMeta() {
   try {
-    const r = await fetch('/api/card?format=json');
+    const r = await fetch(`${API_BASE}/api/card?format=json`);
     if (!r.ok) return;
     const j = await r.json();
     deckSize = (j.v2 || []).length || deckSize;
