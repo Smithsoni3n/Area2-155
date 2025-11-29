@@ -215,7 +215,7 @@ async function loadMeta() {
     const j = await r.json();
     deckData = j.v2 || [];
     deckSize = deckData.length || deckSize;
-    deckTitle.textContent = j.deckName || deckTitle.textContent;
+    deckTitle.textContent = j.deckTitle || j.deckName || deckTitle.textContent;
     updateMeta();
   } catch (e) {
     console.warn('Meta load failed', e);
