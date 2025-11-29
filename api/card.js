@@ -15,10 +15,10 @@ function esc(s = '') {
 
 module.exports = (req, res) => {
   try {
-    const cardsPath = path.join(process.cwd(), 'BetterConversationsAPI', 'cards.json');
+    const cardsPath = path.join(__dirname, '..', 'BetterConversationsAPI', 'cards.json');
     const raw = fs.readFileSync(cardsPath, 'utf8');
     const data = JSON.parse(raw || '{}');
-    const deckName = data.deckName || data.deckTitle || 'Supercommunicator Protocols';
+    const deckName = data.deckName || data.deckTitle || 'Better Conversations Protocol Deck';
     const deck = data.v2 || data.cards || [];
 
     // JSON export
