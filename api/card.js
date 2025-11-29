@@ -193,6 +193,7 @@ module.exports = (req, res) => {
     }
 
     const deckName = data.deckName || data.deckTitle || fallback.deckName;
+    const deckTitle = data.deckTitle || deckName;
     const deck = data.v2 || data.cards || fallback.v2;
 
     // JSON export
@@ -201,7 +202,7 @@ module.exports = (req, res) => {
       res.setHeader('Content-Type', 'application/json; charset=utf-8');
       res.setHeader('Access-Control-Allow-Origin', '*');
       res.setHeader('Cache-Control', 'no-store');
-      return res.end(JSON.stringify({ deckName, v2: deck }, null, 2));
+      return res.end(JSON.stringify({ deckName, deckTitle, v2: deck }, null, 2));
     }
 
     // id is 1-based; default to the first card to keep the deck in order
