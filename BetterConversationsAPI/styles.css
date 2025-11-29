@@ -105,20 +105,33 @@ main {
 }
 
 .pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 12px;
-    background: rgba(34, 211, 238, 0.12);
-    border: 1px solid rgba(34, 211, 238, 0.3);
-    border-radius: 999px;
-    color: #e2e8f0;
-    font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(34, 211, 238, 0.12);
+  border: 1px solid rgba(34, 211, 238, 0.3);
+  border-radius: 999px;
+  color: #e2e8f0;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.pill:hover {
+  background: rgba(34, 211, 238, 0.25);
+  transform: scale(1.05);
 }
 
 .pill--ghost {
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #e2e8f0;
+}
+
+.pill--ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .callout {
@@ -408,3 +421,4 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
