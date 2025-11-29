@@ -1,0 +1,148 @@
+{
+  "v2": [
+    {
+      "front": {
+        "title": "Protocol Poker handoff",
+        "copy": "Flip to sync secrets: server is the dealer; clients see only their hand. Use low-latency channels for fair play.",
+        "tags": ["Hidden State", "WebSocket", "Ethics"]
+      },
+      "back": {
+        "title": "Ready-made board copy",
+        "copy": "Server holds the deck and streams lane-specific views. In replies, cite one concrete example.",
+        "fact": "TED (Celeste Headlee): Listen for ideas, not pauses."
+      }
+    },
+    {
+      "front": {
+        "title": "Solo practice",
+        "copy": "Draft a 25-word reply to a peer and end with one invitational question to invite responses.",
+        "tags": ["Solo", "Concise", "Peer Reply"]
+      },
+      "back": {
+        "title": "Fact + flip",
+        "copy": "Short, specific invites increase engagement; name one example.",
+        "fact": "Study: Brief prompts improve reply rates in small groups."
+      }
+    },
+    {
+      "front": {
+        "title": "Audience-first opener",
+        "copy": "In two lines say who benefits and the action you want. Keep verbs active.",
+        "tags": ["Audience", "Thesis", "Revision"]
+      },
+      "back": {
+        "title": "Anchor & ask",
+        "copy": "Anchor with one evidence phrase then invite critique: 'Evidence X suggests Y. What would you question?'",
+        "fact": "TED: Ask for stories, not stats, to get richer answers."
+      }
+    },
+    {
+      "front": {
+        "title": "Color field check-in",
+        "copy": "Pick an oil-foil color for today’s mood and name one micro-scene it lights up.",
+        "tags": ["Mood", "Color", "Scene"]
+      },
+      "back": {
+        "title": "Scene partner",
+        "copy": "Ask for one sensory detail and pause; sensory details beat yes/no answers.",
+        "fact": "TED: Sensory asks produce richer responses."
+      }
+    },
+    {
+      "front": {
+        "title": "Evidence anchor",
+        "copy": "State one claim and add one concrete piece of evidence (data, quote, or short example).",
+        "tags": ["Evidence", "Cite", "Academic"]
+      },
+      "back": {
+        "title": "Keep it tight",
+        "copy": "Name the source and one takeaway; keep citations short and readable.",
+        "fact": "Practice: concise attributions increase perceived credibility."
+      }
+    },
+    {
+      "front": {
+        "title": "Story prompt",
+        "copy": "Ask a peer to tell one brief story connected to the topic (one-paragraph max).",
+        "tags": ["Narrative", "Peer", "Detail"]
+      },
+      "back": {
+        "title": "Why stories work",
+        "copy": "Stories create concrete details others can respond to; ask for one sensory anchor.",
+        "fact": "Research: Stories are more memorable than abstract claims."
+      }
+    },
+    {
+      "front": {
+        "title": "Question framing",
+        "copy": "Rewrite a vague prompt into a precise question that asks for an example or reason.",
+        "tags": ["Clarity", "Question", "Editing"]
+      },
+      "back": {
+        "title": "Edit for clarity",
+        "copy": "Specific questions reduce noise and invite evidence-based replies.",
+        "fact": "Practice: Clear questions yield more useful peer responses."
+      }
+    },
+    {
+      "front": {
+        "title": "Peer feedback",
+        "copy": "Give one praise + one specific suggestion for improvement (no more than two sentences).",
+        "tags": ["Feedback", "Peer Review", "Constructive"]
+      },
+      "back": {
+        "title": "Sandwich method",
+        "copy": "Praise + suggestion helps peers listen and reduces defensiveness.",
+        "fact": "Practice: Balanced feedback increases adoption of suggestions."
+      }
+    },
+    {
+      "front": {
+        "title": "Cite habit",
+        "copy": "When you claim something, add 'According to [source]…' or 'In my experience…' and one concrete detail.",
+        "tags": ["Cite", "Academic", "Practice"]
+      },
+      "back": {
+        "title": "Small citation",
+        "copy": "One short attribution improves trust and points readers to follow-up material.",
+        "fact": "Research: Brief citations increase perceived reliability."
+      }
+    },
+    {
+      "front": {
+        "title": "Active listening",
+        "copy": "Paraphrase a peer's point in one sentence before adding your view.",
+        "tags": ["Listening", "Paraphrase", "Engagement"]
+      },
+      "back": {
+        "title": "Listen to ideas",
+        "copy": "Paraphrase shows you understood and helps others refine their thinking.",
+        "fact": "TED: Listening for ideas—not pauses—improves conversations."
+      }
+    },
+    {
+      "front": {
+        "title": "Challenge kindly",
+        "copy": "Pose one constructive challenge: 'Have you considered X? If so, how does it affect Y?'",
+        "tags": ["Challenge", "Critical Thinking", "Respect"]
+      },
+      "back": {
+        "title": "Constructive challenge",
+        "copy": "Frame questions to invite deeper thinking rather than to disprove.",
+        "fact": "Socratic questioning fosters exploration without personal attack."
+      }
+    },
+    {
+      "front": {
+        "title": "Reflection prompt",
+        "copy": "Name one thing you learned today and one change you'll try this week.",
+        "tags": ["Reflection", "Metacognition", "Action"]
+      },
+      "back": {
+        "title": "Practice change",
+        "copy": "Small commitments increase follow-through; write one sentence to make it real.",
+        "fact": "Research: Reflection plus action improves retention."
+      }
+    }
+  ]
+}
