@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Better Conversations API — Deck Block</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #060811;
+            --foil: linear-gradient(135deg, #f9fbff 0%, #ffd166 18%, #ff9aa2 34%, #d66bff 52%, #7ef6d4 68%, #8fd3ff 86%, #f9fbff 100%);
+            --foil-dark: linear-gradient(135deg, rgba(12, 18, 35, 0.82), rgba(24, 18, 56, 0.9), rgba(8, 52, 78, 0.92));
+            --text: #f9fbff;
+            --muted: #dce5ff;
+            --edge: rgba(255, 255, 255, 0.18);
+            --glass: rgba(255, 255, 255, 0.1);
+            --shadow: 0 26px 40px rgba(0, 0, 0, 0.48);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            padding: 12px;
+            font-family: 'Manrope', 'Inter', system-ui, -apple-system, sans-serif;
+            background: radial-gradient(circle at 20% 20%, rgba(255, 209, 102, 0.12), transparent 35%),
+                        radial-gradient(circle at 80% 10%, rgba(214, 107, 255, 0.16), transparent 40%),
+                        radial-gradient(circle at 50% 60%, rgba(126, 246, 212, 0.14), transparent 42%),
+                        #05060c;
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .deck-block {
+            width: 360px;
+            max-width: 92vw;
+            background: var(--foil-dark);
+            border: 1px solid rgba(255, 255, 255, 0.24);
+            border-radius: 22px;
+            box-shadow: var(--shadow);
+            padding: 16px 16px 18px;
+            display: grid;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .deck-block::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0));
+            opacity: 0.3;
+            mix-blend-mode: screen;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .deck-block > * { position: relative; z-index: 1; }
+
+        .bar {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .title-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chip {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            background: var(--foil);
+            color: #0a0f1d;
+            font-weight: 900;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.26);
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            letter-spacing: 0.03em;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.08rem;
+            letter-spacing: -0.01em;
+        }
+
+        .pill-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 12px;
+            border-radius: 12px;
+            border: 1px solid var(--edge);
+            background: var(--glass);
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 800;
+            transition: transform 160ms ease, box-shadow 160ms ease;
+            box-shadow: 0 12px 18px rgba(0, 0, 0, 0.32);
+        }
+
+        .pill-button:hover { transform: translateY(-1px); box-shadow: 0 16px 24px rgba(0, 0, 0, 0.42); }
+
+        .pill-button svg { width: 17px; height: 17px; }
+
+        .versions {
+            display: inline-flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .version-link {
+            padding: 7px 11px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            text-decoration: none;
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.06);
+            font-weight: 700;
+        }
+
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid #8fd3ff;
+            outline-offset: 2px;
+            box-shadow: 0 0 0 4px rgba(143, 211, 255, 0.22);
+        }
+
+        .version-link.active {
+            background: var(--foil);
+            color: #0a0f1d;
+            border-color: rgba(255, 255, 255, 0.32);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.32);
+        }
+
+        .embed-row {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 10px;
+            align-items: center;
+            padding: 12px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+        }
+
+        .embed-label { margin: 0; font-weight: 800; color: var(--muted); letter-spacing: 0.01em; }
+
+        .embed-btn { background: var(--foil); color: #061024; border: 1px solid rgba(255, 255, 255, 0.4); }
+
+        .embed-success { display: none; font-weight: 800; color: #8fd3ff; margin: -6px 0 0; text-align: right; }
+
+        .card-panel {
+            border: 1px solid rgba(255, 255, 255, 0.32);
+            border-radius: 18px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02));
+            position: relative;
+            overflow: hidden;
+            padding: 14px;
+        }
+
+        .foil-sheen {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 18% 18%, rgba(255, 209, 102, 0.35), transparent 34%),
+                radial-gradient(circle at 82% 78%, rgba(126, 246, 212, 0.35), transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(214, 107, 255, 0.22), transparent 48%),
+                linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+            opacity: 0.62;
+            pointer-events: none;
+            mix-blend-mode: screen;
+        }
+
+        .card-face {
+            background: var(--foil);
+            border: 1px solid rgba(255, 255, 255, 0.44);
+            border-radius: 16px;
+            padding: 16px 16px 16px 16px;
+            min-height: 210px;
+            box-shadow: 0 18px 32px rgba(0, 0, 0, 0.38);
+            position: relative;
+            transition: transform 220ms ease, opacity 180ms ease;
+            color: #061024;
+        }
+
+        .card-face.hidden { opacity: 0; transform: translateY(8px) scale(0.98); position: absolute; inset: 0; }
+
+        .label { letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.78rem; color: #0b1f31; margin: 0 0 6px; font-weight: 800; }
+        .headline { margin: 0 0 8px; font-size: 1.16rem; color: #061024; letter-spacing: -0.01em; }
+        .copy { margin: 0 0 12px; color: #0c2034; line-height: 1.58; font-weight: 700; }
+
+        .pill-row { display: flex; flex-wrap: wrap; gap: 6px; }
+        .pill { padding: 7px 10px; border-radius: 12px; background: rgba(6, 16, 36, 0.1); border: 1px solid rgba(6, 16, 36, 0.28); color: #061024; font-size: 0.9rem; font-weight: 800; }
+
+        .joke { margin: 6px 0 0; color: #0b1f31; font-weight: 800; }
+        .tiny { margin: 4px 0 0; color: #0b1f31; font-size: 0.9rem; font-weight: 800; }
+
+        .controls { display: flex; gap: 8px; }
+        button {
+            flex: 1;
+            padding: 12px 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.34);
+            background: linear-gradient(135deg, #ffd166, #ff9aa2, #d66bff, #7ef6d4);
+            color: #061024;
+            font-weight: 900;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            box-shadow: 0 12px 18px rgba(0, 0, 0, 0.32);
+            transition: transform 140ms ease, box-shadow 140ms ease;
+        }
+
+        button.secondary { background: linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.32)); color: #061024; }
+        button:hover { transform: translateY(-1px); box-shadow: 0 16px 22px rgba(0, 0, 0, 0.42); }
+        button:active { transform: translateY(1px); }
+
+    </style>
+</head>
+<body>
+    <article class="deck-block" aria-label="Better Conversations API deck">
+        <div class="bar">
+            <div class="title-wrap">
+                <span class="chip">BC</span>
+                <div>
+                    <h1>BetterConversationsAPI</h1>
+                </div>
+            </div>
+            <a class="pill-button" href="https://github.com/Smithsoni3n/Area2-155/tree/main/BetterConversationsAPI" target="_blank" rel="noreferrer" aria-label="View the GitHub source">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2 .37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+                GitHub
+            </a>
+        </div>
+        <div class="versions" role="group" aria-label="Switch deck version">
+            <a class="version-link" id="version-one" href="?version=1">Sprint v1</a>
+            <a class="version-link active" id="version-two" href="?version=2">Studio v2</a>
+        </div>
+
+        <div class="embed-row" aria-label="Embed the deck directly">
+            <p class="embed-label">Embed-ready endpoint — drop into your board with no extra files.</p>
+            <button class="pill-button embed-btn" id="copy-embed" type="button">Copy iframe code</button>
+        </div>
+        <p class="embed-success" id="embed-success" role="status">Embed code copied. Paste into your discussion board.</p>
+
+        <section class="card-panel" aria-live="polite">
+            <div class="foil-sheen" aria-hidden="true"></div>
+            <div class="card-face" id="front">
+                <p class="label">Front · Study prompt</p>
+                <h2 class="headline" id="front-title">Foil-focus thesis</h2>
+                <p class="copy" id="front-copy">State the claim in one vivid line, tag the audience, and mark the evidence you will cite.</p>
+                <div class="pill-row" id="front-tags">
+                    <span class="pill">Audience</span>
+                    <span class="pill">Claim</span>
+                    <span class="pill">Evidence</span>
+                </div>
+            </div>
+
+            <div class="card-face hidden" id="back">
+                <p class="label">Back · Support</p>
+                <h2 class="headline" id="back-title">Board-ready summary</h2>
+                <p class="copy" id="back-copy">Server is the single source of truth, validates bids under 40ms, and sends lane-specific views only.</p>
+                <p class="joke" id="back-joke">🪄 Gentle nod: concise, cited, and ready for peer review.</p>
+                <p class="tiny" id="back-fact">TED cue: Celeste Headlee — listen for ideas, not just a pause to jump in.</p>
+            </div>
+        </section>
+
+        <div class="controls">
+            <button id="flip" aria-controls="front back" aria-pressed="false">Flip for support</button>
+            <button class="secondary" id="newCard" aria-label="Draw a new card">New prompt</button>
+        </div>
+    </article>
+
+    <script>
+        const decks = {
+            v1: [
+                {
+                    front: {
+                        title: "Sprint thesis (v1)",
+                        copy: "Name the reader, claim the action, and call the citation in 20 words.",
+                        tags: ["Audience", "Action", "Citation"],
+                    },
+                    back: {
+                        title: "Peer-ready close",
+                        copy: "Close with one verb-forward line and invite a peer response on clarity or evidence strength.",
+                        fact: "TED cue: Questions that seek stories get fuller answers than opinion polls.",
+                        joke: "✨ Light note: Keep the shine, skip the fluff—120 words max.",
+                    },
+                },
+                {
+                    front: {
+                        title: "Hook lab (v1)",
+                        copy: "Build a hook: vivid noun + active verb + who benefits. Read it once at conversation pace.",
+                        tags: ["Hook", "Voice", "Benefit"],
+                    },
+                    back: {
+                        title: "Listen check",
+                        copy: "Ask one follow-up that invites detail: how, where, or who is impacted? Then pause.",
+                        fact: "TED cue: Short prompts keep peers answering with specifics, not filler.",
+                        joke: "🌿 Light note: Curiosity > commas on the first pass.",
+                    },
+                },
+                {
+                    front: {
+                        title: "Color proof (v1)",
+                        copy: "Pick an oil-foil shade for today’s tone and link it to a single scene detail.",
+                        tags: ["Tone", "Scene", "Color"],
+                    },
+                    back: {
+                        title: "Echo the color",
+                        copy: "Invite one sensory echo—sound, texture, or temperature—to make the scene credible.",
+                        fact: "TED cue: Sensory asks spark concrete replies in peer groups.",
+                        joke: "🃏 Light note: Even gradients cite their sources.",
+                    },
+                },
+            ],
+            v2: [
+                {
+                    front: {
+                        title: "Protocol Poker pitch",
+                        copy: "State the promise: secure hidden-state play over WebSockets with latency under 40ms.",
+                        tags: ["Hidden State", "Secure", "Low Latency"],
+                    },
+                    back: {
+                        title: "Board-ready blurb",
+                        copy: "Server owns the deck, validates bids, and streams lane-specific views. Clients send intents only.",
+                        fact: "TED cue: Listen for ideas, not pauses—same rule for protocol design feedback.",
+                        joke: "🎭 Light note: The dealer never peeks, but the gradients do flex.",
+                    },
+                },
+                {
+                    front: {
+                        title: "Solo drafting rep",
+                        copy: "Draw a prompt, write one sentence, mark the evidence tag, and log what you’d cite.",
+                        tags: ["Solo", "Draft", "Evidence"],
+                    },
+                    back: {
+                        title: "Evidence checkpoint",
+                        copy: "Headlee: keep it under 25 words, then ask for one peer take before expanding.",
+                        fact: "TED cue: Sharp follow-ups double participation in small groups.",
+                        joke: "🌈 Light note: Every gradient earns its seat with clarity.",
+                    },
+                },
+                {
+                    front: {
+                        title: "Color field test",
+                        copy: "Match an oil-foil color to the current mood, then name one micro-scene it brightens.",
+                        tags: ["Mood", "Micro Scene", "Color"],
+                    },
+                    back: {
+                        title: "Scene partner",
+                        copy: "Ask for one detail from that scene—sound, texture, or temperature—then hold the silence.",
+                        fact: "TED cue: Specific sensory asks beat yes/no checks for depth.",
+                        joke: "🪄 Light note: The holo foil thinks in gradients, not bullet points.",
+                    },
+                },
+                {
+                    front: {
+                        title: "NDK-ready intro",
+                        copy: "Promise in one line: authoritative server, validated bids, and synced hidden state for client kits.",
+                        tags: ["NDK", "Validated", "Sync"],
+                    },
+                    back: {
+                        title: "Peer share",
+                        copy: "Use this as a board drop-in: server as source of truth, clients act, server clears and broadcasts.",
+                        fact: "TED cue: Listening for ideas beats waiting for a pause to talk—protocols included.",
+                        joke: "🤹‍♀️ Light note: Latency stays low because the cards stretch before each shuffle.",
+                    },
+                },
+            ],
+        };
+
+        const versionOneLink = document.getElementById('version-one');
+        const versionTwoLink = document.getElementById('version-two');
+        const frontTitle = document.getElementById('front-title');
+        const frontCopy = document.getElementById('front-copy');
+        const frontTags = document.getElementById('front-tags');
+        const backTitle = document.getElementById('back-title');
+        const backCopy = document.getElementById('back-copy');
+        const backFact = document.getElementById('back-fact');
+        const backJoke = document.getElementById('back-joke');
+        const flipBtn = document.getElementById('flip');
+        const newBtn = document.getElementById('newCard');
+        const frontFace = document.getElementById('front');
+        const backFace = document.getElementById('back');
+        const embedBtn = document.getElementById('copy-embed');
+        const embedSuccess = document.getElementById('embed-success');
+
+        const basePath = `${window.location.pathname}`;
+        const baseUrl = `${window.location.origin}${basePath}`;
+        const params = new URLSearchParams(window.location.search);
+        let versionKey = params.get('version') === '1' ? 'v1' : 'v2';
+        let deck = decks[versionKey];
+        let flipped = false;
+        let cardIndex = 0;
+        const embedCode = `<iframe src="https://smithsoni3n.github.io/Area2-155/BetterConversationsAPI/" title="Better Conversations API deck" width="420" height="340" style="border:0;border-radius:18px;overflow:hidden;background:transparent;"></iframe>`;
+
+        function getRandomIndex(excludeIndex) {
+            if (!deck || deck.length === 0) return 0;
+            if (deck.length === 1) return 0;
+            let candidate = Math.floor(Math.random() * deck.length);
+            while (candidate === excludeIndex) {
+                candidate = Math.floor(Math.random() * deck.length);
+            }
+            return candidate;
+        }
+
+        function updateVersionUI() {
+            versionOneLink.classList.toggle('active', versionKey === 'v1');
+            versionTwoLink.classList.toggle('active', versionKey === 'v2');
+            versionOneLink.href = `${baseUrl}?version=1`;
+            versionTwoLink.href = `${baseUrl}?version=2`;
+        }
+
+        function renderCard(index) {
+            if (!deck || deck.length === 0) return;
+            const entry = deck[index % deck.length];
+            frontTitle.textContent = entry.front.title;
+            frontCopy.textContent = entry.front.copy;
+            frontTags.innerHTML = '';
+            entry.front.tags.forEach(tag => {
+                const pill = document.createElement('span');
+                pill.className = 'pill';
+                pill.textContent = tag;
+                frontTags.appendChild(pill);
+            });
+            backTitle.textContent = entry.back.title;
+            backCopy.textContent = entry.back.copy;
+            backFact.textContent = entry.back.fact;
+            backJoke.textContent = entry.back.joke;
+        }
+
+        function setVersion(key) {
+            if (!decks[key]) return;
+            versionKey = key;
+            deck = decks[versionKey];
+            cardIndex = getRandomIndex(-1);
+            renderCard(cardIndex);
+            if (flipped) flipCard();
+            updateVersionUI();
+            const queryValue = versionKey === 'v1' ? '1' : '2';
+            history.replaceState({}, '', `${basePath}?version=${queryValue}`);
+        }
+
+        function flipCard() {
+            flipped = !flipped;
+            flipBtn.setAttribute('aria-pressed', String(flipped));
+            if (flipped) {
+                frontFace.classList.add('hidden');
+                backFace.classList.remove('hidden');
+            } else {
+                backFace.classList.add('hidden');
+                frontFace.classList.remove('hidden');
+            }
+        }
+
+        function newCard() {
+            if (!deck || deck.length === 0) return;
+            cardIndex = getRandomIndex(cardIndex);
+            renderCard(cardIndex);
+            if (flipped) flipCard();
+        }
+
+        versionOneLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            setVersion('v1');
+        });
+        versionTwoLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            setVersion('v2');
+        });
+        flipBtn.addEventListener('click', flipCard);
+        newBtn.addEventListener('click', newCard);
+        document.addEventListener('keydown', (event) => {
+            if (event.key.toLowerCase() === 'f') flipCard();
+            if (event.key.toLowerCase() === 'n') newCard();
+        });
+
+        embedBtn.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(embedCode);
+                embedSuccess.style.display = 'block';
+                setTimeout(() => { embedSuccess.style.display = 'none'; }, 1800);
+            } catch (err) {
+                embedSuccess.textContent = 'Copy failed—select and copy the iframe manually.';
+                embedSuccess.style.display = 'block';
+            }
+        });
+
+        updateVersionUI();
+        cardIndex = getRandomIndex(-1);
+        renderCard(cardIndex);
+    </script>
+</body>
+</html>
