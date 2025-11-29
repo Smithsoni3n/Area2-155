@@ -1,496 +1,91 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Better Conversations API — Deck Block</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --ink: #080b16;
-            --foil: linear-gradient(135deg, #d6ff6b, #ffd166, #ff9aa2, #d66bff, #7ef6d4, #8fd3ff);
-            --text: #f5f7fb;
-            --muted: #c5cee3;
-            --edge: rgba(255, 255, 255, 0.16);
-            --glass: rgba(255, 255, 255, 0.08);
-            --shadow: 0 26px 40px rgba(0, 0, 0, 0.45);
-        }
-
-        * { box-sizing: border-box; }
-
-        body {
-            margin: 0;
-            padding: 12px;
-            font-family: 'Space Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
-            background: transparent;
-            color: var(--text);
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-        }
-
-        .deck-block {
-            width: 360px;
-            max-width: 92vw;
-            background: #0c1328;
-            border: 1px solid var(--edge);
-            border-radius: 22px;
-            box-shadow: var(--shadow);
-            padding: 16px 16px 18px;
-            display: grid;
-            gap: 12px;
-        }
-
-        .bar {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .title-wrap {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .chip {
-            width: 38px;
-            height: 38px;
-            border-radius: 12px;
-            background: var(--foil);
-            color: #0a0f1d;
-            font-weight: 800;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.26);
-            border: 1px solid rgba(0, 0, 0, 0.2);
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 1.05rem;
-            letter-spacing: -0.01em;
-        }
-
-        .note {
-            margin: 2px 0 0;
-            color: var(--muted);
-            font-size: 0.93rem;
-        }
-
-        .github-link {
-            justify-self: end;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 9px 12px;
-            border-radius: 12px;
-            border: 1px solid var(--edge);
-            background: var(--glass);
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 700;
-        }
-
-        .github-link svg { width: 17px; height: 17px; }
-
-        .versions {
-            display: inline-flex;
-            gap: 6px;
-            flex-wrap: wrap;
-        }
-
-        .share-row {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 10px;
-            border-radius: 12px;
-            border: 1px solid var(--edge);
-            background: rgba(255, 255, 255, 0.04);
-        }
-
-        .share-label {
-            margin: 0;
-            font-weight: 700;
-            color: var(--muted);
-            font-size: 0.92rem;
-        }
-
-        .share-links {
-            display: inline-flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .share-links a {
-            padding: 6px 9px;
-            border-radius: 10px;
-            border: 1px solid var(--edge);
-            background: rgba(255, 255, 255, 0.06);
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 700;
-        }
-
-        .version-link {
-            padding: 6px 10px;
-            border-radius: 10px;
-            border: 1px solid transparent;
-            text-decoration: none;
-            color: var(--text);
-            background: rgba(255, 255, 255, 0.06);
-            font-weight: 600;
-        }
-
-        a:focus-visible, button:focus-visible {
-            outline: 2px solid #8fd3ff;
-            outline-offset: 2px;
-            box-shadow: 0 0 0 4px rgba(143, 211, 255, 0.22);
-        }
-
-        .version-link.active {
-            background: var(--foil);
-            color: #0a0f1d;
-            border-color: rgba(255, 255, 255, 0.28);
-            box-shadow: 0 12px 18px rgba(0, 0, 0, 0.26);
-        }
-
-        .card-panel {
-            border: 1px solid var(--edge);
-            border-radius: 18px;
-            background: rgba(12, 18, 34, 0.8);
-            position: relative;
-            overflow: hidden;
-            padding: 14px;
-        }
-
-        .foil-sheen {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 14% 20%, rgba(255, 209, 102, 0.22), transparent 35%),
-                radial-gradient(circle at 80% 70%, rgba(126, 246, 212, 0.28), transparent 40%),
-                linear-gradient(145deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0));
-            opacity: 0.38;
-            pointer-events: none;
-            mix-blend-mode: screen;
-        }
-
-        .card-face {
-            background: rgba(8, 12, 26, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            border-radius: 14px;
-            padding: 14px 14px 14px 14px;
-            min-height: 200px;
-            box-shadow: 0 14px 20px rgba(0, 0, 0, 0.32);
-            position: relative;
-            transition: transform 220ms ease, opacity 180ms ease;
-        }
-
-        .card-face.hidden { opacity: 0; transform: translateY(8px) scale(0.98); position: absolute; inset: 0; }
-
-        .label { letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.82rem; color: #90f3d2; margin: 0 0 6px; }
-        .headline { margin: 0 0 8px; font-size: 1.02rem; color: #fff; }
-        .copy { margin: 0 0 10px; color: var(--text); line-height: 1.58; }
-
-        .pill-row { display: flex; flex-wrap: wrap; gap: 6px; }
-        .pill { padding: 7px 10px; border-radius: 12px; background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.16); color: var(--muted); font-size: 0.9rem; }
-
-        .joke { margin: 6px 0 0; color: #ffd166; font-weight: 700; }
-        .tiny { margin: 4px 0 0; color: var(--muted); font-size: 0.9rem; }
-
-        .controls { display: flex; gap: 8px; }
-        button {
-            flex: 1;
-            padding: 11px 12px;
-            border-radius: 12px;
-            border: 1px solid var(--edge);
-            background: var(--foil);
-            color: #0a0f1d;
-            font-weight: 800;
-            letter-spacing: 0.01em;
-            cursor: pointer;
-            box-shadow: 0 10px 16px rgba(0, 0, 0, 0.3);
-        }
-
-        button.secondary { background: rgba(255, 255, 255, 0.12); color: var(--text); }
-        button:active { transform: translateY(1px); }
-
-        .hint { margin: 0; color: var(--muted); font-size: 0.9rem; text-align: center; }
-
-        .help { margin: 2px 0 0; color: var(--muted); font-size: 0.88rem; line-height: 1.45; text-align: center; }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Better Conversations — Quick Preview</title>
 </head>
 <body>
-    <article class="deck-block" aria-label="Better Conversations API deck">
-        <div class="bar">
-            <div class="title-wrap">
-                <span class="chip">BC</span>
-                <div>
-                    <h1>BetterConversationsAPI</h1>
-                    <p class="note">Pocket foil deck for Tech Writing 235. Mount-friendly block, not a full page.</p>
-                </div>
-            </div>
-            <a class="github-link" href="https://github.com/Smithsoni3n/Area2-155/tree/main/BetterConversationsAPI" target="_blank" rel="noreferrer">
-                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2 .37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
-                GitHub
-            </a>
-        </div>
-        <div class="versions" role="group" aria-label="Switch deck version">
-            <a class="version-link" id="version-one" href="?version=1">Version 1</a>
-            <a class="version-link active" id="version-two" href="?version=2">Version 2</a>
-        </div>
+  <main>
+    <h1>Better Conversations — Live Card Preview</h1>
 
-        <div class="share-row" aria-label="Shareable links">
-            <p class="share-label">Share links:</p>
-            <div class="share-links">
-                <a id="share-main" href="https://smithsoni3n.github.io/Area2-155/BetterConversationsAPI/" target="_blank" rel="noreferrer">Main</a>
-                <a id="share-v1" href="https://smithsoni3n.github.io/Area2-155/BetterConversationsAPI/?version=1" target="_blank" rel="noreferrer">v1</a>
-                <a id="share-v2" href="https://smithsoni3n.github.io/Area2-155/BetterConversationsAPI/?version=2" target="_blank" rel="noreferrer">v2</a>
-            </div>
-        </div>
+    <!-- Image loads from the serverless endpoint. No CSS file; minimal layout only. -->
+    <div>
+      <img id="cardImg" src="/api/card" alt="Study card" style="max-width:360px;display:block;margin:12px 0;">
+    </div>
 
-        <section class="card-panel" aria-live="polite">
-            <div class="foil-sheen" aria-hidden="true"></div>
-            <div class="card-face" id="front">
-                <p class="label">Front · Prompt</p>
-                <h2 class="headline" id="front-title">Protocol Poker handoff</h2>
-                <p class="copy" id="front-copy">Flip to sync secrets: the server is the steady dealer and you only see your own hand.</p>
-                <div class="pill-row" id="front-tags">
-                    <span class="pill">Oil Foil</span>
-                    <span class="pill">Hidden State</span>
-                    <span class="pill">WebSocket</span>
-                </div>
-            </div>
+    <!-- Buttons do useful actions only: New = new random card; Flip = show evidence/back; JSON = list cards -->
+    <div>
+      <button id="newBtn">New</button>
+      <button id="flipBtn">Flip</button>
+      <button id="listBtn">Show JSON list</button>
+    </div>
 
-            <div class="card-face hidden" id="back">
-                <p class="label">Back · Tip · Fact · Joke</p>
-                <h2 class="headline" id="back-title">Ready-made board copy</h2>
-                <p class="copy" id="back-copy">Server holds the secret deck, validates bids in under 40ms, and streams only the views you should see.</p>
-                <p class="joke" id="back-joke">🎭 Gentle joke: Why did the deck get promoted? It had outstanding shuffle-discipline.</p>
-                <p class="tiny" id="back-fact">TED fact: Celeste Headlee’s “10 ways to have a better conversation” reminds us to listen for ideas, not just pauses.</p>
-            </div>
-        </section>
+    <!-- Simple area to show JSON list or messages -->
+    <pre id="out" style="white-space:pre-wrap;margin-top:12px"></pre>
+  </main>
 
-        <div class="controls">
-            <button id="flip" aria-controls="front back" aria-pressed="false">Flip</button>
-            <button class="secondary" id="newCard" aria-label="Draw a new card">New Card</button>
-        </div>
+<script>
+  // Minimal client JS (no CSS). Uses the single endpoint /api/card:
+  // - GET /api/card -> random SVG (front)
+  // - GET /api/card?id=3 -> SVG for card 3 (front)
+  // - GET /api/card?side=back&id=3 -> SVG for back/evidence
+  // - GET /api/card?format=json -> JSON list of cards
 
-        <p class="hint">Keyboard: F to flip · N for new. Block stays compact for discussion boards.</p>
-        <p class="help">Seeing a full-page view locally? Open the GitHub link above or start your local server from the BetterConversationsAPI folder and visit <code>http://localhost:8080/</code> so only this block renders. All CSS and JS already live in this single HTML file—no extra assets to load.</p>
-    </article>
+  const cardImg = document.getElementById('cardImg');
+  const newBtn = document.getElementById('newBtn');
+  const flipBtn = document.getElementById('flipBtn');
+  const listBtn = document.getElementById('listBtn');
+  const out = document.getElementById('out');
 
-    <script>
-        const decks = {
-            v1: [
-                {
-                    front: {
-                        title: "Studio cut (v1)",
-                        copy: "Quick sparks only: ask one vivid question about someone’s day—no follow-up speeches.",
-                        tags: ["Launch Build", "One Beat", "Keep It Light"],
-                    },
-                    back: {
-                        title: "Soft open",
-                        copy: "Headlee’s TED advice: keep it short, stay curious. Let silence breathe so ideas shimmer.",
-                        fact: "TED fact: Listening is like mixing oils—layer slowly to avoid muddy colors.",
-                        joke: "✨ Gentle joke: Version one still sparkles—it just uses fewer colors at once.",
-                    },
-                },
-                {
-                    front: {
-                        title: "Solo warm-up (v1)",
-                        copy: "Write one sentence you’d post, then flip for the fact. Treat it like a postcard draft.",
-                        tags: ["Postcard Mode", "Solo-Friendly", "One Sentence"],
-                    },
-                    back: {
-                        title: "One fact, one flip",
-                        copy: "Headlee: ask for stories, not stats. Keep your own reply to one vivid image.",
-                        fact: "TED fact: Being brief doubles the chance someone answers you back.",
-                        joke: "🌿 Calm joke: This deck waters ideas, not arguments.",
-                    },
-                },
-                {
-                    front: {
-                        title: "Color prompt (v1)",
-                        copy: "Name the most electric color in your workspace and why it keeps you awake.",
-                        tags: ["Color Pop", "Workspace", "Tech Writing 235"],
-                    },
-                    back: {
-                        title: "Follow the hue",
-                        copy: "Ask one follow-up tied to that color—sound, texture, memory. Then stop talking.",
-                        fact: "TED fact: Concrete details make conversations feel real, even online.",
-                        joke: "🃏 Soft joke: Version one learned to shuffle in the margins of your notebook.",
-                    },
-                },
-            ],
-            v2: [
-                {
-                    front: {
-                        title: "Protocol Poker handoff",
-                        copy: "Flip to sync secrets: the server is the steady dealer and you only see your own hand.",
-                        tags: ["Oil Foil", "Hidden State", "WebSocket"],
-                    },
-                    back: {
-                        title: "Ready-made board copy",
-                        copy: "Server holds the secret deck, validates bids in under 40ms, and streams only the views you should see.",
-                        fact: "TED fact: Celeste Headlee’s “10 ways to have a better conversation” reminds us to listen for ideas, not pauses.",
-                        joke: "🎭 Gentle joke: Why did the deck get promoted? It had outstanding shuffle-discipline.",
-                    },
-                },
-                {
-                    front: {
-                        title: "Solo practice card",
-                        copy: "Draw, jot one sentence, flip for the reminder: short, curious, specific.",
-                        tags: ["Solo", "Curious", "Specific"],
-                    },
-                    back: {
-                        title: "Fact + flip",
-                        copy: "Headlee: keep your own stories short, invite theirs with one vivid question.",
-                        fact: "TED fact: Good follow-ups double participation in small groups.",
-                        joke: "🌈 Soft joke: This deck wears every gradient but never clashes.",
-                    },
-                },
-                {
-                    front: {
-                        title: "Color field question",
-                        copy: "Which oil-slick color matches today’s mood, and what scene does it light up?",
-                        tags: ["Oil Slick", "Mood", "Scene"],
-                    },
-                    back: {
-                        title: "Scene partner",
-                        copy: "Ask for one detail from that scene—sound, texture, or temperature—and pause.",
-                        fact: "TED fact: Specific sensory asks make answers richer than yes/no checks.",
-                        joke: "🪄 Gentle joke: The holo foil thinks in gradients, not bullet points.",
-                    },
-                },
-                {
-                    front: {
-                        title: "NDK-ready intro",
-                        copy: "State the promise in one line: secure, low-latency deck for hidden-state play over WebSockets.",
-                        tags: ["NDK Ready", "Secure", "Hidden State"],
-                    },
-                    back: {
-                        title: "Board blurb",
-                        copy: "Server is sole source of truth; clients submit bids, server validates, and streams just your lane.",
-                        fact: "TED fact: Listening for ideas beats waiting for a pause to talk—same for protocols.",
-                        joke: "🤹‍♀️ Gentle joke: Latency is low because the cards stretch before each shuffle.",
-                    },
-                },
-            ],
-        };
+  let showingBack = false;
+  let currentId = null;
 
-        const versionOneLink = document.getElementById('version-one');
-        const versionTwoLink = document.getElementById('version-two');
-        const frontTitle = document.getElementById('front-title');
-        const frontCopy = document.getElementById('front-copy');
-        const frontTags = document.getElementById('front-tags');
-        const backTitle = document.getElementById('back-title');
-        const backCopy = document.getElementById('back-copy');
-        const backFact = document.getElementById('back-fact');
-        const backJoke = document.getElementById('back-joke');
-        const flipBtn = document.getElementById('flip');
-        const newBtn = document.getElementById('newCard');
-        const frontFace = document.getElementById('front');
-        const backFace = document.getElementById('back');
+  function setImgUrl(params = {}) {
+    const url = new URL('/api/card', window.location.origin);
+    Object.entries(params).forEach(([k,v]) => { if (v !== undefined && v !== null) url.searchParams.set(k, v); });
+    // add cache-buster for "New" action
+    url.searchParams.set('_cb', Date.now());
+    cardImg.src = url.toString();
+  }
 
-        const basePath = `${window.location.pathname}`;
-        const baseUrl = `${window.location.origin}${basePath}`;
-        const params = new URLSearchParams(window.location.search);
-        let versionKey = params.get('version') === '1' ? 'v1' : 'v2';
-        let deck = decks[versionKey];
-        let flipped = false;
-        let cardIndex = 0;
+  // New random card
+  newBtn.addEventListener('click', () => {
+    showingBack = false;
+    currentId = null;
+    setImgUrl(); // random front
+    out.textContent = '';
+  });
 
-        function getRandomIndex(excludeIndex) {
-            if (!deck || deck.length === 0) return 0;
-            if (deck.length === 1) return 0;
-            let candidate = Math.floor(Math.random() * deck.length);
-            while (candidate === excludeIndex) {
-                candidate = Math.floor(Math.random() * deck.length);
-            }
-            return candidate;
-        }
+  // Flip between front and back for current card; if none chosen, flip the current loaded image by asking server for a random back
+  flipBtn.addEventListener('click', async () => {
+    showingBack = !showingBack;
+    const side = showingBack ? 'back' : 'front';
+    // If we have currentId, request the same card's back/front. Otherwise request just side.
+    const params = {};
+    if (currentId) params.id = currentId;
+    params.side = side;
+    setImgUrl(params);
+    out.textContent = '';
+  });
 
-        function updateVersionUI() {
-            versionOneLink.classList.toggle('active', versionKey === 'v1');
-            versionTwoLink.classList.toggle('active', versionKey === 'v2');
-            versionOneLink.href = `${baseUrl}?version=1`;
-            versionTwoLink.href = `${baseUrl}?version=2`;
-        }
+  // Get JSON list of cards (uses the same single endpoint with format=json)
+  listBtn.addEventListener('click', async () => {
+    out.textContent = 'Loading JSON list…';
+    try {
+      const r = await fetch('/api/card?format=json');
+      if (!r.ok) throw new Error('Network error');
+      const j = await r.json();
+      // For quick selection show indexes and titles; also allow clicking a number to load that card
+      const list = (j.v2 || j.v1 || []).map((c,i) => `${i+1}. ${c.front.title}`).join('\n');
+      out.textContent = list || JSON.stringify(j, null, 2);
+    } catch (e) {
+      out.textContent = 'Error fetching list: ' + e;
+    }
+  });
 
-        function renderCard(index) {
-            if (!deck || deck.length === 0) return;
-            const entry = deck[index % deck.length];
-            frontTitle.textContent = entry.front.title;
-            frontCopy.textContent = entry.front.copy;
-            frontTags.innerHTML = '';
-            entry.front.tags.forEach(tag => {
-                const pill = document.createElement('span');
-                pill.className = 'pill';
-                pill.textContent = tag;
-                frontTags.appendChild(pill);
-            });
-            backTitle.textContent = entry.back.title;
-            backCopy.textContent = entry.back.copy;
-            backFact.textContent = entry.back.fact;
-            backJoke.textContent = entry.back.joke;
-        }
-
-        function setVersion(key) {
-            if (!decks[key]) return;
-            versionKey = key;
-            deck = decks[versionKey];
-            cardIndex = getRandomIndex(-1);
-            renderCard(cardIndex);
-            if (flipped) flipCard();
-            updateVersionUI();
-            const queryValue = versionKey === 'v1' ? '1' : '2';
-            history.replaceState({}, '', `${basePath}?version=${queryValue}`);
-        }
-
-        function flipCard() {
-            flipped = !flipped;
-            flipBtn.setAttribute('aria-pressed', String(flipped));
-            if (flipped) {
-                frontFace.classList.add('hidden');
-                backFace.classList.remove('hidden');
-            } else {
-                backFace.classList.add('hidden');
-                frontFace.classList.remove('hidden');
-            }
-        }
-
-        function newCard() {
-            if (!deck || deck.length === 0) return;
-            cardIndex = getRandomIndex(cardIndex);
-            renderCard(cardIndex);
-            if (flipped) flipCard();
-        }
-
-        versionOneLink.addEventListener('click', (event) => {
-            event.preventDefault();
-            setVersion('v1');
-        });
-        versionTwoLink.addEventListener('click', (event) => {
-            event.preventDefault();
-            setVersion('v2');
-        });
-        flipBtn.addEventListener('click', flipCard);
-        newBtn.addEventListener('click', newCard);
-        document.addEventListener('keydown', (event) => {
-            if (event.key.toLowerCase() === 'f') flipCard();
-            if (event.key.toLowerCase() === 'n') newCard();
-        });
-
-        updateVersionUI();
-        cardIndex = getRandomIndex(-1);
-        renderCard(cardIndex);
-    </script>
+  // initial random
+  setImgUrl();
+</script>
 </body>
 </html>
