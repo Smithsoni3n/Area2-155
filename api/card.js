@@ -23,9 +23,11 @@ module.exports = (req, res) => {
 
     // JSON export
     if ((req.query.format || '').toLowerCase() === 'json') {
+      res.statusCode = 200;
       res.setHeader('Content-Type', 'application/json; charset=utf-8');
       res.setHeader('Access-Control-Allow-Origin', '*');
-      return res.status(200).send(JSON.stringify({ deckName, v2: deck }, null, 2));
+      res.setHeader('Cache-Control', 'no-store');
+      return res.end(JSON.stringify({ deckName, v2: deck }, null, 2));
     }
 
     // id is 1-based; default to the first card to keep the deck in order
@@ -128,11 +130,14 @@ module.exports = (req, res) => {
   </g>
 </svg>`;
 
+    res.statusCode = 200;
     res.setHeader('Content-Type', 'image/svg+xml; charset=utf-8');
+    res.setHeader('Content-Disposition', 'inline; filename="card.svg"');
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.status(200).send(svg);
+    res.setHeader('Cache-Control', 'no-store');
+    return res.end(svg);
   } catch (err) {
     console.error('card API error:', err && err.stack ? err.stack : err);
-    res.status(500).send('Error generating card');
+    return res.status(500).send('Error generating card');
   }
 };
