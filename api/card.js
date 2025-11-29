@@ -23,6 +23,7 @@ module.exports = (req, res) => {
             title: 'The Ego Hijack',
             copy: 'You replace their story with your own and compete in suffering.',
             tags: ['Problem', 'Crimson Red'],
+            color: 'Crimson Red',
           },
           back: {
             title: 'Protocol',
@@ -35,6 +36,7 @@ module.exports = (req, res) => {
             title: 'The "No" Override',
             copy: 'You hear "no" and retreat instead of getting curious.',
             tags: ['Problem', 'Orange'],
+            color: 'Orange',
           },
           back: {
             title: 'Protocol',
@@ -47,6 +49,7 @@ module.exports = (req, res) => {
             title: 'BLUF Protocol',
             copy: 'You hide your main point in a long story.',
             tags: ['Problem', 'Gold'],
+            color: 'Gold',
           },
           back: {
             title: 'Protocol',
@@ -59,6 +62,7 @@ module.exports = (req, res) => {
             title: 'SYN-ACK Handshake',
             copy: 'You drop heavy truth before checking if they are really listening.',
             tags: ['Problem', 'Cyan'],
+            color: 'Cyan',
           },
           back: {
             title: 'Protocol',
@@ -71,6 +75,7 @@ module.exports = (req, res) => {
             title: 'The 280-Word Gap',
             copy: 'Your brain writes replies instead of listening.',
             tags: ['Problem', 'Purple'],
+            color: 'Purple',
           },
           back: {
             title: 'Protocol',
@@ -83,6 +88,7 @@ module.exports = (req, res) => {
             title: 'Infinite Warfare',
             copy: 'You try to win the argument and lose the relationship.',
             tags: ['Problem', 'Teal'],
+            color: 'Teal',
           },
           back: {
             title: 'Protocol',
@@ -95,6 +101,7 @@ module.exports = (req, res) => {
             title: 'The Binary Trap',
             copy: 'You ask yes/no questions and get shallow answers.',
             tags: ['Problem', 'Magenta'],
+            color: 'Magenta',
           },
           back: {
             title: 'Protocol',
@@ -107,6 +114,7 @@ module.exports = (req, res) => {
             title: 'Zero-Day Vulnerability',
             copy: 'You fake knowing instead of saying "I don’t know."',
             tags: ['Problem', 'Yellow'],
+            color: 'Yellow',
           },
           back: {
             title: 'Protocol',
@@ -119,6 +127,7 @@ module.exports = (req, res) => {
             title: 'Signal-to-Noise',
             copy: 'You mix emotion and bias into technical info.',
             tags: ['Problem', 'White'],
+            color: 'White',
           },
           back: {
             title: 'Protocol',
@@ -131,6 +140,7 @@ module.exports = (req, res) => {
             title: 'The Flight Instinct',
             copy: 'Rejection feels like danger, so you run.',
             tags: ['Problem', 'Plasma Green'],
+            color: 'Plasma Green',
           },
           back: {
             title: 'Protocol',
@@ -143,6 +153,7 @@ module.exports = (req, res) => {
             title: 'Hidden State Sync',
             copy: 'You guess what they mean instead of decoding it.',
             tags: ['Problem', 'Matrix Green'],
+            color: 'Matrix Green',
           },
           back: {
             title: 'Protocol',
@@ -155,6 +166,7 @@ module.exports = (req, res) => {
             title: 'Audience Mismatch',
             copy: 'You speak in a format the other person can’t read.',
             tags: ['Problem', 'Glitch Red'],
+            color: 'Glitch Red',
           },
           back: {
             title: 'Protocol',
@@ -207,6 +219,7 @@ module.exports = (req, res) => {
     const height = 866;
     const title = esc(card.front.title || '');
     const copy = esc(card.front.copy || '');
+    const color = esc(card.front.color || (card.front.tags || [])[1] || '');
     const tags = (card.front.tags || []).map(esc).join(' • ');
     const backTitle = esc(card.back.title || '');
     const protocol = esc(card.back.copy || '');
@@ -229,29 +242,32 @@ module.exports = (req, res) => {
       <stop offset="82%" stop-color="#b589ff"/>
       <stop offset="100%" stop-color="#66b8ff"/>
     </linearGradient>
-    <linearGradient id="tealShell" x1="0" x2="0" y1="0" y2="1">
-      <stop offset="0%" stop-color="#0f2f34"/>
-      <stop offset="100%" stop-color="#0e9aa7"/>
+    <linearGradient id="shell" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#08303a"/>
+      <stop offset="100%" stop-color="#0b93a3"/>
     </linearGradient>
   </defs>
-  <rect width="100%" height="100%" rx="42" ry="42" fill="url(#tealShell)"/>
-  <g transform="translate(18,18)">
-    <rect width="${width - 36}" height="${height - 36}" rx="32" ry="32" fill="#02060a" stroke="rgba(255,255,255,0.22)" stroke-width="2"/>
-    <rect x="18" y="18" width="${width - 72}" height="${height - 120}" rx="26" ry="26" fill="url(#foil)"/>
-    <text x="46" y="92" font-family="'Inter', system-ui,-apple-system,Roboto,Arial" font-weight="800" font-size="20" fill="#061024">${backTitle}</text>
-    <foreignObject x="46" y="120" width="${width - 140}" height="520">
-      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:'Inter',system-ui,-apple-system,Roboto,Arial;color:#061024;font-size:15px;line-height:1.5;font-weight:700;">
+  <rect width="100%" height="100%" rx="30" ry="30" fill="url(#shell)"/>
+  <g transform="translate(16,16)">
+    <rect width="${width - 32}" height="${height - 32}" rx="20" ry="20" fill="#040b10" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
+    <rect x="18" y="18" width="${width - 68}" height="${height - 140}" rx="16" ry="16" fill="#06121b" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+    <rect x="18" y="18" width="${width - 68}" height="64" rx="14" ry="14" fill="url(#foil)"/>
+    <text x="34" y="58" font-family="'Inter', system-ui,-apple-system,Roboto,Arial" font-weight="900" font-size="18" fill="#03111d">${deckName}</text>
+    <text x="34" y="86" font-family="'Inter', system-ui,-apple-system,Roboto,Arial" font-weight="800" font-size="13" fill="#0d2b36">${color || 'Protocol'}</text>
+    <text x="34" y="122" font-family="'Inter', system-ui,-apple-system,Roboto,Arial" font-weight="800" font-size="20" fill="#f6fafc">${backTitle}</text>
+    <foreignObject x="34" y="142" width="${width - 120}" height="500">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:'Inter',system-ui,-apple-system,Roboto,Arial;color:#e9f5ff;font-size:16px;line-height:1.65;font-weight:700;">
         ${protocol}
       </div>
     </foreignObject>
-    <text x="46" y="${height - 236}" font-family="'Inter',system-ui,-apple-system" font-weight="800" font-size="13" fill="#061024">Links</text>
-    <foreignObject x="46" y="${height - 220}" width="${width - 140}" height="120">
-      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:'Inter',system-ui,-apple-system,Roboto,Arial;color:#041422;font-size:13px;line-height:1.45;font-weight:700;">
-        <ul style="margin:0;padding-left:18px;list-style:disc;">${linkList}</ul>
+    <text x="34" y="${height - 210}" font-family="'Inter',system-ui,-apple-system" font-weight="800" font-size="13" fill="#7dd8ff">External links</text>
+    <foreignObject x="34" y="${height - 192}" width="${width - 120}" height="120">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:'Inter',system-ui,-apple-system,Roboto,Arial;color:#bfe7ff;font-size:14px;line-height:1.55;font-weight:700;">
+        <ul style="margin:0;padding-left:18px;list-style:square;">${linkList}</ul>
       </div>
     </foreignObject>
-    <rect x="${width - 164}" y="${height - 170}" width="110" height="40" rx="12" fill="url(#foil)"/>
-    <text x="${width - 108}" y="${height - 144}" text-anchor="middle" font-family="'Inter',system-ui,-apple-system" font-weight="900" font-size="15" fill="#061024">${badge}</text>
+    <rect x="${width - 168}" y="${height - 166}" width="116" height="44" rx="10" ry="10" fill="url(#foil)"/>
+    <text x="${width - 110}" y="${height - 136}" text-anchor="middle" font-family="'Inter',system-ui,-apple-system" font-weight="900" font-size="15" fill="#04111d">${badge}</text>
   </g>
 </svg>`
       : `<?xml version="1.0" encoding="utf-8"?>
@@ -265,30 +281,33 @@ module.exports = (req, res) => {
       <stop offset="82%" stop-color="#b589ff"/>
       <stop offset="100%" stop-color="#66b8ff"/>
     </linearGradient>
-    <linearGradient id="tealShell" x1="0" x2="0" y1="0" y2="1">
-      <stop offset="0%" stop-color="#0f2f34"/>
-      <stop offset="100%" stop-color="#0e9aa7"/>
+    <linearGradient id="shell" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#08303a"/>
+      <stop offset="100%" stop-color="#0b93a3"/>
     </linearGradient>
   </defs>
 
-  <rect width="100%" height="100%" rx="42" ry="42" fill="url(#tealShell)"/>
-  <g transform="translate(18,18)">
-    <rect width="${width - 36}" height="${height - 36}" rx="32" ry="32" fill="#02060a" stroke="rgba(255,255,255,0.22)" stroke-width="2"/>
-    <rect x="18" y="18" width="${width - 72}" height="${height - 120}" rx="26" ry="26" fill="url(#foil)"/>
-    <text x="46" y="88" font-family="'Inter', system-ui,-apple-system,Roboto,Arial" font-weight="900" font-size="22" fill="#061024">${title}</text>
-    <text x="46" y="118" font-family="'Inter', system-ui,-apple-system,Roboto,Arial" font-weight="700" font-size="12" fill="#0e3a49">${tags}</text>
+  <rect width="100%" height="100%" rx="30" ry="30" fill="url(#shell)"/>
+  <g transform="translate(16,16)">
+    <rect width="${width - 32}" height="${height - 32}" rx="20" ry="20" fill="#040b10" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
+    <rect x="18" y="18" width="${width - 68}" height="${height - 140}" rx="16" ry="16" fill="#06121b" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+    <rect x="18" y="18" width="${width - 68}" height="64" rx="14" ry="14" fill="url(#foil)"/>
+    <text x="34" y="58" font-family="'Inter', system-ui,-apple-system,Roboto,Arial" font-weight="900" font-size="18" fill="#03111d">${deckName}</text>
+    <text x="34" y="86" font-family="'Inter', system-ui,-apple-system,Roboto,Arial" font-weight="800" font-size="13" fill="#0d2b36">${color || 'Front face'}</text>
+    <text x="34" y="122" font-family="'Inter', system-ui,-apple-system,Roboto,Arial" font-weight="900" font-size="22" fill="#f6fafc">${title}</text>
+    <text x="34" y="148" font-family="'Inter', system-ui,-apple-system,Roboto,Arial" font-weight="700" font-size="12" fill="#7dd8ff">${tags}</text>
 
-    <foreignObject x="46" y="140" width="${width - 140}" height="480">
-      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:'Inter',system-ui,-apple-system,Roboto,Arial;color:#041422;font-size:15px;line-height:1.55;font-weight:700;">
+    <foreignObject x="34" y="168" width="${width - 120}" height="480">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:'Inter',system-ui,-apple-system,Roboto,Arial;color:#e9f5ff;font-size:16px;line-height:1.65;font-weight:700;">
         ${copy}
       </div>
     </foreignObject>
 
-    <text x="46" y="${height - 210}" font-family="'Inter',system-ui,-apple-system" font-weight="800" font-size="13" fill="#061024">Protocol preview</text>
-    <text x="46" y="${height - 184}" font-family="'Inter',system-ui,-apple-system" font-weight="700" font-size="12" fill="#0e3a49">${protocol}</text>
+    <text x="34" y="${height - 214}" font-family="'Inter',system-ui,-apple-system" font-weight="800" font-size="13" fill="#7dd8ff">Protocol preview</text>
+    <text x="34" y="${height - 188}" font-family="'Inter',system-ui,-apple-system" font-weight="700" font-size="12" fill="#bfe7ff">${protocol}</text>
 
-    <rect x="${width - 164}" y="${height - 170}" width="110" height="40" rx="12" fill="url(#foil)"/>
-    <text x="${width - 108}" y="${height - 144}" text-anchor="middle" font-family="'Inter',system-ui,-apple-system" font-weight="900" font-size="15" fill="#061024">${badge}</text>
+    <rect x="${width - 168}" y="${height - 166}" width="116" height="44" rx="10" ry="10" fill="url(#foil)"/>
+    <text x="${width - 110}" y="${height - 136}" text-anchor="middle" font-family="'Inter',system-ui,-apple-system" font-weight="900" font-size="15" fill="#04111d">${badge}</text>
   </g>
 </svg>`;
 
