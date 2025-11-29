@@ -138,6 +138,10 @@ module.exports = (req, res) => {
     return res.end(svg);
   } catch (err) {
     console.error('card API error:', err && err.stack ? err.stack : err);
-    return res.status(500).send('Error generating card');
+    res.statusCode = 500;
+    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Cache-Control', 'no-store');
+    return res.end('Error generating card');
   }
 };
