@@ -5,26 +5,22 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Better Conversations — Live Card Preview</title>
   <style>
-    /* Minimal layout so the buttons sit in the right place relative to the card */
-    body{font-family:system-ui,Arial,Helvetica,sans-serif;padding:18px}
-    h1{font-size:20px;margin:0 0 16px}
-    .container{max-width:920px}
-    .card-wrap{display:inline-block;position:relative;border-radius:8px}
-    #cardImg{max-width:380px;display:block;border-radius:14px}
-    .controls{margin-top:10px;display:flex;gap:8px;align-items:center}
-    button{padding:6px 10px;border-radius:6px;border:1px solid #222;background:#fff;cursor:pointer}
-    /* small overlay button anchored to bottom-right of the visible image area */
-    .overlay-badge{
-      position:absolute;
-      right:18px;
-      bottom:22px;
-      pointer-events:none; /* non-interactive, purely visual */
-      font-weight:800;
-      /* space reserved for badge so it doesn't hide */
-    }
-    pre#out{background:#f7f7f7;padding:8px;border-radius:6px;margin-top:12px;max-width:760px;overflow:auto}
-    ul#jsonList{margin:8px 0 0;padding-left:20px}
-    ul#jsonList li{cursor:pointer;color:blue;text-decoration:underline;margin-bottom:4px}
+    /* Minimal layout tuned for an iPhone-sized card preview */
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; margin: 18px; color:#071124 }
+    h1 { font-size:20px; margin:0 0 18px }
+    .container { max-width:920px }
+    .card-wrap { display:inline-block; position:relative; border-radius:20px; background:transparent }
+    /* iPhone-width preview */
+    #cardImg { width:360px; height:auto; display:block; border-radius:22px; box-shadow: 0 8px 28px rgba(2,6,18,0.28) }
+    .controls { margin-top:12px; display:flex; gap:8px; align-items:center; flex-wrap:wrap }
+    button { padding:8px 10px; border-radius:8px; border:1px solid #aaa; background:#fff; cursor:pointer; font-weight:700 }
+    label { font-size:14px; margin-left:8px }
+    pre#out { background:#fafafa; padding:8px; border-radius:8px; margin-top:12px; max-width:760px; white-space:pre-wrap }
+    ul#jsonList { margin:8px 0 0; padding-left:20px }
+    ul#jsonList li { cursor:pointer; color:#0b63cc; text-decoration:underline; margin-bottom:6px }
+    /* small non-interactive badge overlay so the preview mirrors the svg badge position */
+    .overlay-badge { position:absolute; right:36px; bottom:86px; pointer-events:none; font-weight:900; background:transparent; color:#061024 }
+    @media (max-width:420px){ #cardImg { width:92vw } }
   </style>
 </head>
 <body>
@@ -32,9 +28,9 @@
     <h1>Better Conversations — Live Card Preview</h1>
 
     <div class="card-wrap" id="cardWrap" aria-live="polite">
-      <!-- Image loads from the serverless endpoint (SVG). The image is non-interactive.
-           Buttons below control which SVG is requested (front/back, specific id). -->
-      <img id="cardImg" src="/api/card" alt="Study card preview">
+      <!-- The SVG comes from the serverless route. It is an image (non-interactive),
+           so buttons below request new SVGs (front/back) from the API. -->
+      <img id="cardImg" src="/api/card" alt="Study card preview (iPhone portrait)"/>
       <div class="overlay-badge" id="overlayBadge" aria-hidden="true"></div>
     </div>
 
@@ -42,28 +38,17 @@
       <button id="newBtn" type="button">New</button>
       <button id="flipBtn" type="button">Flip</button>
       <button id="listBtn" type="button">Show JSON list</button>
-      <label style="margin-left:8px">Go to id:
+      <label>Go to id:
         <input id="gotoInput" type="number" min="1" style="width:64px;margin-left:6px" />
       </label>
       <button id="gotoBtn" type="button">Load</button>
     </div>
 
     <pre id="out" style="display:none"></pre>
-
     <ul id="jsonList" style="display:none" aria-hidden="true"></ul>
   </main>
 
 <script>
-/*
-  Updated minimal client:
-  - Positions buttons so they appear near the card.
-  - Flip/New operate by requesting the SVG with appropriate query params.
-  - Show JSON list is clickable; clicking an item loads that card (and sets currentId).
-  - The overlay badge is read from the server-side badge shown inside the card image area,
-    but because the SVG is an image we cannot interact with its internal elements. Instead,
-    we show a simple overlay text (kept non-interactive) that mirrors the id when we know it.
-*/
-
 const cardImg = document.getElementById('cardImg');
 const newBtn = document.getElementById('newBtn');
 const flipBtn = document.getElementById('flipBtn');
@@ -75,28 +60,16 @@ const gotoInput = document.getElementById('gotoInput');
 const gotoBtn = document.getElementById('gotoBtn');
 
 let showingBack = false;
-let currentId = null; // 1-based index; null means random
+let currentId = null;
 
 function setImgUrl(params = {}) {
   const url = new URL('/api/card', window.location.origin);
-  // preserve id if provided or currentId if set
-  if (params.id) {
-    url.searchParams.set('id', params.id);
-    currentId = String(params.id);
-  } else if (currentId && params.useCurrent !== false) {
-    // if currentId exists and caller allowed, include it
-    url.searchParams.set('id', currentId);
-  }
-  if (params.side) {
-    url.searchParams.set('side', params.side);
-    showingBack = params.side === 'back';
-  } else {
-    url.searchParams.set('side', showingBack ? 'back' : 'front');
-  }
-  // cache-buster so "New" always fetches a fresh random SVG
+  if (params.id) { url.searchParams.set('id', params.id); currentId = String(params.id); }
+  else if (currentId && params.useCurrent !== false) { url.searchParams.set('id', currentId); }
+  if (params.side) { url.searchParams.set('side', params.side); showingBack = params.side === 'back'; }
+  else { url.searchParams.set('side', showingBack ? 'back' : 'front'); }
   if (params.cacheBuster !== false) url.searchParams.set('_cb', Date.now());
   cardImg.src = url.toString();
-  // update visible overlay (best-effort)
   overlayBadge.textContent = currentId ? `${currentId}/` : '';
 }
 
@@ -104,72 +77,56 @@ function setImgUrl(params = {}) {
 newBtn.addEventListener('click', () => {
   showingBack = false;
   currentId = null;
-  // ask server for a random front (no id param)
   const url = new URL('/api/card', window.location.origin);
   url.searchParams.set('_cb', Date.now());
   url.searchParams.set('side', 'front');
   cardImg.src = url.toString();
   overlayBadge.textContent = '';
-  out.style.display = 'none';
-  jsonList.style.display = 'none';
+  out.style.display='none'; jsonList.style.display='none';
 });
 
-// Flip between front and back for current card; if none chosen, request random back/front
+// Flip
 flipBtn.addEventListener('click', () => {
   showingBack = !showingBack;
   const side = showingBack ? 'back' : 'front';
   setImgUrl({ side });
-  out.style.display = 'none';
-  jsonList.style.display = 'none';
+  out.style.display='none'; jsonList.style.display='none';
 });
 
-// Show JSON list of cards (click a list item to load that id)
+// List JSON
 listBtn.addEventListener('click', async () => {
-  out.style.display = 'block';
-  out.textContent = 'Loading JSON list…';
+  out.style.display='block'; out.textContent='Loading list…';
   try {
     const r = await fetch('/api/card?format=json');
-    if (!r.ok) throw new Error('Network error: ' + r.status);
+    if(!r.ok) throw new Error('Network error: ' + r.status);
     const j = await r.json();
     const arr = j.v2 || j.v1 || [];
-    // Render clickable list
     jsonList.innerHTML = '';
-    arr.forEach((c, i) => {
+    arr.forEach((c,i)=> {
       const li = document.createElement('li');
       li.textContent = `${i+1}. ${c.front.title}`;
-      li.addEventListener('click', () => {
-        // load the clicked card
-        currentId = String(i+1);
-        showingBack = false;
+      li.addEventListener('click', ()=> {
+        currentId = String(i+1); showingBack = false;
         setImgUrl({ id: currentId, side: 'front' });
-        jsonList.style.display = 'none';
-        out.style.display = 'none';
+        jsonList.style.display='none'; out.style.display='none';
       });
       jsonList.appendChild(li);
     });
     out.textContent = `Click a card number below to load it (total ${arr.length}).`;
-    jsonList.style.display = 'block';
-    jsonList.setAttribute('aria-hidden', 'false');
-  } catch (e) {
-    out.textContent = 'Error fetching list: ' + e;
-  }
+    jsonList.style.display='block'; jsonList.setAttribute('aria-hidden','false');
+  } catch (e) { out.textContent = 'Error: ' + e; }
 });
 
 // Load by typed id
 gotoBtn.addEventListener('click', () => {
-  const val = parseInt(gotoInput.value, 10);
-  if (!val || val < 1) {
-    alert('Enter a valid card number (1 or greater).');
-    return;
-  }
-  currentId = String(val);
-  showingBack = false;
+  const val = parseInt(gotoInput.value,10);
+  if(!val || val<1){ alert('Enter a valid card number (1 or greater).'); return; }
+  currentId = String(val); showingBack = false;
   setImgUrl({ id: currentId, side: 'front' });
-  out.style.display = 'none';
-  jsonList.style.display = 'none';
+  out.style.display='none'; jsonList.style.display='none';
 });
 
-// initial load: random front
+// initial
 setImgUrl();
 </script>
 </body>
