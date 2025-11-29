@@ -8,6 +8,6 @@
   "routes": [
     { "src": "/api/(.*)", "dest": "/api/$1" },
     { "src": "/BetterConversationsAPI/(.*)", "dest": "/BetterConversationsAPI/$1" },
-    { "src": "/(.*)", "dest": "/BetterConversationsAPI/index.html" }
+    { "src": "/(.)", "dest": "/index.html" }
   ]
 }
