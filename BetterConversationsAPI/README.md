@@ -35,7 +35,8 @@ index 0000000000000000000000000000000000000000..7cfb8abfc71c19ea3d00fb6a47373d5b
 +   ```bash
 +   python -m http.server 8080
 +   ```
-+2. Open the page in your browser at [http://localhost:8080/BetterConversationsAPI/](http://localhost:8080/BetterConversationsAPI/).
++2.| Better Conversations API | WEBSITE | [View Site](https://smithsoni3n.github.io/Area2-155/BetterConversationsAPI/) |
+
 +3. Stop the server with `Ctrl+C` when you’re done.
 +
 +The page is plain HTML/CSS only—no build step required.
@@ -61,11 +62,13 @@ index 949decd4a42a17b71bdc64e4c7db86372c4d8646..6cb8f682338d8da5dcb4347389b996b1
  | FUGLY | WEBSITE | [View Site](https://raw.githack.com/Smithsoni3n/Area2-155/main/FUGLY4/index.html)
  | DUDE.ENGINE | WEBSITE | [View Site](https://smithsoni3n.github.io/Area2-155/DUDE.ENGINE/)
  | DUDEENGINE8 | WEBSITE | [View Site](https://smithsoni3n.github.io/Area2-155/DUDEENGINE8/)
-+| Better Conversations API | WEBSITE | [View Site](https://smithsoni3n.github.io/Area2-155/BetterConversationsAPI/)
+ | Better Conversations API | WEBSITE | [View Site](| Better Conversations API | WEBSITE | [View Site](https://smithsoni3n.github.io/Area2-155/BetterConversationsAPI/) |
+
  ---
  
  
  @ 2025 Crystal Lyn Reise
    "We are the ArchTechs of Digital Frontier!"
+
 
 
