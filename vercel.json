@@ -1,0 +1,18 @@
+diff --git a/vercel.json b/vercel.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..1e4bf05b13bf88f46a76a2529f3da1e39cc23dad
+--- /dev/null
++++ b/vercel.json
+@@ -0,0 +1,12 @@
++{
++  "version": 2,
++  "builds": [
++    { "src": "api/**/*.js", "use": "@vercel/node" },
++    { "src": "BetterConversationsAPI/**", "use": "@vercel/static" }
++  ],
++  "routes": [
++    { "src": "/api/(.*)", "dest": "/api/$1" },
++    { "src": "/BetterConversationsAPI/(.*)", "dest": "/BetterConversationsAPI/$1" },
++    { "src": "/(.*)", "dest": "/BetterConversationsAPI/index.html" }
++  ]
++}
