@@ -3,45 +3,79 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Better Conversations — Live Card Preview</title>
+  <title>Better Conversations — The "Real Talk" Deck (Preview)</title>
   <style>
-    /* Minimal layout tuned for an iPhone-sized card preview */
-    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; margin: 18px; color:#071124 }
-    h1 { font-size:20px; margin:0 0 18px }
-    .container { max-width:920px }
-    .card-wrap { display:inline-block; position:relative; border-radius:20px; background:transparent }
-    /* iPhone-width preview */
-    #cardImg { width:360px; height:auto; display:block; border-radius:22px; box-shadow: 0 8px 28px rgba(2,6,18,0.28) }
-    .controls { margin-top:12px; display:flex; gap:8px; align-items:center; flex-wrap:wrap }
-    button { padding:8px 10px; border-radius:8px; border:1px solid #aaa; background:#fff; cursor:pointer; font-weight:700 }
-    label { font-size:14px; margin-left:8px }
-    pre#out { background:#fafafa; padding:8px; border-radius:8px; margin-top:12px; max-width:760px; white-space:pre-wrap }
-    ul#jsonList { margin:8px 0 0; padding-left:20px }
-    ul#jsonList li { cursor:pointer; color:#0b63cc; text-decoration:underline; margin-bottom:6px }
-    /* small non-interactive badge overlay so the preview mirrors the svg badge position */
-    .overlay-badge { position:absolute; right:36px; bottom:86px; pointer-events:none; font-weight:900; background:transparent; color:#061024 }
-    @media (max-width:420px){ #cardImg { width:92vw } }
+    /* iPhone preview container */
+    :root{
+      --foil-gradient: linear-gradient(135deg,#ffd166 0%,#ff9aa2 33%,#d66bff 52%,#7ef6d4 68%,#8fd3ff 86%);
+      --bg:#fff;
+      --text:#061024;
+      --btn-padding:8px 12px;
+    }
+    body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial;margin:20px;color:var(--text);background:var(--bg)}
+    h1{font-size:20px;margin:0 0 18px}
+    .container{max-width:960px}
+    .card-wrap{display:inline-block;position:relative;border-radius:26px}
+    /* phone-sized image (keeps aspect similar to iPhone) */
+    #cardImg{width:360px;height:auto;display:block;border-radius:22px;box-shadow:0 10px 30px rgba(2,6,18,0.28);}
+    /* Controls are embedded on the phone (absolute inside card-wrap) */
+    .controls{
+      position:absolute;
+      right:18px;
+      bottom:26px;
+      display:flex;
+      gap:8px;
+      align-items:center;
+      z-index:10;
+      transform: translateY(0);
+    }
+    .foil-btn{
+      padding:var(--btn-padding);
+      border-radius:999px;
+      border:0;
+      color:var(--text);
+      font-weight:900;
+      cursor:pointer;
+      background:var(--foil-gradient);
+      box-shadow:0 8px 18px rgba(0,0,0,0.24);
+      -webkit-appearance:none;
+      appearance:none;
+      white-space:nowrap;
+    }
+    .ghost-action{
+      background:rgba(255,255,255,0.85);
+      padding:6px 8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);font-weight:800;
+    }
+    /* Small compact toolbar below the card for non-overlay actions (optional) */
+    .toolbar{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .small{padding:6px 8px;border-radius:8px;border:1px solid #ddd;background:#fff}
+    pre#out{background:#fafafa;padding:8px;border-radius:8px;margin-top:12px;max-width:760px;white-space:pre-wrap}
+    ul#jsonList{margin:8px 0 0;padding-left:20px}
+    ul#jsonList li{cursor:pointer;color:#0b63cc;text-decoration:underline;margin-bottom:6px}
+    label{font-weight:700}
+    @media (max-width:420px){ #cardImg{width:92vw} .controls{right:6px;bottom:20px} }
   </style>
 </head>
 <body>
   <main class="container">
-    <h1>Better Conversations — Live Card Preview</h1>
+    <h1>Better Conversations — The "Real Talk" Deck (Preview)</h1>
 
     <div class="card-wrap" id="cardWrap" aria-live="polite">
-      <!-- The SVG comes from the serverless route. It is an image (non-interactive),
-           so buttons below request new SVGs (front/back) from the API. -->
-      <img id="cardImg" src="/api/card" alt="Study card preview (iPhone portrait)"/>
-      <div class="overlay-badge" id="overlayBadge" aria-hidden="true"></div>
+      <!-- Image served from the serverless /api/card route (SVG). -->
+      <img id="cardImg" src="/api/card" alt='Real Talk card preview (iPhone portrait)' />
+      <!-- Overlay controls placed on the phone (foil-colored buttons) -->
+      <div class="controls" id="overlayControls" role="toolbar" aria-label="Card overlay controls">
+        <button id="newBtn" class="foil-btn" title="Load a new random card">New</button>
+        <button id="flipBtn" class="foil-btn" title="Flip card (front/back)">Flip</button>
+        <button id="saveBtn" class="ghost-action" title="Show JSON list">List</button>
+      </div>
     </div>
 
-    <div class="controls" role="toolbar" aria-label="Card controls">
-      <button id="newBtn" type="button">New</button>
-      <button id="flipBtn" type="button">Flip</button>
-      <button id="listBtn" type="button">Show JSON list</button>
-      <label>Go to id:
-        <input id="gotoInput" type="number" min="1" style="width:64px;margin-left:6px" />
-      </label>
-      <button id="gotoBtn" type="button">Load</button>
+    <!-- Fallback toolbar (visible on small screens or for accessibility) -->
+    <div class="toolbar" aria-hidden="false">
+      <button id="openList" class="small">Show JSON list</button>
+      <label>Go to id: <input id="gotoInput" type="number" min="1" style="width:80px;margin-left:6px" /></label>
+      <button id="gotoBtn" class="small">Load</button>
     </div>
 
     <pre id="out" style="display:none"></pre>
@@ -49,18 +83,25 @@
   </main>
 
 <script>
+/* Client behavior:
+ - overlay buttons live on the phone (foil style)
+ - New: requests a random front
+ - Flip: toggles side=back/front for the current card (or a random one if none selected)
+ - List: fetches /api/card?format=json and displays titles; click to load
+*/
+
 const cardImg = document.getElementById('cardImg');
 const newBtn = document.getElementById('newBtn');
 const flipBtn = document.getElementById('flipBtn');
-const listBtn = document.getElementById('listBtn');
+const saveBtn = document.getElementById('saveBtn');
+const openList = document.getElementById('openList');
 const out = document.getElementById('out');
 const jsonList = document.getElementById('jsonList');
-const overlayBadge = document.getElementById('overlayBadge');
 const gotoInput = document.getElementById('gotoInput');
 const gotoBtn = document.getElementById('gotoBtn');
 
 let showingBack = false;
-let currentId = null;
+let currentId = null; // 1-based index
 
 function setImgUrl(params = {}) {
   const url = new URL('/api/card', window.location.origin);
@@ -70,7 +111,6 @@ function setImgUrl(params = {}) {
   else { url.searchParams.set('side', showingBack ? 'back' : 'front'); }
   if (params.cacheBuster !== false) url.searchParams.set('_cb', Date.now());
   cardImg.src = url.toString();
-  overlayBadge.textContent = currentId ? `${currentId}/` : '';
 }
 
 // New random card
@@ -78,10 +118,9 @@ newBtn.addEventListener('click', () => {
   showingBack = false;
   currentId = null;
   const url = new URL('/api/card', window.location.origin);
+  url.searchParams.set('side','front');
   url.searchParams.set('_cb', Date.now());
-  url.searchParams.set('side', 'front');
   cardImg.src = url.toString();
-  overlayBadge.textContent = '';
   out.style.display='none'; jsonList.style.display='none';
 });
 
@@ -93,40 +132,47 @@ flipBtn.addEventListener('click', () => {
   out.style.display='none'; jsonList.style.display='none';
 });
 
-// List JSON
-listBtn.addEventListener('click', async () => {
-  out.style.display='block'; out.textContent='Loading list…';
+// Show JSON list (overlay becomes list)
+const showList = async () => {
+  out.style.display='block';
+  out.textContent = 'Loading deck…';
   try {
     const r = await fetch('/api/card?format=json');
-    if(!r.ok) throw new Error('Network error: ' + r.status);
+    if(!r.ok) throw new Error('Network: ' + r.status);
     const j = await r.json();
     const arr = j.v2 || j.v1 || [];
     jsonList.innerHTML = '';
-    arr.forEach((c,i)=> {
+    arr.forEach((c,i) => {
       const li = document.createElement('li');
       li.textContent = `${i+1}. ${c.front.title}`;
-      li.addEventListener('click', ()=> {
-        currentId = String(i+1); showingBack = false;
+      li.addEventListener('click', () => {
+        currentId = String(i+1);
+        showingBack = false;
         setImgUrl({ id: currentId, side: 'front' });
         jsonList.style.display='none'; out.style.display='none';
       });
       jsonList.appendChild(li);
     });
-    out.textContent = `Click a card number below to load it (total ${arr.length}).`;
+    out.textContent = `Deck: ${j.deckName || 'Real Talk'} — tap a number to load (total ${arr.length}).`;
     jsonList.style.display='block'; jsonList.setAttribute('aria-hidden','false');
-  } catch (e) { out.textContent = 'Error: ' + e; }
-});
+  } catch (e) {
+    out.textContent = 'Error loading deck: ' + e;
+  }
+};
 
-// Load by typed id
-gotoBtn.addEventListener('click', () => {
-  const val = parseInt(gotoInput.value,10);
-  if(!val || val<1){ alert('Enter a valid card number (1 or greater).'); return; }
-  currentId = String(val); showingBack = false;
-  setImgUrl({ id: currentId, side: 'front' });
+saveBtn.addEventListener('click', showList);
+openList.addEventListener('click', showList);
+
+// goto
+gotoBtn.addEventListener('click', ()=> {
+  const v = parseInt(gotoInput.value,10);
+  if(!v || v < 1) { alert('Enter a valid card number (1 or greater)'); return; }
+  currentId = String(v); showingBack = false;
+  setImgUrl({ id: currentId, side:'front' });
   out.style.display='none'; jsonList.style.display='none';
 });
 
-// initial
+// initial load
 setImgUrl();
 </script>
 </body>
