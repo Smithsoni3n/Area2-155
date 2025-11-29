@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Supercommunicator Protocols — Z Flip Mock</title>
+  <title>Better Conversations Protocol Deck — Z Flip Mock</title>
   <style>
     :root {
       --foil: linear-gradient(135deg,#c0c6d4 0%,#ffd166 20%,#75ffa2 40%,#ff9ce6 60%,#b589ff 80%,#66b8ff 100%);
@@ -37,13 +37,13 @@
       display:flex;
       flex-direction:column;
       gap:12px;
-      max-width:300px;
+      max-width:320px;
       width:100%;
     }
-    h1{margin:0;font-size:19px;font-weight:900;letter-spacing:0.2px;color:#e9f6ff;text-shadow:0 4px 18px rgba(0,0,0,0.35);}
+    h1{margin:0;font-size:22px;font-weight:900;letter-spacing:0.35px;color:#f5fbff;text-shadow:0 8px 26px rgba(0,0,0,0.48);}
     .phone{
       position:relative;
-      width:276px;
+      width:292px;
       max-width:100%;
       margin:0 auto;
       padding:8px;
@@ -53,33 +53,39 @@
     }
     .screen{
       position:relative;
-      background:#01060a;
+      background:radial-gradient(circle at 20% 20%, rgba(117,255,162,0.16), rgba(0,6,10,0.95) 48%),
+                 radial-gradient(circle at 80% 80%, rgba(255,156,230,0.12), rgba(1,6,10,0.92) 46%),
+                 #01060a;
       border-radius:26px;
-      padding:8px;
+      padding:10px;
       overflow:hidden;
-      box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08);
-      min-height:520px;
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08), 0 18px 50px rgba(0,0,0,0.55);
+      min-height:540px;
     }
     #cardImg{
       width:100%;
       border-radius:20px;
       display:block;
       height:auto;
-      max-height:450px;
+      max-height:470px;
       object-fit:contain;
-      margin-bottom:6px;
+      margin-bottom:10px;
+      box-shadow:0 12px 32px rgba(0,0,0,0.55);
+      background:radial-gradient(circle at 20% 20%, rgba(255,255,255,0.06), transparent 48%),
+                 radial-gradient(circle at 80% 80%, rgba(0,154,167,0.18), transparent 52%);
+      padding:6px;
     }
     .controls{
       position:absolute;
       left:50%;
-      bottom:10px;
+      bottom:12px;
       transform:translateX(-50%);
       display:flex;
       gap:8px;
       align-items:center;
       justify-content:center;
-      padding:7px 9px;
-      background:rgba(0,10,16,0.72);
+      padding:8px 10px;
+      background:linear-gradient(135deg, rgba(0,10,16,0.85), rgba(1,16,26,0.82));
       border-radius:999px;
       backdrop-filter:blur(10px);
       box-shadow:0 12px 26px rgba(0,0,0,0.45);
@@ -90,9 +96,9 @@
     .foil-btn{
       border:0;
       border-radius:999px;
-      padding:8px 12px;
+      padding:9px 14px;
       font-weight:900;
-      font-size:11px;
+      font-size:12px;
       color:#041021;
       letter-spacing:0.3px;
       cursor:pointer;
@@ -105,12 +111,12 @@
     .new-action{background:linear-gradient(135deg,#f4f7fb 0%,#c0c6d4 35%,#c7e9ff 70%,#4db3ff 100%);}
     .flip-action{background:linear-gradient(135deg,#fbe18f 0%,#f6b73c 36%,#ffd0f3 68%,#ff6fb1 100%);}
     .back-action{background:linear-gradient(135deg,#90f9c4 0%,#0edb8f 42%,#d9c7ff 76%,#9f6bff 100%);}
-    .hint{font-size:12px;color:#9ec5d6;font-weight:700;letter-spacing:0.2px;line-height:1.4;}
+    .hint{font-size:13px;color:#b8d9e7;font-weight:800;letter-spacing:0.25px;line-height:1.5;}
   </style>
 </head>
 <body>
   <div class="wrap">
-    <h1 id="deckTitle">Supercommunicator Protocols</h1>
+    <h1 id="deckTitle">Better Conversations Protocol Deck</h1>
     <div class="phone" aria-label="Teal Z Flip mockup">
       <div class="screen">
         <img id="cardImg" src="" alt="Card" />
@@ -121,7 +127,7 @@
         </div>
       </div>
     </div>
-    <div class="hint">Front shows the problem. Flip for the protocol and links. Buttons are foil-toned in silver, gold, green, pink, purple, and blue.</div>
+    <div class="hint">Front shows your exact problems; Flip reveals the matching protocols and links. Foil buttons glow silver, gold, green, pink, purple, and blue.</div>
   </div>
 
 <script>
@@ -220,4 +226,4 @@ loadMeta();
 setImgUrl();
 </script>
 </body>
-</html>
+</html
