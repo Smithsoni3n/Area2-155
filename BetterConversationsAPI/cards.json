@@ -6,7 +6,8 @@
       "front": {
         "title": "The Ego Hijack",
         "copy": "You replace their story with your own and compete in suffering.",
-        "tags": ["Problem", "Crimson Red"]
+        "tags": ["Problem", "Crimson Red"],
+        "color": "Crimson Red"
       },
       "back": {
         "title": "Protocol",
@@ -20,7 +21,8 @@
       "front": {
         "title": "The \"No\" Override",
         "copy": "You hear \"no\" and retreat instead of getting curious.",
-        "tags": ["Problem", "Orange"]
+        "tags": ["Problem", "Orange"],
+        "color": "Orange"
       },
       "back": {
         "title": "Protocol",
@@ -34,7 +36,8 @@
       "front": {
         "title": "BLUF Protocol",
         "copy": "You hide your main point in a long story.",
-        "tags": ["Problem", "Gold"]
+        "tags": ["Problem", "Gold"],
+        "color": "Gold"
       },
       "back": {
         "title": "Protocol",
@@ -48,7 +51,8 @@
       "front": {
         "title": "SYN-ACK Handshake",
         "copy": "You drop heavy truth before checking if they are really listening.",
-        "tags": ["Problem", "Cyan"]
+        "tags": ["Problem", "Cyan"],
+        "color": "Cyan"
       },
       "back": {
         "title": "Protocol",
@@ -62,7 +66,8 @@
       "front": {
         "title": "The 280-Word Gap",
         "copy": "Your brain writes replies instead of listening.",
-        "tags": ["Problem", "Purple"]
+        "tags": ["Problem", "Purple"],
+        "color": "Purple"
       },
       "back": {
         "title": "Protocol",
@@ -76,7 +81,8 @@
       "front": {
         "title": "Infinite Warfare",
         "copy": "You try to win the argument and lose the relationship.",
-        "tags": ["Problem", "Teal"]
+        "tags": ["Problem", "Teal"],
+        "color": "Teal"
       },
       "back": {
         "title": "Protocol",
@@ -90,7 +96,8 @@
       "front": {
         "title": "The Binary Trap",
         "copy": "You ask yes/no questions and get shallow answers.",
-        "tags": ["Problem", "Magenta"]
+        "tags": ["Problem", "Magenta"],
+        "color": "Magenta"
       },
       "back": {
         "title": "Protocol",
@@ -104,7 +111,8 @@
       "front": {
         "title": "Zero-Day Vulnerability",
         "copy": "You fake knowing instead of saying \"I don’t know.\"",
-        "tags": ["Problem", "Yellow"]
+        "tags": ["Problem", "Yellow"],
+        "color": "Yellow"
       },
       "back": {
         "title": "Protocol",
@@ -118,7 +126,8 @@
       "front": {
         "title": "Signal-to-Noise",
         "copy": "You mix emotion and bias into technical info.",
-        "tags": ["Problem", "White"]
+        "tags": ["Problem", "White"],
+        "color": "White"
       },
       "back": {
         "title": "Protocol",
@@ -132,7 +141,8 @@
       "front": {
         "title": "The Flight Instinct",
         "copy": "Rejection feels like danger, so you run.",
-        "tags": ["Problem", "Plasma Green"]
+        "tags": ["Problem", "Plasma Green"],
+        "color": "Plasma Green"
       },
       "back": {
         "title": "Protocol",
@@ -146,7 +156,8 @@
       "front": {
         "title": "Hidden State Sync",
         "copy": "You guess what they mean instead of decoding it.",
-        "tags": ["Problem", "Matrix Green"]
+        "tags": ["Problem", "Matrix Green"],
+        "color": "Matrix Green"
       },
       "back": {
         "title": "Protocol",
@@ -160,7 +171,8 @@
       "front": {
         "title": "Audience Mismatch",
         "copy": "You speak in a format the other person can’t read.",
-        "tags": ["Problem", "Glitch Red"]
+        "tags": ["Problem", "Glitch Red"],
+        "color": "Glitch Red"
       },
       "back": {
         "title": "Protocol",
