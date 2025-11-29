@@ -1,8 +1,0 @@
-{
-  "name": "better-conversations-viewer",
-  "private": true,
-  "scripts": {
-    "vercel-build": "echo 'Static deployment - no build step'",
-    "test": "node -e \"['BetterConversationsAPI/cards.json','vercel.json'].forEach(f=>{const data=JSON.parse(require('fs').readFileSync(f,'utf8'));console.log(f,'valid',Array.isArray(data)?data.length:Object.keys(data).length);});\""
-  }
-}
