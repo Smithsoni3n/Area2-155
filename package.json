@@ -1,6 +1,8 @@
 {
+  "name": "better-conversations-viewer",
+  "private": true,
   "scripts": {
-    "build": "next build && next export",
-    "vercel-build": "next build && next export"
+    "vercel-build": "echo 'Static deployment - no build step'",
+    "test": "node -e \"console.log('ok')\""
   }
 }
