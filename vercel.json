@@ -4,10 +4,6 @@
     {
       "src": "api/**/*.js",
       "use": "@vercel/node"
-    },
-    {
-      "src": "BetterConversationsAPI/**",
-      "use": "@vercel/static"
     }
   ],
   "headers": [
@@ -24,6 +20,18 @@
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
       ]
+    },
+    {
+      "source": "/BetterConversationsAPI/index.html",
+      "headers": [
+        { "key": "Content-Type", "value": "text/html; charset=utf-8" }
+      ]
+    },
+    {
+      "source": "/BetterConversationsAPI/cards.json",
+      "headers": [
+        { "key": "Content-Type", "value": "application/json; charset=utf-8" }
+      ]
     }
   ],
   "routes": [
@@ -39,13 +47,5 @@
       "src": "/(.*)",
       "dest": "/BetterConversationsAPI/index.html"
     }
-  ],
-  "overrides": {
-    "BetterConversationsAPI/index.html": {
-      "contentType": "text/html; charset=utf-8"
-    },
-    "BetterConversationsAPI/cards.json": {
-      "contentType": "application/json; charset=utf-8"
-    }
-  }
+  ]
 }
