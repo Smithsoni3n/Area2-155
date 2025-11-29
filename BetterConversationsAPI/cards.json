@@ -1,148 +1,173 @@
 {
-  "deckName": "Real Talk",
+  "deckName": "Supercommunicator Protocols",
   "v2": [
     {
       "front": {
-        "title": "THE EGO HIJACK",
-        "copy": "The narcissistic urge to overwrite their pain with your own story.",
-        "tags": ["CRIMSON ALERT", "Pulsing Red"]
+        "title": "The Ego Hijack",
+        "copy": "You replace their story with your own and compete in suffering.",
+        "tags": ["Problem", "Crimson Red"]
       },
       "back": {
-        "title": "KILL THE SIGNAL",
-        "copy": "It’s not empathy; it’s competitive suffering. You are jamming their frequency. Shut down your transmitter and receive only.",
-        "fact": "Protocol: Stop 'rescuing' the narrative; listen to receive."
+        "title": "Protocol",
+        "copy": "Stop talking. Ask questions and listen until they feel fully heard.",
+        "links": [
+          "https://www.ted.com/talks/celeste_headlee_10_ways_to_have_a_better_conversation"
+        ]
       }
     },
     {
       "front": {
-        "title": "THE \"NO\" OVERRIDE",
-        "copy": "When the door slams and your instinct screams \"RETREAT.\"",
-        "tags": ["ADRENALINE ORANGE", "Burning Amber"]
+        "title": "The \"No\" Override",
+        "copy": "You hear \"no\" and retreat instead of getting curious.",
+        "tags": ["Problem", "Orange"]
       },
       "back": {
-        "title": "STAND YOUR GROUND",
-        "copy": "Panic is a liar. Ask \"Why?\" It forces the server to process a new request. Turn a dead-end rejection into a negotiation.",
-        "fact": "Protocol: Reframe reflexive rejection with one clarifying question."
+        "title": "Protocol",
+        "copy": "Stay calm. Ask: \"Why no?\" and \"What would make this a yes?\"",
+        "links": [
+          "https://www.youtube.com/watch?v=DoCi_JECwvY"
+        ]
       }
     },
     {
       "front": {
-        "title": "BLUF PROTOCOL",
-        "copy": "The Executive Audience has zero patience for your mystery novel.",
-        "tags": ["HIGH-CONTRAST GOLD", "Metallic Sheen"]
+        "title": "BLUF Protocol",
+        "copy": "You hide your main point in a long story.",
+        "tags": ["Problem", "Gold"]
       },
       "back": {
-        "title": "BOTTOM LINE UP FRONT",
-        "copy": "Fire the conclusion first. Evidence second. If you bury the lead, you corrupt the payload. Respect the bandwidth.",
-        "fact": "Protocol: Put the result first; supply evidence concisely."
+        "title": "Protocol",
+        "copy": "Start with your conclusion in one sentence. Then give only key reasons.",
+        "links": [
+          "https://www.ted.com/talks/jim_vandehei_why_we_need_to_write_less_but_say_more"
+        ]
       }
     },
     {
       "front": {
-        "title": "THE SYN-ACK HANDSHAKE",
-        "copy": "Trying to upload truth before you establish a link.",
-        "tags": ["NEON CYAN", "Electric Blue"]
+        "title": "SYN-ACK Handshake",
+        "copy": "You drop heavy truth before checking if they are really listening.",
+        "tags": ["Problem", "Cyan"]
       },
       "back": {
-        "title": "VERIFY CONNECTION",
-        "copy": "Trust is a protocol, not a feeling. You cannot send heavy data until the client sends back the Listening Acknowledgment.",
-        "fact": "Protocol: Request an explicit signal that the listener is ready."
+        "title": "Protocol",
+        "copy": "Test the link: share a small piece, ask how it lands, then go deeper.",
+        "links": [
+          "https://www.youtube.com/watch?v=ESkB4_8YClI"
+        ]
       }
     },
     {
       "front": {
-        "title": "THE 280‑WORD GAP",
-        "copy": "Your brain processes 500 wpm. They only speak 225.",
-        "tags": ["VOID PURPLE", "Deep Ultraviolet"]
+        "title": "The 280-Word Gap",
+        "copy": "Your brain writes replies instead of listening.",
+        "tags": ["Problem", "Purple"]
       },
       "back": {
-        "title": "SILENCE THE NOISE",
-        "copy": "Your brain wants to fill the gap by writing a reply. That is a memory leak. Force your processor to idle and absorb the incoming stream.",
-        "fact": "Protocol: Pause; absorb the data before you synthesize."
+        "title": "Protocol",
+        "copy": "Force a pause. After they talk, first repeat what you heard, then respond.",
+        "links": [
+          "https://www.ted.com/talks/julian_treasure_5_ways_to_listen_better"
+        ]
       }
     },
     {
       "front": {
-        "title": "INFINITE WARFARE",
-        "copy": "Playing to \"win\" the argument is a Finite Game strategy.",
-        "tags": ["ENDLESS TEAL", "Oceanic Depth"]
+        "title": "Infinite Warfare",
+        "copy": "You try to win the argument and lose the relationship.",
+        "tags": ["Problem", "Teal"]
       },
       "back": {
-        "title": "SURVIVE THE GAME",
-        "copy": "Winning the battle often means killing the ally. Smart leaders play for retention. The goal isn't to beat them; it's to keep them at the table.",
-        "fact": "Protocol: Opt for retention over immediate victory."
+        "title": "Protocol",
+        "copy": "Aim to keep the person, not win the point. Look for shared ground.",
+        "links": [
+          "https://www.ted.com/talks/julia_dhar_how_to_disagree_productively_and_find_common_ground"
+        ]
       }
     },
     {
       "front": {
-        "title": "THE BINARY TRAP",
-        "copy": "Asking \"Did you like it?\" forces a Yes/No execution.",
-        "tags": ["LASER MAGENTA", "Hot Pink"]
+        "title": "The Binary Trap",
+        "copy": "You ask yes/no questions and get shallow answers.",
+        "tags": ["Problem", "Magenta"]
       },
       "back": {
-        "title": "BREAK THE LOOP",
-        "copy": "Stop coding for binary answers. Ask \"How?\" and \"What?\" Open the gate. Force them to render a full story, not a single bit.",
-        "fact": "Protocol: Replace binary prompts with open probes."
+        "title": "Protocol",
+        "copy": "Use \"How…\" and \"What…\" questions to pull out a full story.",
+        "links": [
+          "https://www.ted.com/talks/katherine_hampsten_how_miscommunication_happens_and_how_to_avoid_it"
+        ]
       }
     },
     {
       "front": {
-        "title": "ZERO‑DAY VULNERABILITY",
-        "copy": "The \"Expert\" bluff. Pretending you know the answer to save face.",
-        "tags": ["HAZARD YELLOW", "Caution Tape"]
+        "title": "Zero-Day Vulnerability",
+        "copy": "You fake knowing instead of saying \"I don’t know.\"",
+        "tags": ["Problem", "Yellow"]
       },
       "back": {
-        "title": "OWN THE EXPLOIT",
-        "copy": "A guess is a bug in the system. \"I don't know\" is a patch. Radical honesty builds an unbreachable firewall of trust.",
-        "fact": "Protocol: Admit uncertainty to harden credibility."
+        "title": "Protocol",
+        "copy": "Admit it. Say what you will do to find the answer, and by when.",
+        "links": [
+          "https://www.youtube.com/watch?v=2Yw6dFQBklA"
+        ]
       }
     },
     {
       "front": {
-        "title": "SIGNAL‑TO‑NOISE RATIO",
-        "copy": "Emotional language, fluff, and bias in technical documentation.",
-        "tags": ["PURE WHITE", "Static Noise"]
+        "title": "Signal-to-Noise",
+        "copy": "You mix emotion and bias into technical info.",
+        "tags": ["Problem", "White"]
       },
       "back": {
-        "title": "PURGE THE STATIC",
-        "copy": "Be objective. Be unambiguous. Emotion is noise. Facts are signal. The Audience demands high-fidelity data.",
-        "fact": "Protocol: Replace opinion with clear, cited facts."
+        "title": "Protocol",
+        "copy": "Separate facts, opinions, and feelings into clear lanes.",
+        "links": [
+          "https://www.ted.com/talks/melissa_marshall_talk_nerdy_to_me"
+        ]
       }
     },
     {
       "front": {
-        "title": "THE FLIGHT INSTINCT",
-        "copy": "The physical sick feeling of rejection.",
-        "tags": ["PLASMA GREEN", "Toxic Glow"]
+        "title": "The Flight Instinct",
+        "copy": "Rejection feels like danger, so you run.",
+        "tags": ["Problem", "Plasma Green"]
       },
       "back": {
-        "title": "REWIRE THE HARDWARE",
-        "copy": "That feeling isn't death; it's just data. Stay in the pocket. The moment you refuse to run, the monster dissolves into code.",
-        "fact": "Protocol: Name the feeling, reframe it as information."
+        "title": "Protocol",
+        "copy": "Name the feeling. Stay in the talk long enough to learn from it.",
+        "links": [
+          "https://www.youtube.com/watch?v=DoCi_JECwvY"
+        ]
       }
     },
     {
       "front": {
-        "title": "HIDDEN STATE SYNC",
-        "copy": "The server (them) knows the truth. The client (you) is guessing.",
-        "tags": ["MATRIX GREEN", "Code Rain"]
+        "title": "Hidden State Sync",
+        "copy": "You guess what they mean instead of decoding it.",
+        "tags": ["Problem", "Matrix Green"]
       },
       "back": {
-        "title": "DECRYPT THE INTENT",
-        "copy": "People rarely say what they mean. Listening is the decryption key. Find the Source of Truth buried under the words.",
-        "fact": "Protocol: Ask clarifying questions until intent is explicit."
+        "title": "Protocol",
+        "copy": "Listen for values and fears under the words. Ask: \"Did I get that right?\"",
+        "links": [
+          "https://www.youtube.com/watch?v=cfNJmmabimU"
+        ]
       }
     },
     {
       "front": {
-        "title": "THE AUDIENCE MISMATCH",
-        "copy": "Sending raw JSON to a user who only reads XML.",
-        "tags": ["GLITCH RED", "Distorted Signal"]
+        "title": "Audience Mismatch",
+        "copy": "You speak in a format the other person can’t read.",
+        "tags": ["Problem", "Glitch Red"]
       },
       "back": {
-        "title": "FORMAT OR FAIL",
-        "copy": "If the receiver can't parse your message, the transmission failed. Tailor the protocol. It’s not their job to understand you; it’s your job to be understood.",
-        "fact": "Protocol: Reformat your message to match the receiver."
+        "title": "Protocol",
+        "copy": "Detect their level and role, then translate your idea into their language.",
+        "links": [
+          "https://www.ted.com/talks/melissa_marshall_talk_nerdy_to_me",
+          "https://www.youtube.com/watch?v=2Yw6dFQBklA"
+        ]
       }
     }
   ]
