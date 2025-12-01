@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REAL DECK - Finiti Hybrid Quality</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Inter:wght@400;600;800&display=swap');
+
+        :root {
+            --oil-slick: linear-gradient(135deg, #39ff14, #ffd700, #ff00ff, #9d00ff, #00f3ff, #e0e0e0);
+            /* GOLD FLOW SHIMMER for Philosopher's Stone */
+            --gold-flow: linear-gradient(90deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+            --tan-base: #ebe1d2; 
+            --text-main: #111111;
+        }
+
+        body {
+            background: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+        }
+
+        /* iPad Frame */
+        .ipad-mockup {
+            width: 700px;
+            height: 920px;
+            background: #0a0a0a;
+            border-radius: 45px;
+            padding: 18px;
+            box-shadow: 
+                0 0 0 2px #333,
+                0 0 60px rgba(255, 215, 0, 0.1);
+            position: relative;
+            border: 2px solid #333;
+        }
+
+        .screen {
+            width: 100%;
+            height: 100%;
+            background: url('235.jpg') no-repeat center center;
+            background-size: cover;
+            border-radius: 32px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .screen::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle, transparent 60%, rgba(0,0,0,0.3) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Status Bar */
+        .status-bar {
+            height: 44px;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 28px;
+            align-items: center;
+            z-index: 10;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+        }
+
+        /* App Container */
+        .app-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            z-index: 20;
+        }
+
+        .header-text h1 {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 38px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin: 0;
+            background: var(--oil-slick);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
+            animation: shimmer 6s linear infinite;
+            background-size: 200%;
+        }
+        
+        /* GOLD FLOW ANIMATION CLASS */
+        .gold-text-flow {
+            background: var(--gold-flow);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shine 3s linear infinite;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        @keyframes shimmer { 
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .header-text p {
+            font-size: 12px;
+            color: #fff;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-top: 5px;
+            text-shadow: 0 0 5px rgba(0,0,0,0.8);
+        }
+
+        /* CARD ENGINE */
+        .card-perspective {
+            perspective: 1500px; 
+            width: 540px; 
+            height: 400px;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1); 
+            transform-style: preserve-3d;
+        }
+
+        .card-perspective.flipped .card-inner { transform: rotateY(180deg); }
+
+        /* SOLID GLOSS (TAN) STYLE */
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 35px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: 
+                linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.1) 40%, rgba(255,255,255,0) 40.1%),
+                var(--tan-base);
+            border-top: 2px solid rgba(255, 255, 255, 1);
+            border-left: 1px solid rgba(255, 255, 255, 0.6);
+            border-bottom: 3px solid rgba(0, 0, 0, 0.15); 
+            box-shadow: 
+                0 30px 60px rgba(0,0,0,0.5), 
+                inset 0 0 0 1px rgba(255,255,255,0.4);
+        }
+
+        .card-front { z-index: 2; transform: rotateY(0deg); }
+
+        .card-back {
+            transform: rotateY(180deg);
+            background: var(--tan-base);
+            background-image: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 60%);
+            align-items: flex-start;
+            text-align: left;
+            z-index: 1;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .card-subtitle { font-size: 13px; text-transform: uppercase; letter-spacing: 2px; color: #555; font-weight: 900; margin-bottom: 15px; }
+        .card-title { font-size: 36px; font-weight: 900; color: #1a1a1a; line-height: 1.1; margin-bottom: 10px; }
+        .card-text { font-size: 17px; line-height: 1.5; color: #222; font-weight: 600; }
+        
+        .source-btn { margin-top: auto; display: inline-block; background: rgba(0,0,0,0.05); border: 1px solid #333; color: #111; padding: 10px 16px; border-radius: 12px; font-weight: 800; font-size: 11px; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s; }
+        .source-btn:hover { background: #111; color: #fff; transform: translateY(-2px); }
+
+        /* NAV BUTTONS */
+        .controls { margin-top: 40px; display: flex; gap: 30px; align-items: center; justify-content: center; }
+        .nav-col { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+        .nav-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: #fff; text-shadow: 0 0 5px #00f3ff; }
+        .circle-btn { width: 70px; height: 70px; border-radius: 50%; background: var(--oil-slick); background-size: 200% 200%; animation: shimmer 4s linear infinite; border: 3px solid rgba(255,255,255,0.8); box-shadow: 0 0 25px rgba(0, 243, 255, 0.3); color: #000; font-size: 24px; cursor: pointer; transition: transform 0.2s; display: flex; align-items: center; justify-content: center; }
+        .circle-btn:hover { transform: scale(1.15); box-shadow: 0 0 40px rgba(255, 0, 255, 0.6); }
+        .circle-btn:active { transform: scale(0.9); }
+        .btn-flip { width: 90px; height: 90px; font-size: 32px; z-index: 50; }
+
+        /* View Management */
+        .view { display: none; width: 100%; height: 100%; flex-direction: column; align-items: center; }
+        .view.active { display: flex; }
+
+        /* Dock */
+        .dock { margin-top: auto; margin-bottom: 20px; background: rgba(20, 20, 30, 0.8); backdrop-filter: blur(10px); padding: 15px 30px; border-radius: 40px; display: flex; gap: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); z-index: 20; }
+        .dock-icon { width: 55px; height: 55px; border-radius: 16px; background: #222; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #666; cursor: pointer; transition: 0.3s; border: 1px solid #333; }
+        .dock-icon.active { background: var(--oil-slick); background-size: 200%; animation: shimmer 5s infinite; color: #000; box-shadow: 0 0 20px rgba(0, 243, 255, 0.4); transform: translateY(-10px); border: none; }
+
+        /* Game & AI Inputs */
+        textarea { background: rgba(255,255,255,0.9); color: #111; border: 2px solid #333; border-radius: 15px; padding: 15px; font-size: 16px; width: 100%; backdrop-filter: blur(10px); }
+        textarea:focus { outline: none; border-color: #00f3ff; box-shadow: 0 0 15px rgba(0,243,255,0.2); }
+        
+        .info-list { max-height: 220px; overflow-y: auto; font-size: 13px; width: 100%; scrollbar-width: thin; }
+        .info-item { padding: 8px 0; border-bottom: 1px solid #ccc; color: #333; }
+        .info-item strong { color: #000; display: block; font-weight: 900; }
+
+        /* Game Buttons */
+        .game-btn { background: rgba(255,255,255,0.9); border: 1px solid rgba(0,0,0,0.2); color: #111; font-weight: 700; padding: 15px; border-radius: 12px; transition: 0.2s; width: 100%; text-align: left; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .game-btn:hover { background: #fff; border-color: #00f3ff; transform: translateY(-2px); }
+        .game-btn.correct { background: #39ff14; border-color: #39ff14; color: #000; }
+        .game-btn.wrong { background: #ff3333; border-color: #ff3333; color: #fff; }
+
+    </style>
+</head>
+<body>
+
+    <div class="ipad-mockup" id="ipadFrame">
+        <div class="screen">
+            <div class="status-bar">
+                <span class="status-text">9:41</span>
+                <i class="fas fa-battery-full status-text"></i>
+            </div>
+
+            <!-- APP 1: THE ARCHIVE -->
+            <div id="view-deck" class="view active">
+                <div class="header-text mt-8">
+                    <h1>REAL DECK</h1>
+                    <p>THE ARCHIVE v6.1</p>
+                </div>
+                <div class="card-perspective" id="cardBase">
+                    <div class="card-inner">
+                        <div class="card-face card-front">
+                            <div class="card-subtitle" id="front-sub">Speaker</div>
+                            <div class="card-title" id="front-title">Title</div>
+                        </div>
+                        <div class="card-face card-back">
+                            <div class="card-subtitle" id="back-sub" style="color: #111;">Takeaway</div>
+                            <div class="card-text" id="back-text">Content goes here.</div>
+                            <a href="#" id="back-link" target="_blank" class="source-btn">View Source</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="controls">
+                    <div class="nav-col"><button class="circle-btn" onclick="prevCard()"><i class="fas fa-chevron-left"></i></button><span class="nav-label">Back</span></div>
+                    <div class="nav-col"><button class="circle-btn btn-flip" onclick="flipCard()"><i class="fas fa-sync-alt"></i></button><span class="nav-label">Flip</span></div>
+                    <div class="nav-col"><button class="circle-btn" onclick="nextCard()"><i class="fas fa-chevron-right"></i></button><span class="nav-label">Next</span></div>
+                </div>
+            </div>
+
+            <!-- APP 2: THE GAUNTLET -->
+            <div id="view-game" class="view">
+                <div class="header-text mt-8">
+                    <h1>THE GAUNTLET</h1>
+                    <p>SURVIVAL MODE</p>
+                </div>
+                <div id="game-container" class="w-full max-w-md text-center mt-10 p-6 bg-black/60 backdrop-blur rounded-3xl shadow-2xl border border-white/10 z-20 relative">
+                    <h2 id="q-text" class="text-2xl font-bold text-white mb-6">Question?</h2>
+                    <div id="q-opts" class="flex flex-col gap-3"></div>
+                    <div id="q-feedback" class="mt-4 text-sm font-bold min-h-[20px]"></div>
+                    <button onclick="generateQuestion()" class="mt-6 w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white font-bold py-3 rounded-xl transition shadow-lg flex items-center justify-center gap-2">
+                        <i class="fas fa-magic"></i> Generate New Question
+                    </button>
+                </div>
+                <div id="game-win" class="hidden text-center mt-20 z-20 relative">
+                    <h1 class="text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-cyan-500 animate-pulse drop-shadow-lg">BAM!</h1>
+                    <p class="text-white text-xl font-bold mt-4 drop-shadow-md">🦄 UNICORN STATUS UNLOCKED 🦄</p>
+                </div>
+            </div>
+
+            <!-- APP 3: THE ORACLE (STRATEGY LAB) -->
+            <div id="view-ai" class="view">
+                <div class="header-text mt-8">
+                    <h1>THE ORACLE</h1>
+                    <p>STRATEGY LAB</p>
+                </div>
+                <div class="w-full max-w-md mt-6 bg-black/60 backdrop-blur p-6 rounded-3xl shadow-2xl border border-white/10 z-20 relative">
+                    <textarea id="ai-input" rows="4" placeholder="Type your communication scenario here..." class="focus:ring-cyan-500"></textarea>
+                    <div class="flex gap-3 mt-4">
+                        <button onclick="runAI()" class="flex-1 bg-white text-black font-bold py-3 rounded-xl hover:bg-gray-200 transition flex items-center justify-center gap-2">✨ Analyze</button>
+                        <button onclick="resetAI()" class="px-4 bg-gray-200 text-gray-600 font-bold rounded-xl hover:bg-gray-300 transition border border-gray-600"><i class="fas fa-redo"></i></button>
+                    </div>
+                    <div id="ai-output" class="hidden mt-4 p-4 bg-black/40 rounded-xl border-l-4 border-cyan-500 text-gray-200 text-sm"></div>
+                </div>
+            </div>
+
+            <!-- APP 4: THE PHILOSOPHER'S STONE (30-Day Challenge) -->
+            <div id="view-reflector" class="view">
+                <div class="header-text mt-8">
+                    <h1 class="gold-text-flow">THE PHILOSOPHER'S STONE</h1>
+                    <p>30 DAY CHALLENGE</p>
+                </div>
+                <div class="w-full max-w-md mt-6 bg-black/60 backdrop-blur p-8 rounded-3xl shadow-2xl border border-white/10 z-20 relative text-center">
+                    <div class="mb-8 min-h-[120px] flex flex-col justify-center items-center">
+                        <div id="daily-quote" class="text-xl font-bold text-white mb-3 leading-snug drop-shadow-md italic transition-opacity duration-300">
+                            "Press Generate to reveal today's challenge."
+                        </div>
+                        <div id="daily-source" class="text-sm text-cyan-400 uppercase tracking-widest font-bold"></div>
+                    </div>
+                    <button onclick="generateWisdom()" class="w-full bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold py-4 rounded-xl hover:from-amber-400 hover:to-orange-500 transition shadow-lg flex items-center justify-center gap-2 text-lg">
+                        <i class="fas fa-dice-d20"></i> Generate Daily Challenge
+                    </button>
+                </div>
+            </div>
+
+            <!-- DOCK -->
+            <div class="dock">
+                <div class="dock-icon active" onclick="switchTab('deck')" title="The Archive"><img src="sherlock-holmes.png" alt="Archive" style="width: 32px; height: 32px;"></div>
+                <div class="dock-icon" onclick="switchTab('game')" title="The Gauntlet"><img src="gamepad.png" alt="Game" style="width: 32px; height: 32px;"></div>
+                <div class="dock-icon" onclick="switchTab('ai')" title="The Oracle"><img src="think.png" alt="Oracle" style="width: 32px; height: 32px;"></div>
+                <!-- New Stone Icon -->
+                <div class="dock-icon" onclick="switchTab('reflector')" title="The Stone">
+                    <i class="fas fa-gem" style="color: #FFD700; font-size: 24px; filter: drop-shadow(0 0 5px gold);"></i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const apiKey = ""; // API Key injected by environment
+
+        /* --- CARD DATA --- */
+        const deck = [
+            {
+                sub: "Simon Sinek",
+                title: "Sinek’s “WHY”", 
+                backSub: "Start with WHY & The Infinite Game",
+                text: "<strong>Start with WHY:</strong> Lead with why the issue matters before details. A one‑line “why” makes people more likely to read/respond.<br><br><strong>Infinite Game:</strong> Focus on long‑term trust instead of winning one argument. Choose collaboration over “being right”.",
+                link: "https://www.youtube.com/watch?v=qpnNsSyDw-g"
+            },
+            {
+                sub: "Tech Writing Standard",
+                title: "BLUF",
+                backSub: "Bottom Line Up Front",
+                text: "Put the main request or conclusion in the first sentence. Busy readers scan; they decide in seconds whether to keep reading. Lead with: “Bottom line: …” and then support it.",
+                link: "https://en.wikipedia.org/wiki/BLUF_(communication)"
+            },
+            {
+                sub: "Audience Analysis",
+                title: "Audience First",
+                backSub: "Clear & Neutral",
+                text: "Technical tone must be clear, neutral, and efficient because the primary audience is solving a problem, not reading for fun. Ask: “What does my reader need to do in the next 30 seconds?”",
+                link: "https://owl.purdue.edu/owl/subject_specific_writing/professional_technical_writing/audience_analysis/index.html"
+            },
+            {
+                sub: "Celeste Headlee",
+                title: "Headlee’s Rules",
+                backSub: "Conversation Protocol",
+                text: "<strong>Open-Ended Questions:</strong> Ask 'How/Why' to invite stories, not yes/no.<br><strong>Don't Equate:</strong> Hijacking their story is not empathy.<br><strong>Honesty:</strong> If you don't know, say so. Bluffing kills trust.",
+                link: "https://www.ted.com/talks/celeste_headlee_10_ways_to_have_a_better_conversation"
+            },
+            {
+                sub: "Jia Jiang",
+                title: "Rejection Therapy",
+                backSub: "Rewire & Engage",
+                text: "<strong>Rewire:</strong> Repeatedly asking makes 'No' feel like data, not danger.<br><strong>Stay Engaged:</strong> Don't run. Asking 'Why?' often reveals the rejection was logistical, not personal.",
+                link: "https://www.ted.com/talks/jia_jiang_what_i_learned_from_100_days_of_rejection"
+            },
+            {
+                sub: "Visual Data",
+                title: "10 Types of Infographics",
+                backSub: "Visual Reference",
+                text: `<div class="info-list">
+                    <div class="info-item">Timeline <a href="https://venngage.com/blog/timeline-examples/" target="_blank" class="info-link">Example</a></div>
+                    <div class="info-item">Process <a href="https://visme.co/blog/process-infographic/" target="_blank" class="info-link">Example</a></div>
+                    <div class="info-item">Comparison <a href="https://www.canva.com/graphs/comparison-charts/" target="_blank" class="info-link">Example</a></div>
+                    <div class="info-item">Informational <a href="https://graphicmama.com/blog/what-is-infographic/" target="_blank" class="info-link">Example</a></div>
+                    <div class="info-item">Statistical <a href="https://blog.hubspot.com/marketing/great-data-visualization-examples" target="_blank" class="info-link">Example</a></div>
+                    <div class="info-item">Location <a href="https://www.visme.co/templates/infographics/location/" target="_blank" class="info-link">Example</a></div>
+                    <div class="info-item">Flowchart <a href="https://www.lucidchart.com/pages/templates/flowchart" target="_blank" class="info-link">Example</a></div>
+                    <div class="info-item">List <a href="https://www.smartdraw.com/steps/examples/list-infographic-1/?id=382278&msclkid=2f32700572131d92928b192e90ac0143" target="_blank" class="info-link">Example</a></div>
+                    <div class="info-item">Resume <a href="https://zety.com/blog/infographic-resume-templates" target="_blank" class="info-link">Example</a></div>
+                    <div class="info-item">Interactive <a href="https://shorthand.com/the-craft/interactive-infographics/" target="_blank" class="info-link">Example</a></div>
+                </div>`,
+                link: "#"
+            }
+        ];
+
+        /* --- COMBINATORIAL ENGINE (The Stone) --- */
+        const stoneActions = [
+            "Silence your internal monologue", "Ask 'Why?' immediately", "Listen twice as much as you speak", "Stop broadcasting", "Seek out a hard 'No'",
+            "Treat the person as a 'Thou'", "Admit 'I don't know'", "Serve without expecting return", "Speak up against the group", "Move in silence",
+            "Listen for the feeling", "Mirror their last three words", "Wait 3 seconds before replying", "Assume they know something you don't",
+            "Tell the absolute truth", "Stay in the pocket", "Drop your ego"
+        ];
+
+        const stoneTargets = [
+            "when you feel the urge to interrupt.", "during your first meeting today.", "with someone you fundamentally disagree with.", 
+            "to the next stranger you meet.", "when facing a hostile accusation.", "when you want to save face.", 
+            "instead of checking your phone.", "before you offer a solution.", "when you are terrified of the outcome.",
+            "to the person serving your coffee.", "when the silence feels awkward.", "when you know you are right."
+        ];
+
+        const stoneSources = [
+            "Zeno of Citium", "Simon Sinek", "H.P. Grice", "Celeste Headlee", "Jia Jiang", "M. Scott Peck", 
+            "Martin Buber", "Socrates", "Nelson Mandela", "Muhammad Ali", "Martin Luther King Jr.", "Charlie Kirk", 
+            "Tupac Shakur", "The Notorious B.I.G.", "Common", "Eminem", "Anthony Hamilton", "Epictetus", 
+            "Brené Brown", "Dale Carnegie", "Stephen Covey", "Maya Angelou", "Plato", "Aristotle", 
+            "Thich Nhat Hanh", "Chris Voss", "Jordan Peterson", "Naval Ravikant", "Marcus Aurelius", "Seneca"
+        ];
+
+        /* --- STATE --- */
+        let idx = 0;
+        let gameIdx = 0;
+        let questions = [
+            { q: "What is the goal of the Infinite Game?", opts: ["Winning", "Perpetuating play", "Destroying rivals"], a: 1 },
+            { q: "BLUF stands for:", opts: ["Big Long Ugly Font", "Bottom Line Up Front", "Basic Line User Format"], a: 1 },
+            { q: "Headlee says equating experiences is:", opts: ["Empathy", "Hijacking", "Listening"], a: 1 }
+        ];
+
+        /* --- API CALLER --- */
+        async function callGemini(prompt, isJson = false) {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            const body = {
+                contents: [{ parts: [{ text: prompt }] }]
+            };
+            if (isJson) {
+                body.generationConfig = { responseMimeType: "application/json" };
+            }
+
+            // Retry Logic
+            for (let i = 0; i < 3; i++) {
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(body)
+                    });
+                    if (!response.ok) throw new Error(`Error: ${response.status}`);
+                    const data = await response.json();
+                    const text = data.candidates[0].content.parts[0].text;
+                    return isJson ? JSON.parse(text) : text;
+                } catch (e) {
+                    console.error("API Attempt failed", e);
+                    await new Promise(r => setTimeout(r, 1000 * Math.pow(2, i))); 
+                }
+            }
+            return null;
+        }
+
+        /* --- RENDER --- */
+        function render() {
+            const c = deck[idx];
+            document.getElementById('front-sub').innerText = c.sub;
+            document.getElementById('front-title').innerText = c.title;
+            document.getElementById('back-sub').innerText = c.backSub;
+            document.getElementById('back-text').innerHTML = c.text;
+            const lnk = document.getElementById('back-link');
+            if(c.link !== "#") { lnk.href = c.link; lnk.style.display = "inline-block"; lnk.innerText = "View Source"; } else { lnk.style.display = "none"; }
+            document.getElementById('cardBase').classList.remove('flipped');
+        }
+
+        function flipCard() { document.getElementById('cardBase').classList.toggle('flipped'); }
+        function nextCard() { idx = (idx + 1) % deck.length; render(); }
+        function prevCard() { idx = (idx - 1 + deck.length) % deck.length; render(); }
+
+        function switchTab(tab) {
+            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+            document.getElementById(`view-${tab}`).classList.add('active');
+            document.querySelectorAll('.dock-icon').forEach(i => i.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            if(tab === 'game') renderGame();
+        }
+
+        function renderGame() {
+            if(gameIdx >= questions.length) {
+                document.getElementById('game-container').style.display = 'none';
+                document.getElementById('game-win').classList.remove('hidden');
+                var end = Date.now() + (3 * 1000);
+                (function frame() {
+                    confetti({ particleCount: 10, angle: 60, spread: 80, origin: { x: 0 }, colors: ['#00f3ff', '#ff00ff', '#ffd700'] });
+                    confetti({ particleCount: 10, angle: 120, spread: 80, origin: { x: 1 }, colors: ['#00f3ff', '#ff00ff', '#ffd700'] });
+                    if (Date.now() < end) requestAnimationFrame(frame);
+                }());
+                return;
+            }
+            const q = questions[gameIdx];
+            document.getElementById('q-text').innerText = q.q;
+            document.getElementById('q-feedback').innerText = ""; 
+            const div = document.getElementById('q-opts');
+            div.innerHTML = '';
+            q.opts.forEach((o, i) => {
+                const b = document.createElement('button');
+                b.className = "game-btn";
+                b.innerText = o;
+                b.onclick = () => {
+                    if (i === q.a) {
+                        b.classList.add('correct');
+                        document.getElementById('q-feedback').innerText = "CORRECT! Next question coming...";
+                        document.getElementById('q-feedback').style.color = "#39ff14";
+                        setTimeout(() => { gameIdx++; renderGame(); }, 1000);
+                    } else {
+                        b.classList.add('wrong');
+                        document.getElementById('q-feedback').innerText = "WRONG! Try again.";
+                        document.getElementById('q-feedback').style.color = "#ff3333";
+                    }
+                };
+                div.appendChild(b);
+            });
+        }
+
+        async function generateQuestion() {
+            const feedback = document.getElementById('q-feedback');
+            feedback.innerText = "Generating new question... ✨";
+            feedback.style.color = "#00f3ff";
+            const prompt = `Generate a multiple choice trivia question about communication skills, leadership, or negotiation strategies (similar to Simon Sinek or Celeste Headlee). Output strictly valid JSON: { "q": "question text", "opts": ["opt1", "opt2", "opt3"], "a": index_of_correct_answer_integer }`;
+            const newQ = await callGemini(prompt, true);
+            if (newQ) {
+                questions.push(newQ);
+                alert("New question added to the gauntlet! Keep playing.");
+                renderGame();
+                feedback.innerText = "";
+            } else {
+                feedback.innerText = "Failed to generate. Try again.";
+            }
+        }
+
+        async function runAI() {
+            const txt = document.getElementById('ai-input').value;
+            const out = document.getElementById('ai-output');
+            if(txt.length < 1) { out.classList.remove('hidden'); out.innerHTML = "Please type a scenario first."; return; }
+            out.classList.remove('hidden');
+            out.innerHTML = `<div class="spinner"></div> Analyzing strategy...`;
+            
+            // Local Strategy Fallback (Simulated Oracle)
+            setTimeout(() => {
+                // Simple local generation if API fails or not needed
+                const strategies = [
+                    "Shift to an Infinite Game mindset. Don't try to 'win' this interaction; aim to keep the dialogue going.",
+                    "Use Headlee's Rule #6: Stop equating your experience. Ask them 'What was that like for YOU?'",
+                    "Apply the 280-Word Gap rule. Silence your inner monologue and force yourself to listen.",
+                    "Treat this rejection as data. Ask 'Why?' to uncover the logistical hurdle.",
+                    "Validate their reality first. You cannot debug a connection you haven't established.",
+                    "Use BLUF (Bottom Line Up Front). State your intent clearly to respect their bandwidth."
+                ];
+                const randomStrategy = strategies[Math.floor(Math.random() * strategies.length)];
+                out.innerHTML = `<strong>Strategy Generated:</strong><br>${randomStrategy}`;
+            }, 1000);
+        }
+
+        function resetAI() {
+            document.getElementById('ai-input').value = "";
+            document.getElementById('ai-output').classList.add('hidden');
+        }
+
+        /* --- THE CHALLENGE LOGIC (Combinatorial) --- */
+        function generateWisdom() {
+            const action = stoneActions[Math.floor(Math.random() * stoneActions.length)];
+            const target = stoneTargets[Math.floor(Math.random() * stoneTargets.length)];
+            const source = stoneSources[Math.floor(Math.random() * stoneSources.length)];
+            
+            // Animate text change
+            const qEl = document.getElementById('daily-quote');
+            const sEl = document.getElementById('daily-source');
+            
+            qEl.style.opacity = 0;
+            sEl.style.opacity = 0;
+            
+            setTimeout(() => {
+                qEl.innerText = `"${action} ${target}"`;
+                sEl.innerText = `— INSPIRED BY ${source.toUpperCase()}`;
+                qEl.style.opacity = 1;
+                sEl.style.opacity = 1;
+            }, 200);
+        }
+
+        render();
+    </script>
+</body>
+</html>
