@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Photo gallery of Dude, service dog in action and at rest.">
+  <title>Dude: Gallery</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body id="top">
+  <header class="site-header">
+    <div class="container header-bar">
+      <div class="brand">
+        <span class="brand-icon" aria-hidden="true"><i class="fas fa-anchor"></i></span>
+        <div class="brand-text">
+          <span class="brand-kicker">The Anchor</span>
+          <span class="brand-title">To My Storm</span>
+        </div>
+      </div>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html" class="nav-link">Story</a>
+        <a href="facts.html" class="nav-link">Facts</a>
+        <a href="safety.html" class="nav-link">Safety</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="gallery.html" class="nav-link active">Gallery</a>
+      </nav>
+    </div>
+    <div class="page-strap" aria-hidden="true"></div>
+  </header>
+
+  <main class="container page-shell">
+    <section class="section-intro fade-in-up">
+      <p class="eyebrow">Visual journey</p>
+      <h1>Moments with Dude</h1>
+      <p class="lead">From on-duty focus to peaceful rest, these photos capture the spirit of service, loyalty, and unconditional love. Click any image to view full size.</p>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="gallery-section">
+      <div class="gallery-category fade-in-up">
+        <h2 class="gallery-heading"><i class="fas fa-briefcase"></i> On Duty</h2>
+        <div class="gallery-grid">
+          <figure class="gallery-item" onclick="openModal('DUDE.jpg', 'Dude ready to work, standing alert and focused.')">
+            <img src="DUDE.jpg" alt="Dude standing alert in work mode" loading="lazy">
+            <figcaption class="gallery-caption">
+              <div class="caption-title">Work Mode</div>
+              <div class="caption-text">Alert and ready for duty</div>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item" onclick="openModal('DUDE.3.jpg', 'Dude monitoring surroundings while on duty.')">
+            <img src="DUDE.3.jpg" alt="Dude monitoring while on duty" loading="lazy">
+            <figcaption class="gallery-caption">
+              <div class="caption-title">Vigilant Watch</div>
+              <div class="caption-text">Constant monitoring and awareness</div>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item" onclick="openModal('stick.jpg', 'Dude with his favorite stick, proud and happy.')">
+            <img src="stick.jpg" alt="Dude holding stick proudly" loading="lazy">
+            <figcaption class="gallery-caption">
+              <div class="caption-title">Proud Moment</div>
+              <div class="caption-text">Success in training exercise</div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="gallery-category slide-in-left">
+        <h2 class="gallery-heading"><i class="fas fa-spa"></i> At Rest</h2>
+        <div class="gallery-grid">
+          <figure class="gallery-item" onclick="openModal('flowers.jpg', 'Dude standing peacefully near wildflowers.')">
+            <img src="flowers.jpg" alt="Dude near wildflowers" loading="lazy">
+            <figcaption class="gallery-caption">
+              <div class="caption-title">Peaceful Moment</div>
+              <div class="caption-text">Calm among the wildflowers</div>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item" onclick="openModal('DUDE.jpg', 'Dude relaxing after a long day of service.')">
+            <img src="DUDE.jpg" alt="Dude resting peacefully" loading="lazy">
+            <figcaption class="gallery-caption">
+              <div class="caption-title">Off-Duty Rest</div>
+              <div class="caption-text">Recharging for tomorrow</div>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item" onclick="openModal('stick.jpg', 'Dude in a contemplative moment.')">
+            <img src="stick.jpg" alt="Dude in quiet reflection" loading="lazy">
+            <figcaption class="gallery-caption">
+              <div class="caption-title">Quiet Time</div>
+              <div class="caption-text">Moments of peace and reflection</div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="gallery-category slide-in-right">
+        <h2 class="gallery-heading"><i class="fas fa-graduation-cap"></i> Training & Growth</h2>
+        <div class="gallery-grid">
+          <figure class="gallery-item" onclick="openModal('stick.jpg', 'Dude completing a retrieval training exercise.')">
+            <img src="stick.jpg" alt="Dude with training stick" loading="lazy">
+            <figcaption class="gallery-caption">
+              <div class="caption-title">Retrieval Training</div>
+              <div class="caption-text">Mastering essential skills</div>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item" onclick="openModal('DUDE.3.jpg', 'Dude practicing situational awareness.')">
+            <img src="DUDE.3.jpg" alt="Dude in situational training" loading="lazy">
+            <figcaption class="gallery-caption">
+              <div class="caption-title">Awareness Practice</div>
+              <div class="caption-text">Learning to read environments</div>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item" onclick="openModal('DUDE.jpg', 'Dude demonstrating advanced commands.')">
+            <img src="DUDE.jpg" alt="Dude performing advanced training" loading="lazy">
+            <figcaption class="gallery-caption">
+              <div class="caption-title">Advanced Skills</div>
+              <div class="caption-text">Continued development and growth</div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="gallery-category fade-in-up">
+        <h2 class="gallery-heading"><i class="fas fa-heart"></i> Special Moments</h2>
+        <div class="gallery-grid">
+          <figure class="gallery-item" onclick="openModal('flowers.jpg', 'Dude at the memorial site, providing quiet support.')">
+            <img src="flowers.jpg" alt="Dude at memorial site" loading="lazy">
+            <figcaption class="gallery-caption">
+              <div class="caption-title">Memorial Support</div>
+              <div class="caption-text">Present during grief and healing</div>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item" onclick="openModal('DUDE.jpg', 'Dude offering comfort during difficult times.')">
+            <img src="DUDE.jpg" alt="Dude providing emotional support" loading="lazy">
+            <figcaption class="gallery-caption">
+              <div class="caption-title">Comfort Presence</div>
+              <div class="caption-text">Always there when needed most</div>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item" onclick="openModal('stick.jpg', 'Dude in a moment of pure joy.')">
+            <img src="stick.jpg" alt="Dude experiencing joy" loading="lazy">
+            <figcaption class="gallery-caption">
+              <div class="caption-title">Pure Joy</div>
+              <div class="caption-text">Celebrating life's simple pleasures</div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="card highlight-card stack-card fade-in-up">
+      <div>
+        <p class="eyebrow">Learn more</p>
+        <h3 class="inline-heading">Explore Dude's full story</h3>
+        <p>Discover the facts about his breed mix, training approach, and the gear that keeps us both prepared.</p>
+      </div>
+      <div class="cta-row">
+        <a class="text-link" href="facts.html">View breed facts <i class="fas fa-arrow-right"></i></a>
+        <a class="text-link" href="resources.html">See our gear <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox Modal -->
+  <div id="imageModal" class="modal" onclick="closeModal()">
+    <span class="modal-close" onclick="closeModal()" aria-label="Close modal">&times;</span>
+    <button class="modal-nav modal-prev" onclick="event.stopPropagation(); navigateModal(-1)" aria-label="Previous image">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <img class="modal-img" id="modalImage" alt="">
+      <div class="modal-caption" id="modalCaption"></div>
+    </div>
+    <button class="modal-nav modal-next" onclick="event.stopPropagation(); navigateModal(1)" aria-label="Next image">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>© 2025 Dude: My Anchor To My Storm. <span class="heart-beat">❤️</span></p>
+      <a class="back-to-top" href="#top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i> Back to top
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Gallery Modal Functionality
+    const allImages = Array.from(document.querySelectorAll('.gallery-item'));
+    let currentImageIndex = 0;
+
+    function openModal(imageSrc, caption) {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImage');
+      const modalCaption = document.getElementById('modalCaption');
+      
+      modal.style.display = 'flex';
+      modalImg.src = imageSrc;
+      modalImg.alt = caption;
+      modalCaption.textContent = caption;
+      
+      // Find current index
+      currentImageIndex = allImages.findIndex(item => 
+        item.querySelector('img').src.includes(imageSrc)
+      );
+      
+      // Prevent body scroll
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('imageModal');
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    function navigateModal(direction) {
+      currentImageIndex = (currentImageIndex + direction + allImages.length) % allImages.length;
+      const nextItem = allImages[currentImageIndex];
+      const img = nextItem.querySelector('img');
+      const caption = nextItem.querySelector('.caption-text').textContent;
+      
+      document.getElementById('modalImage').src = img.src;
+      document.getElementById('modalCaption').textContent = caption;
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('imageModal');
+      if (modal.style.display === 'flex') {
+        if (e.key === 'Escape') closeModal();
+        if (e.key === 'ArrowLeft') navigateModal(-1);
+        if (e.key === 'ArrowRight') navigateModal(1);
+      }
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
