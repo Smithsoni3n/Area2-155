@@ -1,4 +1,4 @@
-![MOON. Banner](Area-155.jpg)
+![MOON. Banner](area-155.jpg)
 ![Tagline](tagline.svg)
 
 # Area-155
@@ -26,3 +26,4 @@
 - [Tagline Page](tagline.html)  
 - [Tagline CSS](tagline.css)  
 - [Main Styles](styles.css)
+
