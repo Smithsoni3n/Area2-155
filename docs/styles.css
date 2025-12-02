@@ -1,15 +1,7 @@
-/* Import Charm font */
-@import url('https://fonts.googleapis.com/css2?family=Charm:wght@400&display=swap');
+/* Import all three fonts */
+@import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&family=Charm&family=Bonheur+Royale&display=swap');
 
-body {
-  background: #111;
-  color: #eee;
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-/* Banner setup */
+/* Banner stays centered */
 .banner {
   width: 100vw;
   height: 100vh;
@@ -18,7 +10,7 @@ body {
   align-items: center;
   background-color: #000;
   overflow: hidden;
-  position: relative; /* allows layering */
+  position: relative;
 }
 
 .banner img {
@@ -26,65 +18,42 @@ body {
   max-height: 90%;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 0 25px rgba(192,192,192,0.8)); /* glowing edge */
+  margin: 0 auto; /* ensures centered */
 }
 
-/* Silver wave shimmer overlay */
-.banner::before {
-  content: "";
-  position: absolute;
-  top: 50%; /* horizontal latitude line */
-  left: 0;
-  width: 100%;
-  height: 150px;
-  background: linear-gradient(
-    to right,
-    rgba(192,192,192,0.3) 0%,
-    rgba(255,255,255,0.1) 50%,
-    rgba(192,192,192,0.3) 100%
-  );
-  opacity: 0.6;
-  mix-blend-mode: screen; /* shimmer effect */
-  transform: translateY(-50%);
-  pointer-events: none;
+/* Area-155 heading in Saira Stencil One */
+.area-heading {
+  font-family: "Saira Stencil One", sans-serif;
+  font-size: 3rem;              /* bold size */
+  color: #eee;                  /* light silver/white */
+  text-align: center;
+  margin: 1.5rem 0;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; /* neon cyan glow */
 }
 
-/* Animated wave effect */
-.banner::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: -50%;
-  width: 200%;
-  height: 150px;
-  background: repeating-linear-gradient(
-    to right,
-    rgba(192,192,192,0.2) 0px,
-    rgba(192,192,192,0.2) 20px,
-    transparent 20px,
-    transparent 40px
-  );
-  opacity: 0.3;
-  mix-blend-mode: screen;
-  transform: translateY(-50%);
-  animation: waveMove 8s linear infinite;
-}
-
-@keyframes waveMove {
-  from { left: -50%; }
-  to { left: 0%; }
-}
-
-/* Panel styling: Charm font + radioactive silver shimmer + centered */
-.panel {
-  font-family: "Charm", cursive; /* new font */
-  font-size: 19px; /* ~18–20px */
-  color: #cfd2d6; /* silver base */
-  text-align: center; /* centers text inside */
+/* Quotes block in Charm font */
+.charm-regular {
+  font-family: "Charm", cursive;
+  font-size: 19px;
+  color: #cfd2d6;               /* silver shimmer */
+  text-align: center;
+  line-height: 1.3;             /* tighter spacing */
+  margin: 1rem auto;
+  max-width: 800px;
   text-shadow:
     0 0 6px rgba(192,192,192,0.7),
     0 0 12px rgba(192,192,192,0.5),
     0 0 20px rgba(255,255,255,0.3);
-  margin: 2rem auto; /* centers block itself */
-  max-width: 900px; /* keeps it neat */
+}
+
+/* Signature block in Bonheur Royale */
+.bonheur-royale-regular {
+  font-family: "Bonheur Royale", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 22px;              /* elegant size */
+  line-height: 1.2;             /* tighter spacing */
+  text-align: center;
+  margin: 1rem auto;
+  max-width: 800px;
 }
