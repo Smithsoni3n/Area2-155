@@ -1,7 +1,7 @@
+# Area-155
+
 ![MOON. Banner](area-155.jpg)
 ![Tagline](tagline.svg)
-
-# Area-155
 
 ## Project List
 
@@ -16,8 +16,6 @@
 | DUDEENGINE8 | WEBSITE | [View Site](https://smithsoni3n.github.io/Area2-155/DUDEENGINE8/) |
 | DUDEENGINE9 | WEBSITE | [View Site](https://smithsoni3n.github.io/Area2-155/DUDEENGINE9/) |
 | FUGLY4 | WEBSITE | [View Site](https://smithsoni3n.github.io/Area2-155/FUGLY4/) |
-
----
 
 © 2025 **Crystal Lyn Reise**  
 *“We are the ArchiTechs of the Digital Frontier.”*
