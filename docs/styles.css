@@ -1,43 +1,46 @@
 /* Import all three fonts */
 @import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&family=Charm&family=Bonheur+Royale&display=swap');
 
-/* Banner stays centered */
+/* Reset + base */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  color: #eee;
+}
+
+/* Banner centered */
 .banner {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #000;
-  overflow: hidden;
-  position: relative;
+  margin: 1rem 0;
 }
 
 .banner img {
   max-width: 90%;
-  max-height: 90%;
-  object-fit: contain;
+  height: auto;
   display: block;
-  margin: 0 auto; /* ensures centered */
 }
 
 /* Area-155 heading in Saira Stencil One */
 .area-heading {
   font-family: "Saira Stencil One", sans-serif;
-  font-size: 3rem;              /* bold size */
-  color: #eee;                  /* light silver/white */
+  font-size: 3rem;
   text-align: center;
-  margin: 1.5rem 0;
-  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; /* neon cyan glow */
+  color: #eee;
+  margin: 1.25rem 0;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
 }
 
-/* Quotes block in Charm font */
+/* Quotes block in Charm with tighter lines */
 .charm-regular {
   font-family: "Charm", cursive;
   font-size: 19px;
-  color: #cfd2d6;               /* silver shimmer */
+  color: #cfd2d6;
   text-align: center;
-  line-height: 1.3;             /* tighter spacing */
+  line-height: 1.3; /* tighter spacing */
   margin: 1rem auto;
   max-width: 800px;
   text-shadow:
@@ -51,8 +54,8 @@
   font-family: "Bonheur Royale", cursive;
   font-weight: 400;
   font-style: normal;
-  font-size: 22px;              /* elegant size */
-  line-height: 1.2;             /* tighter spacing */
+  font-size: 22px;
+  line-height: 1.2; /* tighter spacing */
   text-align: center;
   margin: 1rem auto;
   max-width: 800px;
