@@ -3,13 +3,6 @@
   ![MOON. Banner](docs/Area-155.jpg)
 ![Tagline](docs/tagline.svg)
 
-Welcome to Area2-155 
-
-This is the digital playground of **Smithsoni3n**.  
-Every commit here is a challenge conquered, a bug slain, or a new idea forged.  
-No templates. No shortcuts. Just raw, expressive code — patched, tested, and alive.  
-Step inside Area2-155 and see what happens when creativity meets persistence
-## Project List
 
 | Project | Description | Live Page |
 |----------|--------------|-----------|
