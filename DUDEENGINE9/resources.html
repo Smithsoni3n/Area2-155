@@ -3,67 +3,133 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Handler resources and gear for Dude's service dog work.">
   <title>Dude: Resources</title>
   <link rel="stylesheet" href="styles.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="icon" type="image/jpg" href="stick.jpg">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
-
 <body id="top">
-  <header class="header-gradient shadow-xl sticky top-0 z-10">
-    <div class="main-container flex justify-between items-center">
-      <h1 class="text-3xl font-extrabold tracking-tight text-white">
-        <i class="fas fa-paw mr-2"></i> Dude: Service Animal
-      </h1>
-      <nav>
+  <header class="site-header">
+    <div class="container header-bar">
+      <div class="brand">
+        <span class="brand-icon" aria-hidden="true"><i class="fas fa-anchor"></i></span>
+        <div class="brand-text">
+          <span class="brand-kicker">The Anchor</span>
+          <span class="brand-title">To My Storm</span>
+        </div>
+      </div>
+      <nav class="main-nav" aria-label="Primary">
         <a href="index.html" class="nav-link">Story</a>
         <a href="facts.html" class="nav-link">Facts</a>
         <a href="safety.html" class="nav-link">Safety</a>
         <a href="resources.html" class="nav-link active">Resources</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
       </nav>
     </div>
+    <div class="page-strap" aria-hidden="true"></div>
   </header>
 
-  <main class="main-container page-content">
-    <section class="space-y-12">
-      <div class="text-center pt-6">
-        <h2 class="text-3xl font-bold text-golden-brown mb-4 border-b-2 pb-2">Handler Toolkit</h2>
-        <p class="text-lg text-gray-700 max-w-2xl mx-auto">
-          Essential Gear & Information for Service Dog Handlers.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="p-4">
-            <h3 class="font-bold text-golden-brown text-xl mb-2"><i class="fas fa-vest mr-2"></i> The Vest</h3>
-            <p class="text-gray-700">A clear, labeled vest is the first line of defense against public interference. It signals "I am working."</p>
-          </div>
-          <div class="p-4">
-            <h3 class="font-bold text-golden-brown text-xl mb-2"><i class="fas fa-shoe-prints mr-2"></i> Boots</h3>
-            <p class="text-gray-700">Essential for protecting paws from hot asphalt in summer and road salt in winter.</p>
-          </div>
-          <div class="p-4">
-            <h3 class="font-bold text-golden-brown text-xl mb-2"><i class="fas fa-medkit mr-2"></i> Field First Aid</h3>
-            <p class="text-gray-700">I always carry a kit specific to canine trauma: gauze, vet wrap, and hydrogen peroxide.</p>
-          </div>
-           <div class="p-4">
-            <h3 class="font-bold text-golden-brown text-xl mb-2"><i class="fas fa-id-card mr-2"></i> ADA Info Cards</h3>
-            <p class="text-gray-700">Small handouts that explain federal access rights to business owners.</p>
-          </div>
+  <main class="container page-shell">
+    <section class="hero-grid fade-in-up">
+      <div class="hero-copy">
+        <p class="eyebrow">Prepared for every outing</p>
+        <h1>Handler resources</h1>
+        <p class="lead">Gear that keeps Dude safe, visible, and ready to work anywhere we go.</p>
+        <div class="cta-row">
+          <a href="safety.html" class="secondary-btn"><i class="fas fa-shield-alt"></i> Back to Safety</a>
+          <a href="index.html" class="primary-btn"><i class="fas fa-home"></i> Home base</a>
         </div>
       </div>
+      <div class="hero-media">
+        <figure class="media-frame narrow parallax-img">
+          <img src="DUDE.jpg" alt="Portrait of Dude ready to work" loading="lazy">
+          <figcaption>The Anchor: ready to work, ready to support.</figcaption>
+        </figure>
+      </div>
+    </section>
 
-      <div class="text-center space-x-4">
-        <a href="safety.html" class="secondary-btn"><i class="fas fa-arrow-left ml-2"></i> Safety</a>
-        <a href="index.html" class="primary-btn">Back Home <i class="fas fa-home ml-2"></i></a>
+    <section class="card slide-in-left">
+      <h2><i class="fas fa-toolbox" aria-hidden="true"></i> Handler focus</h2>
+      <div class="card-grid resources-grid">
+        <article class="callout">
+          <h3><i class="fas fa-vest"></i> The vest</h3>
+          <p>A clear, labeled vest is the first line of defense against public interference. It signals "I am working" to the world.</p>
+          <p>Features reflective patches for visibility and secure attachment points for ID tags.</p>
+        </article>
+
+        <article class="callout">
+          <h3><i class="fas fa-shoe-prints"></i> Boots</h3>
+          <p>Protects paws from hot asphalt in summer and road salt in winter. Healthy paws keep a working dog moving.</p>
+          <p>Durable rubber soles with adjustable straps ensure comfort during long shifts.</p>
+        </article>
+
+        <article class="callout">
+          <h3><i class="fas fa-medkit"></i> Field first aid</h3>
+          <p>A canine-specific kit with gauze, vet wrap, and hydrogen peroxide rides with us on every trip.</p>
+          <p>Includes emergency contact info for our vet and instructions for common injuries.</p>
+        </article>
+
+        <article class="callout">
+          <h3><i class="fas fa-id-card"></i> ADA info cards</h3>
+          <p>Small handouts that explain federal access rights to business owners who may not know the law.</p>
+          <p>Reduces confrontations and educates the public about service dog regulations.</p>
+        </article>
+
+        <article class="callout">
+          <h3><i class="fas fa-water"></i> Hydration pack</h3>
+          <p>Collapsible water bowl and fresh water supply ensure Dude stays hydrated during outings.</p>
+          <p>Essential for maintaining focus and physical well-being during extended work periods.</p>
+        </article>
+
+        <article class="callout">
+          <h3><i class="fas fa-clipboard-list"></i> Training log</h3>
+          <p>Digital and paper records track training sessions, behavioral patterns, and medical alerts.</p>
+          <p>Helps identify patterns and document Dude's ongoing development as a service dog.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="card highlight-card stack-card fade-in-up">
+      <div>
+        <p class="eyebrow">Always stocked</p>
+        <h3 class="inline-heading">Ready to roll</h3>
+        <p>From boots to ADA cards, the right gear keeps Dude visible, protected, and focused on what matters most.</p>
+      </div>
+      <div class="cta-row">
+        <a class="text-link" href="gallery.html">See Dude in action <i class="fas fa-arrow-right"></i></a>
+        <a class="text-link" href="index.html">Return home <i class="fas fa-arrow-right"></i></a>
       </div>
     </section>
   </main>
 
-  <footer class="footer-bar text-center py-4 mt-8">
-    © 2025 Dude's Web Page.
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>© 2025 Dude: My Anchor To My Storm. <span class="heart-beat">❤️</span></p>
+      <a class="back-to-top" href="#top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i> Back to top
+      </a>
+    </div>
   </footer>
+
+  <script>
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
