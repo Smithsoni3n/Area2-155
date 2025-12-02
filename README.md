@@ -1,6 +1,6 @@
 # Area-155
 
-![MOON. Banner](docs/Area-155.jpg)
+  ![MOON. Banner](docs/Area-155.jpg)
 ![Tagline](docs/tagline.svg)
 
 ---Welcome to my CIS-155 portfolio. Each project below reflects a unique challenge, creative twist, or technical milestone. No templates. No shortcuts. Just expressive code.---
