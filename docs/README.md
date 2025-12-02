@@ -21,9 +21,3 @@
 
 © 2025 **Crystal Lyn Reise**  
 *“We are the ArchiTechs of the Digital Frontier.”*
-
-### Assets
-- [Tagline Page](tagline.html)  
-- [Tagline CSS](tagline.css)  
-- [Main Styles](styles.css)
-
