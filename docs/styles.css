@@ -1,9 +1,15 @@
+/* Import Charm font */
+@import url('https://fonts.googleapis.com/css2?family=Charm:wght@400&display=swap');
+
 body {
   background: #111;
   color: #eee;
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
+}
+
+/* Banner setup */
 .banner {
   width: 100vw;
   height: 100vh;
@@ -43,7 +49,7 @@ body {
   pointer-events: none;
 }
 
-/* Optional: animated wave effect */
+/* Animated wave effect */
 .banner::after {
   content: "";
   position: absolute;
@@ -69,16 +75,16 @@ body {
   to { left: 0%; }
 }
 
-
-.content {
-  text-align: center;
-  padding: 2rem;
+/* Panel styling: Charm font + radioactive silver shimmer + centered */
+.panel {
+  font-family: "Charm", cursive; /* new font */
+  font-size: 19px; /* ~18–20px */
+  color: #cfd2d6; /* silver base */
+  text-align: center; /* centers text inside */
+  text-shadow:
+    0 0 6px rgba(192,192,192,0.7),
+    0 0 12px rgba(192,192,192,0.5),
+    0 0 20px rgba(255,255,255,0.3);
+  margin: 2rem auto; /* centers block itself */
+  max-width: 900px; /* keeps it neat */
 }
-
-blockquote {
-  font-style: italic;
-  margin: 2rem auto;
-  max-width: 600px;
-  line-height: 1.6;
-}
-
