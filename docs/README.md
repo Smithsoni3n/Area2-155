@@ -3,8 +3,7 @@
 
 # Area-155
 
----Welcome to my CIS-155 portfolio. Each project below reflects a unique challenge, creative twist, or technical milestone.  
-No templates. No shortcuts. Just expressive code.---
+
 
 ## Project List
 
@@ -29,3 +28,4 @@ No templates. No shortcuts. Just expressive code.---
 - [Tagline Page](docs/tagline.html)  
 - [Tagline CSS](docs/tagline.css)  
 - [Main Styles](docs/styles.css)
+
