@@ -1,12 +1,13 @@
-/* Import all three fonts */
-@import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&family=Charm&family=Bonheur+Royale&display=swap');
-
-/* Reset + base */
+/* Performance / smoothing */
 html, body {
   margin: 0;
   padding: 0;
   background: #000;
   color: #eee;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
 /* Banner centered */
@@ -59,4 +60,11 @@ html, body {
   text-align: center;
   margin: 1rem auto;
   max-width: 800px;
+}
+
+/* Small responsive tweaks */
+@media (max-width: 480px) {
+  .area-heading { font-size: 2rem; }
+  .charm-regular { font-size: 16px; max-width: 92%; }
+  .bonheur-royale-regular { font-size: 18px; max-width: 92%; }
 }
