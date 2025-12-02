@@ -3,71 +3,239 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dude: Story</title>
+  <meta name="description" content="Meet Dude, a Pitbull × German Shepherd service dog who provides emotional support and medical assistance.">
+  <title>Dude: My Anchor To My Storm</title>
   <link rel="stylesheet" href="styles.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="icon" type="image/jpg" href="stick.jpg">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
-
 <body id="top">
-  <header class="header-gradient shadow-xl sticky top-0 z-10">
-    <div class="main-container flex justify-between items-center">
-      <h1 class="text-3xl font-extrabold tracking-tight text-white">
-        <i class="fas fa-paw mr-2"></i> Dude: Service Animal
-      </h1>
-      <nav>
+  <header class="site-header">
+    <div class="container header-bar">
+      <div class="brand">
+        <span class="brand-icon" aria-hidden="true"><i class="fas fa-anchor"></i></span>
+        <div class="brand-text">
+          <span class="brand-kicker">The Anchor</span>
+          <span class="brand-title">To My Storm</span>
+        </div>
+      </div>
+      <nav class="main-nav" aria-label="Primary">
         <a href="index.html" class="nav-link active">Story</a>
         <a href="facts.html" class="nav-link">Facts</a>
         <a href="safety.html" class="nav-link">Safety</a>
         <a href="resources.html" class="nav-link">Resources</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
       </nav>
     </div>
+    <div class="page-strap" aria-hidden="true"></div>
   </header>
 
-  <main class="main-container page-content">
-    <section class="space-y-12">
-      <div class="text-center pt-4">
-        <p class="text-lg font-medium text-gray-700">
-          Meet my bestfriend, Dude! A Pitbull and German Shepherd mix.
-        </p>
-      </div>
-
-      <div class="card text-center">
-        <img src="dude.jpg" alt="Portrait of Dude" class="rounded-lg shadow-md mx-auto max-w-md">
-      </div>
-
-      <div class="card story-card">
-        <h2 class="text-3xl font-bold mb-4 border-b-2 border-golden-brown pb-3 text-golden-brown">Our Story</h2>
-        
-        <p class="text-lg leading-relaxed mb-4">
-          Dude is the friend who showed up when I needed someone most. Life was tough, filled with challenges from family to relationships, and facing it all alone felt endless. I spent years keeping busy and taking care of everyone else so I wouldn’t have to deal with what hurt. Even after breaking away, it was hard to share my story or let anyone in, so I held most of it inside.
-        </p>
-        
-        <p class="text-lg leading-relaxed mb-4">
-          Things started to change when my friend brought home a puppy and my kids joined in to help, and from the moment I met him, something felt lighter. He manages to lift my mood and make me smile, pulling me out of that anxious place.
-        </p>
-        
-        <p class="text-lg leading-relaxed mb-4">
-          When my mom passed away last year, I created a memorial in the front yard for her, and Dude was always there, aware of my pain, giving quiet support just by being present and listening in his way. There were days when all I could do was sit on my front porch, feeling completely alone and with nobody to confide in, and Dude was all I had. That’s when it really hit me. His presence and comfort are exactly what makes a service animal. He saved my life and still continues to do so every day.
-        </p>
-
-        <div class="mt-8 text-center">
-           <img src="flowers.jpg" alt="Dude sitting by the flowers" class="rounded-lg shadow-md mx-auto max-w-md">
-           <p class="text-sm italic text-gray-700 mt-2">Dude's very aware, compassionate, and strong.</p>
+  <main class="container page-shell">
+    <section class="hero-grid fade-in-up">
+      <div class="hero-copy">
+        <p class="eyebrow">Pitbull × German Shepherd</p>
+        <h1 class="gradient-text">Meet Dude — the calm inside the storm.</h1>
+        <p class="lead">He showed up when life felt heaviest and has been the steady pulse ever since. Loyal, intuitive, and always on duty, Dude keeps watch so I can breathe.</p>
+        <div class="cta-row">
+          <a class="primary-btn" href="facts.html">
+            <i class="fas fa-chart-line"></i> Explore the facts
+          </a>
+          <a class="secondary-btn" href="gallery.html">
+            <i class="fas fa-images"></i> View gallery
+          </a>
         </div>
       </div>
+      <div class="hero-media">
+        <figure class="media-frame parallax-img">
+          <img src="flowers.jpg" alt="Dude standing near wildflowers" loading="lazy">
+          <figcaption>Dude is aware, compassionate, and strong.</figcaption>
+        </figure>
+      </div>
+    </section>
 
-      <div class="text-center">
-        <a href="facts.html" class="primary-btn">
-          Continue to Facts <i class="fas fa-arrow-right ml-2"></i>
+    <!-- Stats Counter Section -->
+    <section class="stats-banner fade-in-up">
+      <div class="stat-item">
+        <div class="stat-number" data-target="2">0</div>
+        <div class="stat-label">Years Together</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="730">0</div>
+        <div class="stat-label">Days of Support</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="100">0</div>
+        <div class="stat-label">% Dedicated</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="1">0</div>
+        <div class="stat-label">Life Saved</div>
+      </div>
+    </section>
+
+    <section class="card-stack">
+      <article class="card slide-in-left">
+        <h2><i class="fas fa-heart"></i> Our Story</h2>
+        <p>Dude is the friend who showed up when I needed someone most. Life was tough, filled with challenges from family to relationships, and facing it all alone felt endless. I spent years keeping busy and taking care of everyone else so I wouldn't have to deal with what hurt.</p>
+        <p>Even after breaking away, it was hard to share my story or let anyone in, so I held most of it inside. Things started to change when my friend brought home a puppy and my kids joined in to help, and from the moment I met him, something felt lighter. He manages to lift my mood and make me smile, pulling me out of that anxious place.</p>
+        <p>When my mom passed away last year, I created a memorial in the front yard for her, and Dude was always there, aware of my pain, giving quiet support just by being present and listening in his way. There were days when all I could do was sit on my front porch, feeling completely alone and with nobody to confide in, and Dude was all I had. That's when it really hit me. His presence and comfort are exactly what makes a service animal. He saved my life and still continues to do so every day.</p>
+      </article>
+
+      <!-- Testimonial Slider -->
+      <article class="card testimonial-card slide-in-right">
+        <div class="testimonial-header">
+          <i class="fas fa-quote-left quote-icon"></i>
+          <h2>What Dude Means</h2>
+        </div>
+        <div class="testimonial-slider">
+          <div class="testimonial-item active">
+            <p class="testimonial-text">"Dude isn't just a pet — he's my lifeline. When panic sets in, he's there before I even realize I need him. His calm presence grounds me instantly."</p>
+            <p class="testimonial-author">— Handler Reflection</p>
+          </div>
+          <div class="testimonial-item">
+            <p class="testimonial-text">"Watching the bond between them is powerful. Dude reads every mood, every need, without a single command. That's not training — that's love and intuition."</p>
+            <p class="testimonial-author">— Family Member</p>
+          </div>
+          <div class="testimonial-item">
+            <p class="testimonial-text">"The dedication is remarkable. In stores, parks, everywhere — Dude never breaks focus. He's working, protecting, and it shows in every alert movement."</p>
+            <p class="testimonial-author">— Community Observer</p>
+          </div>
+        </div>
+        <div class="testimonial-controls">
+          <button class="testimonial-btn" onclick="prevTestimonial()" aria-label="Previous testimonial">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="testimonial-dots">
+            <span class="dot active" onclick="goToTestimonial(0)"></span>
+            <span class="dot" onclick="goToTestimonial(1)"></span>
+            <span class="dot" onclick="goToTestimonial(2)"></span>
+          </div>
+          <button class="testimonial-btn" onclick="nextTestimonial()" aria-label="Next testimonial">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </article>
+
+      <article class="card highlight-card fade-in-up">
+        <div>
+          <p class="eyebrow">Always together</p>
+          <h3 class="inline-heading">The Anchor in motion</h3>
+          <p>Dude reads the room before a word is spoken. His focus keeps me steady through panic, grief, and everything in between.</p>
+        </div>
+        <a class="text-link" href="facts.html">Continue to Facts <i class="fas fa-arrow-right"></i></a>
+      </article>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section fade-in-up">
+      <div class="cta-content">
+        <h2>See Dude in Action</h2>
+        <p>From training moments to quiet support, explore the photo gallery showcasing our journey together.</p>
+        <a href="gallery.html" class="primary-btn large-btn">
+          <i class="fas fa-camera"></i> Visit Gallery
         </a>
       </div>
     </section>
   </main>
 
-  <footer class="footer-bar text-center py-4 mt-8">
-    © 2025 Dude's Web Page.
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>© 2025 Dude: My Anchor To My Storm. <span class="heart-beat">❤️</span></p>
+      <a class="back-to-top" href="#top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i> Back to top
+      </a>
+    </div>
   </footer>
+
+  <script>
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Animated Stats Counter
+    const animateCounter = (element) => {
+      const target = parseInt(element.getAttribute('data-target'));
+      const duration = 2000;
+      const increment = target / (duration / 16);
+      let current = 0;
+
+      const updateCounter = () => {
+        current += increment;
+        if (current < target) {
+          element.textContent = Math.floor(current);
+          requestAnimationFrame(updateCounter);
+        } else {
+          element.textContent = target;
+        }
+      };
+
+      updateCounter();
+    };
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const numbers = entry.target.querySelectorAll('.stat-number');
+          numbers.forEach(num => {
+            if (num.textContent === '0') {
+              animateCounter(num);
+            }
+          });
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    const statsBanner = document.querySelector('.stats-banner');
+    if (statsBanner) {
+      statsObserver.observe(statsBanner);
+    }
+
+    // Testimonial Slider
+    let currentTestimonial = 0;
+    const testimonials = document.querySelectorAll('.testimonial-item');
+    const dots = document.querySelectorAll('.dot');
+
+    function showTestimonial(index) {
+      testimonials.forEach(t => t.classList.remove('active'));
+      dots.forEach(d => d.classList.remove('active'));
+      
+      testimonials[index].classList.add('active');
+      dots[index].classList.add('active');
+      currentTestimonial = index;
+    }
+
+    function nextTestimonial() {
+      const next = (currentTestimonial + 1) % testimonials.length;
+      showTestimonial(next);
+    }
+
+    function prevTestimonial() {
+      const prev = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+      showTestimonial(prev);
+    }
+
+    function goToTestimonial(index) {
+      showTestimonial(index);
+    }
+
+    // Auto-rotate testimonials
+    setInterval(nextTestimonial, 5000);
+  </script>
 </body>
 </html>
