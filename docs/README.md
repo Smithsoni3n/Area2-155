@@ -1,9 +1,9 @@
-# Area-155
+  Area-155
 
 ![MOON. Banner](area-155.jpg)
 ![Tagline](tagline.svg)
 
-## Project List
+Project List
 
 | Project | Description | Live Page |
 |---------|-------------|-----------|
@@ -19,3 +19,4 @@
 
 © 2025 **Crystal Lyn Reise**  
 *“We are the ArchiTechs of the Digital Frontier.”*
+
