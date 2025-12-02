@@ -3,67 +3,124 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Service dog safety and etiquette for Dude's work.">
   <title>Dude: Safety</title>
   <link rel="stylesheet" href="styles.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="icon" type="image/jpg" href="stick.jpg">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
-
 <body id="top">
-  <header class="header-gradient shadow-xl sticky top-0 z-10">
-    <div class="main-container flex justify-between items-center">
-      <h1 class="text-3xl font-extrabold tracking-tight text-white">
-        <i class="fas fa-paw mr-2"></i> Dude: Service Animal
-      </h1>
-      <nav>
+  <header class="site-header">
+    <div class="container header-bar">
+      <div class="brand">
+        <span class="brand-icon" aria-hidden="true"><i class="fas fa-anchor"></i></span>
+        <div class="brand-text">
+          <span class="brand-kicker">The Anchor</span>
+          <span class="brand-title">To My Storm</span>
+        </div>
+      </div>
+      <nav class="main-nav" aria-label="Primary">
         <a href="index.html" class="nav-link">Story</a>
         <a href="facts.html" class="nav-link">Facts</a>
         <a href="safety.html" class="nav-link active">Safety</a>
         <a href="resources.html" class="nav-link">Resources</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
       </nav>
     </div>
+    <div class="page-strap" aria-hidden="true"></div>
   </header>
 
-  <main class="main-container page-content">
-    <section class="space-y-12">
-      <div class="text-center pt-6">
-        <h2 class="text-3xl font-bold text-golden-brown mb-4 border-b-2 pb-2">Safety & Etiquette</h2>
-        <p class="text-lg text-gray-700 max-w-2xl mx-auto">
-          "Distraction is Dangerous." The Rules of Engagement.
-        </p>
-      </div>
-
-      <div class="card text-center">
-        <img src="dude.3.jpg" alt="Dude working in public" class="rounded-lg shadow-md mx-auto max-w-md">
-      </div>
-
-      <div class="card">
-        <h3 class="text-xl font-bold border-b-2 pb-2 text-golden-brown mb-4"><i class="fas fa-shield-alt mr-2"></i> Respect the Vest</h3>
-        <p class="text-lg leading-relaxed mb-4">
-          When you see a dog in a vest, you are looking at medical equipment with a heartbeat. It might look like he is just "standing there," but he is monitoring my heart rate and breathing.
-        </p>
-        <div class="grid md:grid-cols-2 gap-6 mt-6">
-          <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-            <h4 class="font-bold text-golden-brown mb-2"><i class="fas fa-hand-paper mr-2"></i> Do Not Touch</h4>
-            <p class="text-gray-700">Even a quick pat on the head breaks his focus. Imagine if someone unplugged your computer while you were working.</p>
-          </div>
-          <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-            <h4 class="font-bold text-golden-brown mb-2"><i class="fas fa-volume-mute mr-2"></i> Do Not Talk</h4>
-            <p class="text-gray-700">Making kissy noises or whistling forces him to choose between training and instinct. Don't make him choose.</p>
-          </div>
+  <main class="container page-shell">
+    <section class="hero-grid fade-in-up">
+      <div class="hero-copy">
+        <p class="eyebrow">Prepared together</p>
+        <h1>Safety & etiquette</h1>
+        <p class="lead">When Dude is working, every ounce of focus protects his handler. Respect the vest and let him do his job.</p>
+        <div class="cta-row">
+          <a href="facts.html" class="secondary-btn"><i class="fas fa-chart-line"></i> Back to Facts</a>
+          <a href="resources.html" class="primary-btn"><i class="fas fa-toolbox"></i> Gear and resources</a>
         </div>
       </div>
+      <div class="hero-media">
+        <figure class="media-frame narrow parallax-img">
+          <img src="DUDE.3.jpg" alt="Dude monitoring while on duty" loading="lazy">
+          <figcaption>On duty, locked in, and listening for every cue.</figcaption>
+        </figure>
+      </div>
+    </section>
 
-      <div class="text-center space-x-4">
-        <a href="facts.html" class="secondary-btn"><i class="fas fa-arrow-left ml-2"></i> Facts</a>
-        <a href="resources.html" class="primary-btn">Resources <i class="fas fa-arrow-right ml-2"></i></a>
+    <section class="card slide-in-left">
+      <h2><i class="fas fa-shield-alt" aria-hidden="true"></i> Respect the vest</h2>
+      <p>Medical guardian first: the vest signals Dude is on duty, safeguarding his handler's health. He's trained to stay alert, not to socialize or receive affection.</p>
+      <p>Protection depends on focus. Every distraction risks breaking that protective shield and slows his response to changes in my body.</p>
+
+      <div class="card-grid safety-grid">
+        <article class="callout">
+          <h3><i class="fas fa-hand-paper"></i> Do not touch</h3>
+          <p>Touching him shifts his attention away from guarding the handler. Even a quick pat interferes with his ability to detect medical changes.</p>
+          <p>Think of him as essential safety equipment. Hands off keeps us both secure.</p>
+        </article>
+
+        <article class="callout">
+          <h3><i class="fas fa-volume-mute"></i> Do not talk</h3>
+          <p>Service dogs respond to their handler's cues. Outside voices create confusion and force him to choose between instinct and duty.</p>
+          <p>Silence lets him stay locked on the job: guarding, monitoring, and protecting.</p>
+        </article>
+
+        <article class="callout">
+          <h3><i class="fas fa-eye"></i> Do not stare</h3>
+          <p>Prolonged eye contact can be interpreted as a threat or challenge, potentially triggering stress responses that break his focus.</p>
+          <p>A quick glance is fine, but extended staring interferes with his ability to concentrate on his handler.</p>
+        </article>
+
+        <article class="callout">
+          <h3><i class="fas fa-paw"></i> Keep dogs away</h3>
+          <p>Other animals can be extremely distracting. Dude must remain focused on his handler, not managing interactions with unfamiliar dogs.</p>
+          <p>Always ask before approaching any service dog team with your pet.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="card highlight-card stack-card fade-in-up">
+      <div>
+        <p class="eyebrow">Ready for anything</p>
+        <h3 class="inline-heading">Calm is our cue</h3>
+        <p>Respect keeps Dude on task. When you give him space, he keeps me safe.</p>
+      </div>
+      <div class="cta-row">
+        <a class="text-link" href="resources.html">Check the kit <i class="fas fa-arrow-right"></i></a>
+        <a class="text-link" href="gallery.html">View gallery <i class="fas fa-arrow-right"></i></a>
       </div>
     </section>
   </main>
 
-  <footer class="footer-bar text-center py-4 mt-8">
-    © 2025 Dude's Web Page.
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>© 2025 Dude: My Anchor To My Storm. <span class="heart-beat">❤️</span></p>
+      <a class="back-to-top" href="#top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i> Back to top
+      </a>
+    </div>
   </footer>
+
+  <script>
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
