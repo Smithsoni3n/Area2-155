@@ -1,4 +1,14 @@
+![MOON. Banner](docs/Area-155.jpg)
+![Tagline](docs/tagline.svg)
 
+
+# Area-155
+
+
+---Welcome to my CIS-155 portfolio. Each project below reflects a unique challenge, creative twist, or technical milestone. No templates. No shortcuts. Just expressive code.---
+
+
+## Project List
 
 
 
@@ -14,3 +24,13 @@
 | DUDE.ENGINE | WEBSITE | [View Site](https://smithsoni3n.github.io/Area2-155/DUDE.ENGINE/)
 | DUDEENGINE8 | WEBSITE | [View Site](https://smithsoni3n.github.io/Area2-155/DUDEENGINE8/)
 | DUDEENGINE9 | WEBSITE | [View Site](https://smithsoni3n.github.io/Area2-155/DUDEENGINE9/)
+| FUGLY4 | WEBSITE | [View Site](https://smithsoni3n.github.io/Area2-155/FUGLY4/)
+
+Chapter%203%2C%20Part%202%20Exercise%20Code/) |
+
+---
+
+© 2025 **Crystal Lyn Reise**  
+*“We are the ArchiTechs of the Digital Frontier.”*
+
+[chapter3Part1URL]: https://olympicc1.github.io/Area-155/Chapter%203%2C%20Part%201%20Exercise%20Code/
