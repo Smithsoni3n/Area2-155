@@ -62,13 +62,12 @@ html, body {
   max-width: 800px;
 }
 
-/* Tagline graphic centered */
-.tagline {
+/* Tagline text styled with Bonheur Royale */
+.tagline-text {
+  font-family: "Bonheur Royale", cursive;
+  font-size: 28px;
   text-align: center;
-  margin: 2rem 0;
-}
-
-.tagline img {
-  max-width: 60%;
-  height: auto;
+  margin: 2rem auto;
+  color: #eee;
+  text-shadow: 0 0 8px #00ffff, 0 0 16px #00ffff;
 }
