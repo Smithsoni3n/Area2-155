@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 400">
+  <defs>
+    <!-- Permanent gold base -->
+    <linearGradient id="baseGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFD700"/>
+      <stop offset="50%" stop-color="#E6BE8A"/>
+      <stop offset="100%" stop-color="#B8860B"/>
+    </linearGradient>
+
+    <!-- Moving highlight band -->
+    <linearGradient id="highlight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFF8DC" stop-opacity="0"/>
+      <stop offset="40%" stop-color="#FFFFFF" stop-opacity="0.7"/>
+      <stop offset="60%" stop-color="#FFF8DC" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#FFF8DC" stop-opacity="0"/>
+      <animateTransform attributeName="gradientTransform"
+                        type="translate" from="-1 0" to="1 0"
+                        dur="3s" repeatCount="indefinite"/>
+    </linearGradient>
+
+    <!-- Soft glow -->
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="100%" height="100%" fill="none"/>
+
+  <!-- Base gold layer -->
+  <g font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+     font-size="30" text-anchor="middle" font-style="italic" filter="url(#softGlow)">
+    <text x="800" y="70"  fill="url(#baseGold)">I don’t chase perfect!</text>
+    <text x="800" y="115" fill="url(#baseGold)">I chase what works!</text>
+    <text x="800" y="160" fill="url(#baseGold)">Trial, error, rebuild, repeat!</text>
+    <text x="800" y="205" fill="url(#baseGold)">If it’s broken, I’ll fix it, even if it’s just a light in the dark!</text>
+    <text x="800" y="250" fill="url(#baseGold)">This journey isn’t polished! It’s patched, tested, and running!</text>
+    <text x="800" y="295" fill="url(#baseGold)">That’s the voyage in search of new creation, it’s all a trip!</text>
+
+    <!-- Full REISE line (fit within wider layout) -->
+    <text x="800" y="350" fill="url(#baseGold)" font-size="25">
+      Reise (pronounced REZ-uh) * German meaning voyage, journey, or a trip. Some names you earn by living them, or evolving into them.
+    </text>
+  </g>
+
+  <!-- Highlight shimmer -->
+  <g font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+     font-size="30" text-anchor="middle" font-style="italic">
+    <text x="800" y="70"  fill="url(#highlight)">I don’t chase perfect!</text>
+    <text x="800" y="115" fill="url(#highlight)">I chase what works!</text>
+    <text x="800" y="160" fill="url(#highlight)">Trial, error, rebuild, repeat!</text>
+    <text x="800" y="205" fill="url(#highlight)">If it’s broken, I’ll fix it, even if it’s just a light in the dark!</text>
+    <text x="800" y="250" fill="url(#highlight)">This journey isn’t polished! It’s patched, tested, and running!</text>
+    <text x="800" y="295" fill="url(#highlight)">That’s the voyage in search of new creation, it’s all a trip!</text>
+
+    <!-- Full REISE shimmer (aligned with base) -->
+    <text x="800" y="350" fill="url(#highlight)" font-size="25">
+      Reise (pronounced REZ-uh) * German meaning voyage, journey, or a trip. Some names you earn by living them, or evolving into them.
+    </text>
+  </g>
+</svg>
