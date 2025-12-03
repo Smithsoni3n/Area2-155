@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&family=Charm&family=Bonheur+Royale&display=swap');
 
 /* Base reset */
+* { box-sizing: border-box; }
 html, body {
   margin: 0;
   padding: 0;
@@ -10,17 +11,34 @@ html, body {
   font-family: sans-serif;
 }
 
-/* Banner */
+/* Utility: hide headings for accessibility while keeping semantics */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+/* Header and banner */
+.site-header {
+  padding: 1rem 0;
+}
+
+/* Center the JPG banner reliably */
 .banner {
   display: flex;
   justify-content: center;
-  margin: 1rem 0;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .banner img {
+  display: block;
   max-width: 90%;
   height: auto;
-  display: block;
+  margin: 0 auto; /* makes sure it's centered even without flex */
 }
 
 /* Heading */
@@ -29,6 +47,7 @@ html, body {
   font-size: 3rem;
   text-align: center;
   margin: 1.25rem 0;
+  color: #eee;
   text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
 }
 
@@ -50,23 +69,11 @@ html, body {
     0 0 20px rgba(255,255,255,0.3);
 }
 
-/* Signature */
-.signature {
-  text-align: center;
-  margin: 1rem auto;
-  max-width: 800px;
-}
-
-.bonheur-royale-regular {
-  font-family: "Bonheur Royale", cursive;
-  font-size: 22px;
-  line-height: 1.2;
-}
-
 /* Tagline */
 .tagline {
   text-align: center;
   margin: 2rem auto;
+  max-width: 800px;
 }
 
 .tagline-text {
@@ -74,4 +81,17 @@ html, body {
   font-size: 28px;
   color: #eee;
   text-shadow: 0 0 8px #00ffff, 0 0 16px #00ffff;
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  margin: 2rem auto 2.5rem;
+  max-width: 800px;
+}
+
+.bonheur-royale-regular {
+  font-family: "Bonheur Royale", cursive;
+  font-size: 22px;
+  line-height: 1.2;
 }
