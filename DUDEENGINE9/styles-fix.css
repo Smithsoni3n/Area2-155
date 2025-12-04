@@ -1,0 +1,103 @@
+:root{
+  /* Greens (tuned away from neon toward natural emerald/teal) */
+  --forest:       #0f7a4e;
+  --forest-dark:  #0b5b3b;
+
+  /* Gold (rich, readable, non-neon metallic) */
+  --gold:         #C48F2F;
+  --gold-light:   #E0B859;
+  --gold-dark:    #8f6a1e;
+
+  /* Neutrals & text */
+  --cream:        #f6f2e9;
+  --soft-cream:   #f1eadc;
+  --card-surface: #fbf8f2;
+  --muted-text:   #5a4e44;
+  --text:         #2f2a26;
+
+  /* UI */
+  --glass-border: rgba(0,0,0,0.06);
+  --card-shadow:  0 14px 36px rgba(18, 38, 32, 0.06);
+}
+
+/* Override problem selectors from styles.css with minimal, high-impact fixes */
+
+/* Global smoother gradients and text */
+.gradient-text,
+.brand-title {
+  background: linear-gradient(110deg, var(--forest), var(--gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Brand icon: solid forest gradient, subtle glow */
+.brand-icon {
+  color: white;
+  background: linear-gradient(180deg, rgba(15,122,78,0.98), rgba(11,91,59,0.98));
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06), 0 10px 28px rgba(0,0,0,0.08);
+}
+
+/* Page stripe: less silver, less neon shimmer */
+.page-strap {
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--forest));
+  background-size: 180% 100%;
+  animation-duration: 6.8s;
+  opacity: 0.98;
+}
+
+/* Cards: tone down left gold bar and shadows to improve legibility */
+.card,
+.highlight-card {
+  background: linear-gradient(180deg, var(--card-surface), var(--soft-cream));
+  border-radius: 12px;
+  padding: clamp(1.2rem, 2.5vw, 1.8rem);
+  box-shadow: var(--card-shadow);
+  border-left: 6px solid rgba(0,0,0,0.04);
+  transition: transform .18s ease, box-shadow .18s ease, border-left-width .18s ease;
+}
+
+/* If card needs stronger accent, allow data-accent attribute */
+.card[data-accent="gold"] {
+  border-left-color: var(--gold);
+}
+.card[data-accent="forest"] {
+  border-left-color: var(--forest);
+}
+
+/* Title/icon contrast */
+.card h2, .card h3, .highlight-card h3 { color: var(--forest-dark); }
+.card h2 i, .card h3 i { color: var(--gold-dark); }
+
+/* Primary button: gold background but dark readable label */
+.primary-btn {
+  background: linear-gradient(120deg, var(--gold-light), var(--gold));
+  color: #1e160a;
+  box-shadow: 0 14px 30px rgba(37, 29, 18, 0.12);
+  border-color: rgba(0,0,0,0.03);
+}
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 46px rgba(37,29,18,0.14);
+}
+
+/* Nav links: keep white-on-forest but remove aggressive hover brightness */
+.nav-link { color: rgba(255,255,255,0.95); }
+.nav-link.active {
+  color: var(--gold-light);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Gallery: warmer background for image cards */
+.gallery-item { background: #fffaf5; }
+.gallery-caption { background: linear-gradient(to top, rgba(251,248,245,0.98), rgba(246,242,233,0.95)); }
+
+/* Dots and small accents */
+.dot.active { background: var(--forest); transform: scale(1.25); }
+.dot:hover { background: var(--gold-light); transform: scale(1.15); }
+
+/* Reduce excessive shimmer animation impact globally */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
