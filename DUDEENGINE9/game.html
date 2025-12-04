@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Play fun interactive games featuring Dude! Memory match and A Day in the Life adventure." />
+  <title>Games | Dude: My Anchor To My Storm</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body id="top" class="games-page">
+  <header class="site-header">
+    <div class="container header-bar">
+      <a href="index.html" class="brand">
+        <span class="brand-icon" aria-hidden="true"><i class="fas fa-anchor"></i></span>
+        <div class="brand-text">
+          <span class="brand-kicker">The Anchor</span>
+          <span class="brand-title">To My Storm</span>
+        </div>
+      </a>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html" class="nav-link">Story</a>
+        <a href="facts.html" class="nav-link">Facts</a>
+        <a href="safety.html" class="nav-link">Safety</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="game.html" class="nav-link active">🐕 Dog Game</a>
+      </nav>
+    </div>
+    <div class="page-strap" aria-hidden="true"></div>
+  </header>
+
+  <main class="container page-shell">
+    <div class="page-intro fade-in-up">
+      <p class="eyebrow">Interactive Fun</p>
+      <h1 class="gradient-text">🐕 Games with Dude</h1>
+      <p>Experience what it's like to have an amazing service dog companion through these interactive games!</p>
+    </div>
+
+    <div class="game-tabs fade-in-up">
+      <button class="game-tab active" onclick="switchGame(event, 'memory')">
+        <i class="fas fa-brain"></i> Memory Match
+      </button>
+      <button class="game-tab" onclick="switchGame(event, 'adventure')">
+        <i class="fas fa-book-open"></i> A Day with Dude
+      </button>
+    </div>
+
+    <div class="game-panel active" id="memory-panel">
+      <div class="game-card-shell">
+        <h2><i class="fas fa-images"></i> Dude Memory Match</h2>
+        <p class="game-meta">Match pairs of Dude's photos and quick clips. Each card is duplicated—find every duo to win!</p>
+
+        <div class="game-stats-bar">
+          <div class="game-stat">
+            <div class="game-stat-value" id="moves">0</div>
+            <div class="game-stat-label">Moves</div>
+          </div>
+          <div class="game-stat">
+            <div class="game-stat-value" id="matches">0</div>
+            <div class="game-stat-label">Matches</div>
+          </div>
+          <div class="game-stat">
+            <div class="game-stat-value" id="timer">0:00</div>
+            <div class="game-stat-label">Time</div>
+          </div>
+        </div>
+
+        <div class="memory-grid" id="memory-grid"></div>
+
+        <div style="text-align: center; margin-top: 0.5rem;">
+          <button class="primary-btn" onclick="initMemoryGame()">
+            <i class="fas fa-redo"></i> New Game
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="game-panel" id="adventure-panel">
+      <div class="adventure-container">
+        <div class="adventure-scene" id="adventure-scene"></div>
+        <div class="adventure-progress" id="adventure-progress"></div>
+        <div style="text-align: center; margin-top: 1rem;">
+          <button class="secondary-btn" onclick="restartAdventure()">
+            <i class="fas fa-redo"></i> Start Over
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="game-card-shell highlight-card fade-in-up" style="margin-top: 40px;">
+      <div>
+        <h3><i class="fas fa-heart"></i> Why These Games?</h3>
+        <p>These games help you understand the special bond between a service dog and their handler. Experience Dude's world through play!</p>
+      </div>
+      <a class="text-link" href="gallery.html">See More Photos <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>© 2025 Dude: My Anchor To My Storm. <span class="heart-beat">❤️</span></p>
+      <a class="back-to-top" href="#top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i> Back to top
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    function toggleMobileMenu() {
+      document.querySelector('.main-nav').classList.toggle('open');
+    }
+
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+      document.querySelector('.site-header').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Game Switching
+    function switchGame(event, game) {
+      document.querySelectorAll('.game-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.game-panel').forEach(p => p.classList.remove('active'));
+
+      event.target.closest('.game-tab').classList.add('active');
+      document.getElementById(`${game}-panel`).classList.add('active');
+    }
+
+    // Memory Match Game
+    const memorySources = [
+      { id: 'img-alert', type: 'image', src: 'dude.jpg', name: 'Alert Dude' },
+      { id: 'img-family', type: 'image', src: 'dude.2.jpg', name: 'Family Time' },
+      { id: 'img-moment', type: 'image', src: 'dude.3.jpg', name: 'Special Moment' },
+      { id: 'img-flowers', type: 'image', src: 'flowers.jpg', name: 'Memorial' },
+      { id: 'img-work', type: 'image', src: '3.jpg', name: 'Working' },
+      { id: 'img-play', type: 'image', src: 'stick.jpg', name: 'Playtime' },
+      { id: 'vid-forest', type: 'video', src: 'https://hailuoai.video/share/ai-video/Dn3pvpwwqElb?source-scene=shared&source-media=shared_link', name: 'Forest Sprint' },
+      { id: 'vid-beach', type: 'video', src: 'https://hailuoai.video/share/ai-video/Vp3Lxj9XQwX0?source-scene=shared&source-media=shared_link', name: 'Sunlit Strides' },
+      { id: 'vid-playful', type: 'video', src: 'https://hailuoai.video/share/ai-video/Xo32WpvNKJ7g?source-scene=shared&source-media=shared_link', name: 'Joyful Jumps' }
+    ];
+
+    let memoryCards = [];
+    let flippedCards = [];
+    let matchedPairs = 0;
+    let moves = 0;
+    let timerInterval;
+    let seconds = 0;
+    let gameActive = false;
+
+    function initMemoryGame() {
+      matchedPairs = 0;
+      moves = 0;
+      seconds = 0;
+      flippedCards = [];
+      gameActive = true;
+
+      clearInterval(timerInterval);
+      updateStats();
+
+      memoryCards = [...memorySources, ...memorySources]
+        .sort(() => Math.random() - 0.5)
+        .map((card, index) => ({ ...card, uniqueId: index }));
+
+      const grid = document.getElementById('memory-grid');
+      grid.innerHTML = memoryCards.map((card, i) => `
+        <div class="memory-card" data-index="${i}" onclick="flipMemoryCard(this)">
+          <div class="memory-card-inner">
+            <div class="memory-face memory-front">
+              <i class="fas fa-paw"></i>
+            </div>
+            <div class="memory-face memory-back">
+              ${card.type === 'video'
+                ? `<video src="${card.src}" muted loop playsinline preload="metadata"></video>`
+                : `<img src="${card.src}" alt="${card.name}" loading="lazy">`}
+              <div class="memory-label">${card.name}</div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      timerInterval = setInterval(() => {
+        seconds++;
+        document.getElementById('timer').textContent = formatTime(seconds);
+      }, 1000);
+    }
+
+    function flipMemoryCard(cardEl) {
+      if (!gameActive) return;
+      if (flippedCards.length >= 2) return;
+      if (cardEl.classList.contains('flipped')) return;
+      if (cardEl.classList.contains('matched')) return;
+
+      cardEl.classList.add('flipped');
+      flippedCards.push(cardEl);
+
+      if (flippedCards.length === 2) {
+        moves++;
+        document.getElementById('moves').textContent = moves;
+
+        const idx1 = parseInt(flippedCards[0].dataset.index, 10);
+        const idx2 = parseInt(flippedCards[1].dataset.index, 10);
+
+        if (memoryCards[idx1].id === memoryCards[idx2].id) {
+          flippedCards.forEach(c => c.classList.add('matched'));
+          matchedPairs++;
+          document.getElementById('matches').textContent = matchedPairs;
+          flippedCards = [];
+          playSuccessSound();
+
+          if (matchedPairs === memorySources.length) {
+            gameActive = false;
+            clearInterval(timerInterval);
+            setTimeout(() => {
+              createConfetti();
+              alert(`🎉 You won!\n\nMoves: ${moves}\nTime: ${formatTime(seconds)}\n\nDude is proud of you!`);
+            }, 400);
+          }
+        } else {
+          setTimeout(() => {
+            flippedCards.forEach(c => c.classList.remove('flipped'));
+            flippedCards = [];
+          }, 900);
+        }
+      }
+    }
+
+    function formatTime(sec) {
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      return `${m}:${s.toString().padStart(2, '0')}`;
+    }
+
+    function updateStats() {
+      document.getElementById('moves').textContent = moves;
+      document.getElementById('matches').textContent = matchedPairs;
+      document.getElementById('timer').textContent = '0:00';
+    }
+
+    function playSuccessSound() {
+      const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      osc.frequency.setValueAtTime(523, audioCtx.currentTime);
+      osc.frequency.setValueAtTime(659, audioCtx.currentTime + 0.1);
+      osc.frequency.setValueAtTime(784, audioCtx.currentTime + 0.2);
+
+      gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
+
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.4);
+    }
+
+    // Adventure Game
+    const adventureScenes = [
+      {
+        id: 'start',
+        image: 'flowers.jpg',
+        narrator: 'Morning breaks softly...',
+        text: "You wake up feeling anxious. The weight of yesterday's worries sits heavy on your chest. But then you feel a warm presence at your side — Dude is already awake, watching you with calm, knowing eyes.",
+        choices: [
+          { text: 'Reach out to pet Dude', icon: 'fa-hand', next: 'pet' },
+          { text: 'Try to get up quickly', icon: 'fa-person-running', next: 'rush' }
+        ]
+      },
+      {
+        id: 'pet',
+        image: 'dude.jpg',
+        narrator: 'Connection through touch...',
+        text: 'As your hand meets Dude\'s fur, you feel your heartbeat slow. He leans into you, a gentle pressure that says "I\'m here. Take your time." Your breathing deepens. The anxiety loosens its grip.',
+        choices: [
+          { text: 'Take a moment to ground yourself', icon: 'fa-spa', next: 'ground' }
+        ]
+      },
+      {
+        id: 'rush',
+        image: '3.jpg',
+        narrator: 'Dude notices...',
+        text: "You try to push through, but Dude steps in front of you, blocking your path gently. He's not being stubborn — he's doing his job. He can sense your elevated heart rate, the tension in your movements. He wants you to slow down.",
+        choices: [
+          { text: 'Listen to Dude and pause', icon: 'fa-pause', next: 'ground' }
+        ]
+      },
+      {
+        id: 'ground',
+        image: 'dude.2.jpg',
+        narrator: 'Finding center...',
+        text: 'You sit on the edge of the bed. Dude rests his head on your knee, warm and solid. You focus on his breathing — slow, steady. You match it. In. Out. In. Out. The world feels more manageable now.',
+        choices: [
+          { text: 'Start the day together', icon: 'fa-mug-hot', next: 'morning' }
+        ]
+      },
+      {
+        id: 'morning',
+        image: 'stick.jpg',
+        narrator: 'A new day begins...',
+        text: "The morning routine flows easier with Dude by your side. He watches as you make coffee, his tail wagging when you grab his leash. There's joy in his eyes — he loves this part. A quick walk before the day's challenges.",
+        choices: [
+          { text: 'Head outside for a walk', icon: 'fa-tree', next: 'walk' }
+        ]
+      },
+      {
+        id: 'walk',
+        image: '5.jpeg',
+        narrator: 'Fresh air and companionship...',
+        text: 'The cool morning air fills your lungs. Dude walks beside you in perfect sync, alert but relaxed. A neighbor waves, and Dude\'s focus stays on you. He\'s working, even now. Protecting your peace.',
+        choices: [
+          { text: 'Return home feeling ready', icon: 'fa-home', next: 'ready' }
+        ]
+      },
+      {
+        id: 'ready',
+        image: 'dude.3.jpg',
+        narrator: 'Strength found...',
+        text: "Back home, you feel different than when you woke up. The anxiety hasn't disappeared — it never fully does — but it's manageable now. Dude sits at your feet, looking up at you with those wise eyes. Whatever the day brings, you'll face it together.",
+        choices: [
+          { text: 'Face the day with Dude', icon: 'fa-sun', next: 'end' }
+        ]
+      },
+      {
+        id: 'end',
+        image: 'flowers.jpg',
+        narrator: 'The anchor holds...',
+        text: '🐕 This is what Dude does, every single day. He doesn\'t fix everything — but he makes everything bearable. He\'s the calm inside the storm, the anchor that keeps you grounded. And he\'ll be there tomorrow, too.',
+        choices: []
+      }
+    ];
+
+    function initAdventure() {
+      renderScene('start');
+      updateProgress(1);
+    }
+
+    function renderScene(sceneId) {
+      const scene = adventureScenes.find(s => s.id === sceneId);
+      const container = document.getElementById('adventure-scene');
+
+      container.innerHTML = `
+        <img src="${scene.image}" alt="Scene" class="scene-image">
+        <p class="scene-narrator">${scene.narrator}</p>
+        <p class="scene-text">${scene.text}</p>
+        ${scene.choices.length > 0 ? `
+          <div class="choice-buttons">
+            ${scene.choices.map(c => `
+              <button class="choice-btn" onclick="makeChoice('${c.next}')">
+                <i class="fas ${c.icon}"></i>
+                ${c.text}
+              </button>
+            `).join('')}
+          </div>
+        ` : `
+          <div class="victory-screen">
+            <span class="trophy">🏆</span>
+            <p class="victory-message">Dude guided you through the day with calm and care.</p>
+            <button class="primary-btn" onclick="restartAdventure()">
+              <i class="fas fa-redo"></i> Experience Again
+            </button>
+          </div>
+        `}
+      `;
+
+      if (scene.choices.length === 0) {
+        createConfetti();
+      }
+    }
+
+    function makeChoice(nextSceneId) {
+      const currentIndex = adventureScenes.findIndex(s => s.id === nextSceneId);
+      renderScene(nextSceneId);
+      updateProgress(currentIndex + 1);
+    }
+
+    function updateProgress(step) {
+      const total = adventureScenes.length;
+      const container = document.getElementById('adventure-progress');
+      container.innerHTML = '';
+
+      for (let i = 0; i < total; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'progress-step';
+        if (i < step - 1) dot.classList.add('completed');
+        if (i === step - 1) dot.classList.add('current');
+        container.appendChild(dot);
+      }
+    }
+
+    function restartAdventure() {
+      initAdventure();
+    }
+
+    function createConfetti() {
+      const colors = ['#2d5a3d', '#3d7a4f', '#d2ae6d', '#f5d479', '#ffd700'];
+      for (let i = 0; i < 45; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.animationDuration = (Math.random() * 1.5 + 2.2) + 's';
+        confetti.style.animationDelay = Math.random() * 0.6 + 's';
+        confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+        document.body.appendChild(confetti);
+        setTimeout(() => confetti.remove(), 5200);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initMemoryGame();
+      initAdventure();
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+      document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>
