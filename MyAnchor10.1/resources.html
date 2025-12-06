@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mental health resources, service dog organizations, and legal information">
+  <title>Resources | The Anchor to My Storm</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body id="top">
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="container header-bar">
+      <a href="index.html" class="brand">
+        <span class="brand-icon"><i class="fas fa-anchor"></i></span>
+        <div class="brand-text">
+          <span class="brand-kicker">The Anchor</span>
+          <span class="brand-title">To My Storm</span>
+        </div>
+      </a>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="safety.html" class="nav-link">Safety</a>
+        <a href="resources.html" class="nav-link active">Resources</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="facts.html" class="nav-link">Facts</a>
+        <a href="game.html" class="nav-link">🐕 Game</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container page-shell">
+    <div class="page-intro fade-in">
+      <p class="eyebrow">Help & Support</p>
+      <h1>Resources & Organizations</h1>
+      <p class="lead">Whether you're considering a service dog, need mental health support, or want to learn more about legal rights—these resources can guide your journey. Click each card to explore.</p>
+    </div>
+
+    <!-- Mental Health Resources (Spinning Cards) -->
+    <section style="margin-bottom: 5rem;">
+      <h2 style="font-size: 2.5rem; color: var(--deep-green); margin-bottom: 2rem; text-align: center;">
+        <i class="fas fa-brain"></i> Mental Health Support
+      </h2>
+      <div class="card-grid three-col">
+        <div class="spin-card fade-in stagger-1" onclick="this.classList.toggle('spinning')">
+          <div class="spin-card-inner">
+            <div class="spin-card-front">
+              <i class="fas fa-phone-volume"></i>
+              <h3>988 Lifeline</h3>
+              <p style="color: var(--pearl-white); font-size: 0.9rem;">Click to learn more</p>
+            </div>
+            <div class="spin-card-back">
+              <h3>988 Suicide & Crisis Lifeline</h3>
+              <p>Free, confidential support 24/7 for people in distress. Call or text 988 to connect with a trained counselor.</p>
+              <a href="https://988lifeline.org" target="_blank" rel="noopener">Visit Website <i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="spin-card fade-in stagger-2" onclick="this.classList.toggle('spinning')">
+          <div class="spin-card-inner">
+            <div class="spin-card-front">
+              <i class="fas fa-comments"></i>
+              <h3>NAMI</h3>
+              <p style="color: var(--pearl-white); font-size: 0.9rem;">Click to learn more</p>
+            </div>
+            <div class="spin-card-back">
+              <h3>National Alliance on Mental Illness</h3>
+              <p>Support, education, and advocacy as the nation's largest grassroots mental health organization.</p>
+              <a href="https://nami.org" target="_blank" rel="noopener">Visit Website <i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="spin-card fade-in stagger-3" onclick="this.classList.toggle('spinning')">
+          <div class="spin-card-inner">
+            <div class="spin-card-front">
+              <i class="fas fa-shield-halved"></i>
+              <h3>Veterans Crisis Line</h3>
+              <p style="color: var(--pearl-white); font-size: 0.9rem;">Click to learn more</p>
+            </div>
+            <div class="spin-card-back">
+              <h3>Support for Veterans</h3>
+              <p>Confidential support for veterans and families. Call 1-800-273-8255 (Press 1) or text 838255.</p>
+              <a href="https://www.veteranscrisisline.net" target="_blank" rel="noopener">Get Support <i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Dog Organizations (Spinning Cards) -->
+    <section style="margin-bottom: 5rem;">
+      <h2 style="font-size: 2.5rem; color: var(--deep-green); margin-bottom: 2rem; text-align: center;">
+        <i class="fas fa-dog"></i> Service Dog Organizations
+      </h2>
+      <div class="card-grid three-col">
+        <div class="spin-card fade-in stagger-1" onclick="this.classList.toggle('spinning')">
+          <div class="spin-card-inner">
+            <div class="spin-card-front">
+              <i class="fas fa-paw"></i>
+              <h3>Assistance Dogs Int'l</h3>
+              <p style="color: var(--pearl-white); font-size: 0.9rem;">Click to learn more</p>
+            </div>
+            <div class="spin-card-back">
+              <h3>Leading Authority</h3>
+              <p>Sets standards for training programs worldwide and accredits organizations.</p>
+              <a href="https://assistancedogsinternational.org" target="_blank" rel="noopener">Visit Website <i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="spin-card fade-in stagger-2" onclick="this.classList.toggle('spinning')">
+          <div class="spin-card-inner">
+            <div class="spin-card-front">
+              <i class="fas fa-heart-pulse"></i>
+              <h3>Canine Companions</h3>
+              <p style="color: var(--pearl-white); font-size: 0.9rem;">Click to learn more</p>
+            </div>
+            <div class="spin-card-back">
+              <h3>Free Service Dogs</h3>
+              <p>Provides expertly trained service dogs free of charge to people with disabilities.</p>
+              <a href="https://canine.org" target="_blank" rel="noopener">Visit Website <i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="spin-card fade-in stagger-3" onclick="this.classList.toggle('spinning')">
+          <div class="spin-card-inner">
+            <div class="spin-card-front">
+              <i class="fas fa-medal"></i>
+              <h3>K9s For Warriors</h3>
+              <p style="color: var(--pearl-white); font-size: 0.9rem;">Click to learn more</p>
+            </div>
+            <div class="spin-card-back">
+              <h3>Supporting Veterans</h3>
+              <p>Service dogs for veterans with PTSD, TBI, and military sexual trauma.</p>
+              <a href="https://k9sforwarriors.org" target="_blank" rel="noopener">Visit Website <i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Legal Resources (Spinning Cards) -->
+    <section style="margin-bottom: 5rem;">
+      <h2 style="font-size: 2.5rem; color: var(--deep-green); margin-bottom: 2rem; text-align: center;">
+        <i class="fas fa-scale-balanced"></i> Legal Information
+      </h2>
+      <div class="card-grid three-col">
+        <div class="spin-card fade-in stagger-1" onclick="this.classList.toggle('spinning')">
+          <div class="spin-card-inner">
+            <div class="spin-card-front">
+              <i class="fas fa-landmark"></i>
+              <h3>ADA.gov</h3>
+              <p style="color: var(--pearl-white); font-size: 0.9rem;">Click to learn more</p>
+            </div>
+            <div class="spin-card-back">
+              <h3>Service Animal Rights</h3>
+              <p>Official ADA guidelines on service animal access, requirements, and protections.</p>
+              <a href="https://www.ada.gov/topics/service-animals/" target="_blank" rel="noopener">Visit Website <i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="spin-card fade-in stagger-2" onclick="this.classList.toggle('spinning')">
+          <div class="spin-card-inner">
+            <div class="spin-card-front">
+              <i class="fas fa-plane"></i>
+              <h3>Air Travel Rights</h3>
+              <p style="color: var(--pearl-white); font-size: 0.9rem;">Click to learn more</p>
+            </div>
+            <div class="spin-card-back">
+              <h3>Air Carrier Access Act</h3>
+              <p>Rules for flying with service animals and airline responsibilities.</p>
+              <a href="https://www.transportation.gov/airconsumer/service-animals" target="_blank" rel="noopener">Visit Website <i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="spin-card fade-in stagger-3" onclick="this.classList.toggle('spinning')">
+          <div class="spin-card-inner">
+            <div class="spin-card-front">
+              <i class="fas fa-house"></i>
+              <h3>Housing Rights</h3>
+              <p style="color: var(--pearl-white); font-size: 0.9rem;">Click to learn more</p>
+            </div>
+            <div class="spin-card-back">
+              <h3>Fair Housing Act</h3>
+              <p>Assistance animal protections in housing, including no-pet buildings.</p>
+              <a href="https://www.hud.gov/program_offices/fair_housing_equal_opp/assistance_animals" target="_blank" rel="noopener">Visit Website <i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- JavaScript -->
+  <script>
+    function toggleMobileMenu() {
+      const nav = document.getElementById('mainNav');
+      nav.classList.toggle('active');
+    }
+
+    // Intersection Observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Photo gallery of Dude, my service dog through our journey together">
+  <title>Gallery | The Anchor to My Storm</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .gallery-spin-card {
+      perspective: 1000px;
+      height: 350px;
+      cursor: pointer;
+    }
+
+    .gallery-spin-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+
+    .gallery-spin-card.spinning .gallery-spin-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .gallery-front,
+    .gallery-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: -8px 0 16px var(--shadow-gold),
+                  0 10px 30px rgba(10, 102, 87, 0.25);
+    }
+
+    .gallery-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-back {
+      background: var(--green-pearl);
+      background-size: 200% 200%;
+      animation: pearlShimmer 6s ease-in-out infinite;
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .gallery-back h3 {
+      color: var(--my-sin);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .gallery-back p {
+      color: var(--pearl-white);
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .gallery-back .date {
+      color: var(--gold-accent);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body id="top">
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="container header-bar">
+      <a href="index.html" class="brand">
+        <span class="brand-icon"><i class="fas fa-anchor"></i></span>
+        <div class="brand-text">
+          <span class="brand-kicker">The Anchor</span>
+          <span class="brand-title">To My Storm</span>
+        </div>
+      </a>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="safety.html" class="nav-link">Safety</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="gallery.html" class="nav-link active">Gallery</a>
+        <a href="facts.html" class="nav-link">Facts</a>
+        <a href="game.html" class="nav-link">🐕 Game</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container page-shell">
+    <div class="page-intro fade-in">
+      <p class="eyebrow">Moments Together</p>
+      <h1>Our Journey in Pictures</h1>
+      <p class="lead">Every photo tells a story. From training days to quiet moments, these images capture the bond that saves my life every single day. Click any photo to learn more.</p>
+    </div>
+
+    <!-- Gallery Grid -->
+    <section class="card-grid three-col">
+      <!-- Photo 1 -->
+      <div class="gallery-spin-card fade-in stagger-1" onclick="this.classList.toggle('spinning')">
+        <div class="gallery-spin-card-inner">
+          <div class="gallery-front">
+            <img src="dude.jpg" alt="Dude alert and focused">
+          </div>
+          <div class="gallery-back">
+            <h3>Alert & Ready</h3>
+            <p>This is Dude in work mode—focused, alert, and ready to respond. His eyes are always watching, always aware of my wellbeing.</p>
+            <p class="date">Winter 2023</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photo 2 -->
+      <div class="gallery-spin-card fade-in stagger-2" onclick="this.classList.toggle('spinning')">
+        <div class="gallery-spin-card-inner">
+          <div class="gallery-front">
+            <img src="dude.2.jpg" alt="Dude with family">
+          </div>
+          <div class="gallery-back">
+            <h3>Family Time</h3>
+            <p>Even service dogs need downtime. Here's Dude relaxing with family—still protective, but allowing himself to just be a dog for a moment.</p>
+            <p class="date">Spring 2024</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photo 3 -->
+      <div class="gallery-spin-card fade-in stagger-3" onclick="this.classList.toggle('spinning')">
+        <div class="gallery-spin-card-inner">
+          <div class="gallery-front">
+            <img src="dude.3.jpg" alt="Dude special moment">
+          </div>
+          <div class="gallery-back">
+            <h3>Special Bond</h3>
+            <p>This moment captures everything—trust, love, and the unspoken understanding between us. He knows. He always knows.</p>
+            <p class="date">Summer 2024</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photo 4 -->
+      <div class="gallery-spin-card fade-in stagger-4" onclick="this.classList.toggle('spinning')">
+        <div class="gallery-spin-card-inner">
+          <div class="gallery-front">
+            <img src="flowers.jpg" alt="Memorial flowers">
+          </div>
+          <div class="gallery-back">
+            <h3>Through Loss</h3>
+            <p>During the hardest times, Dude stayed by my side. This photo represents grief, but also the strength he gave me to keep going.</p>
+            <p class="date">Fall 2024</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photo 5 -->
+      <div class="gallery-spin-card fade-in stagger-5" onclick="this.classList.toggle('spinning')">
+        <div class="gallery-spin-card-inner">
+          <div class="gallery-front">
+            <img src="stick.jpg" alt="Dude playing">
+          </div>
+          <div class="gallery-back">
+            <h3>Playtime</h3>
+            <p>He's not always working! Here's Dude enjoying his favorite stick—a reminder that joy exists even in the storm.</p>
+            <p class="date">Fall 2023</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photo 6 -->
+      <div class="gallery-spin-card fade-in stagger-6" onclick="this.classList.toggle('spinning')">
+        <div class="gallery-spin-card-inner">
+          <div class="gallery-front">
+            <img src="3.jpg" alt="Dude working">
+          </div>
+          <div class="gallery-back">
+            <h3>On Duty</h3>
+            <p>This is what dedication looks like. Every day, Dude chooses to be my anchor. That's the kind of love that saves lives.</p>
+            <p class="date">Winter 2024</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photo 7 -->
+      <div class="gallery-spin-card fade-in stagger-1" onclick="this.classList.toggle('spinning')">
+        <div class="gallery-spin-card-inner">
+          <div class="gallery-front">
+            <img src="4.jpeg" alt="Dude resting">
+          </div>
+          <div class="gallery-back">
+            <h3>Rest & Recovery</h3>
+            <p>Even anchors need rest. This peaceful moment shows Dude recharging, knowing he'll be ready when I need him.</p>
+            <p class="date">Spring 2024</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photo 8 -->
+      <div class="gallery-spin-card fade-in stagger-2" onclick="this.classList.toggle('spinning')">
+        <div class="gallery-spin-card-inner">
+          <div class="gallery-front">
+            <img src="5.jpeg" alt="Dude outdoors">
+          </div>
+          <div class="gallery-back">
+            <h3>Nature's Calm</h3>
+            <p>Outdoors, Dude finds his own peace. These walks help both of us breathe, reset, and face whatever comes next.</p>
+            <p class="date">Summer 2024</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photo 9 -->
+      <div class="gallery-spin-card fade-in stagger-3" onclick="this.classList.toggle('spinning')">
+        <div class="gallery-spin-card-inner">
+          <div class="gallery-front">
+            <img src="6.jpeg" alt="Dude portrait">
+          </div>
+          <div class="gallery-back">
+            <h3>The Look</h3>
+            <p>That look says it all. "I've got you. Always." It's the look that grounds me when everything else falls apart.</p>
+            <p class="date">Fall 2024</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photo 10 -->
+      <div class="gallery-spin-card fade-in stagger-4" onclick="this.classList.toggle('spinning')">
+        <div class="gallery-spin-card-inner">
+          <div class="gallery-front">
+            <img src="7.jpg" alt="Dude training">
+          </div>
+          <div class="gallery-back">
+            <h3>Training Days</h3>
+            <p>Before he was my anchor, he was a student. These training sessions built the skills that now save my life.</p>
+            <p class="date">Early 2023</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photo 11 -->
+      <div class="gallery-spin-card fade-in stagger-5" onclick="this.classList.toggle('spinning')">
+        <div class="gallery-spin-card-inner">
+          <div class="gallery-front">
+            <img src="8.jpg" alt="Dude happy">
+          </div>
+          <div class="gallery-back">
+            <h3>Pure Joy</h3>
+            <p>Sometimes it's the simple moments that matter most. A happy dog, a peaceful day, and gratitude for both.</p>
+            <p class="date">Summer 2024</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photo 12 -->
+      <div class="gallery-spin-card fade-in stagger-6" onclick="this.classList.toggle('spinning')">
+        <div class="gallery-spin-card-inner">
+          <div class="gallery-front">
+            <img src="9.jpg" alt="Dude companion">
+          </div>
+          <div class="gallery-back">
+            <h3>My Companion</h3>
+            <p>More than a service dog, he's my best friend, my protector, and the reason I believe in tomorrow.</p>
+            <p class="date">Present Day</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- JavaScript -->
+  <script>
+    function toggleMobileMenu() {
+      const nav = document.getElementById('mainNav');
+      nav.classList.toggle('active');
+    }
+
+    // Intersection Observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>

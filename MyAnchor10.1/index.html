@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The story of Dude, my service dog and anchor through life's storms">
+  <title>The Anchor to My Storm | Dude</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body id="top">
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="container header-bar">
+      <a href="index.html" class="brand">
+        <span class="brand-icon"><i class="fas fa-anchor"></i></span>
+        <div class="brand-text">
+          <span class="brand-kicker">The Anchor</span>
+          <span class="brand-title">To My Storm</span>
+        </div>
+      </a>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="safety.html" class="nav-link">Safety</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="facts.html" class="nav-link">Facts</a>
+        <a href="game.html" class="nav-link">🐕 Game</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container page-shell">
+    <!-- Hero Section -->
+    <div class="page-intro fade-in">
+      <p class="eyebrow">My Service Dog Journey</p>
+      <h1>The Anchor to My Storm</h1>
+      <p class="lead">This is Dude. He's not just a dog—he's my anchor, my calm in the chaos, and the reason I can face each day with courage.</p>
+    </div>
+
+    <!-- Clip-Path 3D Image Effect -->
+    <div class="clip-container">
+      <img src="flowers.jpg" alt="Dude with memorial flowers" class="clip-img">
+      <img src="flowers.jpg" alt="Dude with memorial flowers" class="clip-img">
+      <img src="flowers.jpg" alt="Dude with memorial flowers" class="clip-img">
+    </div>
+
+    <!-- Stats Banner -->
+    <section class="stats-banner fade-in stagger-2">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Years Together</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">730</div>
+          <div class="stat-label">Days of Support</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100</div>
+          <div class="stat-label">% Dedicated</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">1</div>
+          <div class="stat-label">Life Saved</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="card-grid two-col">
+      <article class="card fade-in stagger-3">
+        <h2><i class="fas fa-heart"></i> How We Met</h2>
+        <p>Two years ago, my life felt like an endless storm. Anxiety controlled every moment, and medical conditions made even simple tasks overwhelming. That's when Dude came into my life—not as a pet, but as a lifeline.</p>
+        <p>From the first day, he knew. He could sense when a panic attack was building, when my heart rate spiked, when I needed grounding. He didn't need to be told—it was instinct, connection, purpose.</p>
+      </article>
+
+      <article class="card fade-in stagger-4">
+        <h2><i class="fas fa-paw"></i> What He Does</h2>
+        <p>Dude is trained to detect changes in my heart rate and breathing. Before I even realize anxiety is taking hold, he's there—pressing against me, creating deep pressure that brings me back to reality.</p>
+        <p>He retrieves medication when I can't move. He guides me to safe spaces during episodes. He stands guard when the world feels too overwhelming. Every single day, he gives me the strength to keep going.</p>
+      </article>
+
+      <article class="card fade-in stagger-5">
+        <h2><i class="fas fa-anchor"></i> The Anchor</h2>
+        <p>People see a dog. I see my anchor. When everything feels chaotic—when my mind races and my body betrays me—Dude keeps me grounded. His calm presence reminds me that I'm not alone, that I'm safe, that I can breathe.</p>
+        <p>The memorial flowers in the photo represent loss, but also resilience. Through grief, through pain, through every storm—Dude has been there, steady and unwavering.</p>
+      </article>
+
+      <article class="card fade-in stagger-6">
+        <h2><i class="fas fa-sun"></i> Hope</h2>
+        <p>This website isn't just about Dude. It's about hope. It's about showing others what's possible when we have support, understanding, and unconditional love.</p>
+        <p>If you're struggling, know this: there is help. There is hope. And sometimes, hope comes with four paws and a wagging tail.</p>
+      </article>
+    </section>
+  </main>
+
+  <!-- JavaScript -->
+  <script>
+    function toggleMobileMenu() {
+      const nav = document.getElementById('mainNav');
+      nav.classList.toggle('active');
+    }
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>

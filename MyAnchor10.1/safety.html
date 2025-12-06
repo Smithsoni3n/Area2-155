@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Service dog safety and etiquette guidelines">
+  <title>Safety & Etiquette | The Anchor to My Storm</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body id="top">
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="container header-bar">
+      <a href="index.html" class="brand">
+        <span class="brand-icon"><i class="fas fa-anchor"></i></span>
+        <div class="brand-text">
+          <span class="brand-kicker">The Anchor</span>
+          <span class="brand-title">To My Storm</span>
+        </div>
+      </a>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="safety.html" class="nav-link active">Safety</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="facts.html" class="nav-link">Facts</a>
+        <a href="game.html" class="nav-link">🐕 Game</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container page-shell">
+    <div class="page-intro fade-in">
+      <p class="eyebrow">Respect & Understanding</p>
+      <h1>Service Dog Safety & Etiquette</h1>
+      <p class="lead">Understanding how to interact with service dogs keeps both the dog and handler safe. These guidelines help create a respectful environment for working teams.</p>
+    </div>
+
+    <!-- Locked Cards (No Spinning) -->
+    <section class="card-grid three-col">
+      <article class="locked-card fade-in stagger-1">
+        <i class="fas fa-hand-holding-heart" style="font-size: 3.5rem; color: var(--my-sin); margin-bottom: 1.5rem;"></i>
+        <h3>Don't Pet</h3>
+        <p>Service dogs are working when they're with their handler. Petting them can distract them from critical tasks like alerting to medical emergencies or providing balance support.</p>
+        <p style="margin-top: 1rem; color: var(--my-sin); font-weight: 600;">💡 Always ask permission first, and don't be offended if the answer is no.</p>
+      </article>
+
+      <article class="locked-card fade-in stagger-2">
+        <i class="fas fa-bowl-food" style="font-size: 3.5rem; color: var(--my-sin); margin-bottom: 1.5rem;"></i>
+        <h3>Don't Feed</h3>
+        <p>Service dogs follow strict diets and feeding schedules. Giving them food can cause health issues, digestive problems, or break their focus during critical moments.</p>
+        <p style="margin-top: 1rem; color: var(--my-sin); font-weight: 600;">💡 Even a small treat can disrupt months of training.</p>
+      </article>
+
+      <article class="locked-card fade-in stagger-3">
+        <i class="fas fa-ear-deaf" style="font-size: 3.5rem; color: var(--my-sin); margin-bottom: 1.5rem;"></i>
+        <h3>Don't Distract</h3>
+        <p>Making noises, whistling, or calling to a service dog pulls their attention away from their handler. This distraction could prevent them from detecting an oncoming medical episode.</p>
+        <p style="margin-top: 1rem; color: var(--my-sin); font-weight: 600;">💡 Pretend the dog is invisible—admire from afar silently.</p>
+      </article>
+
+      <article class="locked-card fade-in stagger-4">
+        <i class="fas fa-people-arrows" style="font-size: 3.5rem; color: var(--my-sin); margin-bottom: 1.5rem;"></i>
+        <h3>Talk to the Handler</h3>
+        <p>If you have questions or concerns, speak to the handler, not the dog. The handler can explain what their dog does and whether interaction is appropriate at that moment.</p>
+        <p style="margin-top: 1rem; color: var(--my-sin); font-weight: 600;">💡 Handlers appreciate respectful curiosity.</p>
+      </article>
+
+      <article class="locked-card fade-in stagger-5">
+        <i class="fas fa-ruler-horizontal" style="font-size: 3.5rem; color: var(--my-sin); margin-bottom: 1.5rem;"></i>
+        <h3>Give Space</h3>
+        <p>Service dog teams need personal space to work effectively. Crowding or blocking their path can create dangerous situations, especially in emergencies.</p>
+        <p style="margin-top: 1rem; color: var(--my-sin); font-weight: 600;">💡 Maintain at least 6 feet of distance when possible.</p>
+      </article>
+
+      <article class="locked-card fade-in stagger-6">
+        <i class="fas fa-scale-balanced" style="font-size: 3.5rem; color: var(--my-sin); margin-bottom: 1.5rem;"></i>
+        <h3>Know the Law</h3>
+        <p>Under the ADA, service dogs are allowed in all public spaces. Asking someone to remove their service dog or denying access is illegal and harmful.</p>
+        <p style="margin-top: 1rem; color: var(--my-sin); font-weight: 600;">💡 Only two questions are legally allowed: "Is this a service dog?" and "What tasks is it trained to perform?"</p>
+      </article>
+    </section>
+
+    <!-- Additional Info -->
+    <section class="card-grid two-col" style="margin-top: 4rem;">
+      <article class="card fade-in">
+        <h2><i class="fas fa-shield-alt"></i> Why This Matters</h2>
+        <p>Service dogs aren't pets—they're medical equipment with four legs and a heartbeat. When someone distracts or interferes with a service dog, they're potentially putting a person's life at risk.</p>
+        <p>For me, Dude's alerts have prevented dangerous situations. When he's distracted, those seconds matter. Respecting service dog teams means respecting our safety, independence, and dignity.</p>
+      </article>
+
+      <article class="card fade-in">
+        <h2><i class="fas fa-lightbulb"></i> How to Help</h2>
+        <p>The best way to support service dog teams? Give space, stay quiet around working dogs, and educate others. If you see someone violating these guidelines, politely intervene or notify staff.</p>
+        <p>Share this information. Advocate for access rights. And remember: every time you respect a service dog team's space, you're helping someone live their life more fully.</p>
+      </article>
+    </section>
+  </main>
+
+  <!-- JavaScript -->
+  <script>
+    function toggleMobileMenu() {
+      const nav = document.getElementById('mainNav');
+      nav.classList.toggle('active');
+    }
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
