@@ -1,0 +1,27 @@
+<svg width="100" height="60" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff59d;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ffd700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffb300;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Curved Trail -->
+  <path d="M25,40 Q50,10 90,5 L95,5 Q55,15 30,45 Z" fill="url(#goldGrad)" opacity="0.8" filter="url(#glow)"/>
+  
+  <!-- Sparkles -->
+  <circle cx="80" cy="10" r="1" fill="#fff" opacity="0.8" />
+  <circle cx="60" cy="20" r="1.5" fill="#ffd700" opacity="0.8" />
+  <circle cx="70" cy="15" r="1" fill="#fff" opacity="0.6" />
+  
+  <!-- Main Star -->
+  <path d="M15,35 L19,45 L29,45 L21,52 L24,62 L15,56 L6,62 L9,52 L1,45 L11,45 Z" fill="url(#goldGrad)" stroke="#b8860b" stroke-width="1" filter="url(#glow)" transform="rotate(-20 15 50)"/>
+</svg>
