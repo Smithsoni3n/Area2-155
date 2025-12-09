@@ -1699,3 +1699,78 @@ tr:last-child td {
 .flip-card.flipped .flip-back {
   opacity: 1 !important;
 }
+
+/* FIX CARD LAYOUT - PROPER SPACING AND HEIGHT */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 3rem !important;
+  margin: 3rem 0;
+  align-items: start;
+}
+
+.flip-card {
+  height: auto !important;
+  min-height: 450px !important;
+}
+
+.flip-card-inner {
+  min-height: 450px !important;
+}
+
+.flip-front,
+.flip-back {
+  min-height: 450px !important;
+  height: auto !important;
+  padding: 2rem !important;
+  overflow: auto;
+}
+
+.flip-back p {
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  margin-bottom: 1rem !important;
+}
+
+/* KEEP CARDS FLIPPED AND IN PLACE */
+.flip-card.flipped {
+  z-index: 10 !important;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg) !important;
+}
+
+.flip-card.flipped .flip-front {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.flip-card.flipped .flip-back {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* STAT CARDS WITH BACKGROUND IMAGES */
+.stat-card {
+  background-size: cover !important;
+  background-position: center !important;
+  position: relative;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  z-index: 0;
+}
+
+.stat-number,
+.stat-label {
+  position: relative;
+  z-index: 1;
+  color: white !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
