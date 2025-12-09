@@ -79,7 +79,7 @@ html {
 
 body {
   font-family: 'Playfair Display', Georgia, serif;
-  background: var(--sunset-gradient);
+  background: linear-gradient(180deg, #fefae0 0%, #ffeaa7 50%, #fdcb6e 100%);
   color: var(--yin-dark);
   line-height: 1.7;
   overflow-x: hidden;
@@ -523,4 +523,269 @@ h3 {
 .resources-page .flip-back a {
   color: white;
   text-decoration: underline;
+}
+
+/* ============================================
+   STATS BANNER - CLEAN MINIMAL CARDS
+   ============================================ */
+
+.stats-banner {
+  margin: 3rem 0;
+  width: 100%;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.stat-card {
+  position: relative;
+  height: 300px;
+  border-radius: 16px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
+}
+
+.stat-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, 
+    rgba(0, 0, 0, 0.3) 0%, 
+    rgba(0, 0, 0, 0.6) 100%);
+}
+
+.stat-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 4rem;
+  font-weight: 900;
+  color: white;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 1.2rem;
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ============================================
+   HERO SHOWCASE - MAIN IMAGE
+   ============================================ */
+
+.hero-showcase {
+  margin: 3rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image-container {
+  max-width: 900px;
+  width: 100%;
+}
+
+.hero-main-image {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
+}
+
+.glass-border-glow {
+  position: relative;
+  padding: 8px;
+  background: linear-gradient(135deg, 
+    var(--wisdom-gold) 0%,
+    var(--wisdom-purple) 50%,
+    var(--wisdom-gold) 100%);
+  border-radius: 20px;
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(212, 165, 116, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(156, 39, 176, 0.8);
+  }
+}
+
+/* ============================================
+   STORY CARD & BELIEVER CARD
+   ============================================ */
+
+.story-card,
+.believer-card {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.95) 0%, 
+    rgba(255, 255, 255, 0.9) 100%);
+  border-radius: 16px;
+  padding: 3rem;
+  margin: 3rem 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  border: 3px solid var(--wisdom-gold);
+}
+
+.story-card p,
+.believer-card p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.shooting-star-icon {
+  width: 32px;
+  height: 32px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .stat-card {
+    height: 200px;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+  }
+  
+  .stat-label {
+    font-size: 0.9rem;
+  }
+  
+  .story-card,
+  .believer-card {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   GLASS COLOR CLASSES FOR FLIP CARDS
+   ============================================ */
+
+.glass-burgundy {
+  background: var(--glass-burgundy) !important;
+  color: white !important;
+}
+
+.glass-purple {
+  background: var(--glass-purple) !important;
+  color: white !important;
+}
+
+.glass-gold {
+  background: var(--glass-gold) !important;
+  color: var(--yin-dark) !important;
+}
+
+.glass-green {
+  background: var(--glass-green) !important;
+  color: white !important;
+}
+
+.glass-blue {
+  background: var(--glass-blue) !important;
+  color: white !important;
+}
+
+.glass-tile {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.95) 0%, 
+    rgba(255, 255, 255, 0.85) 100%);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  border: 3px solid var(--wisdom-gold);
+  transition: all 0.3s ease;
+}
+
+.glass-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.25);
+}
+
+/* Flip card styling */
+.flip-front {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.95) 0%, 
+    rgba(254, 250, 240, 0.9) 100%);
+  border: 3px solid var(--wisdom-gold);
+  text-align: center;
+  color: var(--strength-burgundy);
+}
+
+.flip-front .card-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--wisdom-gold);
+}
+
+.flip-front h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--strength-burgundy);
+}
+
+.flip-arrow {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: var(--wisdom-gold);
+}
+
+.flip-back h3 {
+  color: white;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.flip-back p {
+  color: white;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
 }
