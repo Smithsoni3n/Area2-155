@@ -121,8 +121,17 @@
   </main>
 
   <script>
-    // MEMORY GAME
-    const icons = ['fa-paw', 'fa-heart', 'fa-bone', 'fa-shield-dog', 'fa-anchor', 'fa-star', 'fa-dove', 'fa-dog'];
+    // MEMORY GAME WITH REAL PHOTOS AND VIDEOS
+    const memoryMedia = [
+      {type: 'image', src: '1.jpg'},
+      {type: 'image', src: '2.jpg'},
+      {type: 'image', src: '3.jpg'},
+      {type: 'image', src: '4.jpg'},
+      {type: 'video', src: 'video.1.mp4'},
+      {type: 'video', src: 'video.2.mp4'},
+      {type: 'video', src: 'video.3.mp4'},
+      {type: 'video', src: 'video.4.mp4'}
+    ];
     let cards = [];
     let flipped = [];
     let matched = 0;
@@ -134,21 +143,30 @@
       const grid = document.getElementById('memoryGrid');
       grid.innerHTML = '';
       
-      const cardPairs = [...icons, ...icons];
+      const cardPairs = [...memoryMedia, ...memoryMedia];
       cardPairs.sort(() => Math.random() - 0.5);
       
-      cardPairs.forEach((icon, index) => {
+      cardPairs.forEach((media, index) => {
         const card = document.createElement('div');
         card.className = 'memory-card';
-        card.dataset.icon = icon;
+        card.dataset.src = media.src;
+        card.dataset.type = media.type;
         card.dataset.index = index;
+        
+        let backContent = '';
+        if (media.type === 'image') {
+          backContent = `<img src="${media.src}" alt="Card" style="width:100%; height:100%; object-fit:cover;">`;
+        } else {
+          backContent = `<video muted loop style="width:100%; height:100%; object-fit:cover;"><source src="${media.src}" type="video/mp4"></video>`;
+        }
+        
         card.innerHTML = `
           <div class="memory-card-inner">
             <div class="memory-front">
-              <i class="fas fa-question"></i>
+              <i class="fas fa-paw"></i>
             </div>
             <div class="memory-back">
-              <i class="fas ${icon}"></i>
+              ${backContent}
             </div>
           </div>
         `;
@@ -162,6 +180,14 @@
       if (flipped.length >= 2 || card.classList.contains('flipped') || card.classList.contains('matched')) return;
       
       card.classList.add('flipped');
+      
+      // Play video if it's a video card
+      const video = card.querySelector('video');
+      if (video) {
+        video.currentTime = 0;
+        video.play();
+      }
+      
       flipped.push(card);
       
       if (flipped.length === 2) {
@@ -174,19 +200,25 @@
     function checkMatch() {
       const [card1, card2] = flipped;
       
-      if (card1.dataset.icon === card2.dataset.icon) {
+      if (card1.dataset.src === card2.dataset.src) {
         card1.classList.add('matched');
         card2.classList.add('matched');
         matched++;
         document.getElementById('matches').textContent = matched;
         flipped = [];
         
-        if (matched === icons.length) {
+        if (matched === memoryMedia.length) {
           clearInterval(timerInterval);
           setTimeout(() => alert(`Congratulations! You won in ${moves} moves and ${formatTime(timer)}!`), 500);
         }
       } else {
         setTimeout(() => {
+          // Pause videos when flipping back
+          const video1 = card1.querySelector('video');
+          const video2 = card2.querySelector('video');
+          if (video1) { video1.pause(); video1.currentTime = 0; }
+          if (video2) { video2.pause(); video2.currentTime = 0; }
+          
           card1.classList.remove('flipped');
           card2.classList.remove('flipped');
           flipped = [];
@@ -204,6 +236,11 @@
 
     function resetMemoryGame() {
       clearInterval(timerInterval);
+      // Pause all videos
+      document.querySelectorAll('.memory-card video').forEach(v => {
+        v.pause();
+        v.currentTime = 0;
+      });
       cards = [];
       flipped = [];
       matched = 0;
