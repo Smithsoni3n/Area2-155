@@ -1643,3 +1643,27 @@ tr:last-child td {
     border: 1px solid #ccc;
   }
 }
+
+/* ABSOLUTE FIX FOR FLIP CARDS */
+.card-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  align-items: start;
+}
+
+.flip-card {
+  height: 420px !important;
+  min-height: 420px !important;
+  max-height: 420px !important;
+}
+
+.flip-card-inner {
+  height: 420px !important;
+  min-height: 420px !important;
+}
+
+.flip-front, .flip-back {
+  height: 420px !important;
+  min-height: 420px !important;
+}
