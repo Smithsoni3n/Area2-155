@@ -3,281 +3,163 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Service dog facts, breed information, and training insights">
-  <title>Facts | The Anchor to My Storm</title>
+  <meta name="description" content="Service Dog Facts - Understanding PTSD Service Dogs">
+  <title>Service Dog Facts - The Anchor to My Storm</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 2rem 0;
-      background: var(--pearl-white);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(10, 102, 87, 0.15);
-    }
-
-    thead {
-      background: var(--green-pearl);
-      background-size: 200% 200%;
-      animation: pearlShimmer 6s ease-in-out infinite;
-    }
-
-    th {
-      padding: 1.5rem;
-      text-align: left;
-      color: var(--my-sin);
-      font-weight: 700;
-      font-size: 1.1rem;
-      font-family: 'Inter', sans-serif;
-    }
-
-    td {
-      padding: 1.2rem 1.5rem;
-      color: #2d2d2d;
-      border-bottom: 1px solid rgba(10, 102, 87, 0.1);
-    }
-
-    tr:hover td {
-      background: rgba(255, 187, 37, 0.05);
-    }
-
-    tr:last-child td {
-      border-bottom: none;
-    }
-
-    .table-highlight {
-      background: rgba(212, 175, 55, 0.1);
-      font-weight: 600;
-      color: var(--deep-green);
-    }
-  </style>
 </head>
-<body id="top">
-  <!-- Navigation -->
+<body>
   <header class="site-header">
-    <div class="container header-bar">
-      <a href="index.html" class="brand">
-        <span class="brand-icon"><i class="fas fa-anchor"></i></span>
-        <div class="brand-text">
-          <span class="brand-kicker">The Anchor</span>
-          <span class="brand-title">To My Storm</span>
-        </div>
-      </a>
-      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-        <i class="fas fa-bars"></i>
-      </button>
-      <nav class="main-nav" id="mainNav">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="safety.html" class="nav-link">Safety</a>
-        <a href="resources.html" class="nav-link">Resources</a>
-        <a href="gallery.html" class="nav-link">Gallery</a>
-        <a href="facts.html" class="nav-link active">Facts</a>
-        <a href="game.html" class="nav-link">🐕 Game</a>
-      </nav>
+    <div class="container">
+      <div class="header-bar">
+        <a href="index.html" class="brand">
+          <i class="fas fa-anchor brand-icon"></i>
+          <div class="brand-text">
+            <span class="brand-kicker">The Anchor</span>
+            <span class="brand-title">To My Storm</span>
+          </div>
+        </a>
+        
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+        
+        <nav class="main-nav" id="mainNav">
+          <a href="index.html" class="nav-link">The Anchor</a>
+          <a href="facts.html" class="nav-link active">Facts</a>
+          <a href="safety.html" class="nav-link">Safety</a>
+          <a href="resources.html" class="nav-link">Resources</a>
+          <a href="gallery.html" class="nav-link">Gallery</a>
+          <a href="game.html" class="nav-link"><i class="fas fa-gamepad"></i> Game</a>
+        </nav>
+      </div>
     </div>
   </header>
 
-  <!-- Main Content -->
   <main class="container page-shell">
     <div class="page-intro fade-in">
-      <p class="eyebrow">Knowledge & Understanding</p>
+      <p class="eyebrow">Understanding Service Dogs</p>
       <h1>Service Dog Facts</h1>
-      <p class="lead">Learn about service dog breeds, training, and the incredible work these animals do. Click cards to discover more.</p>
+      <p class="lead">Learn about the incredible work service dogs do and how they transform lives every single day.</p>
     </div>
 
-    <!-- Breed Comparison Table (EXTRA CREDIT) -->
-    <section class="fade-in stagger-1" style="margin-bottom: 5rem;">
-      <h2 style="font-size: 2.5rem; color: var(--deep-green); margin-bottom: 2rem; text-align: center;">
-        <i class="fas fa-paw"></i> Breed Comparison: Understanding Dude's Heritage
-      </h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Trait</th>
-            <th>German Shepherd</th>
-            <th>Pitbull</th>
-            <th>Dude (Mixed)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="table-highlight">Intelligence</td>
-            <td>Extremely High - Ranked 3rd</td>
-            <td>High - Eager to Learn</td>
-            <td class="table-highlight">Exceptionally Smart</td>
-          </tr>
-          <tr>
-            <td class="table-highlight">Loyalty</td>
-            <td>Deeply Loyal to Handler</td>
-            <td>Intensely Devoted</td>
-            <td class="table-highlight">Unwavering Dedication</td>
-          </tr>
-          <tr>
-            <td class="table-highlight">Trainability</td>
-            <td>Excellent - Used in Police/Military</td>
-            <td>Very Good - Responsive</td>
-            <td class="table-highlight">Outstanding Response</td>
-          </tr>
-          <tr>
-            <td class="table-highlight">Energy Level</td>
-            <td>High - Needs Activity</td>
-            <td>High - Athletic Build</td>
-            <td class="table-highlight">Balanced Energy</td>
-          </tr>
-          <tr>
-            <td class="table-highlight">Protectiveness</td>
-            <td>Natural Guardian</td>
-            <td>Protective of Family</td>
-            <td class="table-highlight">Watchful & Alert</td>
-          </tr>
-          <tr>
-            <td class="table-highlight">Temperament</td>
-            <td>Confident, Courageous</td>
-            <td>Gentle, Affectionate</td>
-            <td class="table-highlight">Perfect Balance</td>
-          </tr>
-          <tr>
-            <td class="table-highlight">Size</td>
-            <td>65-90 lbs</td>
-            <td>30-60 lbs</td>
-            <td class="table-highlight">Medium-Large Build</td>
-          </tr>
-          <tr>
-            <td class="table-highlight">Service Dog Traits</td>
-            <td>Focus, Discipline</td>
-            <td>Empathy, Intuition</td>
-            <td class="table-highlight">Best of Both Worlds</td>
-          </tr>
-        </tbody>
-      </table>
-      <p style="text-align: center; color: #555; font-style: italic; margin-top: 1.5rem;">
-        Dude's mixed heritage gives him the intelligence and discipline of a German Shepherd combined with the empathy and devotion of a Pitbull—making him the perfect service dog.
-      </p>
-    </section>
-
-    <!-- Spinning Fact Cards -->
-    <section style="margin-bottom: 5rem;">
-      <h2 style="font-size: 2.5rem; color: var(--deep-green); margin-bottom: 2rem; text-align: center;">
-        <i class="fas fa-book-open"></i> Service Dog Facts
-      </h2>
-      <div class="card-grid three-col">
-        <div class="spin-card fade-in stagger-2" onclick="this.classList.toggle('spinning')">
-          <div class="spin-card-inner">
-            <div class="spin-card-front">
-              <i class="fas fa-graduation-cap"></i>
-              <h3>Training Timeline</h3>
-              <p style="color: var(--pearl-white); font-size: 0.9rem;">Click to learn more</p>
-            </div>
-            <div class="spin-card-back">
-              <h3>2+ Years</h3>
-              <p>Service dog training takes 18-24 months on average. Dogs learn over 40 specific tasks, socialization skills, and public access behavior before certification.</p>
-            </div>
+    <!-- FLIP CARDS FOR FACTS -->
+    <div class="card-grid three-col">
+      <div class="flip-card fade-in stagger-1" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <i class="fas fa-graduation-cap"></i>
+            <h3>Extensive Training</h3>
+            <p>Click to learn more</p>
           </div>
-        </div>
-
-        <div class="spin-card fade-in stagger-3" onclick="this.classList.toggle('spinning')">
-          <div class="spin-card-inner">
-            <div class="spin-card-front">
-              <i class="fas fa-heartbeat"></i>
-              <h3>Medical Detection</h3>
-              <p style="color: var(--pearl-white); font-size: 0.9rem;">Click to learn more</p>
-            </div>
-            <div class="spin-card-back">
-              <h3>5-20 Minutes</h3>
-              <p>Service dogs can detect medical episodes 5-20 minutes before they occur by sensing changes in body chemistry, heart rate, and subtle behavioral cues invisible to humans.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="spin-card fade-in stagger-4" onclick="this.classList.toggle('spinning')">
-          <div class="spin-card-inner">
-            <div class="spin-card-front">
-              <i class="fas fa-users"></i>
-              <h3>Success Rate</h3>
-              <p style="color: var(--pearl-white); font-size: 0.9rem;">Click to learn more</p>
-            </div>
-            <div class="spin-card-back">
-              <h3>50-70%</h3>
-              <p>Only 50-70% of dogs that begin service dog training complete the program. It requires specific temperament, focus, and natural aptitude that not all dogs possess.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="spin-card fade-in stagger-5" onclick="this.classList.toggle('spinning')">
-          <div class="spin-card-inner">
-            <div class="spin-card-front">
-              <i class="fas fa-clock"></i>
-              <h3>Working Hours</h3>
-              <p style="color: var(--pearl-white); font-size: 0.9rem;">Click to learn more</p>
-            </div>
-            <div class="spin-card-back">
-              <h3>Always On Call</h3>
-              <p>Service dogs work 24/7, constantly monitoring their handler's wellbeing. They never truly "clock out," even during rest periods. That's why burnout prevention and proper rest are critical.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="spin-card fade-in stagger-6" onclick="this.classList.toggle('spinning')">
-          <div class="spin-card-inner">
-            <div class="spin-card-front">
-              <i class="fas fa-brain"></i>
-              <h3>Intelligence Level</h3>
-              <p style="color: var(--pearl-white); font-size: 0.9rem;">Click to learn more</p>
-            </div>
-            <div class="spin-card-back">
-              <h3>Exceptional Cognitive Ability</h3>
-              <p>Service dogs demonstrate problem-solving abilities equivalent to a 2-3 year old human child. They can learn over 250 words and make independent decisions in emergencies.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="spin-card fade-in stagger-1" onclick="this.classList.toggle('spinning')">
-          <div class="spin-card-inner">
-            <div class="spin-card-front">
-              <i class="fas fa-shield-alt"></i>
-              <h3>Legal Protection</h3>
-              <p style="color: var(--pearl-white); font-size: 0.9rem;">Click to learn more</p>
-            </div>
-            <div class="spin-card-back">
-              <h3>Federal Rights</h3>
-              <p>Under the ADA, service dogs have access to ALL public spaces, including restaurants, hospitals, and airplanes. Denying access can result in fines up to $75,000.</p>
-            </div>
+          <div class="flip-back">
+            <h3>2+ Years of Training</h3>
+            <p>Service dogs undergo rigorous training for 2-3 years, learning over 90 commands and tasks specific to their handler's disability.</p>
+            <p>They master public access skills, task work, and maintaining focus in any environment.</p>
+            <div class="tip">Training never stops—it's a lifelong commitment.</div>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- Additional Info Cards -->
-    <section class="card-grid two-col">
-      <article class="card fade-in">
-        <h2><i class="fas fa-dna"></i> Why Mixed Breeds Excel</h2>
-        <p>While purebred dogs are often preferred for service work, mixed breeds like Dude can combine the best traits of multiple breeds. His German Shepherd intelligence and focus blend perfectly with Pitbull empathy and devotion.</p>
-        <p>Mixed breeds also tend to have fewer genetic health issues, potentially extending their working life. Dude's unique combination makes him incredibly attuned to my specific needs.</p>
-      </article>
+      <div class="flip-card fade-in stagger-2" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <i class="fas fa-heart-pulse"></i>
+            <h3>PTSD Support</h3>
+            <p>Click to learn more</p>
+          </div>
+          <div class="flip-back">
+            <h3>Trained PTSD Tasks</h3>
+            <p>PTSD service dogs perform critical tasks: grounding during flashbacks, creating physical barriers in crowds, interrupting nightmares, and providing deep pressure therapy.</p>
+            <p>They can detect physical signs of anxiety before the handler even notices.</p>
+          </div>
+        </div>
+      </div>
 
-      <article class="card fade-in">
-        <h2><i class="fas fa-award"></i> The Certification Process</h2>
-        <p>Service dog certification isn't federally required, but reputable programs test for over 30 public access skills. These include ignoring distractions, appropriate behavior in crowds, and task-specific training.</p>
-        <p>Dude passed rigorous testing to earn his certification. Every six months, we complete refresher training to maintain his skills and ensure he stays at peak performance.</p>
-      </article>
-    </section>
+      <div class="flip-card fade-in stagger-3" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <i class="fas fa-balance-scale"></i>
+            <h3>Legal Protection</h3>
+            <p>Click to learn more</p>
+          </div>
+          <div class="flip-back">
+            <h3>ADA Rights</h3>
+            <p>Under the Americans with Disabilities Act, service dogs are allowed in ALL public spaces, including restaurants, stores, hospitals, and transportation.</p>
+            <p>Businesses can only ask two questions: Is this a service dog? What tasks is it trained to perform?</p>
+            <div class="tip">No certification or registration is legally required.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card fade-in stagger-4" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <i class="fas fa-shield-dog"></i>
+            <h3>Not Pets</h3>
+            <p>Click to learn more</p>
+          </div>
+          <div class="flip-back">
+            <h3>Medical Equipment</h3>
+            <p>Service dogs are working medical equipment, not pets. They provide life-saving assistance and must remain focused on their handler at all times.</p>
+            <p>Distracting a service dog can be dangerous and may prevent them from performing critical tasks.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card fade-in stagger-5" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <i class="fas fa-brain"></i>
+            <h3>Invisible Disabilities</h3>
+            <p>Click to learn more</p>
+          </div>
+          <div class="flip-back">
+            <h3>PTSD is Real</h3>
+            <p>Not all disabilities are visible. PTSD, anxiety disorders, and other psychiatric conditions are just as valid and debilitating as physical disabilities.</p>
+            <p>Service dogs for psychiatric conditions perform measurable, trained tasks that mitigate disability symptoms.</p>
+            <div class="tip">Never assume someone "doesn't look disabled enough" for a service dog.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card fade-in stagger-6" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <i class="fas fa-user-shield"></i>
+            <h3>Handler's Rights</h3>
+            <p>Click to learn more</p>
+          </div>
+          <div class="flip-back">
+            <h3>Privacy Matters</h3>
+            <p>Handlers are NOT required to disclose their disability, provide documentation, or explain what their dog does for them beyond the two ADA questions.</p>
+            <p>Respect their privacy and their right to access public spaces safely.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DID YOU KNOW SECTION -->
+    <div class="card-3d fade-in" style="max-width: 900px; margin: 4rem auto;">
+      <h2><i class="fas fa-lightbulb"></i> Did You Know?</h2>
+      <p>Service dogs can detect changes in heart rate, blood pressure, and cortisol levels through scent. They often alert to panic attacks, dissociative episodes, or flashbacks before the handler consciously realizes what's happening.</p>
+      <p style="margin-top: 1.5rem;">This early intervention can prevent full-blown episodes and help handlers use coping strategies before symptoms escalate.</p>
+    </div>
+
+    <div class="page-nav">
+      <a href="index.html" class="page-nav-btn">
+        <i class="fas fa-arrow-left"></i> Previous: Home
+      </a>
+      <a href="safety.html" class="page-nav-btn">
+        Next: Safety <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
   </main>
 
-  <!-- JavaScript -->
   <script>
     function toggleMobileMenu() {
-      const nav = document.getElementById('mainNav');
-      nav.classList.toggle('active');
+      document.getElementById('mainNav').classList.toggle('active');
     }
-
-    // Intersection Observer
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -286,12 +168,12 @@
           entry.target.style.transform = 'translateY(0)';
         }
       });
-    }, observerOptions);
+    }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
 
     document.querySelectorAll('.fade-in').forEach(el => {
       el.style.opacity = '0';
-      el.style.transform = 'translateY(30px)';
-      el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+      el.style.transform = 'translateY(40px)';
+      el.style.transition = 'opacity 1s ease, transform 1s ease';
       observer.observe(el);
     });
   </script>
