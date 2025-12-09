@@ -4,28 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Service Dog Facts - Understanding PTSD Service Dogs">
-  <title>Service Dog Facts - The Anchor to My Storm</title>
+  <title>Service Dog Facts | The Anchor to My Storm</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="facts-page">
-  <header class="site-header">
+<body>
+  <!-- Video Background -->
+  <div class="video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="background.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
     <div class="container">
-      <div class="header-bar">
-        <a href="index.html" class="brand">
-          <i class="fas fa-anchor brand-icon"></i>
-          <div class="brand-text">
-            <span class="brand-kicker">The Anchor</span>
-            <span class="brand-title">To My Storm</span>
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <i class="fas fa-anchor logo-icon"></i>
+          <div class="logo-text">
+            <span class="logo-sub">The Anchor</span>
+            <span class="logo-main">To My Storm</span>
           </div>
         </a>
         
-        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <button class="menu-btn" onclick="toggleMenu()">
           <i class="fas fa-bars"></i>
         </button>
         
-        <nav class="main-nav" id="mainNav">
-          <a href="index.html" class="nav-link">The Anchor</a>
+        <nav class="nav" id="nav">
+          <a href="index.html" class="nav-link">Home</a>
           <a href="facts.html" class="nav-link active">Facts</a>
           <a href="safety.html" class="nav-link">Safety</a>
           <a href="resources.html" class="nav-link">Resources</a>
@@ -36,146 +44,135 @@
     </div>
   </header>
 
-  <main class="container page-shell">
-    <div class="page-intro fade-in">
-      <p class="eyebrow">Understanding Service Dogs</p>
-      <h1>Service Dog Facts</h1>
-      <p class="lead">Learn about the incredible work service dogs do and how they transform lives every single day.</p>
-    </div>
+  <!-- Main Content -->
+  <main class="main">
+    <div class="container">
+      <!-- Page Header -->
+      <div class="page-header">
+        <p class="eyebrow">Understanding Service Dogs</p>
+        <h1 class="page-title">Service Dog Facts</h1>
+        <p class="page-intro">Learn about the incredible work service dogs do and how they transform lives every single day.</p>
+      </div>
 
-    <!-- FLIP CARDS FOR FACTS -->
-    <div class="card-grid three-col">
-      <div class="flip-card fade-in stagger-1" onclick="this.classList.toggle('flipped')">
-        <div class="flip-card-inner">
-          <div class="flip-front">
-            <i class="fas fa-graduation-cap"></i>
-            <h3>Extensive Training</h3>
-            <p>Click to learn more</p>
+      <!-- Flip Cards -->
+      <div class="card-grid">
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <i class="fas fa-graduation-cap icon"></i>
+              <h3>Extensive Training</h3>
+              <p>Click to learn more</p>
+            </div>
+            <div class="flip-back">
+              <h3>2+ Years of Training</h3>
+              <p>Service dogs undergo rigorous training for 2-3 years, learning over 90 commands and tasks specific to their handler's disability.</p>
+              <p>They master public access skills, task work, and maintaining focus in any environment.</p>
+              <div class="tip">Training never stops—it's a lifelong commitment.</div>
+            </div>
           </div>
-          <div class="flip-back">
-            <h3>2+ Years of Training</h3>
-            <p>Service dogs undergo rigorous training for 2-3 years, learning over 90 commands and tasks specific to their handler's disability.</p>
-            <p>They master public access skills, task work, and maintaining focus in any environment.</p>
-            <div class="tip">Training never stops—it's a lifelong commitment.</div>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <i class="fas fa-heart-pulse icon"></i>
+              <h3>PTSD Support</h3>
+              <p>Click to learn more</p>
+            </div>
+            <div class="flip-back">
+              <h3>Trained PTSD Tasks</h3>
+              <p>PTSD service dogs perform critical tasks: grounding during flashbacks, creating physical barriers in crowds, interrupting nightmares, and providing deep pressure therapy.</p>
+              <p>They can detect physical signs of anxiety before the handler even notices.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <i class="fas fa-balance-scale icon"></i>
+              <h3>Legal Protection</h3>
+              <p>Click to learn more</p>
+            </div>
+            <div class="flip-back">
+              <h3>ADA Rights</h3>
+              <p>Under the Americans with Disabilities Act, service dogs are allowed in ALL public spaces, including restaurants, stores, hospitals, and transportation.</p>
+              <p>Businesses can only ask two questions: Is this a service dog? What tasks is it trained to perform?</p>
+              <div class="tip">No certification or registration is legally required.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <i class="fas fa-shield-dog icon"></i>
+              <h3>Not Pets</h3>
+              <p>Click to learn more</p>
+            </div>
+            <div class="flip-back">
+              <h3>Medical Equipment</h3>
+              <p>Service dogs are working medical equipment, not pets. They provide life-saving assistance and must remain focused on their handler at all times.</p>
+              <p>Distracting a service dog can be dangerous and may prevent them from performing critical tasks.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <i class="fas fa-brain icon"></i>
+              <h3>Invisible Disabilities</h3>
+              <p>Click to learn more</p>
+            </div>
+            <div class="flip-back">
+              <h3>PTSD is Real</h3>
+              <p>Not all disabilities are visible. PTSD, anxiety disorders, and other psychiatric conditions are just as valid and debilitating as physical disabilities.</p>
+              <p>Service dogs for psychiatric conditions perform measurable, trained tasks that mitigate disability symptoms.</p>
+              <div class="tip">Never assume someone "doesn't look disabled enough" for a service dog.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <i class="fas fa-user-shield icon"></i>
+              <h3>Handler's Rights</h3>
+              <p>Click to learn more</p>
+            </div>
+            <div class="flip-back">
+              <h3>Privacy Matters</h3>
+              <p>Handlers are NOT required to disclose their disability, provide documentation, or explain what their dog does for them beyond the two ADA questions.</p>
+              <p>Respect their privacy and their right to access public spaces safely.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="flip-card fade-in stagger-2" onclick="this.classList.toggle('flipped')">
-        <div class="flip-card-inner">
-          <div class="flip-front">
-            <i class="fas fa-heart-pulse"></i>
-            <h3>PTSD Support</h3>
-            <p>Click to learn more</p>
-          </div>
-          <div class="flip-back">
-            <h3>Trained PTSD Tasks</h3>
-            <p>PTSD service dogs perform critical tasks: grounding during flashbacks, creating physical barriers in crowds, interrupting nightmares, and providing deep pressure therapy.</p>
-            <p>They can detect physical signs of anxiety before the handler even notices.</p>
-          </div>
-        </div>
+      <!-- Did You Know -->
+      <div class="content-card max-width-sm">
+        <h2><i class="fas fa-lightbulb"></i> Did You Know?</h2>
+        <p>Service dogs can detect changes in heart rate, blood pressure, and cortisol levels through scent. They often alert to panic attacks, dissociative episodes, or flashbacks before the handler consciously realizes what's happening.</p>
+        <p>This early intervention can prevent full-blown episodes and help handlers use coping strategies before symptoms escalate.</p>
       </div>
 
-      <div class="flip-card fade-in stagger-3" onclick="this.classList.toggle('flipped')">
-        <div class="flip-card-inner">
-          <div class="flip-front">
-            <i class="fas fa-balance-scale"></i>
-            <h3>Legal Protection</h3>
-            <p>Click to learn more</p>
-          </div>
-          <div class="flip-back">
-            <h3>ADA Rights</h3>
-            <p>Under the Americans with Disabilities Act, service dogs are allowed in ALL public spaces, including restaurants, stores, hospitals, and transportation.</p>
-            <p>Businesses can only ask two questions: Is this a service dog? What tasks is it trained to perform?</p>
-            <div class="tip">No certification or registration is legally required.</div>
-          </div>
-        </div>
+      <!-- Page Navigation -->
+      <div class="page-nav">
+        <a href="index.html" class="page-nav-link">
+          <i class="fas fa-arrow-left"></i> Previous: Home
+        </a>
+        <a href="safety.html" class="page-nav-link">
+          Next: Safety <i class="fas fa-arrow-right"></i>
+        </a>
       </div>
-
-      <div class="flip-card fade-in stagger-4" onclick="this.classList.toggle('flipped')">
-        <div class="flip-card-inner">
-          <div class="flip-front">
-            <i class="fas fa-shield-dog"></i>
-            <h3>Not Pets</h3>
-            <p>Click to learn more</p>
-          </div>
-          <div class="flip-back">
-            <h3>Medical Equipment</h3>
-            <p>Service dogs are working medical equipment, not pets. They provide life-saving assistance and must remain focused on their handler at all times.</p>
-            <p>Distracting a service dog can be dangerous and may prevent them from performing critical tasks.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="flip-card fade-in stagger-5" onclick="this.classList.toggle('flipped')">
-        <div class="flip-card-inner">
-          <div class="flip-front">
-            <i class="fas fa-brain"></i>
-            <h3>Invisible Disabilities</h3>
-            <p>Click to learn more</p>
-          </div>
-          <div class="flip-back">
-            <h3>PTSD is Real</h3>
-            <p>Not all disabilities are visible. PTSD, anxiety disorders, and other psychiatric conditions are just as valid and debilitating as physical disabilities.</p>
-            <p>Service dogs for psychiatric conditions perform measurable, trained tasks that mitigate disability symptoms.</p>
-            <div class="tip">Never assume someone "doesn't look disabled enough" for a service dog.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="flip-card fade-in stagger-6" onclick="this.classList.toggle('flipped')">
-        <div class="flip-card-inner">
-          <div class="flip-front">
-            <i class="fas fa-user-shield"></i>
-            <h3>Handler's Rights</h3>
-            <p>Click to learn more</p>
-          </div>
-          <div class="flip-back">
-            <h3>Privacy Matters</h3>
-            <p>Handlers are NOT required to disclose their disability, provide documentation, or explain what their dog does for them beyond the two ADA questions.</p>
-            <p>Respect their privacy and their right to access public spaces safely.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- DID YOU KNOW SECTION -->
-    <div class="card-3d fade-in" style="max-width: 900px; margin: 4rem auto;">
-      <h2><i class="fas fa-lightbulb"></i> Did You Know?</h2>
-      <p>Service dogs can detect changes in heart rate, blood pressure, and cortisol levels through scent. They often alert to panic attacks, dissociative episodes, or flashbacks before the handler consciously realizes what's happening.</p>
-      <p style="margin-top: 1.5rem;">This early intervention can prevent full-blown episodes and help handlers use coping strategies before symptoms escalate.</p>
-    </div>
-
-    <div class="page-nav">
-      <a href="index.html" class="page-nav-btn">
-        <i class="fas fa-arrow-left"></i> Previous: Home
-      </a>
-      <a href="safety.html" class="page-nav-btn">
-        Next: Safety <i class="fas fa-arrow-right"></i>
-      </a>
     </div>
   </main>
 
   <script>
-    function toggleMobileMenu() {
-      document.getElementById('mainNav').classList.toggle('active');
+    function toggleMenu() {
+      document.getElementById('nav').classList.toggle('active');
     }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
-
-    document.querySelectorAll('.fade-in').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(40px)';
-      el.style.transition = 'opacity 1s ease, transform 1s ease';
-      observer.observe(el);
-    });
   </script>
 </body>
 </html>
