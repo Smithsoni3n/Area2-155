@@ -262,23 +262,25 @@
     const scenarios = [
       {
         text: "Excellent choice! You protected Dude's focus and educated someone about service dog etiquette. He remains alert and ready to help you.",
-        image: "flowers.jpg"
+        image: "1.jpg"
       },
       {
         text: "Not ideal. Allowing strangers to pet working service dogs can distract them from critical tasks. Dude missed an alert because he was focused on the stranger.",
-        image: "flowers.jpg"
+        image: "2.jpg"
       },
       {
         text: "Perfect! You took time to educate someone about service dogs. They thanked you and will now respect service dog teams in the future.",
-        image: "flowers.jpg"
+        image: "3.jpg"
       }
     ];
 
     function makeChoice(choice) {
       const sceneText = document.getElementById('sceneText');
+      const sceneImage = document.getElementById('sceneImage');
       const choices = document.getElementById('choices');
       
       sceneText.textContent = scenarios[choice - 1].text;
+      sceneImage.src = scenarios[choice - 1].image;
       choices.innerHTML = `
         <button class="choice-btn" onclick="resetAdventure()">
           <i class="fas fa-redo"></i>
@@ -289,8 +291,10 @@
 
     function resetAdventure() {
       const sceneText = document.getElementById('sceneText');
+      const sceneImage = document.getElementById('sceneImage');
       const choices = document.getElementById('choices');
       
+      sceneImage.src = "flowers.jpg";
       sceneText.textContent = "You're at the park with Dude, your service dog. A stranger approaches, smiling and reaching out to pet him. What do you do?";
       choices.innerHTML = `
         <button class="choice-btn" onclick="makeChoice(1)">
