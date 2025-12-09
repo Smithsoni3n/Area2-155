@@ -3,29 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Interactive Games - Learn About Service Dogs">
-  <title>Games - The Anchor to My Storm</title>
+  <meta name="description" content="Interactive Games - Memory Match and Adventure">
+  <title>Games | The Anchor to My Storm</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <header class="site-header">
+  <!-- Video Background -->
+  <div class="video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="background.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
     <div class="container">
-      <div class="header-bar">
-        <a href="index.html" class="brand">
-          <i class="fas fa-anchor brand-icon"></i>
-          <div class="brand-text">
-            <span class="brand-kicker">The Anchor</span>
-            <span class="brand-title">To My Storm</span>
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <i class="fas fa-anchor logo-icon"></i>
+          <div class="logo-text">
+            <span class="logo-sub">The Anchor</span>
+            <span class="logo-main">To My Storm</span>
           </div>
         </a>
         
-        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <button class="menu-btn" onclick="toggleMenu()">
           <i class="fas fa-bars"></i>
         </button>
         
-        <nav class="main-nav" id="mainNav">
-          <a href="index.html" class="nav-link">The Anchor</a>
+        <nav class="nav" id="nav">
+          <a href="index.html" class="nav-link">Home</a>
           <a href="facts.html" class="nav-link">Facts</a>
           <a href="safety.html" class="nav-link">Safety</a>
           <a href="resources.html" class="nav-link">Resources</a>
@@ -36,278 +44,359 @@
     </div>
   </header>
 
-  <main class="container page-shell">
-    <div class="page-intro fade-in">
-      <p class="eyebrow">Learn Through Play</p>
-      <h1>Interactive Games</h1>
-      <p class="lead">Test your knowledge and learn more about service dogs through these interactive experiences.</p>
-    </div>
+  <!-- Main Content -->
+  <main class="main">
+    <div class="container">
+      <!-- Page Header -->
+      <div class="page-header">
+        <p class="eyebrow">Have Some Fun</p>
+        <h1 class="page-title">Interactive Games</h1>
+        <p class="page-intro">Play our memory match game or go on an adventure with Dude!</p>
+      </div>
 
-    <!-- GAME TABS -->
-    <div class="game-tabs fade-in stagger-1">
-      <button class="tab-btn active" onclick="switchTab('memory')">
-        <i class="fas fa-brain"></i>
-        Memory Match
-      </button>
-      <button class="tab-btn" onclick="switchTab('adventure')">
-        <i class="fas fa-map"></i>
-        Service Dog Adventure
-      </button>
-    </div>
+      <!-- Game Selection -->
+      <div class="card-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom: 2rem;">
+        <div class="content-card text-center" onclick="showGame('memory')" style="cursor: pointer;">
+          <h2><i class="fas fa-th"></i> Memory Match</h2>
+          <p>Match pairs of photos to test your memory!</p>
+          <button class="game-btn">Play Now</button>
+        </div>
 
-    <!-- MEMORY GAME PANEL -->
-    <div id="memoryPanel" class="game-panel active">
-      <div class="game-stats fade-in stagger-2">
-        <div class="stat-item">
-          <div class="stat-label">Moves</div>
-          <div class="stat-value" id="moves">0</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-label">Matches</div>
-          <div class="stat-value" id="matches">0</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-label">Time</div>
-          <div class="stat-value" id="timer">0:00</div>
+        <div class="content-card text-center" onclick="showGame('adventure')" style="cursor: pointer;">
+          <h2><i class="fas fa-book-open"></i> Adventure Game</h2>
+          <p>Make choices and explore Dude's world!</p>
+          <button class="game-btn">Play Now</button>
         </div>
       </div>
 
-      <div style="text-align: center; margin: 3rem 0;">
-        <button class="game-btn" onclick="startMemoryGame()">
-          <i class="fas fa-play"></i>
-          Start Game
-        </button>
-        <button class="game-btn" onclick="resetMemoryGame()">
-          <i class="fas fa-redo"></i>
-          Reset
-        </button>
-      </div>
-
-      <div class="memory-grid" id="memoryGrid"></div>
-    </div>
-
-    <!-- ADVENTURE GAME PANEL -->
-    <div id="adventurePanel" class="game-panel">
-      <div class="adventure-scene">
-        <img src="flowers.jpg" alt="Scene" class="scene-image" id="sceneImage">
-        <div class="scene-text" id="sceneText">
-          You're at the park with Dude, your service dog. A stranger approaches, smiling and reaching out to pet him. What do you do?
+      <!-- MEMORY GAME -->
+      <div id="memory-game" class="game-container hidden">
+        <div class="game-header">
+          <span class="game-title"><i class="fas fa-th"></i> Memory Match</span>
+          <span class="game-info">Moves: <span id="moves">0</span></span>
+          <span class="game-info">Matches: <span id="matches">0</span>/8</span>
+          <button class="game-btn" onclick="resetMemoryGame()">Reset</button>
         </div>
-        <div class="choice-buttons" id="choices">
-          <button class="choice-btn" onclick="makeChoice(1)">
-            <i class="fas fa-hand"></i>
-            <span>Politely explain he's working and ask them not to touch</span>
-          </button>
-          <button class="choice-btn" onclick="makeChoice(2)">
-            <i class="fas fa-smile"></i>
-            <span>Let them pet him—he looks friendly enough</span>
-          </button>
-          <button class="choice-btn" onclick="makeChoice(3)">
-            <i class="fas fa-book"></i>
-            <span>Educate them about service dog etiquette</span>
-          </button>
+
+        <div class="memory-grid" id="memory-grid">
+          <!-- Cards generated by JavaScript -->
+        </div>
+
+        <div id="win-message" class="content-card text-center hidden">
+          <h2><i class="fas fa-trophy"></i> You Win!</h2>
+          <p>Congratulations! You matched all pairs in <span id="final-moves">0</span> moves!</p>
+          <button class="game-btn" onclick="resetMemoryGame()">Play Again</button>
         </div>
       </div>
-    </div>
 
-    <div class="page-nav">
-      <a href="gallery.html" class="page-nav-btn">
-        <i class="fas fa-arrow-left"></i> Previous: Gallery
-      </a>
-      <a href="index.html" class="page-nav-btn">
-        Back to Home <i class="fas fa-home"></i>
-      </a>
+      <!-- ADVENTURE GAME -->
+      <div id="adventure-game" class="game-container hidden">
+        <div class="game-header">
+          <span class="game-title"><i class="fas fa-book-open"></i> A Day with Dude</span>
+          <button class="game-btn" onclick="resetAdventure()">Restart</button>
+        </div>
+
+        <div id="scene" class="adventure-scene">
+          <!-- Scene content generated by JavaScript -->
+        </div>
+      </div>
+
+      <!-- Page Navigation -->
+      <div class="page-nav">
+        <a href="gallery.html" class="page-nav-link">
+          <i class="fas fa-arrow-left"></i> Previous: Gallery
+        </a>
+        <a href="index.html" class="page-nav-link">
+          Back to Home <i class="fas fa-home"></i>
+        </a>
+      </div>
     </div>
   </main>
 
   <script>
-    // MEMORY GAME
-    const icons = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg'];
-    let cards = [];
-    let flipped = [];
-    let matched = 0;
-    let moves = 0;
-    let timer = 0;
-    let timerInterval = null;
+    function toggleMenu() {
+      document.getElementById('nav').classList.toggle('active');
+    }
 
-    function createMemoryGrid() {
-      const grid = document.getElementById('memoryGrid');
+    // Game Selection
+    function showGame(game) {
+      document.getElementById('memory-game').classList.add('hidden');
+      document.getElementById('adventure-game').classList.add('hidden');
+      
+      if (game === 'memory') {
+        document.getElementById('memory-game').classList.remove('hidden');
+        initMemoryGame();
+      } else if (game === 'adventure') {
+        document.getElementById('adventure-game').classList.remove('hidden');
+        initAdventure();
+      }
+    }
+
+    // ============================================
+    // MEMORY GAME
+    // ============================================
+    const memoryImages = [
+      '1.jpg', '2.jpg', '3.jpg', '4.jpg',
+      '5.jpg', '6.jpg', '7.jpg', '8.jpg'
+    ];
+
+    let cards = [];
+    let flippedCards = [];
+    let matchedPairs = 0;
+    let moves = 0;
+    let canFlip = true;
+
+    function initMemoryGame() {
+      // Create pairs and shuffle
+      cards = [...memoryImages, ...memoryImages];
+      cards = cards.sort(() => Math.random() - 0.5);
+      
+      flippedCards = [];
+      matchedPairs = 0;
+      moves = 0;
+      canFlip = true;
+      
+      updateStats();
+      document.getElementById('win-message').classList.add('hidden');
+      renderMemoryCards();
+    }
+
+    function renderMemoryCards() {
+      const grid = document.getElementById('memory-grid');
       grid.innerHTML = '';
       
-      const cardPairs = [...icons, ...icons];
-      cardPairs.sort(() => Math.random() - 0.5);
-      
-      cardPairs.forEach((icon, index) => {
+      cards.forEach((img, index) => {
         const card = document.createElement('div');
         card.className = 'memory-card';
-        card.dataset.icon = icon;
         card.dataset.index = index;
         card.innerHTML = `
           <div class="memory-card-inner">
             <div class="memory-front">
-              <i class="fas fa-question"></i>
+              <i class="fas fa-paw"></i>
             </div>
             <div class="memory-back">
-              <img src="${icon}" alt="Memory card" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+              <img src="${img}" alt="Memory card">
             </div>
           </div>
         `;
-        card.addEventListener('click', () => flipCard(card));
+        card.onclick = () => flipCard(index);
         grid.appendChild(card);
-        cards.push(card);
       });
     }
 
-    function flipCard(card) {
-      if (flipped.length >= 2 || card.classList.contains('flipped') || card.classList.contains('matched')) return;
+    function flipCard(index) {
+      if (!canFlip) return;
+      
+      const card = document.querySelector(`.memory-card[data-index="${index}"]`);
+      if (card.classList.contains('flipped') || card.classList.contains('matched')) return;
       
       card.classList.add('flipped');
-      flipped.push(card);
+      flippedCards.push({ index, image: cards[index] });
       
-      if (flipped.length === 2) {
+      if (flippedCards.length === 2) {
         moves++;
-        document.getElementById('moves').textContent = moves;
-        checkMatch();
-      }
-    }
-
-    function checkMatch() {
-      const [card1, card2] = flipped;
-      
-      if (card1.dataset.icon === card2.dataset.icon) {
-        card1.classList.add('matched');
-        card2.classList.add('matched');
-        matched++;
-        document.getElementById('matches').textContent = matched;
-        flipped = [];
+        updateStats();
+        canFlip = false;
         
-        if (matched === icons.length) {
-          clearInterval(timerInterval);
-          setTimeout(() => alert(`Congratulations! You won in ${moves} moves and ${formatTime(timer)}!`), 500);
+        const [first, second] = flippedCards;
+        
+        if (first.image === second.image) {
+          // Match!
+          setTimeout(() => {
+            document.querySelector(`.memory-card[data-index="${first.index}"]`).classList.add('matched');
+            document.querySelector(`.memory-card[data-index="${second.index}"]`).classList.add('matched');
+            matchedPairs++;
+            updateStats();
+            flippedCards = [];
+            canFlip = true;
+            
+            if (matchedPairs === 8) {
+              document.getElementById('final-moves').textContent = moves;
+              document.getElementById('win-message').classList.remove('hidden');
+            }
+          }, 500);
+        } else {
+          // No match
+          setTimeout(() => {
+            document.querySelector(`.memory-card[data-index="${first.index}"]`).classList.remove('flipped');
+            document.querySelector(`.memory-card[data-index="${second.index}"]`).classList.remove('flipped');
+            flippedCards = [];
+            canFlip = true;
+          }, 1000);
         }
-      } else {
-        setTimeout(() => {
-          card1.classList.remove('flipped');
-          card2.classList.remove('flipped');
-          flipped = [];
-        }, 1000);
       }
     }
 
-    function startMemoryGame() {
-      resetMemoryGame();
-      timerInterval = setInterval(() => {
-        timer++;
-        document.getElementById('timer').textContent = formatTime(timer);
-      }, 1000);
+    function updateStats() {
+      document.getElementById('moves').textContent = moves;
+      document.getElementById('matches').textContent = matchedPairs;
     }
 
     function resetMemoryGame() {
-      clearInterval(timerInterval);
-      cards = [];
-      flipped = [];
-      matched = 0;
-      moves = 0;
-      timer = 0;
-      document.getElementById('moves').textContent = '0';
-      document.getElementById('matches').textContent = '0';
-      document.getElementById('timer').textContent = '0:00';
-      createMemoryGrid();
+      initMemoryGame();
     }
 
-    function formatTime(seconds) {
-      const mins = Math.floor(seconds / 60);
-      const secs = seconds % 60;
-      return `${mins}:${secs.toString().padStart(2, '0')}`;
-    }
-
+    // ============================================
     // ADVENTURE GAME
-    const scenarios = [
-      {
-        text: "Excellent choice! You protected Dude's focus and educated someone about service dog etiquette. He remains alert and ready to help you.",
-        image: "flowers.jpg"
+    // ============================================
+    const scenes = {
+      start: {
+        image: 'flowers.jpg',
+        text: "You wake up to find Dude sitting by your bed, tail wagging. It's a new day! What would you like to do?",
+        choices: [
+          { text: "Take Dude for a morning walk", icon: "fa-walking", next: "walk" },
+          { text: "Stay in and cuddle", icon: "fa-heart", next: "cuddle" },
+          { text: "Practice some training commands", icon: "fa-graduation-cap", next: "train" }
+        ]
       },
-      {
-        text: "Not ideal. Allowing strangers to pet working service dogs can distract them from critical tasks. Dude missed an alert because he was focused on the stranger.",
-        image: "flowers.jpg"
+      walk: {
+        image: 'stick.jpg',
+        text: "You head outside with Dude. The morning air is fresh and crisp. Dude finds a big stick and looks at you excitedly!",
+        choices: [
+          { text: "Play fetch with the stick", icon: "fa-baseball", next: "fetch" },
+          { text: "Continue walking to the park", icon: "fa-tree", next: "park" },
+          { text: "Head back home for breakfast", icon: "fa-home", next: "breakfast" }
+        ]
       },
-      {
-        text: "Perfect! You took time to educate someone about service dogs. They thanked you and will now respect service dog teams in the future.",
-        image: "flowers.jpg"
+      cuddle: {
+        image: '1.jpg',
+        text: "Dude jumps onto the bed and snuggles close. You feel his warmth and steady breathing. Your anxiety starts to melt away.",
+        choices: [
+          { text: "Take a mindful moment together", icon: "fa-spa", next: "mindful" },
+          { text: "Get up and make breakfast", icon: "fa-coffee", next: "breakfast" },
+          { text: "Read a book with Dude beside you", icon: "fa-book", next: "reading" }
+        ]
+      },
+      train: {
+        image: '2.jpg',
+        text: "You start with some basic commands. Dude sits, stays, and lies down perfectly! He's such a good boy.",
+        choices: [
+          { text: "Practice deep pressure therapy", icon: "fa-hands-holding-heart", next: "dpt" },
+          { text: "Work on crowd navigation skills", icon: "fa-users", next: "crowdwork" },
+          { text: "Give Dude a treat break", icon: "fa-bone", next: "treats" }
+        ]
+      },
+      fetch: {
+        image: 'stick.jpg',
+        text: "Dude bounds after the stick with pure joy! Watching him run free brings a smile to your face. He brings it back, tail wagging furiously.",
+        choices: [
+          { text: "Throw it again!", icon: "fa-redo", next: "moreFetch" },
+          { text: "Head to the park", icon: "fa-tree", next: "park" }
+        ]
+      },
+      park: {
+        image: '3.jpg',
+        text: "The park is peaceful this morning. A few other people are walking their dogs, but Dude stays focused on you, ready to help if needed.",
+        choices: [
+          { text: "Find a quiet bench to sit", icon: "fa-chair", next: "bench" },
+          { text: "Walk the nature trail", icon: "fa-hiking", next: "trail" }
+        ]
+      },
+      breakfast: {
+        image: '4.jpg',
+        text: "You make yourself a nice breakfast while Dude waits patiently by his bowl. After eating, you both feel ready to face the day!",
+        choices: [
+          { text: "Go on an adventure outside", icon: "fa-sun", next: "walk" },
+          { text: "Stay home and relax", icon: "fa-couch", next: "relax" }
+        ]
+      },
+      mindful: {
+        image: '5.jpg',
+        text: "You focus on Dude's steady breathing. In... out... in... out. Your racing thoughts slow down. This is what grounding feels like.",
+        choices: [
+          { text: "Continue to a peaceful ending", icon: "fa-peace", next: "goodEnd" }
+        ]
+      },
+      reading: {
+        image: '6.jpg',
+        text: "With Dude warm against your legs, you lose yourself in a good book. It's a perfect, peaceful morning.",
+        choices: [
+          { text: "Continue to a peaceful ending", icon: "fa-peace", next: "goodEnd" }
+        ]
+      },
+      dpt: {
+        image: '7.jpg',
+        text: "Dude gently lies across your lap, providing deep pressure therapy. The weight is comforting and helps ease your anxiety.",
+        choices: [
+          { text: "Continue to a peaceful ending", icon: "fa-peace", next: "goodEnd" }
+        ]
+      },
+      crowdwork: {
+        image: '8.jpg',
+        text: "You practice having Dude walk between you and imaginary crowds. He blocks perfectly, keeping you feeling safe.",
+        choices: [
+          { text: "Continue to a peaceful ending", icon: "fa-peace", next: "goodEnd" }
+        ]
+      },
+      treats: {
+        image: '9.jpg',
+        text: "Dude's eyes light up at the treats! He does a happy spin before taking them gently from your hand. Such a good boy!",
+        choices: [
+          { text: "Continue to a peaceful ending", icon: "fa-peace", next: "goodEnd" }
+        ]
+      },
+      moreFetch: {
+        image: 'stick.jpg',
+        text: "More fetch! Dude never seems to get tired of this game. Eventually, he flops down in the grass, happily exhausted.",
+        choices: [
+          { text: "Head home together", icon: "fa-home", next: "goodEnd" }
+        ]
+      },
+      bench: {
+        image: '10.jpg',
+        text: "You sit on a quiet bench with Dude at your feet. The world feels calmer from here. You watch the clouds drift by.",
+        choices: [
+          { text: "Continue to a peaceful ending", icon: "fa-peace", next: "goodEnd" }
+        ]
+      },
+      trail: {
+        image: '11.jpg',
+        text: "The nature trail is beautiful! Birds sing overhead and Dude walks calmly beside you, alert but relaxed.",
+        choices: [
+          { text: "Continue to a peaceful ending", icon: "fa-peace", next: "goodEnd" }
+        ]
+      },
+      relax: {
+        image: '12.jpg',
+        text: "Sometimes the best days are spent at home. You and Dude spend a cozy day together, and that's perfectly okay.",
+        choices: [
+          { text: "Continue to a peaceful ending", icon: "fa-peace", next: "goodEnd" }
+        ]
+      },
+      goodEnd: {
+        image: 'flowers.jpg',
+        text: "Another day navigated with Dude by your side. He may be a dog, but he's also your anchor—steady, loyal, and always there. Together, you can face anything. 💛",
+        choices: [
+          { text: "Play Again", icon: "fa-redo", next: "start" }
+        ]
       }
-    ];
+    };
 
-    function makeChoice(choice) {
-      const sceneText = document.getElementById('sceneText');
-      const choices = document.getElementById('choices');
+    function initAdventure() {
+      renderScene('start');
+    }
+
+    function renderScene(sceneId) {
+      const scene = scenes[sceneId];
+      const container = document.getElementById('scene');
       
-      sceneText.textContent = scenarios[choice - 1].text;
-      choices.innerHTML = `
-        <button class="choice-btn" onclick="resetAdventure()">
-          <i class="fas fa-redo"></i>
-          <span>Try Another Scenario</span>
-        </button>
+      container.innerHTML = `
+        <img src="${scene.image}" alt="Scene image" class="scene-img">
+        <div class="scene-text">${scene.text}</div>
+        <div class="choices">
+          ${scene.choices.map(choice => `
+            <button class="choice-btn" onclick="renderScene('${choice.next}')">
+              <i class="fas ${choice.icon}"></i>
+              <span>${choice.text}</span>
+            </button>
+          `).join('')}
+        </div>
       `;
     }
 
     function resetAdventure() {
-      const sceneText = document.getElementById('sceneText');
-      const choices = document.getElementById('choices');
-      
-      sceneText.textContent = "You're at the park with Dude, your service dog. A stranger approaches, smiling and reaching out to pet him. What do you do?";
-      choices.innerHTML = `
-        <button class="choice-btn" onclick="makeChoice(1)">
-          <i class="fas fa-hand"></i>
-          <span>Politely explain he's working and ask them not to touch</span>
-        </button>
-        <button class="choice-btn" onclick="makeChoice(2)">
-          <i class="fas fa-smile"></i>
-          <span>Let them pet him—he looks friendly enough</span>
-        </button>
-        <button class="choice-btn" onclick="makeChoice(3)">
-          <i class="fas fa-book"></i>
-          <span>Educate them about service dog etiquette</span>
-        </button>
-      `;
+      renderScene('start');
     }
-
-    // TAB SWITCHING
-    function switchTab(tab) {
-      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-      document.querySelectorAll('.game-panel').forEach(panel => panel.classList.remove('active'));
-      
-      if (tab === 'memory') {
-        document.querySelectorAll('.tab-btn')[0].classList.add('active');
-        document.getElementById('memoryPanel').classList.add('active');
-      } else {
-        document.querySelectorAll('.tab-btn')[1].classList.add('active');
-        document.getElementById('adventurePanel').classList.add('active');
-      }
-    }
-
-    function toggleMobileMenu() {
-      document.getElementById('mainNav').classList.toggle('active');
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
-
-    document.querySelectorAll('.fade-in').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(40px)';
-      el.style.transition = 'opacity 1s ease, transform 1s ease';
-      observer.observe(el);
-    });
-
-    // Initialize
-    createMemoryGrid();
   </script>
 </body>
 </html>
-
