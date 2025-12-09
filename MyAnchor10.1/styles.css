@@ -1,353 +1,1701 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Interactive Games - Learn About Service Dogs">
-  <title>Games - The Anchor to My Storm</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body class="game-page">
-  <header class="site-header">
-    <div class="container">
-      <div class="header-bar">
-        <a href="index.html" class="brand">
-          <i class="fas fa-anchor brand-icon"></i>
-          <div class="brand-text">
-            <span class="brand-kicker">The Anchor</span>
-            <span class="brand-title">To My Storm</span>
-          </div>
-        </a>
-        
-        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-          <i class="fas fa-bars"></i>
-        </button>
-        
-        <nav class="main-nav" id="mainNav">
-          <a href="index.html" class="nav-link">The Anchor</a>
-          <a href="facts.html" class="nav-link">Facts</a>
-          <a href="safety.html" class="nav-link">Safety</a>
-          <a href="resources.html" class="nav-link">Resources</a>
-          <a href="gallery.html" class="nav-link">Gallery</a>
-          <a href="game.html" class="nav-link active"><i class="fas fa-gamepad"></i> Game</a>
-        </nav>
-      </div>
-    </div>
-  </header>
+/* ============================================
+   GLAD TO BE HERE - AURA PEACE DESIGN
+   Stained Glass Cards + Yin Yang Balance
+   Chakra Energy + Wisdom + Tranquility
+   ============================================ */
 
-  <main class="container page-shell">
-    <div class="page-intro fade-in">
-      <p class="eyebrow">Learn Through Play</p>
-      <h1>Interactive Games</h1>
-      <p class="lead">Test your knowledge and learn more about service dogs through these interactive experiences.</p>
-    </div>
+:root {
+  /* AURA ENERGY PALETTE */
+  --wisdom-gold: #d4a574;
+  --light-gold: #f4d03f;
+  --vitality-orange: #ff6b35;
+  --peace-yellow: #ffd700;
+  --integrity-green: #7cb342;
+  --seeker-blue: #42a5f5;
+  --wisdom-purple: #9c27b0;
+  --strength-burgundy: #5c0a0a;
+  
+  /* YIN YANG BALANCE */
+  --yin-dark: #1a1a1a;
+  --yang-light: #fefefe;
+  
+  /* SUNSET GRADIENT (Background) */
+  --sunset-gradient: linear-gradient(180deg, 
+    #ffd700 0%,
+    #ffb84d 25%,
+    #ff9933 50%,
+    #ff8c42 75%,
+    #ffa563 100%);
+  
+  /* STAINED GLASS GRADIENTS */
+  --glass-burgundy: linear-gradient(135deg, #5c0a0a 0%, #8b1a1a 50%, #a83232 100%);
+  --glass-purple: linear-gradient(135deg, #6a1b9a 0%, #9c27b0 50%, #ba68c8 100%);
+  --glass-gold: linear-gradient(135deg, #d4a574 0%, #f4d03f 50%, #ffd700 100%);
+  --glass-green: linear-gradient(135deg, #558b2f 0%, #7cb342 50%, #9ccc65 100%);
+  --glass-blue: linear-gradient(135deg, #1976d2 0%, #42a5f5 50%, #64b5f6 100%);
+  
+  /* GLASS TILE SHIMMER (Not transparent - just the look) */
+  --tile-shimmer: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 45%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.3) 55%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  
+  /* SHADOWS - Deep Dimensional */
+  --shadow-deep: 0 8px 32px rgba(92, 10, 10, 0.3);
+  --shadow-lifted: 0 12px 48px rgba(92, 10, 10, 0.4);
+  --shadow-glow: 0 0 30px rgba(255, 215, 0, 0.5);
+  --shadow-inset: inset 0 2px 8px rgba(255, 255, 255, 0.2);
+  
+  /* STAINED GLASS BORDERS */
+  --glass-border-width: 4px;
+  --glass-border-radius: 16px;
+  
+  /* SPACING */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 3rem;
+  --space-xl: 4rem;
+}
 
-    <!-- GAME TABS -->
-    <div class="game-tabs fade-in stagger-1">
-      <button class="tab-btn active" onclick="switchTab('memory')">
-        <i class="fas fa-brain"></i>
-        Memory Match
-      </button>
-      <button class="tab-btn" onclick="switchTab('adventure')">
-        <i class="fas fa-map"></i>
-        Service Dog Adventure
-      </button>
-    </div>
+/* ============================================
+   RESET & BASE
+   ============================================ */
 
-    <!-- MEMORY GAME PANEL -->
-    <div id="memoryPanel" class="game-panel active">
-      <div class="game-stats fade-in stagger-2">
-        <div class="stat-item">
-          <div class="stat-label">Moves</div>
-          <div class="stat-value" id="moves">0</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-label">Matches</div>
-          <div class="stat-value" id="matches">0</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-label">Time</div>
-          <div class="stat-value" id="timer">0:00</div>
-        </div>
-      </div>
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-      <div style="text-align: center; margin: 3rem 0;">
-        <button class="game-btn" onclick="startMemoryGame()">
-          <i class="fas fa-play"></i>
-          Start Game
-        </button>
-        <button class="game-btn" onclick="resetMemoryGame()">
-          <i class="fas fa-redo"></i>
-          Reset
-        </button>
-      </div>
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
 
-      <div class="memory-grid" id="memoryGrid"></div>
-    </div>
+body {
+  font-family: 'Playfair Display', Georgia, serif;
+  background: var(--sunset-gradient);
+  color: var(--yin-dark);
+  line-height: 1.7;
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+}
 
-    <!-- ADVENTURE GAME PANEL -->
-    <div id="adventurePanel" class="game-panel">
-      <div class="adventure-scene">
-        <img src="flowers.jpg" alt="Scene" class="scene-image" id="sceneImage">
-        <div class="scene-text" id="sceneText">
-          You're at the park with Dude, your service dog. A stranger approaches, smiling and reaching out to pet him. What do you do?
-        </div>
-        <div class="choice-buttons" id="choices">
-          <button class="choice-btn" onclick="makeChoice(1)">
-            <i class="fas fa-hand"></i>
-            <span>Politely explain he's working and ask them not to touch</span>
-          </button>
-          <button class="choice-btn" onclick="makeChoice(2)">
-            <i class="fas fa-smile"></i>
-            <span>Let them pet him—he looks friendly enough</span>
-          </button>
-          <button class="choice-btn" onclick="makeChoice(3)">
-            <i class="fas fa-book"></i>
-            <span>Educate them about service dog etiquette</span>
-          </button>
-        </div>
-      </div>
-    </div>
+/* Aura energy overlay - peaceful shimmer */
+body::before { content: none; }
 
-    <div class="page-nav">
-      <a href="gallery.html" class="page-nav-btn">
-        <i class="fas fa-arrow-left"></i> Previous: Gallery
-      </a>
-      <a href="index.html" class="page-nav-btn">
-        Back to Home <i class="fas fa-home"></i>
-      </a>
-    </div>
-  </main>
+@keyframes auraBreath {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
 
-  <script>
-    // MEMORY GAME WITH REAL PHOTOS AND VIDEOS
-    const memoryMedia = [
-      {type: 'image', src: '1.jpg'},
-      {type: 'image', src: '2.jpg'},
-      {type: 'image', src: '3.jpg'},
-      {type: 'image', src: '4.jpg'},
-      {type: 'video', src: 'video.1.mp4'},
-      {type: 'video', src: 'video.2.mp4'},
-      {type: 'video', src: 'video.3.mp4'},
-      {type: 'video', src: 'video.4.mp4'}
-    ];
-    let cards = [];
-    let flipped = [];
-    let matched = 0;
-    let moves = 0;
-    let timer = 0;
-    let timerInterval = null;
+/* Glass tile texture overlay */
+body::after { content: none; }
 
-    function createMemoryGrid() {
-      const grid = document.getElementById('memoryGrid');
-      grid.innerHTML = '';
-      
-      const cardPairs = [...memoryMedia, ...memoryMedia];
-      cardPairs.sort(() => Math.random() - 0.5);
-      
-      cardPairs.forEach((media, index) => {
-        const card = document.createElement('div');
-        card.className = 'memory-card';
-        card.dataset.src = media.src;
-        card.dataset.type = media.type;
-        card.dataset.index = index;
-        
-        let backContent = '';
-        if (media.type === 'image') {
-          backContent = `<img src="${media.src}" alt="Card" style="width:100%; height:100%; object-fit:cover;">`;
-        } else {
-          backContent = `<video muted loop style="width:100%; height:100%; object-fit:cover;"><source src="${media.src}" type="video/mp4"></video>`;
-        }
-        
-        card.innerHTML = `
-          <div class="memory-card-inner">
-            <div class="memory-front">
-              <i class="fas fa-paw"></i>
-            </div>
-            <div class="memory-back">
-              ${backContent}
-            </div>
-          </div>
-        `;
-        card.addEventListener('click', () => flipCard(card));
-        grid.appendChild(card);
-        cards.push(card);
-      });
-    }
+/* ============================================
+   NAVIGATION - YIN YANG BALANCE
+   ============================================ */
 
-    function flipCard(card) {
-      if (flipped.length >= 2 || card.classList.contains('flipped') || card.classList.contains('matched')) return;
-      
-      card.classList.add('flipped');
-      
-      // Play video if it's a video card
-      const video = card.querySelector('video');
-      if (video) {
-        video.currentTime = 0;
-        video.play();
-      }
-      
-      flipped.push(card);
-      
-      if (flipped.length === 2) {
-        moves++;
-        document.getElementById('moves').textContent = moves;
-        checkMatch();
-      }
-    }
+.site-header {
+  background: linear-gradient(135deg, var(--strength-burgundy) 0%, #3a0606 100%);
+  padding: 1.5rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow-deep);
+  border-bottom: 4px solid var(--wisdom-gold);
+  position: relative;
+}
 
-    function checkMatch() {
-      const [card1, card2] = flipped;
-      
-      if (card1.dataset.src === card2.dataset.src) {
-        card1.classList.add('matched');
-        card2.classList.add('matched');
-        matched++;
-        document.getElementById('matches').textContent = matched;
-        flipped = [];
-        
-        if (matched === memoryMedia.length) {
-          clearInterval(timerInterval);
-          setTimeout(() => alert(`Congratulations! You won in ${moves} moves and ${formatTime(timer)}!`), 500);
-        }
-      } else {
-        setTimeout(() => {
-          // Pause videos when flipping back
-          const video1 = card1.querySelector('video');
-          const video2 = card2.querySelector('video');
-          if (video1) { video1.pause(); video1.currentTime = 0; }
-          if (video2) { video2.pause(); video2.currentTime = 0; }
-          
-          card1.classList.remove('flipped');
-          card2.classList.remove('flipped');
-          flipped = [];
-        }, 1000);
-      }
-    }
+/* Wisdom energy glow on nav */
+.site-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    transparent 0%,
+    rgba(212, 165, 116, 0.1) 50%,
+    transparent 100%);
+  pointer-events: none;
+  animation: wisdomFlow 6s ease-in-out infinite;
+}
 
-    function startMemoryGame() {
-      resetMemoryGame();
-      timerInterval = setInterval(() => {
-        timer++;
-        document.getElementById('timer').textContent = formatTime(timer);
-      }, 1000);
-    }
+@keyframes wisdomFlow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
 
-    function resetMemoryGame() {
-      clearInterval(timerInterval);
-      // Pause all videos
-      document.querySelectorAll('.memory-card video').forEach(v => {
-        v.pause();
-        v.currentTime = 0;
-      });
-      cards = [];
-      flipped = [];
-      matched = 0;
-      moves = 0;
-      timer = 0;
-      document.getElementById('moves').textContent = '0';
-      document.getElementById('matches').textContent = '0';
-      document.getElementById('timer').textContent = '0:00';
-      createMemoryGrid();
-    }
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
 
-    function formatTime(seconds) {
-      const mins = Math.floor(seconds / 60);
-      const secs = seconds % 60;
-      return `${mins}:${secs.toString().padStart(2, '0')}`;
-    }
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
 
-    // ADVENTURE GAME
-    const scenarios = [
-      {
-        text: "Excellent choice! You protected Dude's focus and educated someone about service dog etiquette. He remains alert and ready to help you.",
-        image: "1.jpg"
-      },
-      {
-        text: "Not ideal. Allowing strangers to pet working service dogs can distract them from critical tasks. Dude missed an alert because he was focused on the stranger.",
-        image: "2.jpg"
-      },
-      {
-        text: "Perfect! You took time to educate someone about service dogs. They thanked you and will now respect service dog teams in the future.",
-        image: "3.jpg"
-      }
-    ];
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--wisdom-gold);
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 2;
+}
 
-    function makeChoice(choice) {
-      const sceneText = document.getElementById('sceneText');
-      const sceneImage = document.getElementById('sceneImage');
-      const choices = document.getElementById('choices');
-      
-      sceneText.textContent = scenarios[choice - 1].text;
-      sceneImage.src = scenarios[choice - 1].image;
-      choices.innerHTML = `
-        <button class="choice-btn" onclick="resetAdventure()">
-          <i class="fas fa-redo"></i>
-          <span>Try Another Scenario</span>
-        </button>
-      `;
-    }
+.brand:hover {
+  transform: translateY(-3px);
+  filter: drop-shadow(0 0 20px rgba(212, 165, 116, 0.8));
+}
 
-    function resetAdventure() {
-      const sceneText = document.getElementById('sceneText');
-      const sceneImage = document.getElementById('sceneImage');
-      const choices = document.getElementById('choices');
-      
-      sceneImage.src = "flowers.jpg";
-      sceneText.textContent = "You're at the park with Dude, your service dog. A stranger approaches, smiling and reaching out to pet him. What do you do?";
-      choices.innerHTML = `
-        <button class="choice-btn" onclick="makeChoice(1)">
-          <i class="fas fa-hand"></i>
-          <span>Politely explain he's working and ask them not to touch</span>
-        </button>
-        <button class="choice-btn" onclick="makeChoice(2)">
-          <i class="fas fa-smile"></i>
-          <span>Let them pet him—he looks friendly enough</span>
-        </button>
-        <button class="choice-btn" onclick="makeChoice(3)">
-          <i class="fas fa-book"></i>
-          <span>Educate them about service dog etiquette</span>
-        </button>
-      `;
-    }
+.brand-icon {
+  font-size: 2.8rem;
+  background: var(--glass-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 8px rgba(255, 215, 0, 0.6));
+  animation: anchorPulse 3s ease-in-out infinite;
+}
 
-    // TAB SWITCHING
-    function switchTab(tab) {
-      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-      document.querySelectorAll('.game-panel').forEach(panel => panel.classList.remove('active'));
-      
-      if (tab === 'memory') {
-        document.querySelectorAll('.tab-btn')[0].classList.add('active');
-        document.getElementById('memoryPanel').classList.add('active');
-      } else {
-        document.querySelectorAll('.tab-btn')[1].classList.add('active');
-        document.getElementById('adventurePanel').classList.add('active');
-      }
-    }
+@keyframes anchorPulse {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg);
+    filter: drop-shadow(0 2px 8px rgba(255, 215, 0, 0.6));
+  }
+  50% { 
+    transform: translateY(-8px) rotate(-5deg);
+    filter: drop-shadow(0 4px 16px rgba(255, 215, 0, 0.9));
+  }
+}
 
-    function toggleMobileMenu() {
-      document.getElementById('mainNav').classList.toggle('active');
-    }
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
+.brand-kicker {
+  font-size: 0.75rem;
+  background: var(--glass-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+}
 
-    document.querySelectorAll('.fade-in').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(40px)';
-      el.style.transition = 'opacity 1s ease, transform 1s ease';
-      observer.observe(el);
-    });
+.brand-title {
+  font-size: 1.7rem;
+  font-weight: 900;
+  background: var(--glass-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 15px rgba(255, 215, 0, 0.6);
+  letter-spacing: 1px;
+}
 
-    // Initialize
-    createMemoryGrid();
-  </script>
-</body>
-</html>
+.main-nav {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: var(--wisdom-gold);
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  background: rgba(212, 165, 116, 0.15);
+  transition: all 0.4s ease;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+/* Glass shimmer on hover */
+.nav-link::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: var(--tile-shimmer);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  transform: rotate(45deg);
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+  opacity: 1;
+  animation: glassShine 1.5s ease-in-out;
+}
+
+@keyframes glassShine {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: var(--glass-gold);
+  border-color: var(--light-gold);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+  color: var(--strength-burgundy);
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: var(--glass-gold);
+  border: none;
+  color: var(--strength-burgundy);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.7rem 1.3rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-deep);
+}
+
+.mobile-menu-btn:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-lifted);
+}
+
+/* ============================================
+   PAGE LAYOUT
+   ============================================ */
+
+.page-shell {
+  padding: 4rem 0;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.page-intro {
+  text-align: center;
+  margin-bottom: 4rem;
+  animation: fadeInDown 1s ease-out;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.eyebrow {
+  color: var(--strength-burgundy);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  font-family: 'Inter', sans-serif;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 900;
+  color: var(--strength-burgundy);
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.6);
+}
+
+h1 {
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  font-size: clamp(1.6rem, 4vw, 2.3rem);
+  margin-bottom: 1rem;
+}
+
+.lead {
+  font-size: 1.3rem;
+  color: var(--yin-dark);
+  line-height: 1.9;
+  max-width: 850px;
+  margin: 0 auto;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.7);
+}
+
+/* ============================================
+   GRID LAYOUTS - 3 COLUMNS
+   ============================================ */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin: 3rem 0;
+  width: 100%;
+}
+
+.two-col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.three-col {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ============================================
+   STAINED GLASS CARDS - DIMENSIONAL
+   ============================================ */
+
+.card-3d {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+  border-radius: var(--glass-border-radius);
+  padding: 2.5rem;
+  box-shadow: 
+    var(--shadow-deep),
+    var(--shadow-inset);
+  border: var(--glass-border-width) solid;
+  border-image: var(--glass-gold) 1;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+/* Stained glass shimmer overlay */
+.card-3d::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: var(--tile-shimmer);
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+.card-3d:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 
+    var(--shadow-lifted),
+    var(--shadow-glow),
+    var(--shadow-inset);
+  border-image: var(--glass-purple) 1;
+}
+
+.card-3d:hover::before {
+  opacity: 0.7;
+  animation: glassFlow 2s ease-in-out;
+}
+
+@keyframes glassFlow {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+/* ============================================
+   FLIP CARDS - STAINED GLASS EFFECT
+   ============================================ */
+
+.flip-card {
+  perspective: 1500px;
+  height: 420px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.flip-card.flipped {
+  z-index: 20;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: var(--glass-border-radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-deep);
+}
+
+/* FRONT - Light Glass with Wisdom Gold Border */
+.flip-front {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(254, 254, 254, 0.95) 100%);
+  border: var(--glass-border-width) solid;
+  border-image: var(--glass-gold) 1;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Radial wisdom glow */
+.flip-front::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(212, 165, 116, 0.2) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  animation: wisdomPulse 4s ease-in-out infinite;
+}
+
+@keyframes wisdomPulse {
+  0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.2); }
+}
+
+.flip-front i {
+  font-size: 4.5rem;
+  background: var(--glass-burgundy);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 4px 12px rgba(92, 10, 10, 0.4));
+  animation: iconFloat 3s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-10px) scale(1.05); }
+}
+
+.flip-front h3 {
+  font-size: 1.9rem;
+  background: var(--glass-burgundy);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  margin-bottom: 0.8rem;
+  font-weight: 900;
+  position: relative;
+  z-index: 1;
+}
+
+.flip-front p {
+  color: var(--yin-dark);
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+/* BACK - Deep Burgundy Stained Glass */
+.flip-back {
+  background: var(--glass-burgundy);
+  transform: rotateY(180deg);
+  text-align: center;
+  position: relative;
+  border: var(--glass-border-width) solid var(--wisdom-gold);
+}
+
+/* Yin-yang balance accent */
+.flip-back::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(20px);
+}
+
+.flip-back h3 {
+  color: var(--light-gold);
+  font-size: 1.8rem;
+  margin-bottom: 1.3rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.flip-back p {
+  color: var(--yang-light);
+  line-height: 1.9;
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.flip-back .tip {
+  color: var(--light-gold);
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-top: 1.2rem;
+  padding: 1rem;
+  background: rgba(212, 165, 116, 0.2);
+  border-radius: 12px;
+  border: 2px solid rgba(212, 165, 116, 0.4);
+  backdrop-filter: blur(10px);
+}
+
+.flip-back a {
+  color: var(--light-gold);
+  text-decoration: none;
+  font-weight: 800;
+  margin-top: 1.2rem;
+  padding: 0.9rem 2rem;
+  border: 3px solid var(--light-gold);
+  border-radius: 50px;
+  display: inline-block;
+  transition: all 0.4s ease;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.flip-back a:hover {
+  background: var(--glass-gold);
+  color: var(--strength-burgundy);
+  transform: scale(1.08);
+  box-shadow: var(--shadow-glow);
+  border-color: var(--wisdom-gold);
+}
+
+/* ============================================
+   SPINNING CARDS - STAINED GLASS
+   ============================================ */
+
+.spin-card {
+  perspective: 1500px;
+  height: 440px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.spin-card.spinning {
+  z-index: 20;
+}
+
+.spin-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.spin-card.spinning .spin-card-inner {
+  transform: rotateY(180deg);
+}
+
+.spin-front,
+.spin-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: var(--glass-border-radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-deep);
+}
+
+.spin-front {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(254, 254, 254, 0.95) 100%);
+  border: var(--glass-border-width) solid;
+  border-image: var(--glass-green) 1;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Green integrity energy */
+.spin-front::after {
+  content: '';
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(124, 179, 66, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: energyPulse 5s ease-in-out infinite;
+}
+
+@keyframes energyPulse {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.3); opacity: 0.6; }
+}
+
+.spin-front i {
+  font-size: 4.5rem;
+  background: var(--glass-green);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 4px 12px rgba(124, 179, 66, 0.5));
+}
+
+.spin-front h3 {
+  font-size: 2rem;
+  background: var(--glass-green);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  margin-bottom: 0.8rem;
+  position: relative;
+  z-index: 1;
+}
+
+.spin-front p {
+  color: var(--yin-dark);
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+.spin-back {
+  background: var(--glass-green);
+  transform: rotateY(180deg);
+  text-align: center;
+  border: var(--glass-border-width) solid var(--wisdom-gold);
+}
+
+.spin-back h3 {
+  color: var(--light-gold);
+  font-size: 1.9rem;
+  margin-bottom: 1.3rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.spin-back p {
+  color: var(--yang-light);
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+
+.spin-back a {
+  color: var(--light-gold);
+  text-decoration: none;
+  font-weight: 800;
+  padding: 1rem 2.2rem;
+  border: 3px solid var(--light-gold);
+  border-radius: 50px;
+  transition: all 0.4s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.spin-back a:hover {
+  background: var(--glass-gold);
+  color: var(--strength-burgundy);
+  transform: scale(1.08);
+  box-shadow: var(--shadow-glow);
+}
+
+/* ============================================
+   STATS BANNER - WISDOM ENERGY
+   ============================================ */
+
+.stats-banner {
+  background: var(--glass-burgundy);
+  padding: 3.5rem 2.5rem;
+  margin: 4rem 0;
+  border-radius: 32px;
+  box-shadow: var(--shadow-deep);
+  border: 4px solid var(--wisdom-gold);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Aura energy swirl */
+.stats-banner::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(212, 165, 116, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: auraSwirl 8s linear infinite;
+}
+
+@keyframes auraSwirl {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-card {
+  background: rgba(212, 165, 116, 0.2);
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  text-align: center;
+  border: 3px solid rgba(212, 165, 116, 0.4);
+  transition: all 0.4s ease;
+  backdrop-filter: blur(15px);
+  box-shadow: var(--shadow-inset);
+}
+
+.stat-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: var(--shadow-glow);
+  border-color: var(--light-gold);
+  background: rgba(212, 165, 116, 0.3);
+}
+
+.stat-number {
+  font-size: 4.5rem;
+  font-weight: 900;
+  background: var(--glass-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 0.8rem;
+  font-family: 'Inter', sans-serif;
+  filter: drop-shadow(0 2px 15px rgba(255, 215, 0, 0.7));
+}
+
+.stat-label {
+  font-size: 1.05rem;
+  color: var(--yang-light);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   SOUND TOGGLE - PEACE BUTTON
+   ============================================ */
+
+.sound-toggle-wrapper {
+  text-align: center;
+  margin: 2.5rem 0;
+}
+
+.sound-toggle {
+  background: var(--glass-gold);
+  color: var(--strength-burgundy);
+  border: none;
+  padding: 1.3rem 2.8rem;
+  border-radius: 50px;
+  font-size: 1.15rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: var(--shadow-deep);
+  font-family: 'Inter', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  border: 3px solid var(--wisdom-gold);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Peace ripple effect */
+.sound-toggle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.sound-toggle:hover::before {
+  width: 400px;
+  height: 400px;
+}
+
+.sound-toggle:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: var(--shadow-lifted), var(--shadow-glow);
+}
+
+.sound-toggle i,
+.sound-toggle span {
+  position: relative;
+  z-index: 1;
+}
+
+.sound-toggle i {
+  font-size: 1.4rem;
+}
+
+/* ============================================
+   TABLE - STAINED GLASS DESIGN
+   ============================================ */
+
+.table-wrapper {
+  overflow-x: auto;
+  margin: 2rem 0;
+  border-radius: var(--glass-border-radius);
+  box-shadow: var(--shadow-deep);
+  border: var(--glass-border-width) solid var(--wisdom-gold);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(254, 254, 254, 0.95) 100%);
+  border-radius: var(--glass-border-radius);
+  overflow: hidden;
+}
+
+thead {
+  background: var(--glass-burgundy);
+  border-bottom: 4px solid var(--wisdom-gold);
+}
+
+th {
+  padding: 1.8rem 1.5rem;
+  text-align: left;
+  color: var(--light-gold);
+  font-weight: 800;
+  font-size: 1.15rem;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+td {
+  padding: 1.5rem;
+  color: var(--yin-dark);
+  border-bottom: 1px solid rgba(92, 10, 10, 0.1);
+  transition: background 0.3s ease;
+  font-size: 1.05rem;
+}
+
+tr:hover td {
+  background: rgba(212, 165, 116, 0.1);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+.table-highlight {
+  background: linear-gradient(135deg, rgba(212, 165, 116, 0.15) 0%, rgba(244, 208, 63, 0.1) 100%);
+  font-weight: 700;
+  color: var(--strength-burgundy);
+}
+
+/* ============================================
+   GALLERY - GLASS TILES
+   ============================================ */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin: 3rem 0;
+}
+
+.gallery-item {
+  perspective: 1500px;
+  height: 380px;
+  cursor: pointer;
+  border-radius: var(--glass-border-radius);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.gallery-item.flipped {
+  z-index: 20;
+}
+
+.gallery-item-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.gallery-item.flipped .gallery-item-inner {
+  transform: rotateY(180deg);
+}
+
+.gallery-front,
+.gallery-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: var(--glass-border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-deep);
+  border: var(--glass-border-width) solid var(--wisdom-gold);
+}
+
+.gallery-front {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.gallery-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.gallery-item:hover .gallery-front img {
+  transform: scale(1.15);
+}
+
+.gallery-back {
+  background: var(--glass-purple);
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.gallery-back h3 {
+  color: var(--light-gold);
+  font-size: 1.9rem;
+  margin-bottom: 1.2rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-back p {
+  color: var(--yang-light);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-back .date {
+  color: var(--light-gold);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-top: 1.2rem;
+  padding: 0.7rem 1.5rem;
+  background: rgba(212, 165, 116, 0.25);
+  border-radius: 50px;
+  font-family: 'Inter', sans-serif;
+  border: 2px solid rgba(212, 165, 116, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+/* ============================================
+   HERO IMAGE - WISDOM FRAME
+   ============================================ */
+
+.hero-showcase {
+  max-width: 950px;
+  margin: 3rem auto;
+}
+
+.hero-image-container {
+  position: relative;
+  border-radius: var(--glass-border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-lifted);
+  border: 6px solid;
+  border-image: var(--glass-gold) 1;
+}
+
+.hero-main-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.hero-image-container:hover .hero-main-image {
+  transform: scale(1.05);
+}
+
+/* Wisdom energy overlay */
+.diamond-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--tile-shimmer);
+  background-size: 200% 100%;
+  opacity: 0.4;
+  animation: wisdomSweep 4s linear infinite;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+@keyframes wisdomSweep {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ============================================
+   GAME STYLES - BRING TO LIFE
+   ============================================ */
+
+.game-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.game-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  background: var(--glass-burgundy);
+  color: var(--light-gold);
+  border: none;
+  padding: 1.2rem 3rem;
+  border-radius: 50px;
+  font-size: 1.15rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  font-family: 'Inter', sans-serif;
+  box-shadow: var(--shadow-deep);
+  border: 3px solid transparent;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.tab-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lifted);
+  border-color: var(--wisdom-gold);
+}
+
+.tab-btn.active {
+  background: var(--glass-gold);
+  color: var(--strength-burgundy);
+  border-color: var(--wisdom-gold);
+  box-shadow: var(--shadow-glow);
+}
+
+.game-panel {
+  display: none;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.game-panel.active {
+  display: block;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.game-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  background: var(--glass-burgundy);
+  padding: 1.5rem 2.5rem;
+  border-radius: 20px;
+  text-align: center;
+  min-width: 160px;
+  box-shadow: var(--shadow-deep);
+  border: 3px solid rgba(212, 165, 116, 0.4);
+  transition: all 0.4s ease;
+  backdrop-filter: blur(15px);
+}
+
+.stat-item:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lifted);
+  border-color: var(--wisdom-gold);
+}
+
+.stat-label {
+  color: var(--yang-light);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.7rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.stat-value {
+  background: var(--glass-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2.5rem;
+  font-weight: 900;
+  font-family: 'Inter', sans-serif;
+  filter: drop-shadow(0 2px 8px rgba(255, 215, 0, 0.6));
+}
+
+.game-btn {
+  background: var(--glass-gold);
+  color: var(--strength-burgundy);
+  border: none;
+  padding: 1.2rem 3rem;
+  border-radius: 50px;
+  font-size: 1.15rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  font-family: 'Inter', sans-serif;
+  box-shadow: var(--shadow-deep);
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem;
+  border: 3px solid var(--wisdom-gold);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.game-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: var(--shadow-lifted), var(--shadow-glow);
+}
+
+.game-btn i {
+  font-size: 1.3rem;
+}
+
+/* Memory Game */
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin: 2rem 0;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.memory-card {
+  height: 220px;
+  perspective: 1200px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.memory-card.flipped,
+.memory-card.matched {
+  z-index: 20;
+}
+
+.memory-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.memory-card.flipped .memory-card-inner,
+.memory-card.matched .memory-card-inner {
+  transform: rotateY(180deg);
+}
+
+.memory-front,
+.memory-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: var(--glass-border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: var(--shadow-deep);
+  border: var(--glass-border-width) solid var(--wisdom-gold);
+}
+
+.memory-front {
+  background: var(--glass-burgundy);
+  font-size: 3.5rem;
+}
+
+.memory-front i {
+  background: var(--glass-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 10px rgba(255, 215, 0, 0.6));
+}
+
+.memory-back {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(254, 254, 254, 0.95) 100%);
+  transform: rotateY(180deg);
+}
+
+.memory-back img,
+.memory-back video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.memory-card.matched {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Adventure Game */
+.adventure-scene {
+  max-width: 750px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.scene-image {
+  width: 100%;
+  max-height: 450px;
+  object-fit: cover;
+  border-radius: var(--glass-border-radius);
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-deep);
+  transition: transform 0.6s ease;
+  border: 4px solid;
+  border-image: var(--glass-gold) 1;
+}
+
+.scene-image:hover {
+  transform: scale(1.03);
+}
+
+.scene-text {
+  font-size: 1.2rem;
+  line-height: 1.9;
+  color: var(--yin-dark);
+  margin-bottom: 2rem;
+  padding: 2.5rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(254, 254, 254, 0.9) 100%);
+  border-radius: var(--glass-border-radius);
+  box-shadow: var(--shadow-deep);
+  border: var(--glass-border-width) solid var(--wisdom-gold);
+  backdrop-filter: blur(10px);
+}
+
+.choice-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.choice-btn {
+  background: var(--glass-burgundy);
+  color: var(--light-gold);
+  border: none;
+  padding: 1.5rem 2.5rem;
+  border-radius: 20px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: var(--shadow-deep);
+  font-family: 'Inter', sans-serif;
+  text-align: left;
+  border: 3px solid transparent;
+}
+
+.choice-btn:hover {
+  transform: translateX(12px);
+  box-shadow: var(--shadow-lifted);
+  background: var(--glass-gold);
+  color: var(--strength-burgundy);
+  border-color: var(--wisdom-gold);
+}
+
+.choice-btn i {
+  font-size: 1.8rem;
+}
+
+/* ============================================
+   PAGE NAVIGATION - PEACEFUL FLOW
+   ============================================ */
+
+.page-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3rem 0;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.page-nav-btn {
+  background: var(--glass-burgundy);
+  color: var(--light-gold);
+  text-decoration: none;
+  padding: 1.2rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 800;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.4s ease;
+  box-shadow: var(--shadow-deep);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.05rem;
+  border: 3px solid transparent;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.page-nav-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lifted);
+  border-color: var(--wisdom-gold);
+  background: var(--glass-gold);
+  color: var(--strength-burgundy);
+}
+
+.page-nav-btn i {
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+.page-nav-btn:hover i {
+  transform: translateX(5px);
+}
+
+/* ============================================
+   RESPONSIVE - BALANCED LAYOUT
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .card-grid,
+  .three-col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .memory-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 820px) {
+  .main-nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  .main-nav.active {
+    display: flex;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  .card-grid,
+  .two-col,
+  .three-col {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .stat-number {
+    font-size: 3.5rem;
+  }
+  
+  .page-shell {
+    padding: 2rem 0;
+  }
+  
+  .flip-card,
+  .spin-card,
+  .gallery-item {
+    height: 380px;
+  }
+  
+  .memory-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .memory-card {
+    height: 170px;
+  }
+  
+  h1 {
+    font-size: 2.8rem;
+  }
+  
+  h2 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .brand-title {
+    font-size: 1.4rem;
+  }
+  
+  .brand-icon {
+    font-size: 2.2rem;
+  }
+  
+  .nav-link {
+    padding: 0.8rem 1.6rem;
+    font-size: 0.9rem;
+  }
+  
+  .card-3d,
+  .flip-front,
+  .flip-back,
+  .spin-front,
+  .spin-back {
+    padding: 2rem;
+  }
+  
+  .stat-number {
+    font-size: 3rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.fade-in {
+  animation: fadeInUp 1s ease-out forwards;
+  opacity: 0;
+}
+
+.stagger-1 { animation-delay: 0.15s; }
+.stagger-2 { animation-delay: 0.3s; }
+.stagger-3 { animation-delay: 0.45s; }
+.stagger-4 { animation-delay: 0.6s; }
+.stagger-5 { animation-delay: 0.75s; }
+.stagger-6 { animation-delay: 0.9s; }
+
+.text-center { text-align: center; }
+.hidden { display: none; }
+.visible { display: block; }
+
+/* ============================================
+   ACCESSIBILITY - YIN YANG BALANCE
+   ============================================ */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+:focus-visible { outline: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+  .site-header,
+  .page-nav,
+  .sound-toggle-wrapper,
+  .game-tabs,
+  .mobile-menu-btn {
+    display: none;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .card-3d,
+  .flip-card,
+  .spin-card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}
+/* Background images for flip cards */
+.facts-page .flip-back {
+  background-image: url('SEQUIA.JPG');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+}
+
+.resources-page .flip-back {
+  background-image: url('move.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+}
+
+/* KEEP CARDS FLIPPED - DON'T AUTO-FLIP BACK */
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg) !important;
+}
+
+.flip-card.flipped .flip-front {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.flip-card.flipped .flip-back {
+  opacity: 1 !important;
+}
+/* Background images - ONLY safety and resources */
+.safety-page .flip-back {
+  background-image: url('SEQUIA.JPG');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+}
+
+.resources-page .flip-back {
+  background-image: url('move.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+}
+
+/* Cards stay flipped */
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg) !important;
+}
+
+.flip-card.flipped .flip-front {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.flip-card.flipped .flip-back {
+  opacity: 1 !important;
+}
