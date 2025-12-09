@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="game-page">
+<body>
   <header class="site-header">
     <div class="container">
       <div class="header-bar">
@@ -121,17 +121,8 @@
   </main>
 
   <script>
-    // MEMORY GAME WITH REAL PHOTOS AND VIDEOS
-    const memoryMedia = [
-      {type: 'image', src: '1.jpg'},
-      {type: 'image', src: '2.jpg'},
-      {type: 'image', src: '3.jpg'},
-      {type: 'image', src: '4.jpg'},
-      {type: 'video', src: 'video.1.mp4'},
-      {type: 'video', src: 'video.2.mp4'},
-      {type: 'video', src: 'video.3.mp4'},
-      {type: 'video', src: 'video.4.mp4'}
-    ];
+    // MEMORY GAME
+    const icons = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg'];
     let cards = [];
     let flipped = [];
     let matched = 0;
@@ -143,30 +134,21 @@
       const grid = document.getElementById('memoryGrid');
       grid.innerHTML = '';
       
-      const cardPairs = [...memoryMedia, ...memoryMedia];
+      const cardPairs = [...icons, ...icons];
       cardPairs.sort(() => Math.random() - 0.5);
       
-      cardPairs.forEach((media, index) => {
+      cardPairs.forEach((icon, index) => {
         const card = document.createElement('div');
         card.className = 'memory-card';
-        card.dataset.src = media.src;
-        card.dataset.type = media.type;
+        card.dataset.icon = icon;
         card.dataset.index = index;
-        
-        let backContent = '';
-        if (media.type === 'image') {
-          backContent = `<img src="${media.src}" alt="Card" style="width:100%; height:100%; object-fit:cover;">`;
-        } else {
-          backContent = `<video muted loop style="width:100%; height:100%; object-fit:cover;"><source src="${media.src}" type="video/mp4"></video>`;
-        }
-        
         card.innerHTML = `
           <div class="memory-card-inner">
             <div class="memory-front">
-              <i class="fas fa-paw"></i>
+              <i class="fas fa-question"></i>
             </div>
             <div class="memory-back">
-              ${backContent}
+              <img src="${icon}" alt="Memory card" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
             </div>
           </div>
         `;
@@ -180,14 +162,6 @@
       if (flipped.length >= 2 || card.classList.contains('flipped') || card.classList.contains('matched')) return;
       
       card.classList.add('flipped');
-      
-      // Play video if it's a video card
-      const video = card.querySelector('video');
-      if (video) {
-        video.currentTime = 0;
-        video.play();
-      }
-      
       flipped.push(card);
       
       if (flipped.length === 2) {
@@ -200,25 +174,19 @@
     function checkMatch() {
       const [card1, card2] = flipped;
       
-      if (card1.dataset.src === card2.dataset.src) {
+      if (card1.dataset.icon === card2.dataset.icon) {
         card1.classList.add('matched');
         card2.classList.add('matched');
         matched++;
         document.getElementById('matches').textContent = matched;
         flipped = [];
         
-        if (matched === memoryMedia.length) {
+        if (matched === icons.length) {
           clearInterval(timerInterval);
           setTimeout(() => alert(`Congratulations! You won in ${moves} moves and ${formatTime(timer)}!`), 500);
         }
       } else {
         setTimeout(() => {
-          // Pause videos when flipping back
-          const video1 = card1.querySelector('video');
-          const video2 = card2.querySelector('video');
-          if (video1) { video1.pause(); video1.currentTime = 0; }
-          if (video2) { video2.pause(); video2.currentTime = 0; }
-          
           card1.classList.remove('flipped');
           card2.classList.remove('flipped');
           flipped = [];
@@ -236,11 +204,6 @@
 
     function resetMemoryGame() {
       clearInterval(timerInterval);
-      // Pause all videos
-      document.querySelectorAll('.memory-card video').forEach(v => {
-        v.pause();
-        v.currentTime = 0;
-      });
       cards = [];
       flipped = [];
       matched = 0;
@@ -262,25 +225,23 @@
     const scenarios = [
       {
         text: "Excellent choice! You protected Dude's focus and educated someone about service dog etiquette. He remains alert and ready to help you.",
-        image: "1.jpg"
+        image: "flowers.jpg"
       },
       {
         text: "Not ideal. Allowing strangers to pet working service dogs can distract them from critical tasks. Dude missed an alert because he was focused on the stranger.",
-        image: "2.jpg"
+        image: "flowers.jpg"
       },
       {
         text: "Perfect! You took time to educate someone about service dogs. They thanked you and will now respect service dog teams in the future.",
-        image: "3.jpg"
+        image: "flowers.jpg"
       }
     ];
 
     function makeChoice(choice) {
       const sceneText = document.getElementById('sceneText');
-      const sceneImage = document.getElementById('sceneImage');
       const choices = document.getElementById('choices');
       
       sceneText.textContent = scenarios[choice - 1].text;
-      sceneImage.src = scenarios[choice - 1].image;
       choices.innerHTML = `
         <button class="choice-btn" onclick="resetAdventure()">
           <i class="fas fa-redo"></i>
@@ -291,10 +252,8 @@
 
     function resetAdventure() {
       const sceneText = document.getElementById('sceneText');
-      const sceneImage = document.getElementById('sceneImage');
       const choices = document.getElementById('choices');
       
-      sceneImage.src = "flowers.jpg";
       sceneText.textContent = "You're at the park with Dude, your service dog. A stranger approaches, smiling and reaching out to pet him. What do you do?";
       choices.innerHTML = `
         <button class="choice-btn" onclick="makeChoice(1)">
