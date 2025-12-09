@@ -168,29 +168,7 @@
     </div>
   </main>
 
-  <audio id="bgMusic" loop>
-    <source src="music.mp3" type="audio/mpeg">
-  </audio>
-
   <script>
-    let soundOn = false;
-    const audio = document.getElementById('bgMusic');
-    const soundIcon = document.getElementById('soundIcon');
-    const soundText = document.getElementById('soundText');
-
-    function toggleSound() {
-      soundOn = !soundOn;
-      if (soundOn) {
-        audio.play();
-        soundIcon.className = 'fas fa-volume-up';
-        soundText.textContent = 'Sound On';
-      } else {
-        audio.pause();
-        soundIcon.className = 'fas fa-volume-mute';
-        soundText.textContent = 'Sound Off';
-      }
-    }
-
     function toggleMobileMenu() {
       document.getElementById('mainNav').classList.toggle('active');
     }
