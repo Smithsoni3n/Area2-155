@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive games with Dude the service dog.">
+  <title>Games | The Anchor to My Storm</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo" aria-label="Home">
+          <i class="fas fa-anchor logo-icon" aria-hidden="true"></i>
+          <div class="logo-text">
+            <span class="logo-tagline">The Anchor</span>
+            <span class="logo-title">To My Storm</span>
+          </div>
+        </a>
+        <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle navigation">
+          <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+        <nav class="main-nav" id="mainNav" role="navigation">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="facts.html" class="nav-link">Facts</a>
+          <a href="safety.html" class="nav-link">Safety</a>
+          <a href="resources.html" class="nav-link">Resources</a>
+          <a href="gallery.html" class="nav-link">Gallery</a>
+          <a href="game.html" class="nav-link active"><i class="fas fa-gamepad" aria-hidden="true"></i> Game</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      
+      <section class="page-section page-header">
+        <p class="eyebrow">Have Some Fun</p>
+        <h1 class="page-title">Interactive Games</h1>
+        <p class="page-intro">Play memory match with photos and videos, or go on an adventure with Dude!</p>
+      </section>
+
+      <section class="page-section">
+        <div class="card-grid two-col">
+          <article class="content-card text-center" onclick="showGame('memory')" style="cursor:pointer;" tabindex="0">
+            <h2><i class="fas fa-th" aria-hidden="true"></i> Memory Match</h2>
+            <p>Match pairs of photos and videos!</p>
+            <button class="game-btn">Play Now</button>
+          </article>
+          <article class="content-card text-center" onclick="showGame('adventure')" style="cursor:pointer;" tabindex="0">
+            <h2><i class="fas fa-book-open" aria-hidden="true"></i> Adventure Game</h2>
+            <p>Make choices and explore Dude's world!</p>
+            <button class="game-btn">Play Now</button>
+          </article>
+        </div>
+      </section>
+
+      <section id="memory-game" class="game-container hidden">
+        <div class="game-header">
+          <span class="game-title"><i class="fas fa-th" aria-hidden="true"></i> Memory Match</span>
+          <span class="game-info">Moves: <span id="moves">0</span></span>
+          <span class="game-info">Matches: <span id="matches">0</span>/8</span>
+          <button class="game-btn" onclick="resetMemoryGame()">Reset</button>
+        </div>
+        <div class="memory-grid" id="memory-grid"></div>
+        <div id="win-message" class="content-card text-center hidden">
+          <h2><i class="fas fa-trophy" aria-hidden="true"></i> You Win!</h2>
+          <p>You matched all pairs in <span id="final-moves">0</span> moves!</p>
+          <button class="game-btn" onclick="resetMemoryGame()">Play Again</button>
+        </div>
+      </section>
+
+      <section id="adventure-game" class="game-container hidden">
+        <div class="game-header">
+          <span class="game-title"><i class="fas fa-book-open" aria-hidden="true"></i> A Day with Dude</span>
+          <button class="game-btn" onclick="resetAdventure()">Restart</button>
+        </div>
+        <div id="scene" class="adventure-scene"></div>
+      </section>
+
+      <nav class="page-nav">
+        <a href="gallery.html" class="page-nav-link"><i class="fas fa-arrow-left" aria-hidden="true"></i> Previous: Gallery</a>
+        <a href="index.html" class="page-nav-link">Back to Home <i class="fas fa-home" aria-hidden="true"></i></a>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2024 The Anchor to My Storm — CIS-155 Final Project</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu(){document.getElementById('mainNav').classList.toggle('active');}
+    function showGame(g){document.getElementById('memory-game').classList.add('hidden');document.getElementById('adventure-game').classList.add('hidden');if(g==='memory'){document.getElementById('memory-game').classList.remove('hidden');initMemoryGame();}else{document.getElementById('adventure-game').classList.remove('hidden');initAdventure();}}
+
+    // Memory Game with YOUR file names - images and videos
+    const memoryMedia=[
+      {type:'image',src:'dude.jpg'},
+      {type:'image',src:'dude.2.jpg'},
+      {type:'image',src:'dude.3.jpg'},
+      {type:'image',src:'flowers.jpg'},
+      {type:'image',src:'stick.jpg'},
+      {type:'video',src:'video1.mp4'},
+      {type:'video',src:'video2.mp4'},
+      {type:'video',src:'video3.mp4'}
+    ];
+    let cards=[],flippedCards=[],matchedPairs=0,moves=0,canFlip=true;
+
+    function initMemoryGame(){cards=[...memoryMedia,...memoryMedia].sort(()=>Math.random()-0.5);flippedCards=[];matchedPairs=0;moves=0;canFlip=true;updateStats();document.getElementById('win-message').classList.add('hidden');renderMemoryCards();}
+
+    function renderMemoryCards(){const grid=document.getElementById('memory-grid');grid.innerHTML='';cards.forEach((m,i)=>{const c=document.createElement('div');c.className='memory-card';c.dataset.index=i;c.tabIndex=0;let back=m.type==='image'?`<img src="${m.src}" alt="Card">`:`<video muted loop><source src="${m.src}" type="video/mp4"></video>`;c.innerHTML=`<div class="memory-card-inner"><div class="memory-front"><i class="fas fa-paw"></i></div><div class="memory-back">${back}</div></div>`;c.onclick=()=>flipCard(i);c.onkeypress=(e)=>{if(e.key==='Enter')flipCard(i);};grid.appendChild(c);});}
+
+    function flipCard(i){if(!canFlip)return;const c=document.querySelector(`.memory-card[data-index="${i}"]`);if(c.classList.contains('flipped')||c.classList.contains('matched'))return;c.classList.add('flipped');const v=c.querySelector('video');if(v){v.currentTime=0;v.play();}flippedCards.push({index:i,src:cards[i].src});if(flippedCards.length===2){moves++;updateStats();canFlip=false;const[f,s]=flippedCards;if(f.src===s.src){setTimeout(()=>{document.querySelector(`.memory-card[data-index="${f.index}"]`).classList.add('matched');document.querySelector(`.memory-card[data-index="${s.index}"]`).classList.add('matched');pauseVid(f.index);pauseVid(s.index);matchedPairs++;updateStats();flippedCards=[];canFlip=true;if(matchedPairs===8){document.getElementById('final-moves').textContent=moves;document.getElementById('win-message').classList.remove('hidden');}},800);}else{setTimeout(()=>{document.querySelector(`.memory-card[data-index="${f.index}"]`).classList.remove('flipped');document.querySelector(`.memory-card[data-index="${s.index}"]`).classList.remove('flipped');pauseVid(f.index);pauseVid(s.index);flippedCards=[];canFlip=true;},1200);}}}
+
+    function pauseVid(i){const v=document.querySelector(`.memory-card[data-index="${i}"] video`);if(v){v.pause();v.currentTime=0;}}
+    function updateStats(){document.getElementById('moves').textContent=moves;document.getElementById('matches').textContent=matchedPairs;}
+    function resetMemoryGame(){document.querySelectorAll('.memory-card video').forEach(v=>{v.pause();v.currentTime=0;});initMemoryGame();}
+
+    // Adventure Game
+    const scenes={start:{image:'flowers.jpg',text:"You wake up to find Dude sitting by your bed, tail wagging. It's a new day! What would you like to do?",choices:[{text:"Take Dude for a morning walk",icon:"fa-walking",next:"walk"},{text:"Stay in and cuddle",icon:"fa-heart",next:"cuddle"},{text:"Practice training commands",icon:"fa-graduation-cap",next:"train"}]},walk:{image:'stick.jpg',text:"You head outside with Dude. The morning air is fresh. Dude finds a big stick and looks at you excitedly!",choices:[{text:"Play fetch with the stick",icon:"fa-baseball",next:"fetch"},{text:"Continue to the park",icon:"fa-tree",next:"park"}]},cuddle:{image:'dude.jpg',text:"Dude snuggles close. You feel his warmth and steady breathing. Your anxiety starts to melt away.",choices:[{text:"Take a mindful moment",icon:"fa-spa",next:"goodEnd"},{text:"Get up for breakfast",icon:"fa-coffee",next:"goodEnd"}]},train:{image:'dude.2.jpg',text:"You practice commands. Dude sits, stays, and lies down perfectly! Such a good boy.",choices:[{text:"Practice deep pressure therapy",icon:"fa-hands-holding-heart",next:"goodEnd"},{text:"Give Dude treats",icon:"fa-bone",next:"goodEnd"}]},fetch:{image:'stick.jpg',text:"Dude bounds after the stick with pure joy! Watching him run free brings a smile to your face.",choices:[{text:"Head home together",icon:"fa-home",next:"goodEnd"}]},park:{image:'dude.3.jpg',text:"The park is peaceful. Dude stays focused on you, ready to help if needed.",choices:[{text:"Find a quiet bench",icon:"fa-chair",next:"goodEnd"},{text:"Walk the nature trail",icon:"fa-hiking",next:"goodEnd"}]},goodEnd:{image:'flowers.jpg',text:"Another day navigated with Dude by your side. He's your anchor — steady, loyal, always there. Together, you can face anything.",choices:[{text:"Play Again",icon:"fa-redo",next:"start"}]}};
+
+    function initAdventure(){renderScene('start');}
+    function renderScene(id){const s=scenes[id];document.getElementById('scene').innerHTML=`<img src="${s.image}" alt="Scene" class="scene-image"><div class="scene-text">${s.text}</div><div class="choices">${s.choices.map(c=>`<button class="choice-btn" onclick="renderScene('${c.next}')"><i class="fas ${c.icon}" aria-hidden="true"></i><span>${c.text}</span></button>`).join('')}</div>`;}
+    function resetAdventure(){renderScene('start');}
+  </script>
+</body>
+</html>
