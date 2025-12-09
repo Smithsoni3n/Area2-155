@@ -1643,3 +1643,83 @@ tr:last-child td {
     border: 1px solid #ccc;
   }
 }
+/* FIX FLIP CARDS - KEEP THEM IN PLACE */
+.flip-card {
+  min-height: 320px;
+  height: 100%;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-front, .flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 16px;
+}
+
+.flip-front {
+  background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(252,228,214,0.95));
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+.glass-burgundy {
+  background: linear-gradient(135deg, #5c0a0a 0%, #8b1a1a 50%, #a83232 100%);
+  color: white;
+}
+
+.glass-purple {
+  background: linear-gradient(135deg, #6a1b9a 0%, #9c27b0 50%, #ba68c8 100%);
+  color: white;
+}
+
+.glass-gold {
+  background: linear-gradient(135deg, #d4a574 0%, #f4d03f 50%, #ffd700 100%);
+  color: #1a1a1a;
+}
+
+.glass-green {
+  background: linear-gradient(135deg, #558b2f 0%, #7cb342 50%, #9ccc65 100%);
+  color: white;
+}
+
+.glass-blue {
+  background: linear-gradient(135deg, #1976d2 0%, #42a5f5 50%, #64b5f6 100%);
+  color: white;
+}
+
+.flip-arrow {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 1.5rem;
+  color: var(--wisdom-purple);
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
