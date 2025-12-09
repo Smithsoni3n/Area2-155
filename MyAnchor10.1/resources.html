@@ -4,28 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="PTSD and Service Dog Resources - Help and Support">
-  <title>Resources - The Anchor to My Storm</title>
+  <title>Resources | The Anchor to My Storm</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="resources-page">
-  <header class="site-header">
+<body>
+  <!-- Video Background -->
+  <div class="video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="background.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
     <div class="container">
-      <div class="header-bar">
-        <a href="index.html" class="brand">
-          <i class="fas fa-anchor brand-icon"></i>
-          <div class="brand-text">
-            <span class="brand-kicker">The Anchor</span>
-            <span class="brand-title">To My Storm</span>
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <i class="fas fa-anchor logo-icon"></i>
+          <div class="logo-text">
+            <span class="logo-sub">The Anchor</span>
+            <span class="logo-main">To My Storm</span>
           </div>
         </a>
         
-        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <button class="menu-btn" onclick="toggleMenu()">
           <i class="fas fa-bars"></i>
         </button>
         
-        <nav class="main-nav" id="mainNav">
-          <a href="index.html" class="nav-link">The Anchor</a>
+        <nav class="nav" id="nav">
+          <a href="index.html" class="nav-link">Home</a>
           <a href="facts.html" class="nav-link">Facts</a>
           <a href="safety.html" class="nav-link">Safety</a>
           <a href="resources.html" class="nav-link active">Resources</a>
@@ -36,169 +44,99 @@
     </div>
   </header>
 
-  <main class="container page-shell">
-    <div class="page-intro fade-in">
-      <p class="eyebrow">Support & Information</p>
-      <h1>Resources</h1>
-      <p class="lead">Find help, support, and information about PTSD, service dogs, and trauma recovery.</p>
-    </div>
+  <!-- Main Content -->
+  <main class="main">
+    <div class="container">
+      <!-- Page Header -->
+      <div class="page-header">
+        <p class="eyebrow">Help & Support</p>
+        <h1 class="page-title">Resources</h1>
+        <p class="page-intro">Organizations and resources for PTSD support, service dog information, and domestic violence help.</p>
+      </div>
 
-    <!-- CRISIS RESOURCES TABLE -->
-    <div class="table-wrapper fade-in stagger-1">
-      <table>
-        <thead>
-          <tr>
-            <th>Resource</th>
-            <th>Contact</th>
-            <th>Available</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="table-highlight">
-            <td><strong>National Suicide Prevention Lifeline</strong></td>
-            <td><strong>988</strong></td>
-            <td><strong>24/7</strong></td>
-          </tr>
-          <tr>
-            <td>Crisis Text Line</td>
-            <td>Text HOME to 741741</td>
-            <td>24/7</td>
-          </tr>
-          <tr>
-            <td>National Domestic Violence Hotline</td>
-            <td>1-800-799-7233</td>
-            <td>24/7</td>
-          </tr>
-          <tr>
-            <td>Veterans Crisis Line</td>
-            <td>1-800-273-8255 (Press 1)</td>
-            <td>24/7</td>
-          </tr>
-          <tr>
-            <td>SAMHSA National Helpline</td>
-            <td>1-800-662-4357</td>
-            <td>24/7</td>
-          </tr>
-          <tr>
-            <td>RAINN Sexual Assault Hotline</td>
-            <td>1-800-656-4673</td>
-            <td>24/7</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+      <!-- Crisis Resources -->
+      <div class="content-card">
+        <h2><i class="fas fa-phone-alt"></i> Crisis Hotlines</h2>
+        <p>If you or someone you know is in immediate danger or crisis, please reach out:</p>
+        <p><strong>National Suicide Prevention Lifeline:</strong> 988</p>
+        <p><strong>National Domestic Violence Hotline:</strong> 1-800-799-7233</p>
+        <p><strong>Crisis Text Line:</strong> Text HOME to 741741</p>
+      </div>
 
-    <!-- SERVICE DOG ORGANIZATIONS -->
-    <h2 class="fade-in stagger-2" style="text-align: center; margin: 4rem 0 3rem 0;">Service Dog Organizations</h2>
-    
-    <div class="card-grid three-col">
-      <div class="flip-card fade-in stagger-3" onclick="this.classList.toggle('flipped')">
-        <div class="flip-card-inner">
-          <div class="flip-front">
-            <i class="fas fa-paw"></i>
-            <h3>Assistance Dogs International</h3>
-            <p>Click for details</p>
-          </div>
-          <div class="flip-back">
-            <h3>ADI</h3>
-            <p>Coalition of nonprofit service dog organizations with high training standards. Maintains registry of accredited programs.</p>
-            <p>Website: assistancedogsinternational.org</p>
-            <a href="https://assistancedogsinternational.org" target="_blank"><i class="fas fa-external-link-alt"></i> Visit Site</a>
-          </div>
+      <!-- Resource Cards -->
+      <div class="card-grid">
+        <div class="resource-card">
+          <h3><i class="fas fa-dog"></i> Service Dog Organizations</h3>
+          <p>Organizations that train and provide psychiatric service dogs for veterans and civilians with PTSD.</p>
+          <p><a href="https://www.pawsforpurple.org" target="_blank">Paws for Purple Hearts</a></p>
+          <p><a href="https://www.servicedogsforamerica.org" target="_blank">Service Dogs for America</a></p>
+          <p><a href="https://www.caninecompanions.org" target="_blank">Canine Companions</a></p>
+        </div>
+
+        <div class="resource-card">
+          <h3><i class="fas fa-brain"></i> PTSD Resources</h3>
+          <p>Information and support for those living with Post-Traumatic Stress Disorder.</p>
+          <p><a href="https://www.ptsd.va.gov" target="_blank">VA PTSD Resources</a></p>
+          <p><a href="https://www.nimh.nih.gov/health/topics/post-traumatic-stress-disorder-ptsd" target="_blank">NIMH PTSD Information</a></p>
+          <p><a href="https://www.sidran.org" target="_blank">Sidran Institute</a></p>
+        </div>
+
+        <div class="resource-card">
+          <h3><i class="fas fa-hands-holding-heart"></i> Domestic Violence Help</h3>
+          <p>Support and resources for survivors of domestic violence.</p>
+          <p><a href="https://www.thehotline.org" target="_blank">The National DV Hotline</a></p>
+          <p><a href="https://www.rainn.org" target="_blank">RAINN</a></p>
+          <p><a href="https://ncadv.org" target="_blank">National Coalition Against DV</a></p>
+        </div>
+
+        <div class="resource-card">
+          <h3><i class="fas fa-gavel"></i> Legal Rights</h3>
+          <p>Know your rights as a service dog handler under the ADA.</p>
+          <p><a href="https://www.ada.gov/resources/service-animals-faqs/" target="_blank">ADA Service Animal FAQ</a></p>
+          <p><a href="https://www.hud.gov/program_offices/fair_housing_equal_opp/assistance_animals" target="_blank">HUD Fair Housing</a></p>
+          <p><a href="https://www.transportation.gov/individuals/aviation-consumer-protection/service-animals" target="_blank">DOT Air Travel Rules</a></p>
+        </div>
+
+        <div class="resource-card">
+          <h3><i class="fas fa-book-open"></i> Training Resources</h3>
+          <p>Information about training your own psychiatric service dog.</p>
+          <p><a href="https://www.iaadp.org" target="_blank">IAADP Standards</a></p>
+          <p><a href="https://www.akc.org/expert-advice/training/service-dog-training-101/" target="_blank">AKC Training Guide</a></p>
+          <p><a href="https://usservicedogregistry.org" target="_blank">Owner-Training Info</a></p>
+        </div>
+
+        <div class="resource-card">
+          <h3><i class="fas fa-users"></i> Support Communities</h3>
+          <p>Online communities for service dog handlers and PTSD survivors.</p>
+          <p><a href="https://www.reddit.com/r/service_dogs/" target="_blank">r/service_dogs</a></p>
+          <p><a href="https://www.facebook.com/groups/servicedogowners/" target="_blank">Facebook SD Groups</a></p>
+          <p><a href="https://www.dailystrength.org/group/ptsd" target="_blank">PTSD Support Groups</a></p>
         </div>
       </div>
 
-      <div class="flip-card fade-in stagger-4" onclick="this.classList.toggle('flipped')">
-        <div class="flip-card-inner">
-          <div class="flip-front">
-            <i class="fas fa-flag-usa"></i>
-            <h3>K9s For Warriors</h3>
-            <p>Click for details</p>
-          </div>
-          <div class="flip-back">
-            <h3>Veterans Focus</h3>
-            <p>Provides service dogs to veterans with PTSD, traumatic brain injury, and military sexual trauma at no cost.</p>
-            <p>Website: k9sforwarriors.org</p>
-            <a href="https://k9sforwarriors.org" target="_blank"><i class="fas fa-external-link-alt"></i> Visit Site</a>
-          </div>
-        </div>
+      <!-- Encouraging Message -->
+      <div class="content-card max-width-sm">
+        <h2><i class="fas fa-heart"></i> You Are Not Alone</h2>
+        <p>Recovery is not a straight line. Some days will be harder than others, and that's okay. What matters is that you keep going, keep reaching out, and keep believing that better days are ahead.</p>
+        <p><strong>Whether you're considering a service dog, recovering from trauma, or just trying to make it through today—know that you are seen, you are valued, and you deserve support.</strong></p>
       </div>
 
-      <div class="flip-card fade-in stagger-5" onclick="this.classList.toggle('flipped')">
-        <div class="flip-card-inner">
-          <div class="flip-front">
-            <i class="fas fa-heart"></i>
-            <h3>Pawsibility</h3>
-            <p>Click for details</p>
-          </div>
-          <div class="flip-back">
-            <h3>Psychiatric Service Dogs</h3>
-            <p>Specializes in training service dogs for psychiatric disabilities including PTSD, anxiety, and depression.</p>
-            <p>Website: pawsibilityservicedogs.com</p>
-            <a href="https://pawsibilityservicedogs.com" target="_blank"><i class="fas fa-external-link-alt"></i> Visit Site</a>
-          </div>
-        </div>
+      <!-- Page Navigation -->
+      <div class="page-nav">
+        <a href="safety.html" class="page-nav-link">
+          <i class="fas fa-arrow-left"></i> Previous: Safety
+        </a>
+        <a href="gallery.html" class="page-nav-link">
+          Next: Gallery <i class="fas fa-arrow-right"></i>
+        </a>
       </div>
-    </div>
-
-    <!-- PTSD RESOURCES -->
-    <h2 class="fade-in stagger-6" style="text-align: center; margin: 4rem 0 3rem 0;">PTSD & Trauma Resources</h2>
-    
-    <div class="card-grid two-col">
-      <div class="card-3d fade-in stagger-7">
-        <h2><i class="fas fa-brain"></i> National Center for PTSD</h2>
-        <p>Part of the U.S. Department of Veterans Affairs, provides research, education, and training on PTSD and traumatic stress.</p>
-        <p style="margin-top: 1rem;"><strong>Website:</strong> ptsd.va.gov</p>
-        <p><strong>Resources:</strong> Self-help tools, treatment information, mobile apps, and family support.</p>
-      </div>
-
-      <div class="card-3d fade-in stagger-8">
-        <h2><i class="fas fa-hands-helping"></i> The National Alliance on Mental Illness</h2>
-        <p>NAMI provides advocacy, education, support, and public awareness for individuals and families affected by mental illness.</p>
-        <p style="margin-top: 1rem;"><strong>Helpline:</strong> 1-800-950-NAMI (6264)</p>
-        <p><strong>Website:</strong> nami.org</p>
-      </div>
-    </div>
-
-    <!-- DOMESTIC VIOLENCE RESOURCES -->
-    <div class="card-3d fade-in" style="max-width: 900px; margin: 4rem auto;">
-      <h2><i class="fas fa-shield-heart"></i> Domestic Violence Resources</h2>
-      <p><strong>National Domestic Violence Hotline:</strong> 1-800-799-7233 (SAFE) or text START to 88788. Available 24/7 in over 200 languages.</p>
-      <p style="margin-top: 1rem;"><strong>The National Coalition Against Domestic Violence:</strong> Resources, statistics, and advocacy. Website: ncadv.org</p>
-      <p style="margin-top: 1rem;"><strong>Safety Planning:</strong> If you're in danger, create a safety plan. Include emergency contacts, important documents, and a safe place to go.</p>
-      <p style="margin-top: 1rem; font-size: 1.05rem; line-height: 1.8;"><em>You deserve safety. You deserve peace. You deserve a life free from violence. Help is available, and you are not alone.</em></p>
-    </div>
-
-    <div class="page-nav">
-      <a href="safety.html" class="page-nav-btn">
-        <i class="fas fa-arrow-left"></i> Previous: Safety
-      </a>
-      <a href="gallery.html" class="page-nav-btn">
-        Next: Gallery <i class="fas fa-arrow-right"></i>
-      </a>
     </div>
   </main>
 
   <script>
-    function toggleMobileMenu() {
-      document.getElementById('mainNav').classList.toggle('active');
+    function toggleMenu() {
+      document.getElementById('nav').classList.toggle('active');
     }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
-
-    document.querySelectorAll('.fade-in').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(40px)';
-      el.style.transition = 'opacity 1s ease, transform 1s ease';
-      observer.observe(el);
-    });
   </script>
 </body>
 </html>
