@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Crisis Resources - Help for PTSD, domestic violence & mental health support">
-  <title>Resources | The Anchor to My Storm</title>
+  <meta name="description" content="PTSD and Service Dog Resources - Help and Support">
+  <title>Resources - The Anchor to My Storm</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="resources-page">
-
   <header class="site-header">
     <div class="container">
       <div class="header-bar">
@@ -21,12 +20,12 @@
           </div>
         </a>
         
-        <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
           <i class="fas fa-bars"></i>
         </button>
         
         <nav class="main-nav" id="mainNav">
-          <a href="index.html" class="nav-link">Anchor</a>
+          <a href="index.html" class="nav-link">The Anchor</a>
           <a href="facts.html" class="nav-link">Facts</a>
           <a href="safety.html" class="nav-link">Safety</a>
           <a href="resources.html" class="nav-link active">Resources</a>
@@ -37,167 +36,151 @@
     </div>
   </header>
 
-  <main class="page-shell">
-    <div class="container">
-      
-      <div class="page-intro">
-        <p class="eyebrow">Crisis Support & Help</p>
-        <h1>Resources</h1>
-        <p class="lead">You are not alone. Help is available 24/7. These resources provide immediate support for PTSD, domestic violence, mental health crises & more.</p>
+  <main class="container page-shell">
+    <div class="page-intro fade-in">
+      <p class="eyebrow">Support & Information</p>
+      <h1>Resources</h1>
+      <p class="lead">Find help, support, and information about PTSD, service dogs, and trauma recovery.</p>
+    </div>
+
+    <!-- CRISIS RESOURCES TABLE -->
+    <div class="table-wrapper fade-in stagger-1">
+      <table>
+        <thead>
+          <tr>
+            <th>Resource</th>
+            <th>Contact</th>
+            <th>Available</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-highlight">
+            <td><strong>National Suicide Prevention Lifeline</strong></td>
+            <td><strong>988</strong></td>
+            <td><strong>24/7</strong></td>
+          </tr>
+          <tr>
+            <td>Crisis Text Line</td>
+            <td>Text HOME to 741741</td>
+            <td>24/7</td>
+          </tr>
+          <tr>
+            <td>National Domestic Violence Hotline</td>
+            <td>1-800-799-7233</td>
+            <td>24/7</td>
+          </tr>
+          <tr>
+            <td>Veterans Crisis Line</td>
+            <td>1-800-273-8255 (Press 1)</td>
+            <td>24/7</td>
+          </tr>
+          <tr>
+            <td>SAMHSA National Helpline</td>
+            <td>1-800-662-4357</td>
+            <td>24/7</td>
+          </tr>
+          <tr>
+            <td>RAINN Sexual Assault Hotline</td>
+            <td>1-800-656-4673</td>
+            <td>24/7</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SERVICE DOG ORGANIZATIONS -->
+    <h2 class="fade-in stagger-2" style="text-align: center; margin: 4rem 0 3rem 0;">Service Dog Organizations</h2>
+    
+    <div class="card-grid three-col">
+      <div class="flip-card fade-in stagger-3" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <i class="fas fa-paw"></i>
+            <h3>Assistance Dogs International</h3>
+            <p>Click for details</p>
+          </div>
+          <div class="flip-back">
+            <h3>ADI</h3>
+            <p>Coalition of nonprofit service dog organizations with high training standards. Maintains registry of accredited programs.</p>
+            <p>Website: assistancedogsinternational.org</p>
+            <a href="https://assistancedogsinternational.org" target="_blank"><i class="fas fa-external-link-alt"></i> Visit Site</a>
+          </div>
+        </div>
       </div>
 
-      <!-- Emergency Banner -->
-      <div class="card-3d fade-in" style="background: linear-gradient(135deg, #dc3545, #c82333); border-color: #721c24;">
-        <h2 style="color: white;"><i class="fas fa-phone-volume"></i> In Crisis? Call Now</h2>
-        <p style="color: white; font-size: 1.3rem; margin: 0;"><strong>988 Suicide & Crisis Lifeline</strong></p>
-        <p style="color: white; font-size: 1.1rem;">Call or text 988 • Available 24/7 • Free & Confidential</p>
+      <div class="flip-card fade-in stagger-4" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <i class="fas fa-flag-usa"></i>
+            <h3>K9s For Warriors</h3>
+            <p>Click for details</p>
+          </div>
+          <div class="flip-back">
+            <h3>Veterans Focus</h3>
+            <p>Provides service dogs to veterans with PTSD, traumatic brain injury, and military sexual trauma at no cost.</p>
+            <p>Website: k9sforwarriors.org</p>
+            <a href="https://k9sforwarriors.org" target="_blank"><i class="fas fa-external-link-alt"></i> Visit Site</a>
+          </div>
+        </div>
       </div>
 
-      <!-- Resource Cards -->
-      <div class="card-grid three-col">
-        
-        <div class="flip-card fade-in stagger-1" onclick="this.classList.toggle('flipped')" tabindex="0">
-          <div class="flip-card-inner">
-            <div class="flip-front">
-              <i class="fas fa-shield-heart card-icon"></i>
-              <h3>Domestic Violence Hotline</h3>
-              <p>Click for details</p>
-              <i class="fas fa-arrow-right flip-arrow"></i>
-            </div>
-            <div class="flip-back glass-burgundy">
-              <h3>National Domestic Violence Hotline</h3>
-              <p><strong>1-800-799-7233</strong></p>
-              <p>Text START to 88788</p>
-              <p>24/7 support for victims of domestic violence & abuse. Confidential, multilingual services available.</p>
-              <p><a href="https://www.thehotline.org" target="_blank" style="color: white; text-decoration: underline;">thehotline.org</a></p>
-            </div>
+      <div class="flip-card fade-in stagger-5" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <i class="fas fa-heart"></i>
+            <h3>Pawsibility</h3>
+            <p>Click for details</p>
+          </div>
+          <div class="flip-back">
+            <h3>Psychiatric Service Dogs</h3>
+            <p>Specializes in training service dogs for psychiatric disabilities including PTSD, anxiety, and depression.</p>
+            <p>Website: pawsibilityservicedogs.com</p>
+            <a href="https://pawsibilityservicedogs.com" target="_blank"><i class="fas fa-external-link-alt"></i> Visit Site</a>
           </div>
         </div>
+      </div>
+    </div>
 
-        <div class="flip-card fade-in stagger-2" onclick="this.classList.toggle('flipped')" tabindex="0">
-          <div class="flip-card-inner">
-            <div class="flip-front">
-              <i class="fas fa-user-shield card-icon"></i>
-              <h3>Veterans Crisis Line</h3>
-              <p>Click for details</p>
-              <i class="fas fa-arrow-right flip-arrow"></i>
-            </div>
-            <div class="flip-back glass-purple">
-              <h3>Veterans Crisis Line</h3>
-              <p><strong>988, then press 1</strong></p>
-              <p>Text 838255</p>
-              <p>24/7 support for veterans & their families. Confidential crisis support from trained responders.</p>
-              <p><a href="https://www.veteranscrisisline.net" target="_blank" style="color: white; text-decoration: underline;">veteranscrisisline.net</a></p>
-            </div>
-          </div>
-        </div>
-
-        <div class="flip-card fade-in stagger-3" onclick="this.classList.toggle('flipped')" tabindex="0">
-          <div class="flip-card-inner">
-            <div class="flip-front">
-              <i class="fas fa-comments card-icon"></i>
-              <h3>Crisis Text Line</h3>
-              <p>Click for details</p>
-              <i class="fas fa-arrow-right flip-arrow"></i>
-            </div>
-            <div class="flip-back glass-gold">
-              <h3>Crisis Text Line</h3>
-              <p><strong>Text HOME to 741741</strong></p>
-              <p>Free, 24/7 support for people in crisis. Connect with a trained crisis counselor via text message.</p>
-              <p><a href="https://www.crisistextline.org" target="_blank" style="color: #2c1810; text-decoration: underline;">crisistextline.org</a></p>
-            </div>
-          </div>
-        </div>
-
-        <div class="flip-card fade-in stagger-4" onclick="this.classList.toggle('flipped')" tabindex="0">
-          <div class="flip-card-inner">
-            <div class="flip-front">
-              <i class="fas fa-hand-holding-heart card-icon"></i>
-              <h3>SAMHSA National Helpline</h3>
-              <p>Click for details</p>
-              <i class="fas fa-arrow-right flip-arrow"></i>
-            </div>
-            <div class="flip-back glass-green">
-              <h3>SAMHSA National Helpline</h3>
-              <p><strong>1-800-662-4357</strong></p>
-              <p>Substance Abuse & Mental Health Services Administration. 24/7 treatment referral & information service.</p>
-              <p><a href="https://www.samhsa.gov/find-help/national-helpline" target="_blank" style="color: white; text-decoration: underline;">samhsa.gov</a></p>
-            </div>
-          </div>
-        </div>
-
-        <div class="flip-card fade-in stagger-5" onclick="this.classList.toggle('flipped')" tabindex="0">
-          <div class="flip-card-inner">
-            <div class="flip-front">
-              <i class="fas fa-brain card-icon"></i>
-              <h3>NAMI Helpline</h3>
-              <p>Click for details</p>
-              <i class="fas fa-arrow-right flip-arrow"></i>
-            </div>
-            <div class="flip-back glass-blue">
-              <h3>NAMI Helpline</h3>
-              <p><strong>1-800-950-6264</strong></p>
-              <p>Text NAMI to 741741</p>
-              <p>National Alliance on Mental Illness. Free information, support & referrals for mental health conditions.</p>
-              <p><a href="https://www.nami.org/help" target="_blank" style="color: white; text-decoration: underline;">nami.org</a></p>
-            </div>
-          </div>
-        </div>
-
-        <div class="flip-card fade-in stagger-6" onclick="this.classList.toggle('flipped')" tabindex="0">
-          <div class="flip-card-inner">
-            <div class="flip-front">
-              <i class="fas fa-heart-pulse card-icon"></i>
-              <h3>PTSD Foundation</h3>
-              <p>Click for details</p>
-              <i class="fas fa-arrow-right flip-arrow"></i>
-            </div>
-            <div class="flip-back glass-burgundy">
-              <h3>PTSD Foundation of America</h3>
-              <p><strong>1-877-717-7873</strong></p>
-              <p>Support for combat veterans & survivors of trauma. Free programs, peer support & family assistance.</p>
-              <p><a href="https://www.ptsdusa.org" target="_blank" style="color: white; text-decoration: underline;">ptsdusa.org</a></p>
-            </div>
-          </div>
-        </div>
-
+    <!-- PTSD RESOURCES -->
+    <h2 class="fade-in stagger-6" style="text-align: center; margin: 4rem 0 3rem 0;">PTSD & Trauma Resources</h2>
+    
+    <div class="card-grid two-col">
+      <div class="card-3d fade-in stagger-7">
+        <h2><i class="fas fa-brain"></i> National Center for PTSD</h2>
+        <p>Part of the U.S. Department of Veterans Affairs, provides research, education, and training on PTSD and traumatic stress.</p>
+        <p style="margin-top: 1rem;"><strong>Website:</strong> ptsd.va.gov</p>
+        <p><strong>Resources:</strong> Self-help tools, treatment information, mobile apps, and family support.</p>
       </div>
 
-      <!-- Service Dog Resources -->
-      <div class="card-3d fade-in">
-        <h2><i class="fas fa-dog card-icon"></i> Service Dog Resources</h2>
-        <p><strong>Assistance Dogs International:</strong> Find accredited service dog organizations & learn about training programs. <a href="https://assistancedogsinternational.org" target="_blank">assistancedogsinternational.org</a></p>
-        <p><strong>Psychiatric Service Dog Society:</strong> Resources specifically for psychiatric service dogs & PTSD support. <a href="https://psychdogpartners.org" target="_blank">psychdogpartners.org</a></p>
-        <p><strong>ADA Information Line:</strong> Learn about your legal rights as a service dog handler. Call 1-800-514-0301 or visit <a href="https://www.ada.gov" target="_blank">ada.gov</a></p>
+      <div class="card-3d fade-in stagger-8">
+        <h2><i class="fas fa-hands-helping"></i> The National Alliance on Mental Illness</h2>
+        <p>NAMI provides advocacy, education, support, and public awareness for individuals and families affected by mental illness.</p>
+        <p style="margin-top: 1rem;"><strong>Helpline:</strong> 1-800-950-NAMI (6264)</p>
+        <p><strong>Website:</strong> nami.org</p>
       </div>
+    </div>
 
-      <!-- Final Message -->
-      <div class="glass-tile fade-in">
-        <h2><i class="fas fa-heart"></i> You Are Not Alone</h2>
-        <p>Recovery is not linear. Healing takes time. Some days will be harder than others. But you are stronger than you know & help is always available.</p>
-        <p><strong>Reaching out for help is not weakness—it is courage. You deserve support. You deserve peace. You deserve to heal.</strong></p>
-      </div>
+    <!-- DOMESTIC VIOLENCE RESOURCES -->
+    <div class="card-3d fade-in" style="max-width: 900px; margin: 4rem auto;">
+      <h2><i class="fas fa-shield-heart"></i> Domestic Violence Resources</h2>
+      <p><strong>National Domestic Violence Hotline:</strong> 1-800-799-7233 (SAFE) or text START to 88788. Available 24/7 in over 200 languages.</p>
+      <p style="margin-top: 1rem;"><strong>The National Coalition Against Domestic Violence:</strong> Resources, statistics, and advocacy. Website: ncadv.org</p>
+      <p style="margin-top: 1rem;"><strong>Safety Planning:</strong> If you're in danger, create a safety plan. Include emergency contacts, important documents, and a safe place to go.</p>
+      <p style="margin-top: 1rem; font-size: 1.05rem; line-height: 1.8;"><em>You deserve safety. You deserve peace. You deserve a life free from violence. Help is available, and you are not alone.</em></p>
+    </div>
 
-      <nav class="page-nav">
-        <a href="safety.html" class="page-nav-btn">
-          <i class="fas fa-arrow-left"></i> Previous: Safety
-        </a>
-        <a href="gallery.html" class="page-nav-btn">
-          Next: Gallery <i class="fas fa-arrow-right"></i>
-        </a>
-      </nav>
-
+    <div class="page-nav">
+      <a href="safety.html" class="page-nav-btn">
+        <i class="fas fa-arrow-left"></i> Previous: Safety
+      </a>
+      <a href="gallery.html" class="page-nav-btn">
+        Next: Gallery <i class="fas fa-arrow-right"></i>
+      </a>
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2024 The Anchor to My Storm • CIS-155 Final Project</p>
-    </div>
-  </footer>
-
   <script>
-    function toggleMenu() {
+    function toggleMobileMenu() {
       document.getElementById('mainNav').classList.toggle('active');
     }
 
@@ -208,7 +191,7 @@
           entry.target.style.transform = 'translateY(0)';
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
 
     document.querySelectorAll('.fade-in').forEach(el => {
       el.style.opacity = '0';
@@ -217,6 +200,5 @@
       observer.observe(el);
     });
   </script>
-
 </body>
 </html>
