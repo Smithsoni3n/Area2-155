@@ -1,874 +1,353 @@
-/* ============================================
-   GLAD TO BE HERE - THE ANCHOR TO MY STORM
-   Professional & Consistent Design System
-   ============================================ */
-
-:root {
-  /* Color Palette */
-  --burgundy: #5c0a0a;
-  --burgundy-light: #8b1a1a;
-  --purple: #6a1b9a;
-  --purple-light: #9c27b0;
-  --gold: #d4a574;
-  --gold-light: #f4d03f;
-  --green: #558b2f;
-  --green-light: #7cb342;
-  --blue: #1976d2;
-  --blue-light: #42a5f5;
-  
-  /* Neutrals */
-  --cream: #fefae0;
-  --cream-dark: #fff8dc;
-  --text-dark: #2c1810;
-  --white: #ffffff;
-  
-  /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
-  --shadow-xl: 0 12px 48px rgba(0, 0, 0, 0.25);
-}
-
-/* ============================================
-   RESET & BASE
-   ============================================ */
-
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-}
-
-body {
-  font-family: 'Georgia', 'Times New Roman', serif;
-  background: linear-gradient(180deg, var(--cream) 0%, var(--cream-dark) 100%);
-  color: var(--text-dark);
-  line-height: 1.6;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-/* ============================================
-   HEADER - CONSISTENT ACROSS ALL PAGES
-   ============================================ */
-
-.site-header {
-  background: var(--burgundy);
-  padding: 1.5rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: var(--shadow-lg);
-  border-bottom: 3px solid var(--gold);
-}
-
-.container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.header-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  color: var(--white);
-  text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: bold;
-  transition: opacity 0.3s;
-}
-
-.brand:hover {
-  opacity: 0.9;
-}
-
-.brand-icon {
-  font-size: 2rem;
-  color: var(--gold);
-}
-
-.brand-title,
-.brand-text {
-  color: var(--white);
-  font-size: 1.2rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.brand-kicker {
-  display: block;
-  font-size: 0.9rem;
-  color: var(--gold);
-}
-
-.mobile-menu-btn {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--white);
-  font-size: 1.8rem;
-  cursor: pointer;
-  padding: 0.5rem;
-}
-
-.main-nav {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-
-.nav-link {
-  color: var(--white);
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 600;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  transition: all 0.3s;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.nav-link:hover,
-.nav-link.active {
-  background: var(--gold);
-  color: var(--burgundy);
-  transform: translateY(-2px);
-}
-
-/* ============================================
-   MAIN CONTENT LAYOUT
-   ============================================ */
-
-.main-content,
-.page-shell {
-  padding: 4rem 0;
-}
-
-.page-intro {
-  text-align: center;
-  margin-bottom: 4rem;
-  animation: fadeInUp 0.8s ease-out;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.eyebrow {
-  color: var(--burgundy);
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-weight: 900;
-  margin-bottom: 1rem;
-}
-
-h1, h2, h3 {
-  color: var(--burgundy);
-  font-weight: bold;
-  line-height: 1.2;
-}
-
-h1,
-.page-title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  margin-bottom: 1.5rem;
-}
-
-h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  margin-bottom: 1.5rem;
-}
-
-h3 {
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  margin-bottom: 1rem;
-}
-
-.lead {
-  font-size: 1.25rem;
-  line-height: 1.8;
-  max-width: 850px;
-  margin: 0 auto;
-  color: var(--text-dark);
-}
-
-p {
-  margin-bottom: 1rem;
-}
-
-strong {
-  font-weight: 700;
-  color: var(--burgundy);
-}
-
-/* ============================================
-   HERO IMAGE SECTION
-   ============================================ */
-
-.hero-showcase {
-  margin: 4rem 0;
-  text-align: center;
-}
-
-.hero-image-container {
-  display: inline-block;
-  position: relative;
-}
-
-.glass-border-glow {
-  padding: 8px;
-  background: linear-gradient(135deg, var(--gold), var(--purple), var(--gold));
-  border-radius: 20px;
-  box-shadow: var(--shadow-xl);
-  animation: glowPulse 4s ease-in-out infinite;
-}
-
-@keyframes glowPulse {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(212, 165, 116, 0.5);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(156, 39, 176, 0.7);
-  }
-}
-
-.hero-main-image {
-  display: block;
-  max-width: 900px;
-  width: 100%;
-  height: auto;
-  border-radius: 16px;
-}
-
-/* ============================================
-   STATS BANNER
-   ============================================ */
-
-.stats-banner {
-  margin: 4rem 0;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-}
-
-.stat-card {
-  position: relative;
-  height: 280px;
-  border-radius: 16px;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  box-shadow: var(--shadow-lg);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.stat-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-xl);
-}
-
-.stat-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.7) 100%);
-}
-
-.stat-content {
-  position: relative;
-  z-index: 2;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 2rem;
-}
-
-.stat-number {
-  font-size: 4.5rem;
-  font-weight: 900;
-  color: var(--white);
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
-  line-height: 1;
-  margin-bottom: 0.75rem;
-}
-
-.stat-label {
-  font-size: 1.2rem;
-  color: var(--white);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-/* ============================================
-   STORY CARDS & CONTENT CARDS
-   ============================================ */
-
-.story-card,
-.believer-card,
-.glass-tile,
-.card-3d {
-  background: var(--white);
-  border-radius: 16px;
-  padding: 3rem;
-  margin: 3rem 0;
-  box-shadow: var(--shadow-md);
-  border: 3px solid var(--gold);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.story-card:hover,
-.believer-card:hover,
-.glass-tile:hover,
-.card-3d:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-}
-
-.story-card p,
-.believer-card p {
-  font-size: 1.15rem;
-  line-height: 1.9;
-  margin-bottom: 1.5rem;
-}
-
-.shooting-star-icon {
-  width: 36px;
-  height: 36px;
-  margin-left: 0.5rem;
-  vertical-align: middle;
-}
-
-/* ============================================
-   FLIP CARDS - CONSISTENT DESIGN
-   ============================================ */
-
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2.5rem;
-  margin: 3rem 0;
-}
-
-.card-grid.three-col {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.card-grid.two-col {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.flip-card {
-  position: relative;
-  width: 100%;
-  height: 450px;
-  cursor: pointer;
-  perspective: 1000px;
-}
-
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.flip-front,
-.flip-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 16px;
-  padding: 2.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  transition: opacity 0.4s ease;
-  box-shadow: var(--shadow-md);
-  backface-visibility: hidden;
-}
-
-.flip-front {
-  background: var(--white);
-  border: 3px solid var(--gold);
-  opacity: 1;
-  z-index: 2;
-}
-
-.flip-back {
-  opacity: 0;
-  z-index: 1;
-  color: var(--white);
-  background-size: cover;
-  background-position: center;
-  background-blend-mode: multiply;
-  position: relative;
-}
-
-.flip-back::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: inherit;
-  border-radius: 16px;
-  z-index: -1;
-}
-
-.flip-card.flipped .flip-front {
-  opacity: 0;
-  z-index: 1;
-}
-
-.flip-card.flipped .flip-back {
-  opacity: 1;
-  z-index: 2;
-}
-
-.card-icon {
-  font-size: 3.5rem;
-  margin-bottom: 1.5rem;
-  color: var(--gold);
-}
-
-.flip-front h3 {
-  font-size: 1.75rem;
-  color: var(--burgundy);
-  margin-bottom: 1rem;
-  line-height: 1.3;
-}
-
-.flip-front p {
-  font-size: 1rem;
-  color: var(--text-dark);
-}
-
-.flip-arrow {
-  margin-top: 1.5rem;
-  font-size: 1.8rem;
-  color: var(--gold);
-  animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(8px);
-  }
-}
-
-.flip-back h3 {
-  color: var(--white);
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
-}
-
-.flip-back p {
-  color: var(--white);
-  font-size: 1.1rem;
-  line-height: 1.8;
-  margin-bottom: 1.25rem;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
-}
-
-.tip {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 1rem;
-  border-radius: 8px;
-  margin-top: 1rem;
-  font-weight: 600;
-  border-left: 4px solid var(--gold);
-}
-
-/* ============================================
-   COLORED FLIP CARD BACKS WITH BACKGROUNDS
-   ============================================ */
-
-.glass-burgundy {
-  background-image: linear-gradient(135deg, rgba(92, 10, 10, 0.85), rgba(139, 26, 26, 0.85)), var(--bg-image);
-  background-size: cover;
-  background-position: center;
-}
-
-.glass-purple {
-  background-image: linear-gradient(135deg, rgba(106, 27, 154, 0.85), rgba(156, 39, 176, 0.85)), var(--bg-image);
-  background-size: cover;
-  background-position: center;
-}
-
-.glass-gold {
-  background-image: linear-gradient(135deg, rgba(212, 165, 116, 0.75), rgba(244, 208, 63, 0.75)), var(--bg-image);
-  background-size: cover;
-  background-position: center;
-  color: var(--text-dark) !important;
-}
-
-.glass-gold h3,
-.glass-gold p {
-  color: var(--text-dark) !important;
-  text-shadow: 0 2px 6px rgba(255, 255, 255, 0.8);
-}
-
-.glass-green {
-  background-image: linear-gradient(135deg, rgba(85, 139, 47, 0.85), rgba(124, 179, 66, 0.85)), var(--bg-image);
-  background-size: cover;
-  background-position: center;
-}
-
-.glass-blue {
-  background-image: linear-gradient(135deg, rgba(25, 118, 210, 0.85), rgba(66, 165, 245, 0.85)), var(--bg-image);
-  background-size: cover;
-  background-position: center;
-}
-
-/* Page-specific backgrounds */
-.index-page .flip-back {
-  --bg-image: url('SEQUIA.JPG');
-}
-
-.facts-page .flip-back {
-  --bg-image: url('SEQUIA.JPG');
-}
-
-.resources-page .flip-back {
-  --bg-image: url('move.jpg');
-}
-
-.safety-page .flip-back {
-  --bg-image: url('stick.jpg');
-}
-
-/* ============================================
-   GALLERY
-   ============================================ */
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2.5rem;
-  margin: 3rem 0;
-}
-
-.gallery-item {
-  position: relative;
-  height: 450px;
-  cursor: pointer;
-}
-
-.gallery-item-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.gallery-front,
-.gallery-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 16px;
-  transition: opacity 0.4s ease;
-  box-shadow: var(--shadow-md);
-}
-
-.gallery-front {
-  opacity: 1;
-  z-index: 2;
-  overflow: hidden;
-}
-
-.gallery-front img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 16px;
-  transition: transform 0.3s ease;
-}
-
-.gallery-item:hover .gallery-front img {
-  transform: scale(1.05);
-}
-
-.gallery-back {
-  background: linear-gradient(135deg, var(--burgundy), var(--burgundy-light));
-  color: var(--white);
-  padding: 2.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  opacity: 0;
-  z-index: 1;
-}
-
-.gallery-item.flipped .gallery-front {
-  opacity: 0;
-  z-index: 1;
-}
-
-.gallery-item.flipped .gallery-back {
-  opacity: 1;
-  z-index: 2;
-}
-
-.gallery-back h3 {
-  color: var(--white);
-  margin-bottom: 1rem;
-  font-size: 1.8rem;
-}
-
-.gallery-back p {
-  color: var(--white);
-  line-height: 1.8;
-  font-size: 1.1rem;
-}
-
-.date {
-  margin-top: 1.5rem;
-  font-size: 1rem;
-  opacity: 0.95;
-  font-weight: 600;
-}
-
-/* ============================================
-   SOUND TOGGLE
-   ============================================ */
-
-.sound-toggle-wrapper {
-  text-align: center;
-  margin: 2.5rem 0;
-}
-
-.sound-toggle {
-  background: var(--burgundy);
-  color: var(--white);
-  border: 2px solid var(--gold);
-  padding: 1rem 2.5rem;
-  border-radius: 50px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.sound-toggle:hover {
-  background: var(--gold);
-  color: var(--burgundy);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
-/* ============================================
-   PAGE NAVIGATION
-   ============================================ */
-
-.page-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 5rem 0 3rem;
-  gap: 2rem;
-}
-
-.page-nav-btn {
-  background: var(--burgundy);
-  color: var(--white);
-  text-decoration: none;
-  padding: 1.25rem 2.5rem;
-  border-radius: 50px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border: 2px solid var(--gold);
-}
-
-.page-nav-btn:hover {
-  background: var(--gold);
-  color: var(--burgundy);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
-}
-
-/* ============================================
-   FOOTER
-   ============================================ */
-
-.site-footer {
-  background: var(--burgundy);
-  color: var(--white);
-  text-align: center;
-  padding: 2.5rem 0;
-  margin-top: 5rem;
-  border-top: 3px solid var(--gold);
-}
-
-.site-footer p {
-  margin: 0;
-  font-size: 1rem;
-  letter-spacing: 1px;
-}
-
-/* ============================================
-   FADE IN ANIMATIONS
-   ============================================ */
-
-.fade-in {
-  animation: fadeIn 0.8s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.stagger-1 { animation-delay: 0.1s; }
-.stagger-2 { animation-delay: 0.2s; }
-.stagger-3 { animation-delay: 0.3s; }
-.stagger-4 { animation-delay: 0.4s; }
-.stagger-5 { animation-delay: 0.5s; }
-.stagger-6 { animation-delay: 0.6s; }
-.stagger-7 { animation-delay: 0.7s; }
-.stagger-8 { animation-delay: 0.8s; }
-.stagger-9 { animation-delay: 0.9s; }
-
-/* ============================================
-   RESPONSIVE DESIGN
-   ============================================ */
-
-@media (max-width: 1200px) {
-  .card-grid.three-col {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 0 1.5rem;
-  }
-  
-  .mobile-menu-btn {
-    display: block;
-  }
-  
-  .main-nav {
-    display: none;
-    width: 100%;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-top: 1rem;
-  }
-  
-  .main-nav.active {
-    display: flex;
-  }
-  
-  .nav-link {
-    width: 100%;
-    text-align: center;
-  }
-  
-  .card-grid,
-  .card-grid.three-col,
-  .card-grid.two-col,
-  .gallery-grid,
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .flip-card,
-  .gallery-item {
-    height: 380px;
-  }
-  
-  h1, .page-title {
-    font-size: 2.5rem;
-  }
-  
-  h2 {
-    font-size: 2rem;
-  }
-  
-  .story-card,
-  .believer-card,
-  .glass-tile {
-    padding: 2rem;
-  }
-  
-  .page-nav {
-    flex-direction: column;
-  }
-  
-  .page-nav-btn {
-    width: 100%;
-    justify-content: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .stat-number {
-    font-size: 3rem;
-  }
-  
-  .stat-label {
-    font-size: 1rem;
-  }
-  
-  .flip-card,
-  .gallery-item {
-    height: 350px;
-  }
-  
-  .flip-front,
-  .flip-back {
-    padding: 1.5rem;
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive Games - Learn About Service Dogs">
+  <title>Games - The Anchor to My Storm</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="game-page">
+  <header class="site-header">
+    <div class="container">
+      <div class="header-bar">
+        <a href="index.html" class="brand">
+          <i class="fas fa-anchor brand-icon"></i>
+          <div class="brand-text">
+            <span class="brand-kicker">The Anchor</span>
+            <span class="brand-title">To My Storm</span>
+          </div>
+        </a>
+        
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+        
+        <nav class="main-nav" id="mainNav">
+          <a href="index.html" class="nav-link">The Anchor</a>
+          <a href="facts.html" class="nav-link">Facts</a>
+          <a href="safety.html" class="nav-link">Safety</a>
+          <a href="resources.html" class="nav-link">Resources</a>
+          <a href="gallery.html" class="nav-link">Gallery</a>
+          <a href="game.html" class="nav-link active"><i class="fas fa-gamepad"></i> Game</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container page-shell">
+    <div class="page-intro fade-in">
+      <p class="eyebrow">Learn Through Play</p>
+      <h1>Interactive Games</h1>
+      <p class="lead">Test your knowledge and learn more about service dogs through these interactive experiences.</p>
+    </div>
+
+    <!-- GAME TABS -->
+    <div class="game-tabs fade-in stagger-1">
+      <button class="tab-btn active" onclick="switchTab('memory')">
+        <i class="fas fa-brain"></i>
+        Memory Match
+      </button>
+      <button class="tab-btn" onclick="switchTab('adventure')">
+        <i class="fas fa-map"></i>
+        Service Dog Adventure
+      </button>
+    </div>
+
+    <!-- MEMORY GAME PANEL -->
+    <div id="memoryPanel" class="game-panel active">
+      <div class="game-stats fade-in stagger-2">
+        <div class="stat-item">
+          <div class="stat-label">Moves</div>
+          <div class="stat-value" id="moves">0</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Matches</div>
+          <div class="stat-value" id="matches">0</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Time</div>
+          <div class="stat-value" id="timer">0:00</div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin: 3rem 0;">
+        <button class="game-btn" onclick="startMemoryGame()">
+          <i class="fas fa-play"></i>
+          Start Game
+        </button>
+        <button class="game-btn" onclick="resetMemoryGame()">
+          <i class="fas fa-redo"></i>
+          Reset
+        </button>
+      </div>
+
+      <div class="memory-grid" id="memoryGrid"></div>
+    </div>
+
+    <!-- ADVENTURE GAME PANEL -->
+    <div id="adventurePanel" class="game-panel">
+      <div class="adventure-scene">
+        <img src="flowers.jpg" alt="Scene" class="scene-image" id="sceneImage">
+        <div class="scene-text" id="sceneText">
+          You're at the park with Dude, your service dog. A stranger approaches, smiling and reaching out to pet him. What do you do?
+        </div>
+        <div class="choice-buttons" id="choices">
+          <button class="choice-btn" onclick="makeChoice(1)">
+            <i class="fas fa-hand"></i>
+            <span>Politely explain he's working and ask them not to touch</span>
+          </button>
+          <button class="choice-btn" onclick="makeChoice(2)">
+            <i class="fas fa-smile"></i>
+            <span>Let them pet him—he looks friendly enough</span>
+          </button>
+          <button class="choice-btn" onclick="makeChoice(3)">
+            <i class="fas fa-book"></i>
+            <span>Educate them about service dog etiquette</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-nav">
+      <a href="gallery.html" class="page-nav-btn">
+        <i class="fas fa-arrow-left"></i> Previous: Gallery
+      </a>
+      <a href="index.html" class="page-nav-btn">
+        Back to Home <i class="fas fa-home"></i>
+      </a>
+    </div>
+  </main>
+
+  <script>
+    // MEMORY GAME WITH REAL PHOTOS AND VIDEOS
+    const memoryMedia = [
+      {type: 'image', src: '1.jpg'},
+      {type: 'image', src: '2.jpg'},
+      {type: 'image', src: '3.jpg'},
+      {type: 'image', src: '4.jpg'},
+      {type: 'video', src: 'video.1.mp4'},
+      {type: 'video', src: 'video.2.mp4'},
+      {type: 'video', src: 'video.3.mp4'},
+      {type: 'video', src: 'video.4.mp4'}
+    ];
+    let cards = [];
+    let flipped = [];
+    let matched = 0;
+    let moves = 0;
+    let timer = 0;
+    let timerInterval = null;
+
+    function createMemoryGrid() {
+      const grid = document.getElementById('memoryGrid');
+      grid.innerHTML = '';
+      
+      const cardPairs = [...memoryMedia, ...memoryMedia];
+      cardPairs.sort(() => Math.random() - 0.5);
+      
+      cardPairs.forEach((media, index) => {
+        const card = document.createElement('div');
+        card.className = 'memory-card';
+        card.dataset.src = media.src;
+        card.dataset.type = media.type;
+        card.dataset.index = index;
+        
+        let backContent = '';
+        if (media.type === 'image') {
+          backContent = `<img src="${media.src}" alt="Card" style="width:100%; height:100%; object-fit:cover;">`;
+        } else {
+          backContent = `<video muted loop style="width:100%; height:100%; object-fit:cover;"><source src="${media.src}" type="video/mp4"></video>`;
+        }
+        
+        card.innerHTML = `
+          <div class="memory-card-inner">
+            <div class="memory-front">
+              <i class="fas fa-paw"></i>
+            </div>
+            <div class="memory-back">
+              ${backContent}
+            </div>
+          </div>
+        `;
+        card.addEventListener('click', () => flipCard(card));
+        grid.appendChild(card);
+        cards.push(card);
+      });
+    }
+
+    function flipCard(card) {
+      if (flipped.length >= 2 || card.classList.contains('flipped') || card.classList.contains('matched')) return;
+      
+      card.classList.add('flipped');
+      
+      // Play video if it's a video card
+      const video = card.querySelector('video');
+      if (video) {
+        video.currentTime = 0;
+        video.play();
+      }
+      
+      flipped.push(card);
+      
+      if (flipped.length === 2) {
+        moves++;
+        document.getElementById('moves').textContent = moves;
+        checkMatch();
+      }
+    }
+
+    function checkMatch() {
+      const [card1, card2] = flipped;
+      
+      if (card1.dataset.src === card2.dataset.src) {
+        card1.classList.add('matched');
+        card2.classList.add('matched');
+        matched++;
+        document.getElementById('matches').textContent = matched;
+        flipped = [];
+        
+        if (matched === memoryMedia.length) {
+          clearInterval(timerInterval);
+          setTimeout(() => alert(`Congratulations! You won in ${moves} moves and ${formatTime(timer)}!`), 500);
+        }
+      } else {
+        setTimeout(() => {
+          // Pause videos when flipping back
+          const video1 = card1.querySelector('video');
+          const video2 = card2.querySelector('video');
+          if (video1) { video1.pause(); video1.currentTime = 0; }
+          if (video2) { video2.pause(); video2.currentTime = 0; }
+          
+          card1.classList.remove('flipped');
+          card2.classList.remove('flipped');
+          flipped = [];
+        }, 1000);
+      }
+    }
+
+    function startMemoryGame() {
+      resetMemoryGame();
+      timerInterval = setInterval(() => {
+        timer++;
+        document.getElementById('timer').textContent = formatTime(timer);
+      }, 1000);
+    }
+
+    function resetMemoryGame() {
+      clearInterval(timerInterval);
+      // Pause all videos
+      document.querySelectorAll('.memory-card video').forEach(v => {
+        v.pause();
+        v.currentTime = 0;
+      });
+      cards = [];
+      flipped = [];
+      matched = 0;
+      moves = 0;
+      timer = 0;
+      document.getElementById('moves').textContent = '0';
+      document.getElementById('matches').textContent = '0';
+      document.getElementById('timer').textContent = '0:00';
+      createMemoryGrid();
+    }
+
+    function formatTime(seconds) {
+      const mins = Math.floor(seconds / 60);
+      const secs = seconds % 60;
+      return `${mins}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    // ADVENTURE GAME
+    const scenarios = [
+      {
+        text: "Excellent choice! You protected Dude's focus and educated someone about service dog etiquette. He remains alert and ready to help you.",
+        image: "1.jpg"
+      },
+      {
+        text: "Not ideal. Allowing strangers to pet working service dogs can distract them from critical tasks. Dude missed an alert because he was focused on the stranger.",
+        image: "2.jpg"
+      },
+      {
+        text: "Perfect! You took time to educate someone about service dogs. They thanked you and will now respect service dog teams in the future.",
+        image: "3.jpg"
+      }
+    ];
+
+    function makeChoice(choice) {
+      const sceneText = document.getElementById('sceneText');
+      const sceneImage = document.getElementById('sceneImage');
+      const choices = document.getElementById('choices');
+      
+      sceneText.textContent = scenarios[choice - 1].text;
+      sceneImage.src = scenarios[choice - 1].image;
+      choices.innerHTML = `
+        <button class="choice-btn" onclick="resetAdventure()">
+          <i class="fas fa-redo"></i>
+          <span>Try Another Scenario</span>
+        </button>
+      `;
+    }
+
+    function resetAdventure() {
+      const sceneText = document.getElementById('sceneText');
+      const sceneImage = document.getElementById('sceneImage');
+      const choices = document.getElementById('choices');
+      
+      sceneImage.src = "flowers.jpg";
+      sceneText.textContent = "You're at the park with Dude, your service dog. A stranger approaches, smiling and reaching out to pet him. What do you do?";
+      choices.innerHTML = `
+        <button class="choice-btn" onclick="makeChoice(1)">
+          <i class="fas fa-hand"></i>
+          <span>Politely explain he's working and ask them not to touch</span>
+        </button>
+        <button class="choice-btn" onclick="makeChoice(2)">
+          <i class="fas fa-smile"></i>
+          <span>Let them pet him—he looks friendly enough</span>
+        </button>
+        <button class="choice-btn" onclick="makeChoice(3)">
+          <i class="fas fa-book"></i>
+          <span>Educate them about service dog etiquette</span>
+        </button>
+      `;
+    }
+
+    // TAB SWITCHING
+    function switchTab(tab) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.game-panel').forEach(panel => panel.classList.remove('active'));
+      
+      if (tab === 'memory') {
+        document.querySelectorAll('.tab-btn')[0].classList.add('active');
+        document.getElementById('memoryPanel').classList.add('active');
+      } else {
+        document.querySelectorAll('.tab-btn')[1].classList.add('active');
+        document.getElementById('adventurePanel').classList.add('active');
+      }
+    }
+
+    function toggleMobileMenu() {
+      document.getElementById('mainNav').classList.toggle('active');
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(40px)';
+      el.style.transition = 'opacity 1s ease, transform 1s ease';
+      observer.observe(el);
+    });
+
+    // Initialize
+    createMemoryGrid();
+  </script>
+</body>
+</html>
