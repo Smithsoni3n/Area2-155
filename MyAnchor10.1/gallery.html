@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="gallery-page">
+<body>
   <header class="site-header">
     <div class="container">
       <div class="header-bar">
@@ -43,80 +43,110 @@
       <p class="lead">Moments captured along our journey—from training days to quiet victories.</p>
     </div>
 
-    <!-- GALLERY GRID -->
+    <!-- GALLERY GRID WITH FLIP CARDS -->
     <div class="gallery-grid">
-      <div class="gallery-item fade-in" onclick="openLightbox('1.jpg')">
-        <img src="1.jpg" alt="Dude photo 1">
+      <div class="gallery-item fade-in stagger-2" onclick="this.classList.toggle('flipped')">
+        <div class="gallery-item-inner">
+          <div class="gallery-front">
+            <img src="1.jpg" alt="Dude's first day">
+          </div>
+          <div class="gallery-back">
+            <h3>First Day Home</h3>
+            <p>The day everything changed. A scared puppy and a broken woman, both finding hope in each other.</p>
+            <div class="date"><i class="fas fa-calendar"></i> 2 Years Ago</div>
+          </div>
+        </div>
       </div>
-      <div class="gallery-item fade-in" onclick="openLightbox('2.jpg')">
-        <img src="2.jpg" alt="Dude photo 2">
-      </div>
-      <div class="gallery-item fade-in" onclick="openLightbox('3.jpg')">
-        <img src="3.jpg" alt="Dude photo 3">
-      </div>
-      <div class="gallery-item fade-in" onclick="openLightbox('4.jpg')">
-        <img src="4.jpg" alt="Dude photo 4">
-      </div>
-      <div class="gallery-item fade-in" onclick="openLightbox('5.jpg')">
-        <img src="5.jpg" alt="Dude photo 5">
-      </div>
-      <div class="gallery-item fade-in" onclick="openLightbox('6.jpg')">
-        <img src="6.jpg" alt="Dude photo 6">
-      </div>
-      <div class="gallery-item fade-in" onclick="openLightbox('7.jpg')">
-        <img src="7.jpg" alt="Dude photo 7">
-      </div>
-      <div class="gallery-item fade-in" onclick="openLightbox('8.jpg')">
-        <img src="8.jpg" alt="Dude photo 8">
-      </div>
-      <div class="gallery-item fade-in" onclick="openLightbox('9.jpg')">
-        <img src="9.jpg" alt="Dude photo 9">
-      </div>
-      <div class="gallery-item fade-in" onclick="openLightbox('10.jpg')">
-        <img src="10.jpg" alt="Dude photo 10">
-      </div>
-      <div class="gallery-item fade-in" onclick="openLightbox('11.jpg')">
-        <img src="11.jpg" alt="Dude photo 11">
-      </div>
-      <div class="gallery-item fade-in" onclick="openLightbox('12.jpg')">
-        <img src="12.jpg" alt="Dude photo 12">
-      </div>
-      <div class="gallery-item fade-in" onclick="openLightbox('13.jpg')">
-        <img src="13.jpg" alt="Dude photo 13">
-      </div>
-      <div class="gallery-item fade-in" onclick="openLightbox('14.jpg')">
-        <img src="14.jpg" alt="Dude photo 14">
-      </div>
-      <div class="gallery-item fade-in" onclick="openLightbox('flowers.jpg')">
-        <img src="flowers.jpg" alt="Dude at memorial">
-      </div>
-      <div class="gallery-item fade-in" onclick="openLightbox('stick.jpg')">
-        <img src="stick.jpg" alt="Dude with stick">
-      </div>
-    </div>
 
-    <!-- VIDEOS SECTION -->
-    <div class="page-intro fade-in" style="margin-top: 4rem;">
-      <h2><i class="fas fa-video"></i> Videos</h2>
-      <p class="lead">Watch Dude in action</p>
-    </div>
+      <div class="gallery-item fade-in stagger-3" onclick="this.classList.toggle('flipped')">
+        <div class="gallery-item-inner">
+          <div class="gallery-front">
+            <img src="2.jpg" alt="Training session">
+          </div>
+          <div class="gallery-back">
+            <h3>Training Days</h3>
+            <p>Learning together. Every command, every task, building trust and partnership.</p>
+            <div class="date"><i class="fas fa-calendar"></i> Year One</div>
+          </div>
+        </div>
+      </div>
 
-    <div class="gallery-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-      <div class="gallery-item fade-in" onclick="openVideoLightbox('video.1.mp4')">
-        <video muted preload="metadata"><source src="video.1.mp4" type="video/mp4"></video>
-        <i class="fas fa-play-circle" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 3rem; color: white; pointer-events: none;"></i>
+      <div class="gallery-item fade-in stagger-4" onclick="this.classList.toggle('flipped')">
+        <div class="gallery-item-inner">
+          <div class="gallery-front">
+            <img src="3.jpg" alt="At the memorial">
+          </div>
+          <div class="gallery-back">
+            <h3>Mom's Memorial</h3>
+            <p>The hardest day. But he never left my side, grounding me through the grief.</p>
+            <div class="date"><i class="fas fa-calendar"></i> Last Year</div>
+          </div>
+        </div>
       </div>
-      <div class="gallery-item fade-in" onclick="openVideoLightbox('video.2.mp4')">
-        <video muted preload="metadata"><source src="video.2.mp4" type="video/mp4"></video>
-        <i class="fas fa-play-circle" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 3rem; color: white; pointer-events: none;"></i>
+
+      <div class="gallery-item fade-in stagger-5" onclick="this.classList.toggle('flipped')">
+        <div class="gallery-item-inner">
+          <div class="gallery-front">
+            <img src="4.jpg" alt="First public outing">
+          </div>
+          <div class="gallery-back">
+            <h3>First Public Outing</h3>
+            <p>Nervous but determined. He gave me courage to face the world again.</p>
+            <div class="date"><i class="fas fa-calendar"></i> 18 Months Ago</div>
+          </div>
+        </div>
       </div>
-      <div class="gallery-item fade-in" onclick="openVideoLightbox('video.3.mp4')">
-        <video muted preload="metadata"><source src="video.3.mp4" type="video/mp4"></video>
-        <i class="fas fa-play-circle" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 3rem; color: white; pointer-events: none;"></i>
+
+      <div class="gallery-item fade-in stagger-6" onclick="this.classList.toggle('flipped')">
+        <div class="gallery-item-inner">
+          <div class="gallery-front">
+            <img src="5.jpg" alt="Peaceful moment">
+          </div>
+          <div class="gallery-back">
+            <h3>Finding Peace</h3>
+            <p>Quiet moments like these remind me why we keep fighting. He is my calm.</p>
+            <div class="date"><i class="fas fa-calendar"></i> 6 Months Ago</div>
+          </div>
+        </div>
       </div>
-      <div class="gallery-item fade-in" onclick="openVideoLightbox('video.4.mp4')">
-        <video muted preload="metadata"><source src="video.4.mp4" type="video/mp4"></video>
-        <i class="fas fa-play-circle" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 3rem; color: white; pointer-events: none;"></i>
+
+      <div class="gallery-item fade-in stagger-7" onclick="this.classList.toggle('flipped')">
+        <div class="gallery-item-inner">
+          <div class="gallery-front">
+            <img src="6.jpg" alt="Certification day">
+          </div>
+          <div class="gallery-back">
+            <h3>Certification Day</h3>
+            <p>Official recognition of what I already knew—he's a lifesaver.</p>
+            <div class="date"><i class="fas fa-calendar"></i> 3 Months Ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item fade-in stagger-8" onclick="this.classList.toggle('flipped')">
+        <div class="gallery-item-inner">
+          <div class="gallery-front">
+            <img src="7.jpg" alt="At the park">
+          </div>
+          <div class="gallery-back">
+            <h3>Small Victories</h3>
+            <p>A trip to the park. Something so simple, now possible because of him.</p>
+            <div class="date"><i class="fas fa-calendar"></i> Recent</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item fade-in stagger-9" onclick="this.classList.toggle('flipped')">
+        <div class="gallery-item-inner">
+          <div class="gallery-front">
+            <img src="8.jpg" alt="Together">
+          </div>
+          <div class="gallery-back">
+            <h3>The Anchor</h3>
+            <p>My anchor in the storm. My constant. My hope. My Dude.</p>
+            <div class="date"><i class="fas fa-calendar"></i> Today</div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -138,116 +168,48 @@
     </div>
   </main>
 
-  <!-- LIGHTBOX FOR IMAGES -->
-  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-    <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="Enlarged photo" class="lightbox-content" id="lightbox-img">
-  </div>
-
-  <!-- LIGHTBOX FOR VIDEOS -->
-  <div class="lightbox" id="video-lightbox" onclick="closeVideoLightbox()">
-    <button class="lightbox-close" onclick="closeVideoLightbox()">&times;</button>
-    <video controls class="lightbox-content" id="lightbox-video" style="max-width:90%;max-height:90%;">
-      <source src="" type="video/mp4">
-    </video>
-  </div>
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
 
   <script>
-    function openLightbox(src) {
-      document.getElementById('lightbox-img').src = src;
-      document.getElementById('lightbox').style.display = 'flex';
-    }
+    let soundOn = false;
+    const audio = document.getElementById('bgMusic');
+    const soundIcon = document.getElementById('soundIcon');
+    const soundText = document.getElementById('soundText');
 
-    function closeLightbox() {
-      document.getElementById('lightbox').style.display = 'none';
-    }
-
-    function openVideoLightbox(src) {
-      const video = document.getElementById('lightbox-video');
-      video.querySelector('source').src = src;
-      video.load();
-      document.getElementById('video-lightbox').style.display = 'flex';
-      video.play();
-    }
-
-    function closeVideoLightbox() {
-      const video = document.getElementById('lightbox-video');
-      video.pause();
-      document.getElementById('video-lightbox').style.display = 'none';
+    function toggleSound() {
+      soundOn = !soundOn;
+      if (soundOn) {
+        audio.play();
+        soundIcon.className = 'fas fa-volume-up';
+        soundText.textContent = 'Sound On';
+      } else {
+        audio.pause();
+        soundIcon.className = 'fas fa-volume-mute';
+        soundText.textContent = 'Sound Off';
+      }
     }
 
     function toggleMobileMenu() {
       document.getElementById('mainNav').classList.toggle('active');
     }
 
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        closeLightbox();
-        closeVideoLightbox();
-      }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(40px)';
+      el.style.transition = 'opacity 1s ease, transform 1s ease';
+      observer.observe(el);
     });
   </script>
-
-  <style>
-    .lightbox {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.95);
-      z-index: 10000;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .lightbox-content {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 12px;
-    }
-
-    .lightbox-close {
-      position: absolute;
-      top: 2rem;
-      right: 2rem;
-      background: white;
-      border: none;
-      font-size: 2rem;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 10001;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
-    }
-
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 12px;
-      cursor: pointer;
-      aspect-ratio: 1;
-      transition: transform 0.3s ease;
-    }
-
-    .gallery-item:hover {
-      transform: scale(1.05);
-    }
-
-    .gallery-item img,
-    .gallery-item video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  </style>
 </body>
 </html>
