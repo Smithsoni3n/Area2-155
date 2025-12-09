@@ -3,181 +3,224 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Safety & Etiquette - The Anchor to My Storm</title>
+  <meta name="description" content="Safety Tips for Service Dog Handlers and the Public">
+  <title>Safety Tips | The Anchor to My Storm</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="safety-page">
-  <header class="site-header">
+<body>
+  <!-- Video Background -->
+  <div class="video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="background.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
     <div class="container">
-      <div class="header-bar">
-        <a href="index.html" class="brand">
-          <i class="fas fa-life-ring brand-icon"></i>
-          <div class="brand-text">
-            <span class="brand-kicker">The Anchor</span>
-            <span class="brand-title">To My Storm</span>
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <i class="fas fa-anchor logo-icon"></i>
+          <div class="logo-text">
+            <span class="logo-sub">The Anchor</span>
+            <span class="logo-main">To My Storm</span>
           </div>
         </a>
         
-        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <button class="menu-btn" onclick="toggleMenu()">
           <i class="fas fa-bars"></i>
         </button>
         
-        <nav class="main-nav" id="mainNav">
-          <a href="index.html" class="nav-link">THE ANCHOR</a>
-          <a href="facts.html" class="nav-link">FACTS</a>
-          <a href="safety.html" class="nav-link active">SAFETY</a>
-          <a href="resources.html" class="nav-link">RESOURCES</a>
-          <a href="gallery.html" class="nav-link">GALLERY</a>
-          <a href="game.html" class="nav-link">GAME</a>
+        <nav class="nav" id="nav">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="facts.html" class="nav-link">Facts</a>
+          <a href="safety.html" class="nav-link active">Safety</a>
+          <a href="resources.html" class="nav-link">Resources</a>
+          <a href="gallery.html" class="nav-link">Gallery</a>
+          <a href="game.html" class="nav-link"><i class="fas fa-gamepad"></i> Game</a>
         </nav>
       </div>
     </div>
   </header>
 
-  <main class="container page-shell">
-    <div class="page-intro fade-in">
-      <p class="eyebrow">RESPECT & UNDERSTANDING</p>
-      <h1>Safety & Etiquette</h1>
-      <p class="lead">Learn how to interact respectfully with service dog teams and why these guidelines matter.</p>
-    </div>
+  <!-- Main Content -->
+  <main class="main">
+    <div class="container">
+      <!-- Page Header -->
+      <div class="page-header">
+        <p class="eyebrow">Important Guidelines</p>
+        <h1 class="page-title">Safety Tips</h1>
+        <p class="page-intro">How to interact respectfully with service dog teams and ensure everyone's safety.</p>
+      </div>
 
-    <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); max-width: 1000px; margin: 4rem auto;">
-      <!-- CARD 1 -->
-      <div class="spin-card fade-in stagger-1" onclick="playSound(1); this.classList.toggle('spinning');">
-        <div class="spin-card-inner">
-          <div class="spin-front">
-            <i class="fas fa-hand" style="font-size: 5rem; color: #d4a574;"></i>
-            <h3 style="font-size: 2rem; margin-top: 1.5rem;">Don't Touch</h3>
-            <p style="font-size: 1rem;">Click to learn why</p>
+      <!-- Flip Cards -->
+      <div class="card-grid">
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <i class="fas fa-hand icon"></i>
+              <h3>Don't Pet or Touch</h3>
+              <p>Click to learn why</p>
+            </div>
+            <div class="flip-back">
+              <h3>Respect Their Focus</h3>
+              <p>Service dogs are working. Petting, talking to, or making eye contact with them can distract them from their job and put their handler at risk.</p>
+              <p>Always ask the handler first, and respect their answer if they say no.</p>
+              <div class="tip">A distracted service dog cannot do their life-saving work.</div>
+            </div>
           </div>
-          <div class="spin-back">
-            <h3>No Petting</h3>
-            <p>Service dogs are working. Petting them distracts from life-saving tasks.</p>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <i class="fas fa-comment-slash icon"></i>
+              <h3>Don't Make Noises</h3>
+              <p>Click to learn why</p>
+            </div>
+            <div class="flip-back">
+              <h3>Avoid Distractions</h3>
+              <p>Whistling, barking, or making other noises to get a service dog's attention is dangerous and disrespectful.</p>
+              <p>These sounds can break the dog's concentration during critical moments when they need to alert to their handler's condition.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <i class="fas fa-utensils icon"></i>
+              <h3>Never Feed</h3>
+              <p>Click to learn why</p>
+            </div>
+            <div class="flip-back">
+              <h3>Food Safety</h3>
+              <p>Never offer food to a service dog. Many have dietary restrictions, and unexpected treats can make them sick or interfere with their training.</p>
+              <p>Food can also distract them from detecting important medical alerts.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <i class="fas fa-camera icon"></i>
+              <h3>Ask Before Photos</h3>
+              <p>Click to learn why</p>
+            </div>
+            <div class="flip-back">
+              <h3>Privacy Respect</h3>
+              <p>Taking photos or videos of service dog teams without permission invades their privacy. Many handlers prefer not to be photographed.</p>
+              <p>Always ask first, and accept "no" gracefully.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <i class="fas fa-dog icon"></i>
+              <h3>Control Your Pets</h3>
+              <p>Click to learn why</p>
+            </div>
+            <div class="flip-back">
+              <h3>Keep Distance</h3>
+              <p>Keep your pets away from service dogs. Even friendly dogs can distract or frighten a working dog, and aggressive encounters can traumatize them.</p>
+              <p>A service dog that becomes fearful may not be able to continue working.</p>
+              <div class="tip">Cross the street or create space when you see a service dog team.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <i class="fas fa-question-circle icon"></i>
+              <h3>Don't Question</h3>
+              <p>Click to learn why</p>
+            </div>
+            <div class="flip-back">
+              <h3>Respect Privacy</h3>
+              <p>Don't interrogate handlers about their disability or challenge their need for a service dog. Many disabilities are invisible.</p>
+              <p>Businesses may only ask: "Is this a service dog?" and "What tasks is it trained to perform?"</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- CARD 2 -->
-      <div class="spin-card fade-in stagger-2" onclick="playSound(2); this.classList.toggle('spinning');">
-        <div class="spin-card-inner">
-          <div class="spin-front">
-            <i class="fas fa-comments" style="font-size: 5rem; color: #d4a574;"></i>
-            <h3 style="font-size: 2rem; margin-top: 1.5rem;">Privacy Matters</h3>
-            <p style="font-size: 1rem;">Click to learn why</p>
-          </div>
-          <div class="spin-back">
-            <h3>No Personal Questions</h3>
-            <p>Don't ask "What's wrong with you?" - it's invasive and traumatizing.</p>
-          </div>
+      <!-- Audio Section -->
+      <div class="content-card">
+        <h2><i class="fas fa-headphones"></i> Audio Safety Tips</h2>
+        <p>Listen to these helpful audio guides about service dog etiquette.</p>
+      </div>
+
+      <div class="audio-grid">
+        <div class="audio-card">
+          <h3>Tip 1: Approaching Teams</h3>
+          <audio controls>
+            <source src="safety.1.wav.mp3.wav" type="audio/wav">
+            Your browser does not support audio.
+          </audio>
+        </div>
+
+        <div class="audio-card">
+          <h3>Tip 2: In Public Spaces</h3>
+          <audio controls>
+            <source src="safety.2.wav.mp3.wav" type="audio/wav">
+            Your browser does not support audio.
+          </audio>
+        </div>
+
+        <div class="audio-card">
+          <h3>Tip 3: With Children</h3>
+          <audio controls>
+            <source src="safety.3.wav.mp3.wav" type="audio/wav">
+            Your browser does not support audio.
+          </audio>
+        </div>
+
+        <div class="audio-card">
+          <h3>Tip 4: Business Owners</h3>
+          <audio controls>
+            <source src="safety.4.wav.mp3.wav" type="audio/wav">
+            Your browser does not support audio.
+          </audio>
+        </div>
+
+        <div class="audio-card">
+          <h3>Tip 5: Emergency Situations</h3>
+          <audio controls>
+            <source src="safety.5.wav.mp3.wav" type="audio/wav">
+            Your browser does not support audio.
+          </audio>
+        </div>
+
+        <div class="audio-card">
+          <h3>Tip 6: Being an Ally</h3>
+          <audio controls>
+            <source src="safety.6.wav.mp3.wav" type="audio/wav">
+            Your browser does not support audio.
+          </audio>
         </div>
       </div>
 
-      <!-- CARD 3 -->
-      <div class="spin-card fade-in stagger-3" onclick="playSound(3); this.classList.toggle('spinning');">
-        <div class="spin-card-inner">
-          <div class="spin-front">
-            <i class="fas fa-dog" style="font-size: 5rem; color: #d4a574;"></i>
-            <h3 style="font-size: 2rem; margin-top: 1.5rem;">Control Your Dog</h3>
-            <p style="font-size: 1rem;">Click to learn why</p>
-          </div>
-          <div class="spin-back">
-            <h3>Keep Pets Away</h3>
-            <p>Other dogs can distract service dogs from critical alerts.</p>
-          </div>
-        </div>
+      <!-- Page Navigation -->
+      <div class="page-nav">
+        <a href="facts.html" class="page-nav-link">
+          <i class="fas fa-arrow-left"></i> Previous: Facts
+        </a>
+        <a href="resources.html" class="page-nav-link">
+          Next: Resources <i class="fas fa-arrow-right"></i>
+        </a>
       </div>
-
-      <!-- CARD 4 -->
-      <div class="spin-card fade-in stagger-4" onclick="playSound(4); this.classList.toggle('spinning');">
-        <div class="spin-card-inner">
-          <div class="spin-front">
-            <i class="fas fa-child" style="font-size: 5rem; color: #d4a574;"></i>
-            <h3 style="font-size: 2rem; margin-top: 1.5rem;">Teach Children</h3>
-            <p style="font-size: 1rem;">Click to learn why</p>
-          </div>
-          <div class="spin-back">
-            <h3>Education Starts Young</h3>
-            <p>Teach kids that service dogs are working medical equipment.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- CARD 5 -->
-      <div class="spin-card fade-in stagger-5" onclick="playSound(5); this.classList.toggle('spinning');">
-        <div class="spin-card-inner">
-          <div class="spin-front">
-            <i class="fas fa-utensils" style="font-size: 5rem; color: #d4a574;"></i>
-            <h3 style="font-size: 2rem; margin-top: 1.5rem;">Don't Feed</h3>
-            <p style="font-size: 1rem;">Click to learn why</p>
-          </div>
-          <div class="spin-back">
-            <h3>No Food or Treats</h3>
-            <p>Service dogs are on strict diets. Feeding them can cause health issues.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- CARD 6 -->
-      <div class="spin-card fade-in stagger-6" onclick="playSound(6); this.classList.toggle('spinning');">
-        <div class="spin-card-inner">
-          <div class="spin-front">
-            <i class="fas fa-camera" style="font-size: 5rem; color: #d4a574;"></i>
-            <h3 style="font-size: 2rem; margin-top: 1.5rem;">No Photos</h3>
-            <p style="font-size: 1rem;">Click to learn why</p>
-          </div>
-          <div class="spin-back">
-            <h3>Respect Privacy</h3>
-            <p>Taking photos without permission is invasive and can be triggering.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="page-nav">
-      <a href="facts.html" class="page-nav-btn">
-        <i class="fas fa-arrow-left"></i> FACTS
-      </a>
-      <a href="resources.html" class="page-nav-btn">
-        RESOURCES <i class="fas fa-arrow-right"></i>
-      </a>
     </div>
   </main>
 
-  <!-- AUDIO FILES FOR EACH CARD -->
-  <audio id="sound1" src="safety1.mp3"></audio>
-  <audio id="sound2" src="safety2.mp3"></audio>
-  <audio id="sound3" src="safety3.mp3"></audio>
-  <audio id="sound4" src="safety4.mp3"></audio>
-  <audio id="sound5" src="safety5.mp3"></audio>
-  <audio id="sound6" src="safety6.mp3"></audio>
-
   <script>
-    function playSound(num) {
-      const audio = document.getElementById('sound' + num);
-      audio.currentTime = 0;
-      audio.play();
+    function toggleMenu() {
+      document.getElementById('nav').classList.toggle('active');
     }
-
-    function toggleMobileMenu() {
-      document.getElementById('mainNav').classList.toggle('active');
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
-
-    document.querySelectorAll('.fade-in').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(40px)';
-      el.style.transition = 'opacity 1s ease, transform 1s ease';
-      observer.observe(el);
-    });
   </script>
 </body>
 </html>
