@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="The Anchor to My Storm – A PTSD Service Dog Journey with Dude. My story of survival, healing & the service dog who saved my life.">
-  <title>The Anchor to My Storm | Home</title>
+  <meta name="description" content="The Anchor to My Storm - My PTSD Service Dog Journey with Dude">
+  <title>The Anchor to My Storm - PTSD Service Dog Journey</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="index-page">
-
+<body>
+  <!-- HEADER WITH TEAL LINEAR GRADIENT -->
   <header class="site-header">
     <div class="container">
       <div class="header-bar">
@@ -21,12 +21,12 @@
           </div>
         </a>
         
-        <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu">
           <i class="fas fa-bars"></i>
         </button>
         
-        <nav class="main-nav" id="mainNav">
-          <a href="index.html" class="nav-link active">Anchor</a>
+        <nav class="main-nav" id="mainNav" role="navigation">
+          <a href="index.html" class="nav-link active" aria-current="page">The Anchor</a>
           <a href="facts.html" class="nav-link">Facts</a>
           <a href="safety.html" class="nav-link">Safety</a>
           <a href="resources.html" class="nav-link">Resources</a>
@@ -37,172 +37,137 @@
     </div>
   </header>
 
-  <main class="main-content">
-    <div class="container">
-      
-      <!-- Page Introduction -->
-      <section class="page-intro">
-        <p class="eyebrow">Not a Victim • A Believer in Better</p>
-        <h1 class="page-title">The Anchor to My Storm</h1>
-        <p class="lead">This is Dude. He's not just a dog—he's my PTSD service dog, my anchor, my calm in the chaos & the reason I can face each day with courage & hope.</p>
-      </section>
+  <!-- MAIN CONTENT -->
+  <main class="container page-shell">
+    <!-- PAGE INTRO -->
+    <div class="page-intro fade-in">
+      <p class="eyebrow">My PTSD Service Dog Journey</p>
+      <h1>The Anchor to My Storm</h1>
+      <p class="lead">This is Dude. He's not just a dog—he's my anchor, my calm in the chaos, and the reason I can face each day with courage and hope.</p>
+    </div>
 
-      <!-- Hero Image -->
-      <section class="hero-showcase">
-        <figure class="hero-image-container glass-border-glow">
-          <img src="flowers.jpg" alt="Dude sitting peacefully at mom's memorial garden surrounded by flowers" class="hero-main-image">
-        </figure>
-      </section>
+    <!-- HERO IMAGE -->
+    <div class="hero-showcase fade-in stagger-1">
+      <div class="hero-image-container">
+        <img src="flowers.jpg" alt="Dude sitting at memorial flowers for my mom" class="hero-main-image">
+        <div class="diamond-overlay"></div>
+      </div>
+    </div>
 
-      <!-- Stats Banner -->
-      <section class="stats-banner">
-        <div class="stats-grid">
-          <article class="stat-card" style="background-image: url('stat0.JPG');">
-            <div class="stat-overlay"></div>
-            <div class="stat-content">
-              <p class="stat-number">2</p>
-              <p class="stat-label">Years Together</p>
-            </div>
-          </article>
-          
-          <article class="stat-card" style="background-image: url('stat1.JPG');">
-            <div class="stat-overlay"></div>
-            <div class="stat-content">
-              <p class="stat-number">730</p>
-              <p class="stat-label">Days of Hope</p>
-            </div>
-          </article>
-          
-          <article class="stat-card" style="background-image: url('stat2.JPG');">
-            <div class="stat-overlay"></div>
-            <div class="stat-content">
-              <p class="stat-number">100%</p>
-              <p class="stat-label">Dedication</p>
-            </div>
-          </article>
-          
-          <article class="stat-card" style="background-image: url('stat3.JPG');">
-            <div class="stat-overlay"></div>
-            <div class="stat-content">
-              <p class="stat-number">1</p>
-              <p class="stat-label">Life Saved</p>
-            </div>
-          </article>
+    <!-- STATS BANNER WITH RADIAL GRADIENT -->
+    <div class="stats-banner fade-in stagger-2">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Years Together</div>
         </div>
-      </section>
-
-      <!-- Our Story -->
-      <section>
-        <article class="story-card">
-          <h2><i class="fas fa-heart"></i> Our Story</h2>
-          <p>For years, my life felt like a relentless battle. I went through a gauntlet of family conflicts & tough relationships that left me feeling completely alone against a mountain of hurt. I spent years just keeping busy & taking care of everyone else, just so I wouldn't have to face the quiet pain inside. Even after I broke free, it was hard to let anyone in, so I kept most of my story a secret.</p>
-          
-          <p>Things started to change when a friend brought home a puppy & the moment Dude stepped into my life, everything felt lighter. He never asked about my history. He just offered a presence that was immediately, undeniably comforting. He's the one who pulls me out of that anxious place & reminds me what a real, honest smile feels like.</p>
-          
-          <p>When the unthinkable happened—losing my mom last year—my world was different. I made her memorial in the front yard & Dude was always right there, my quiet guardian. He just knew. He'd listen in his way, a solid presence supporting me through the grief. There were days I could only sit on my front porch, feeling totally alone with nobody to talk to & Dude was all I had.</p>
-          
-          <p><strong>That's when it hit me. His presence & the comfort he gives are exactly what makes a service animal. He didn't just walk into my life. He anchored it. He saved my life & he continues to fight that battle alongside me, every single day. This is more than a bond. It is a lifeline forged in fire.</strong></p>
-        </article>
-      </section>
-
-      <!-- Flip Cards -->
-      <section>
-        <div class="card-grid three-col">
-          
-          <article class="flip-card" onclick="this.classList.toggle('flipped')" tabindex="0">
-            <div class="flip-card-inner">
-              <div class="flip-front">
-                <i class="fas fa-paw card-icon"></i>
-                <h3>The Friend Who Showed Up</h3>
-                <p>Click to learn more</p>
-                <i class="fas fa-arrow-right flip-arrow"></i>
-              </div>
-              <div class="flip-back glass-burgundy">
-                <h3>A Light in the Dark</h3>
-                <p>From the moment I met Dude, something felt lighter. He manages to lift my mood & make me smile, pulling me out of that anxious place where I so often felt stuck.</p>
-                <p><strong>He showed up exactly when I needed someone most.</strong></p>
-              </div>
-            </div>
-          </article>
-
-          <article class="flip-card" onclick="this.classList.toggle('flipped')" tabindex="0">
-            <div class="flip-card-inner">
-              <div class="flip-front">
-                <i class="fas fa-dove card-icon"></i>
-                <h3>Through the Darkest Days</h3>
-                <p>Click to learn more</p>
-                <i class="fas fa-arrow-right flip-arrow"></i>
-              </div>
-              <div class="flip-back glass-purple">
-                <h3>Mom's Memorial</h3>
-                <p>When my mom passed away last year, I created a memorial in the front yard for her. Dude was always there—aware of my pain, giving quiet support just by being present & listening in his way.</p>
-                <p><strong>He was all I had & that was enough.</strong></p>
-              </div>
-            </div>
-          </article>
-
-          <article class="flip-card" onclick="this.classList.toggle('flipped')" tabindex="0">
-            <div class="flip-card-inner">
-              <div class="flip-front">
-                <i class="fas fa-anchor card-icon"></i>
-                <h3>My Anchor</h3>
-                <p>Click to learn more</p>
-                <i class="fas fa-arrow-right flip-arrow"></i>
-              </div>
-              <div class="flip-back glass-gold">
-                <h3>He Saved My Life</h3>
-                <p>His presence & comfort are exactly what makes a service animal. When flashbacks hit, when the world feels unsafe—he's there. He grounds me.</p>
-                <p><strong>He saved my life & still continues to do so every day.</strong></p>
-              </div>
-            </div>
-          </article>
-
+        <div class="stat-card">
+          <div class="stat-number">730</div>
+          <div class="stat-label">Days of Hope</div>
         </div>
-      </section>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Dedication</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">1</div>
+          <div class="stat-label">Life Saved</div>
+        </div>
+      </div>
+    </div>
 
-      <!-- Believer Card -->
-      <section>
-        <article class="believer-card">
-          <h2>A Believer in Better <img src="shooting-star.svg" alt="Shooting Star" class="shooting-star-icon"></h2>
-          <p>I'm not a victim—I'm a believer in better. My journey through domestic violence & trauma taught me strength I didn't know I had. But PTSD doesn't care about strength.</p>
-          
-          <p>Dude became my anchor in those moments. When triggers send my heart racing, his steady breathing becomes mine. Deep pressure therapy from his weight against me brings me back to the present.</p>
-          
-          <p><strong>This website is my tribute to Dude & my message to anyone else struggling with PTSD, trauma, or the aftermath of domestic violence: You are not alone. There is hope. There is healing. & sometimes, it comes with four paws & an unbreakable spirit.</strong></p>
-        </article>
-      </section>
+    <!-- FLIP CARDS WITH RADIAL GRADIENT BACKS -->
+    <div class="card-grid three-col">
+      <div class="flip-card fade-in stagger-3" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <i class="fas fa-heart"></i>
+            <h3>The Friend Who Showed Up</h3>
+            <p>Click to read more</p>
+          </div>
+          <div class="flip-back">
+            <h3>The Beginning</h3>
+            <p>Even after breaking away from domestic violence, it was hard to share my story or let anyone in, so I held most of it inside. Things started to change when my friend brought home a puppy and my kids joined in to help.</p>
+            <p>From the moment I met him, something felt lighter. He manages to lift my mood and make me smile, pulling me out of that anxious place where I so often found myself stuck.</p>
+          </div>
+        </div>
+      </div>
 
-      <!-- Page Navigation -->
-      <nav class="page-nav">
-        <div></div>
-        <a href="facts.html" class="page-nav-btn">
-          Next: Facts <i class="fas fa-arrow-right"></i>
-        </a>
-      </nav>
+      <div class="flip-card fade-in stagger-4" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <i class="fas fa-dove"></i>
+            <h3>Through the Darkest Days</h3>
+            <p>Click to read more</p>
+          </div>
+          <div class="flip-back">
+            <h3>My Mom's Memorial</h3>
+            <p>When my mom passed away last year, I created a memorial in the front yard for her. Dude was always there—aware of my pain, giving quiet support just by being present and listening in his way.</p>
+            <p>There were days when all I could do was sit on my front porch, feeling completely alone with nobody to confide in. But Dude never left my side. He became my constant, my comfort in the silence.</p>
+          </div>
+        </div>
+      </div>
 
+      <div class="flip-card fade-in stagger-5" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <i class="fas fa-shield-heart"></i>
+            <h3>PTSD & Trauma Recovery</h3>
+            <p>Click to read more</p>
+          </div>
+          <div class="flip-back">
+            <h3>My Anchor</h3>
+            <p>I'm not a victim—I'm a believer in better. My journey through domestic violence and trauma taught me strength I didn't know I had. But PTSD doesn't care about strength.</p>
+            <p>Dude became my anchor in those moments. When flashbacks hit, when hypervigilance makes the world feel unsafe, when triggers send my heart racing—he's there. He grounds me. Deep pressure therapy from his weight against me brings me back to the present.</p>
+            <div class="tip">His steady breathing becomes mine.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN MESSAGE CARD -->
+    <div class="card-3d fade-in stagger-6" style="max-width: 900px; margin: 4rem auto;">
+      <h2><i class="fas fa-anchor"></i> My Anchor</h2>
+      <p>He's saved my life more times than I can count. Not in dramatic, visible ways—but in the quiet moments when I couldn't find my way back. When the weight of trauma felt too heavy. When isolation threatened to swallow me whole.</p>
+      <p style="margin-top: 1.5rem;">This website is my tribute to Dude, and my message to anyone else struggling with PTSD, trauma, or the aftermath of domestic violence: <strong>You are not alone. There is hope. There is healing. And sometimes, it comes with four paws and an unbreakable spirit.</strong></p>
+    </div>
+
+    <!-- PAGE NAVIGATION WITH CONIC GRADIENT -->
+    <div class="page-nav">
+      <div></div>
+      <a href="facts.html" class="page-nav-btn">
+        Next: Facts <i class="fas fa-arrow-right"></i>
+      </a>
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2024 The Anchor to My Storm • CIS-155 Final Project</p>
-    </div>
-  </footer>
-
+  <!-- JAVASCRIPT -->
   <script>
-    function toggleMenu() {
-      document.getElementById('mainNav').classList.toggle('active');
-    }
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', function(event) {
+    function toggleMobileMenu() {
       const nav = document.getElementById('mainNav');
-      const btn = document.querySelector('.mobile-menu-btn');
-      if (!nav.contains(event.target) && !btn.contains(event.target)) {
-        nav.classList.remove('active');
-      }
+      nav.classList.toggle('active');
+    }
+
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(40px)';
+      el.style.transition = 'opacity 1s ease, transform 1s ease';
+      observer.observe(el);
     });
   </script>
-
 </body>
 </html>
