@@ -3,134 +3,215 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Service dog safety and etiquette guidelines">
-  <title>Safety & Etiquette | The Anchor to My Storm</title>
+  <meta name="description" content="Safety tips for interacting with service dog teams.">
+  <title>Safety Tips | The Anchor to My Storm</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body id="top">
-  <!-- Navigation -->
+<body>
+
+  <audio id="audio1" preload="auto"><source src="safety1.mp3" type="audio/mpeg"></audio>
+  <audio id="audio2" preload="auto"><source src="safety2.mp3" type="audio/mpeg"></audio>
+  <audio id="audio3" preload="auto"><source src="safety3.mp3" type="audio/mpeg"></audio>
+  <audio id="audio4" preload="auto"><source src="safety4.mp3" type="audio/mpeg"></audio>
+  <audio id="audio5" preload="auto"><source src="safety5.mp3" type="audio/mpeg"></audio>
+  <audio id="audio6" preload="auto"><source src="safety6.mp3" type="audio/mpeg"></audio>
+
   <header class="site-header">
-    <div class="container header-bar">
-      <a href="index.html" class="brand">
-        <span class="brand-icon"><i class="fas fa-anchor"></i></span>
-        <div class="brand-text">
-          <span class="brand-kicker">The Anchor</span>
-          <span class="brand-title">To My Storm</span>
-        </div>
-      </a>
-      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-        <i class="fas fa-bars"></i>
-      </button>
-      <nav class="main-nav" id="mainNav">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="safety.html" class="nav-link active">Safety</a>
-        <a href="resources.html" class="nav-link">Resources</a>
-        <a href="gallery.html" class="nav-link">Gallery</a>
-        <a href="facts.html" class="nav-link">Facts</a>
-        <a href="game.html" class="nav-link">🐕 Game</a>
-      </nav>
+    <div class="container">
+      <div class="header-bar">
+        <a href="index.html" class="brand">
+          <i class="fas fa-anchor brand-icon"></i>
+          <span class="brand-title">THE ANCHOR TO MY STORM</span>
+        </a>
+        <button class="mobile-menu-btn" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+        <nav class="main-nav" id="mainNav">
+          <a href="index.html" class="nav-link">Anchor</a>
+          <a href="facts.html" class="nav-link">Facts</a>
+          <a href="safety.html" class="nav-link active">Safety</a>
+          <a href="resources.html" class="nav-link">Resources</a>
+          <a href="gallery.html" class="nav-link">Gallery</a>
+          <a href="game.html" class="nav-link">Game</a>
+        </nav>
+      </div>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="container page-shell">
-    <div class="page-intro fade-in">
-      <p class="eyebrow">Respect & Understanding</p>
-      <h1>Service Dog Safety & Etiquette</h1>
-      <p class="lead">Understanding how to interact with service dogs keeps both the dog and handler safe. These guidelines help create a respectful environment for working teams.</p>
+  <main class="main-content">
+    <div class="container">
+      
+      <section class="page-intro glass-tile">
+        <p class="eyebrow">Important Guidelines</p>
+        <h1 class="page-title accent-headline">Safety Tips</h1>
+        <p class="lead">How to interact respectfully with service dog teams.</p>
+      </section>
+      
+      <div class="sound-toggle">
+        <button class="sound-toggle-btn" id="soundToggle" onclick="toggleSound()">
+          <i class="fas fa-volume-up"></i>
+        </button>
+      </div>
+
+      <section class="page-section">
+        <div class="card-grid three-col">
+          
+          <article class="flip-card glass-tile" onclick="flipWithAudio(this, 'audio1')" tabindex="0">
+            <div class="flip-card-inner">
+              <div class="flip-front">
+                <i class="fas fa-hand card-icon"></i>
+                <h3>Don't Pet or Touch</h3>
+                <i class="fas fa-arrow-right flip-arrow"></i>
+              </div>
+              <div class="flip-back glass-burgundy">
+                <h3>Respect Their Focus</h3>
+                <p>Service dogs are working. Petting or making eye contact can distract them from their job and put their handler at risk.</p>
+                <p>Always ask the handler first, and respect if they say no. A distracted service dog cannot do their life-saving work.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip-card glass-tile" onclick="flipWithAudio(this, 'audio2')" tabindex="0">
+            <div class="flip-card-inner">
+              <div class="flip-front">
+                <i class="fas fa-comment-slash card-icon"></i>
+                <h3>Don't Make Noises</h3>
+                <i class="fas fa-arrow-right flip-arrow"></i>
+              </div>
+              <div class="flip-back glass-purple">
+                <h3>Avoid Distractions</h3>
+                <p>Whistling, barking, or making noises to get a service dog's attention is dangerous and disrespectful.</p>
+                <p>These sounds can break concentration during critical moments when the dog is alerting to a medical condition or keeping the handler safe.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip-card glass-tile" onclick="flipWithAudio(this, 'audio3')" tabindex="0">
+            <div class="flip-card-inner">
+              <div class="flip-front">
+                <i class="fas fa-utensils card-icon"></i>
+                <h3>Never Feed</h3>
+                <i class="fas fa-arrow-right flip-arrow"></i>
+              </div>
+              <div class="flip-back glass-gold">
+                <h3>Food Safety</h3>
+                <p>Never offer food to a service dog. Many have dietary restrictions, and treats can make them sick or interfere with training.</p>
+                <p>Food can also distract them from detecting medical alerts that could save their handler's life.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip-card glass-tile" onclick="flipWithAudio(this, 'audio4')" tabindex="0">
+            <div class="flip-card-inner">
+              <div class="flip-front">
+                <i class="fas fa-camera card-icon"></i>
+                <h3>Ask Before Photos</h3>
+                <i class="fas fa-arrow-right flip-arrow"></i>
+              </div>
+              <div class="flip-back glass-green">
+                <h3>Privacy Respect</h3>
+                <p>Taking photos or videos without permission invades privacy. Many handlers prefer not to be photographed.</p>
+                <p>Always ask first, and accept "no" gracefully. The handler's comfort and safety come first.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip-card glass-tile" onclick="flipWithAudio(this, 'audio5')" tabindex="0">
+            <div class="flip-card-inner">
+              <div class="flip-front">
+                <i class="fas fa-dog card-icon"></i>
+                <h3>Control Your Pets</h3>
+                <i class="fas fa-arrow-right flip-arrow"></i>
+              </div>
+              <div class="flip-back glass-blue">
+                <h3>Keep Distance</h3>
+                <p>Keep your pets away from service dogs. Even friendly dogs can distract or frighten a working dog.</p>
+                <p>A traumatized service dog may not be able to continue working. Cross the street or create space when you see a service dog team.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip-card glass-tile" onclick="flipWithAudio(this, 'audio6')" tabindex="0">
+            <div class="flip-card-inner">
+              <div class="flip-front">
+                <i class="fas fa-question-circle card-icon"></i>
+                <h3>Don't Question</h3>
+                <i class="fas fa-arrow-right flip-arrow"></i>
+              </div>
+              <div class="flip-back glass-burgundy">
+                <h3>Respect Privacy</h3>
+                <p>Don't interrogate handlers about their disability. Many disabilities are invisible, including PTSD, anxiety, and seizure disorders.</p>
+                <p>Businesses may only legally ask two questions: "Is this a service dog?" and "What tasks is it trained to perform?"</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <nav class="page-nav">
+        <a href="facts.html" class="page-nav-btn"><i class="fas fa-arrow-left"></i> Previous: Facts</a>
+        <a href="resources.html" class="page-nav-btn">Next: Resources <i class="fas fa-arrow-right"></i></a>
+      </nav>
+
     </div>
-
-    <!-- Locked Cards (No Spinning) -->
-    <section class="card-grid three-col">
-      <article class="locked-card fade-in stagger-1">
-        <i class="fas fa-hand-holding-heart" style="font-size: 3.5rem; color: var(--my-sin); margin-bottom: 1.5rem;"></i>
-        <h3>Don't Pet</h3>
-        <p>Service dogs are working when they're with their handler. Petting them can distract them from critical tasks like alerting to medical emergencies or providing balance support.</p>
-        <p style="margin-top: 1rem; color: var(--my-sin); font-weight: 600;">💡 Always ask permission first, and don't be offended if the answer is no.</p>
-      </article>
-
-      <article class="locked-card fade-in stagger-2">
-        <i class="fas fa-bowl-food" style="font-size: 3.5rem; color: var(--my-sin); margin-bottom: 1.5rem;"></i>
-        <h3>Don't Feed</h3>
-        <p>Service dogs follow strict diets and feeding schedules. Giving them food can cause health issues, digestive problems, or break their focus during critical moments.</p>
-        <p style="margin-top: 1rem; color: var(--my-sin); font-weight: 600;">💡 Even a small treat can disrupt months of training.</p>
-      </article>
-
-      <article class="locked-card fade-in stagger-3">
-        <i class="fas fa-ear-deaf" style="font-size: 3.5rem; color: var(--my-sin); margin-bottom: 1.5rem;"></i>
-        <h3>Don't Distract</h3>
-        <p>Making noises, whistling, or calling to a service dog pulls their attention away from their handler. This distraction could prevent them from detecting an oncoming medical episode.</p>
-        <p style="margin-top: 1rem; color: var(--my-sin); font-weight: 600;">💡 Pretend the dog is invisible—admire from afar silently.</p>
-      </article>
-
-      <article class="locked-card fade-in stagger-4">
-        <i class="fas fa-people-arrows" style="font-size: 3.5rem; color: var(--my-sin); margin-bottom: 1.5rem;"></i>
-        <h3>Talk to the Handler</h3>
-        <p>If you have questions or concerns, speak to the handler, not the dog. The handler can explain what their dog does and whether interaction is appropriate at that moment.</p>
-        <p style="margin-top: 1rem; color: var(--my-sin); font-weight: 600;">💡 Handlers appreciate respectful curiosity.</p>
-      </article>
-
-      <article class="locked-card fade-in stagger-5">
-        <i class="fas fa-ruler-horizontal" style="font-size: 3.5rem; color: var(--my-sin); margin-bottom: 1.5rem;"></i>
-        <h3>Give Space</h3>
-        <p>Service dog teams need personal space to work effectively. Crowding or blocking their path can create dangerous situations, especially in emergencies.</p>
-        <p style="margin-top: 1rem; color: var(--my-sin); font-weight: 600;">💡 Maintain at least 6 feet of distance when possible.</p>
-      </article>
-
-      <article class="locked-card fade-in stagger-6">
-        <i class="fas fa-scale-balanced" style="font-size: 3.5rem; color: var(--my-sin); margin-bottom: 1.5rem;"></i>
-        <h3>Know the Law</h3>
-        <p>Under the ADA, service dogs are allowed in all public spaces. Asking someone to remove their service dog or denying access is illegal and harmful.</p>
-        <p style="margin-top: 1rem; color: var(--my-sin); font-weight: 600;">💡 Only two questions are legally allowed: "Is this a service dog?" and "What tasks is it trained to perform?"</p>
-      </article>
-    </section>
-
-    <!-- Additional Info -->
-    <section class="card-grid two-col" style="margin-top: 4rem;">
-      <article class="card fade-in">
-        <h2><i class="fas fa-shield-alt"></i> Why This Matters</h2>
-        <p>Service dogs aren't pets—they're medical equipment with four legs and a heartbeat. When someone distracts or interferes with a service dog, they're potentially putting a person's life at risk.</p>
-        <p>For me, Dude's alerts have prevented dangerous situations. When he's distracted, those seconds matter. Respecting service dog teams means respecting our safety, independence, and dignity.</p>
-      </article>
-
-      <article class="card fade-in">
-        <h2><i class="fas fa-lightbulb"></i> How to Help</h2>
-        <p>The best way to support service dog teams? Give space, stay quiet around working dogs, and educate others. If you see someone violating these guidelines, politely intervene or notify staff.</p>
-        <p>Share this information. Advocate for access rights. And remember: every time you respect a service dog team's space, you're helping someone live their life more fully.</p>
-      </article>
-    </section>
   </main>
 
-  <!-- JavaScript -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2024 The Anchor to My Storm • CIS-155 Final Project</p>
+    </div>
+  </footer>
+
   <script>
-    function toggleMobileMenu() {
-      const nav = document.getElementById('mainNav');
-      nav.classList.toggle('active');
+    function toggleMenu() {
+      document.getElementById('mainNav').classList.toggle('active');
     }
 
-    // Intersection Observer for animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
+    let soundEnabled = true;
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
+    function toggleSound() {
+      soundEnabled = !soundEnabled;
+      const btn = document.getElementById('soundToggle');
+      const icon = btn.querySelector('i');
+      
+      if (soundEnabled) {
+        icon.className = 'fas fa-volume-up';
+        btn.classList.remove('muted');
+      } else {
+        icon.className = 'fas fa-volume-mute';
+        btn.classList.add('muted');
+        stopAllAudio();
+      }
+    }
+
+    function stopAllAudio() {
+      for (let i = 1; i <= 6; i++) {
+        const audio = document.getElementById('audio' + i);
+        if (audio) {
+          audio.pause();
+          audio.currentTime = 0;
         }
-      });
-    }, observerOptions);
+      }
+    }
 
-    document.querySelectorAll('.fade-in').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(30px)';
-      el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
-      observer.observe(el);
-    });
+    function flipWithAudio(card, audioId) {
+      const isFlipping = !card.classList.contains('flipped');
+      card.classList.toggle('flipped');
+      
+      stopAllAudio();
+      
+      if (isFlipping && soundEnabled) {
+        const audio = document.getElementById(audioId);
+        if (audio) {
+          audio.currentTime = 0;
+          audio.play().catch(error => console.log('Audio play prevented:', error));
+        }
+      }
+    }
   </script>
 </body>
 </html>
