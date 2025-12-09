@@ -24,4 +24,5 @@
   
   <!-- Main Star -->
   <path d="M15,35 L19,45 L29,45 L21,52 L24,62 L15,56 L6,62 L9,52 L1,45 L11,45 Z" fill="url(#goldGrad)" stroke="#b8860b" stroke-width="1" filter="url(#glow)" transform="rotate(-20 15 50)"/>
+
 </svg>
