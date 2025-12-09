@@ -3,11 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Resources for PTSD support, service dogs, and domestic violence help.">
+  <meta name="description" content="Crisis Resources - Help for PTSD, domestic violence & mental health support">
   <title>Resources | The Anchor to My Storm</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -18,198 +15,176 @@
       <div class="header-bar">
         <a href="index.html" class="brand">
           <i class="fas fa-anchor brand-icon"></i>
-          <span class="brand-title">THE ANCHOR TO MY STORM</span>
+          <div class="brand-text">
+            <span class="brand-kicker">The Anchor</span>
+            <span class="brand-title">To My Storm</span>
+          </div>
         </a>
-        <button class="mobile-menu-btn" onclick="toggleMenu()">
+        
+        <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">
           <i class="fas fa-bars"></i>
         </button>
+        
         <nav class="main-nav" id="mainNav">
           <a href="index.html" class="nav-link">Anchor</a>
           <a href="facts.html" class="nav-link">Facts</a>
           <a href="safety.html" class="nav-link">Safety</a>
           <a href="resources.html" class="nav-link active">Resources</a>
           <a href="gallery.html" class="nav-link">Gallery</a>
-          <a href="game.html" class="nav-link">Game</a>
+          <a href="game.html" class="nav-link"><i class="fas fa-gamepad"></i> Game</a>
         </nav>
       </div>
     </div>
   </header>
 
-  <main class="main-content">
+  <main class="page-shell">
     <div class="container">
       
-      <section class="page-intro glass-tile">
-        <p class="eyebrow">Help & Support</p>
-        <h1 class="page-title">Resources</h1>
-        <p class="lead">Organizations and resources for PTSD support, service dog information, and domestic violence help.</p>
-      </section>
+      <div class="page-intro">
+        <p class="eyebrow">Crisis Support & Help</p>
+        <h1>Resources</h1>
+        <p class="lead">You are not alone. Help is available 24/7. These resources provide immediate support for PTSD, domestic violence, mental health crises & more.</p>
+      </div>
 
-      <section class="page-section">
-        <div class="card-grid two-col">
-          
-          <article class="glass-tile crisis-card">
-            <h2><i class="fas fa-phone"></i> Crisis Hotlines</h2>
-            <p>If you or someone you know is in immediate danger or crisis, please reach out:</p>
-            <p><strong>National Suicide Prevention Lifeline:</strong> <a href="tel:988">988</a></p>
-            <p><strong>National Domestic Violence Hotline:</strong> <a href="tel:1-800-799-7233">1-800-799-7233</a></p>
-            <p><strong>Crisis Text Line:</strong> Text HOME to <a href="sms:741741">741741</a></p>
-            <p><strong>Veterans Crisis Line:</strong> <a href="tel:988">988</a> (Press 1)</p>
-          </article>
+      <!-- Emergency Banner -->
+      <div class="card-3d fade-in" style="background: linear-gradient(135deg, #dc3545, #c82333); border-color: #721c24;">
+        <h2 style="color: white;"><i class="fas fa-phone-volume"></i> In Crisis? Call Now</h2>
+        <p style="color: white; font-size: 1.3rem; margin: 0;"><strong>988 Suicide & Crisis Lifeline</strong></p>
+        <p style="color: white; font-size: 1.1rem;">Call or text 988 • Available 24/7 • Free & Confidential</p>
+      </div>
 
-          <article class="glass-tile hope-card">
-            <h2><i class="fas fa-heart"></i> You Are Not Alone</h2>
-            <p>Recovery is not a straight line. Some days will be harder than others, and that's okay. What matters is that you keep going, keep reaching out, and keep believing that better days are ahead.</p>
-            <p><strong>Whether you're considering a service dog, recovering from trauma, or just trying to make it through today—know that you are seen, you are valued, and you deserve support.</strong></p>
-          </article>
+      <!-- Resource Cards -->
+      <div class="card-grid three-col">
+        
+        <div class="flip-card fade-in stagger-1" onclick="this.classList.toggle('flipped')" tabindex="0">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <i class="fas fa-shield-heart card-icon"></i>
+              <h3>Domestic Violence Hotline</h3>
+              <p>Click for details</p>
+              <i class="fas fa-arrow-right flip-arrow"></i>
+            </div>
+            <div class="flip-back glass-burgundy">
+              <h3>National Domestic Violence Hotline</h3>
+              <p><strong>1-800-799-7233</strong></p>
+              <p>Text START to 88788</p>
+              <p>24/7 support for victims of domestic violence & abuse. Confidential, multilingual services available.</p>
+              <p><a href="https://www.thehotline.org" target="_blank" style="color: white; text-decoration: underline;">thehotline.org</a></p>
+            </div>
+          </div>
         </div>
-      </section>
 
-      <section class="page-section">
-        <div class="card-grid three-col">
-          
-          <article class="flip-card glass-tile" onclick="this.classList.toggle('flipped')" tabindex="0">
-            <div class="flip-card-inner">
-              <div class="flip-front">
-                <i class="fas fa-dog card-icon"></i>
-                <h3>Service Dog Organizations</h3>
-                <i class="fas fa-arrow-right flip-arrow"></i>
-              </div>
-              <div class="flip-back glass-blue">
-                <h3>Service Dog Organizations</h3>
-                <p>Organizations that train and provide psychiatric service dogs:</p>
-                <div class="source-link">
-                  <a href="https://www.canine.org/" target="_blank">Canine Companions</a>
-                </div>
-                <div class="source-link">
-                  <a href="https://www.psychdog.org/" target="_blank">Psychiatric Service Dog Partners</a>
-                </div>
-                <div class="source-link">
-                  <a href="https://www.servicedogcentral.org/" target="_blank">Service Dog Central</a>
-                </div>
-              </div>
+        <div class="flip-card fade-in stagger-2" onclick="this.classList.toggle('flipped')" tabindex="0">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <i class="fas fa-user-shield card-icon"></i>
+              <h3>Veterans Crisis Line</h3>
+              <p>Click for details</p>
+              <i class="fas fa-arrow-right flip-arrow"></i>
             </div>
-          </article>
-
-          <article class="flip-card glass-tile" onclick="this.classList.toggle('flipped')" tabindex="0">
-            <div class="flip-card-inner">
-              <div class="flip-front">
-                <i class="fas fa-brain card-icon"></i>
-                <h3>PTSD Resources</h3>
-                <i class="fas fa-arrow-right flip-arrow"></i>
-              </div>
-              <div class="flip-back glass-purple">
-                <h3>PTSD Resources</h3>
-                <p>Information and support for those living with PTSD:</p>
-                <div class="source-link">
-                  <a href="https://www.ptsd.va.gov/" target="_blank">VA National PTSD Center</a>
-                </div>
-                <div class="source-link">
-                  <a href="https://www.nimh.nih.gov/health/topics/post-traumatic-stress-disorder-ptsd" target="_blank">NIMH PTSD Information</a>
-                </div>
-                <div class="source-link">
-                  <a href="https://adaa.org/understanding-anxiety/posttraumatic-stress-disorder-ptsd" target="_blank">ADAA PTSD Resources</a>
-                </div>
-              </div>
+            <div class="flip-back glass-purple">
+              <h3>Veterans Crisis Line</h3>
+              <p><strong>988, then press 1</strong></p>
+              <p>Text 838255</p>
+              <p>24/7 support for veterans & their families. Confidential crisis support from trained responders.</p>
+              <p><a href="https://www.veteranscrisisline.net" target="_blank" style="color: white; text-decoration: underline;">veteranscrisisline.net</a></p>
             </div>
-          </article>
-
-          <article class="flip-card glass-tile" onclick="this.classList.toggle('flipped')" tabindex="0">
-            <div class="flip-card-inner">
-              <div class="flip-front">
-                <i class="fas fa-hands-holding-heart card-icon"></i>
-                <h3>Domestic Violence Help</h3>
-                <i class="fas fa-arrow-right flip-arrow"></i>
-              </div>
-              <div class="flip-back glass-burgundy">
-                <h3>Domestic Violence Help</h3>
-                <p>Support and resources for survivors:</p>
-                <div class="source-link">
-                  <a href="https://www.thehotline.org/" target="_blank">The National DV Hotline</a>
-                </div>
-                <div class="source-link">
-                  <a href="https://www.rainn.org/" target="_blank">RAINN</a>
-                </div>
-                <div class="source-link">
-                  <a href="https://ncadv.org/resources" target="_blank">National Coalition Against DV</a>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="flip-card glass-tile" onclick="this.classList.toggle('flipped')" tabindex="0">
-            <div class="flip-card-inner">
-              <div class="flip-front">
-                <i class="fas fa-gavel card-icon"></i>
-                <h3>Legal Rights</h3>
-                <i class="fas fa-arrow-right flip-arrow"></i>
-              </div>
-              <div class="flip-back glass-gold">
-                <h3>Legal Rights</h3>
-                <p>Know your rights as a service dog handler:</p>
-                <div class="source-link">
-                  <a href="https://www.ada.gov/resources/service-animals-faqs/" target="_blank">ADA Service Animal FAQ</a>
-                </div>
-                <div class="source-link">
-                  <a href="https://www.hud.gov/program_offices/fair_housing_equal_opp/assistance_animals" target="_blank">HUD Fair Housing</a>
-                </div>
-                <div class="source-link">
-                  <a href="https://www.transportation.gov/individuals/aviation-consumer-protection/service-animals" target="_blank">DOT Air Travel Rules</a>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="flip-card glass-tile" onclick="this.classList.toggle('flipped')" tabindex="0">
-            <div class="flip-card-inner">
-              <div class="flip-front">
-                <i class="fas fa-book-open card-icon"></i>
-                <h3>Training Resources</h3>
-                <i class="fas fa-arrow-right flip-arrow"></i>
-              </div>
-              <div class="flip-back glass-green">
-                <h3>Training Resources</h3>
-                <p>Information about owner-training service dogs:</p>
-                <div class="source-link">
-                  <a href="https://www.iaadp.org/iaadp-minimum-training-standards-for-public-access.html" target="_blank">IAADP Training Standards</a>
-                </div>
-                <div class="source-link">
-                  <a href="https://www.akc.org/expert-advice/training/service-dog-training-101/" target="_blank">AKC Training Guide</a>
-                </div>
-                <div class="source-link">
-                  <a href="https://www.servicedogcentral.org/content/node/75" target="_blank">Owner Training Guide</a>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="flip-card glass-tile" onclick="this.classList.toggle('flipped')" tabindex="0">
-            <div class="flip-card-inner">
-              <div class="flip-front">
-                <i class="fas fa-users card-icon"></i>
-                <h3>Support Communities</h3>
-                <i class="fas fa-arrow-right flip-arrow"></i>
-              </div>
-              <div class="flip-back glass-blue">
-                <h3>Support Communities</h3>
-                <p>Online communities for handlers and survivors:</p>
-                <div class="source-link">
-                  <a href="https://www.reddit.com/r/service_dogs/" target="_blank">r/service_dogs</a>
-                </div>
-                <div class="source-link">
-                  <a href="https://www.reddit.com/r/ptsd/" target="_blank">r/ptsd</a>
-                </div>
-                <div class="source-link">
-                  <a href="https://www.psychforums.com/post-traumatic-stress/" target="_blank">PTSD Forums</a>
-                </div>
-              </div>
-            </div>
-          </article>
+          </div>
         </div>
-      </section>
+
+        <div class="flip-card fade-in stagger-3" onclick="this.classList.toggle('flipped')" tabindex="0">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <i class="fas fa-comments card-icon"></i>
+              <h3>Crisis Text Line</h3>
+              <p>Click for details</p>
+              <i class="fas fa-arrow-right flip-arrow"></i>
+            </div>
+            <div class="flip-back glass-gold">
+              <h3>Crisis Text Line</h3>
+              <p><strong>Text HOME to 741741</strong></p>
+              <p>Free, 24/7 support for people in crisis. Connect with a trained crisis counselor via text message.</p>
+              <p><a href="https://www.crisistextline.org" target="_blank" style="color: #2c1810; text-decoration: underline;">crisistextline.org</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card fade-in stagger-4" onclick="this.classList.toggle('flipped')" tabindex="0">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <i class="fas fa-hand-holding-heart card-icon"></i>
+              <h3>SAMHSA National Helpline</h3>
+              <p>Click for details</p>
+              <i class="fas fa-arrow-right flip-arrow"></i>
+            </div>
+            <div class="flip-back glass-green">
+              <h3>SAMHSA National Helpline</h3>
+              <p><strong>1-800-662-4357</strong></p>
+              <p>Substance Abuse & Mental Health Services Administration. 24/7 treatment referral & information service.</p>
+              <p><a href="https://www.samhsa.gov/find-help/national-helpline" target="_blank" style="color: white; text-decoration: underline;">samhsa.gov</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card fade-in stagger-5" onclick="this.classList.toggle('flipped')" tabindex="0">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <i class="fas fa-brain card-icon"></i>
+              <h3>NAMI Helpline</h3>
+              <p>Click for details</p>
+              <i class="fas fa-arrow-right flip-arrow"></i>
+            </div>
+            <div class="flip-back glass-blue">
+              <h3>NAMI Helpline</h3>
+              <p><strong>1-800-950-6264</strong></p>
+              <p>Text NAMI to 741741</p>
+              <p>National Alliance on Mental Illness. Free information, support & referrals for mental health conditions.</p>
+              <p><a href="https://www.nami.org/help" target="_blank" style="color: white; text-decoration: underline;">nami.org</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card fade-in stagger-6" onclick="this.classList.toggle('flipped')" tabindex="0">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <i class="fas fa-heart-pulse card-icon"></i>
+              <h3>PTSD Foundation</h3>
+              <p>Click for details</p>
+              <i class="fas fa-arrow-right flip-arrow"></i>
+            </div>
+            <div class="flip-back glass-burgundy">
+              <h3>PTSD Foundation of America</h3>
+              <p><strong>1-877-717-7873</strong></p>
+              <p>Support for combat veterans & survivors of trauma. Free programs, peer support & family assistance.</p>
+              <p><a href="https://www.ptsdusa.org" target="_blank" style="color: white; text-decoration: underline;">ptsdusa.org</a></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Service Dog Resources -->
+      <div class="card-3d fade-in">
+        <h2><i class="fas fa-dog card-icon"></i> Service Dog Resources</h2>
+        <p><strong>Assistance Dogs International:</strong> Find accredited service dog organizations & learn about training programs. <a href="https://assistancedogsinternational.org" target="_blank">assistancedogsinternational.org</a></p>
+        <p><strong>Psychiatric Service Dog Society:</strong> Resources specifically for psychiatric service dogs & PTSD support. <a href="https://psychdogpartners.org" target="_blank">psychdogpartners.org</a></p>
+        <p><strong>ADA Information Line:</strong> Learn about your legal rights as a service dog handler. Call 1-800-514-0301 or visit <a href="https://www.ada.gov" target="_blank">ada.gov</a></p>
+      </div>
+
+      <!-- Final Message -->
+      <div class="glass-tile fade-in">
+        <h2><i class="fas fa-heart"></i> You Are Not Alone</h2>
+        <p>Recovery is not linear. Healing takes time. Some days will be harder than others. But you are stronger than you know & help is always available.</p>
+        <p><strong>Reaching out for help is not weakness—it is courage. You deserve support. You deserve peace. You deserve to heal.</strong></p>
+      </div>
 
       <nav class="page-nav">
-        <a href="safety.html" class="page-nav-btn"><i class="fas fa-arrow-left"></i> Previous: Safety</a>
-        <a href="gallery.html" class="page-nav-btn">Next: Gallery <i class="fas fa-arrow-right"></i></a>
+        <a href="safety.html" class="page-nav-btn">
+          <i class="fas fa-arrow-left"></i> Previous: Safety
+        </a>
+        <a href="gallery.html" class="page-nav-btn">
+          Next: Gallery <i class="fas fa-arrow-right"></i>
+        </a>
       </nav>
 
     </div>
@@ -225,6 +200,23 @@
     function toggleMenu() {
       document.getElementById('mainNav').classList.toggle('active');
     }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(40px)';
+      el.style.transition = 'opacity 1s ease, transform 1s ease';
+      observer.observe(el);
+    });
   </script>
+
 </body>
 </html>
