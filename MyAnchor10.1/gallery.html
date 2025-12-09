@@ -3,29 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Photo Gallery - Our Journey Together">
-  <title>Gallery - The Anchor to My Storm</title>
+  <meta name="description" content="Photo and Video Gallery of Dude the Service Dog">
+  <title>Gallery | The Anchor to My Storm</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <header class="site-header">
+  <!-- Video Background -->
+  <div class="video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="background.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
     <div class="container">
-      <div class="header-bar">
-        <a href="index.html" class="brand">
-          <i class="fas fa-anchor brand-icon"></i>
-          <div class="brand-text">
-            <span class="brand-kicker">The Anchor</span>
-            <span class="brand-title">To My Storm</span>
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <i class="fas fa-anchor logo-icon"></i>
+          <div class="logo-text">
+            <span class="logo-sub">The Anchor</span>
+            <span class="logo-main">To My Storm</span>
           </div>
         </a>
         
-        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <button class="menu-btn" onclick="toggleMenu()">
           <i class="fas fa-bars"></i>
         </button>
         
-        <nav class="main-nav" id="mainNav">
-          <a href="index.html" class="nav-link">The Anchor</a>
+        <nav class="nav" id="nav">
+          <a href="index.html" class="nav-link">Home</a>
           <a href="facts.html" class="nav-link">Facts</a>
           <a href="safety.html" class="nav-link">Safety</a>
           <a href="resources.html" class="nav-link">Resources</a>
@@ -36,235 +44,172 @@
     </div>
   </header>
 
-  <main class="container page-shell">
-    <div class="page-intro fade-in">
-      <p class="eyebrow">Our Journey Together</p>
-      <h1>Photo Gallery</h1>
-      <p class="lead">Moments captured along our journey—from training days to quiet victories.</p>
-    </div>
+  <!-- Main Content -->
+  <main class="main">
+    <div class="container">
+      <!-- Page Header -->
+      <div class="page-header">
+        <p class="eyebrow">Memories with Dude</p>
+        <h1 class="page-title">Photo Gallery</h1>
+        <p class="page-intro">A collection of moments that show the bond between a handler and their service dog.</p>
+      </div>
 
-    <!-- GALLERY GRID WITH FLIP CARDS -->
-    <div class="gallery-grid">
-      <div class="gallery-item fade-in stagger-2" onclick="this.classList.toggle('flipped')">
-        <div class="gallery-item-inner">
-          <div class="gallery-front">
-            <img src="1.jpg" alt="Dude's first day">
-          </div>
-          <div class="gallery-back">
-            <h3>First Day Home</h3>
-            <p>The day everything changed. A scared puppy and a broken woman, both finding hope in each other.</p>
-            <div class="date"><i class="fas fa-calendar"></i> 2 Years Ago</div>
-          </div>
+      <!-- Gallery Grid -->
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLightbox('1.jpg')">
+          <img src="1.jpg" alt="Dude photo 1">
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('2.jpg')">
+          <img src="2.jpg" alt="Dude photo 2">
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('3.jpg')">
+          <img src="3.jpg" alt="Dude photo 3">
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('4.jpg')">
+          <img src="4.jpg" alt="Dude photo 4">
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('5.jpg')">
+          <img src="5.jpg" alt="Dude photo 5">
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('6.jpg')">
+          <img src="6.jpg" alt="Dude photo 6">
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('7.jpg')">
+          <img src="7.jpg" alt="Dude photo 7">
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('8.jpg')">
+          <img src="8.jpg" alt="Dude photo 8">
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('9.jpg')">
+          <img src="9.jpg" alt="Dude photo 9">
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('10.jpg')">
+          <img src="10.jpg" alt="Dude photo 10">
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('11.jpg')">
+          <img src="11.jpg" alt="Dude photo 11">
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('12.jpg')">
+          <img src="12.jpg" alt="Dude photo 12">
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('13.jpg')">
+          <img src="13.jpg" alt="Dude photo 13">
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('14.jpg')">
+          <img src="14.jpg" alt="Dude photo 14">
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('stick.jpg')">
+          <img src="stick.jpg" alt="Dude with stick">
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox('flowers.jpg')">
+          <img src="flowers.jpg" alt="Dude at memorial">
         </div>
       </div>
 
-      <div class="gallery-item fade-in stagger-3" onclick="this.classList.toggle('flipped')">
-        <div class="gallery-item-inner">
-          <div class="gallery-front">
-            <img src="2.jpg" alt="Training session">
-          </div>
-          <div class="gallery-back">
-            <h3>Training Days</h3>
-            <p>Learning together. Every command, every task, building trust and partnership.</p>
-            <div class="date"><i class="fas fa-calendar"></i> Year One</div>
-          </div>
+      <!-- Video Section -->
+      <div class="content-card">
+        <h2><i class="fas fa-video"></i> Videos</h2>
+        <p>Watch Dude in action.</p>
+      </div>
+
+      <div class="card-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="gallery-item" style="aspect-ratio: 16/9;" onclick="openVideoLightbox('Video.1.mp4')">
+          <video muted>
+            <source src="Video.1.mp4" type="video/mp4">
+          </video>
+          <i class="fas fa-play-circle play-icon"></i>
+        </div>
+
+        <div class="gallery-item" style="aspect-ratio: 16/9;" onclick="openVideoLightbox('Video.2.mp4')">
+          <video muted>
+            <source src="Video.2.mp4" type="video/mp4">
+          </video>
+          <i class="fas fa-play-circle play-icon"></i>
+        </div>
+
+        <div class="gallery-item" style="aspect-ratio: 16/9;" onclick="openVideoLightbox('Video.3.mp4')">
+          <video muted>
+            <source src="Video.3.mp4" type="video/mp4">
+          </video>
+          <i class="fas fa-play-circle play-icon"></i>
         </div>
       </div>
 
-      <div class="gallery-item fade-in stagger-4" onclick="this.classList.toggle('flipped')">
-        <div class="gallery-item-inner">
-          <div class="gallery-front">
-            <img src="3.jpg" alt="At the memorial">
-          </div>
-          <div class="gallery-back">
-            <h3>Mom's Memorial</h3>
-            <p>The hardest day. But he never left my side, grounding me through the grief.</p>
-            <div class="date"><i class="fas fa-calendar"></i> Last Year</div>
-          </div>
-        </div>
+      <!-- Page Navigation -->
+      <div class="page-nav">
+        <a href="resources.html" class="page-nav-link">
+          <i class="fas fa-arrow-left"></i> Previous: Resources
+        </a>
+        <a href="game.html" class="page-nav-link">
+          Next: Game <i class="fas fa-arrow-right"></i>
+        </a>
       </div>
-
-      <div class="gallery-item fade-in stagger-5" onclick="this.classList.toggle('flipped')">
-        <div class="gallery-item-inner">
-          <div class="gallery-front">
-            <img src="4.jpg" alt="First public outing">
-          </div>
-          <div class="gallery-back">
-            <h3>First Public Outing</h3>
-            <p>Nervous but determined. He gave me courage to face the world again.</p>
-            <div class="date"><i class="fas fa-calendar"></i> 18 Months Ago</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="gallery-item fade-in stagger-6" onclick="this.classList.toggle('flipped')">
-        <div class="gallery-item-inner">
-          <div class="gallery-front">
-            <img src="5.jpg" alt="Peaceful moment">
-          </div>
-          <div class="gallery-back">
-            <h3>Finding Peace</h3>
-            <p>Quiet moments like these remind me why we keep fighting. He is my calm.</p>
-            <div class="date"><i class="fas fa-calendar"></i> 6 Months Ago</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="gallery-item fade-in stagger-7" onclick="this.classList.toggle('flipped')">
-        <div class="gallery-item-inner">
-          <div class="gallery-front">
-            <img src="6.jpg" alt="Certification day">
-          </div>
-          <div class="gallery-back">
-            <h3>Certification Day</h3>
-            <p>Official recognition of what I already knew—he's a lifesaver.</p>
-            <div class="date"><i class="fas fa-calendar"></i> 3 Months Ago</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="gallery-item fade-in stagger-8" onclick="this.classList.toggle('flipped')">
-        <div class="gallery-item-inner">
-          <div class="gallery-front">
-            <img src="7.jpg" alt="At the park">
-          </div>
-          <div class="gallery-back">
-            <h3>Small Victories</h3>
-            <p>A trip to the park. Something so simple, now possible because of him.</p>
-            <div class="date"><i class="fas fa-calendar"></i> Recent</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="gallery-item fade-in stagger-9" onclick="this.classList.toggle('flipped')">
-        <div class="gallery-item-inner">
-          <div class="gallery-front">
-            <img src="8.jpg" alt="Together">
-          </div>
-          <div class="gallery-back">
-            <h3>The Anchor</h3>
-            <p>My anchor in the storm. My constant. My hope. My Dude.</p>
-            <div class="date"><i class="fas fa-calendar"></i> Today</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="gallery-item fade-in stagger-10" onclick="this.classList.toggle('flipped')">
-        <div class="gallery-item-inner">
-          <div class="gallery-front">
-            <img src="9.jpg" alt="Photo 9">
-          </div>
-          <div class="gallery-back">
-            <h3>Growing Stronger</h3>
-            <p>Every day with Dude is a step forward.</p>
-            <div class="date"><i class="fas fa-calendar"></i> Recent</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="gallery-item fade-in stagger-11" onclick="this.classList.toggle('flipped')">
-        <div class="gallery-item-inner">
-          <div class="gallery-front">
-            <img src="10.jpg" alt="Photo 10">
-          </div>
-          <div class="gallery-back">
-            <h3>Always Watching</h3>
-            <p>He never stops monitoring me.</p>
-            <div class="date"><i class="fas fa-calendar"></i> Recent</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="gallery-item fade-in stagger-12" onclick="this.classList.toggle('flipped')">
-        <div class="gallery-item-inner">
-          <div class="gallery-front">
-            <img src="11.jpg" alt="Photo 11">
-          </div>
-          <div class="gallery-back">
-            <h3>Best Friends</h3>
-            <p>My best friend & partner.</p>
-            <div class="date"><i class="fas fa-calendar"></i> Recent</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="gallery-item fade-in stagger-13" onclick="this.classList.toggle('flipped')">
-        <div class="gallery-item-inner">
-          <div class="gallery-front">
-            <img src="12.jpg" alt="Photo 12">
-          </div>
-          <div class="gallery-back">
-            <h3>Loyal Companion</h3>
-            <p>Always by my side.</p>
-            <div class="date"><i class="fas fa-calendar"></i> Recent</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="gallery-item fade-in stagger-14" onclick="this.classList.toggle('flipped')">
-        <div class="gallery-item-inner">
-          <div class="gallery-front">
-            <img src="13.jpg" alt="Photo 13">
-          </div>
-          <div class="gallery-back">
-            <h3>Beautiful Soul</h3>
-            <p>His spirit shines through.</p>
-            <div class="date"><i class="fas fa-calendar"></i> Recent</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="gallery-item fade-in stagger-15" onclick="this.classList.toggle('flipped')">
-        <div class="gallery-item-inner">
-          <div class="gallery-front">
-            <img src="14.jpg" alt="Photo 14">
-          </div>
-          <div class="gallery-back">
-            <h3>Forever Grateful</h3>
-            <p>Forever grateful for this dog who saved my life.</p>
-            <div class="date"><i class="fas fa-calendar"></i> Today</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- MESSAGE CARD -->
-    <div class="card-3d fade-in" style="max-width: 900px; margin: 4rem auto;">
-      <h2><i class="fas fa-camera"></i> Every Photo Tells a Story</h2>
-      <p>These aren't just pictures of a dog. They're evidence of survival, moments of healing, proof that even in our darkest times, hope can find us.</p>
-      <p style="margin-top: 1.5rem;">Each image represents a day I chose to keep going, a panic attack he helped me through, a trigger he detected before I did, a moment of peace I thought I'd never feel again.</p>
-      <p style="margin-top: 1.5rem;"><strong>This is what service dogs do. This is why they matter. This is my truth.</strong></p>
-    </div>
-
-    <div class="page-nav">
-      <a href="resources.html" class="page-nav-btn">
-        <i class="fas fa-arrow-left"></i> Previous: Resources
-      </a>
-      <a href="game.html" class="page-nav-btn">
-        Next: Game <i class="fas fa-arrow-right"></i>
-      </a>
     </div>
   </main>
 
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close">&times;</button>
+    <img src="" alt="Enlarged photo" class="lightbox-content" id="lightbox-img">
+  </div>
+
+  <!-- Video Lightbox -->
+  <div class="lightbox" id="video-lightbox" onclick="closeVideoLightbox()">
+    <button class="lightbox-close">&times;</button>
+    <video controls class="lightbox-content" id="lightbox-video" style="max-width: 90%; max-height: 90%;">
+      <source src="" type="video/mp4">
+    </video>
+  </div>
+
   <script>
-    function toggleMobileMenu() {
-      document.getElementById('mainNav').classList.toggle('active');
+    function toggleMenu() {
+      document.getElementById('nav').classList.toggle('active');
     }
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('active');
+    }
 
-    document.querySelectorAll('.fade-in').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(40px)';
-      el.style.transition = 'opacity 1s ease, transform 1s ease';
-      observer.observe(el);
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+    }
+
+    function openVideoLightbox(src) {
+      const video = document.getElementById('lightbox-video');
+      video.querySelector('source').src = src;
+      video.load();
+      document.getElementById('video-lightbox').classList.add('active');
+      video.play();
+    }
+
+    function closeVideoLightbox() {
+      const video = document.getElementById('lightbox-video');
+      video.pause();
+      document.getElementById('video-lightbox').classList.remove('active');
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeLightbox();
+        closeVideoLightbox();
+      }
     });
   </script>
 </body>
