@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>In Loving Memory | January 29, 1960 - November 18, 2024</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --cream: #faf8f5;
+      --gold: #c9a227;
+      --soft-gold: #e8d5a3;
+      --deep-brown: #3d3630;
+      --warm-gray: #6b635a;
+      --rose: #d4a5a5;
+      --forest: #1a472a;
+    }
+    
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--cream);
+      color: var(--deep-brown);
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    /* SNOW */
+    .snow { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; overflow: hidden; }
+    .flake { position: absolute; top: -10px; color: white; animation: fall linear infinite; text-shadow: 0 0 5px rgba(255,255,255,0.5); }
+    @keyframes fall {
+      to { transform: translateY(100vh); opacity: 0.2; }
+    }
+
+    /* HEADER */
+    .header {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(180deg, #0a1628 0%, #152238 50%, #0f1a2e 100%);
+      position: relative;
+    }
+    
+    .candles { font-size: 3rem; margin-bottom: 1.5rem; letter-spacing: 1rem; }
+    .candles span { animation: flicker 2s ease-in-out infinite; display: inline-block; }
+    .candles span:nth-child(2) { animation-delay: 0.3s; }
+    .candles span:nth-child(3) { animation-delay: 0.6s; }
+    @keyframes flicker { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; transform: scale(1.1); } }
+    
+    .header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      color: var(--soft-gold);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.1em;
+    }
+    
+    .dates {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: rgba(255,255,255,0.7);
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+    
+    .verse {
+      max-width: 550px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.8;
+    }
+    
+    .scroll-down {
+      position: absolute;
+      bottom: 2rem;
+      color: rgba(255,255,255,0.4);
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
+
+    /* SECTIONS */
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; }
+    section { padding: 4rem 0; }
+    
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--deep-brown);
+    }
+    h2::after { content: ' ✦'; color: var(--gold); }
+
+    /* PORTRAIT */
+    .portrait-section { background: white; text-align: center; }
+    
+    .portrait {
+      width: 280px;
+      height: 350px;
+      margin: 0 auto 2rem;
+      border: 6px solid var(--soft-gold);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    }
+    .portrait img { width: 100%; height: 100%; object-fit: cover; }
+    
+    .life-dates {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    
+    .tribute {
+      max-width: 600px;
+      margin: 0 auto;
+      color: var(--warm-gray);
+      font-size: 1.1rem;
+    }
+
+    /* LAST MEAL */
+    .last-meal { background: linear-gradient(135deg, #f9f1f1 0%, #fff9f5 100%); }
+    
+    .meal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (max-width: 768px) { .meal-grid { grid-template-columns: 1fr; } }
+    
+    .meal-photo {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+    .meal-photo img { width: 100%; height: auto; display: block; }
+    
+    .meal-story { font-family: 'Cormorant Garamond', serif; }
+    .meal-story h3 { font-size: 1.8rem; margin-bottom: 1rem; color: var(--deep-brown); }
+    .meal-story p { font-size: 1.2rem; color: var(--warm-gray); margin-bottom: 1rem; line-height: 1.9; }
+    .meal-story .heart { color: var(--rose); font-size: 2rem; }
+
+    /* GALLERY */
+    .gallery-section { background: var(--deep-brown); color: var(--cream); }
+    .gallery-section h2 { color: var(--soft-gold); }
+    .gallery-section h2::after { color: var(--soft-gold); }
+    
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    
+    .gallery-item {
+      aspect-ratio: 1;
+      overflow: hidden;
+      border-radius: 4px;
+      cursor: pointer;
+      position: relative;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+    .gallery-item:hover img { transform: scale(1.1); }
+    
+    .gallery-item.big { grid-column: span 2; grid-row: span 2; }
+    @media (max-width: 600px) { .gallery-item.big { grid-column: span 1; grid-row: span 1; } }
+
+    /* MEMORIAL */
+    .memorial-section { background: var(--cream); text-align: center; }
+    
+    .memorial-photo {
+      max-width: 500px;
+      margin: 0 auto 1.5rem;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .memorial-photo img { width: 100%; height: auto; }
+    
+    .packers {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: var(--warm-gray);
+      font-style: italic;
+    }
+
+    /* CHRISTMAS */
+    .christmas {
+      background: linear-gradient(180deg, var(--forest) 0%, #2d5a27 50%, var(--forest) 100%);
+      color: white;
+      text-align: center;
+    }
+    .christmas::before {
+      content: '';
+      display: block;
+      height: 5px;
+      background: repeating-linear-gradient(90deg, #8b1538 0 25px, var(--soft-gold) 25px 50px);
+    }
+    
+    .christmas h2 { color: var(--soft-gold); }
+    .christmas h2::after { content: ' 🎄'; }
+    
+    .xmas-decor { font-size: 2.5rem; margin-bottom: 1rem; letter-spacing: 0.5rem; }
+    
+    .letter {
+      max-width: 600px;
+      margin: 0 auto;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      line-height: 2;
+      text-align: left;
+    }
+    .letter p { margin-bottom: 1.5rem; }
+    .letter .sig { text-align: center; color: var(--soft-gold); font-size: 1.4rem; margin-top: 2rem; }
+
+    /* FOOTER */
+    footer {
+      background: #0a0f1a;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 2.5rem;
+    }
+    footer .final-dates { color: var(--soft-gold); font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; margin-bottom: 0.5rem; }
+
+    /* LIGHTBOX */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.95);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox img { max-width: 90%; max-height: 90%; object-fit: contain; }
+    .lightbox-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      color: white;
+      font-size: 2.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* FADE IN */
+    .fade { opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s; }
+    .fade.show { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<!-- SNOW -->
+<div class="snow" id="snow"></div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="candles"><span>🕯️</span><span>🕯️</span><span>🕯️</span></div>
+  <h1>In Loving Memory</h1>
+  <p class="dates">January 29, 1960 — November 18, 2024</p>
+  <p class="verse">
+    "Those we love don't go away,<br>
+    they walk beside us every day.<br>
+    Unseen, unheard, but always near—<br>
+    still loved, still missed, and very dear."
+  </p>
+  <div class="scroll-down">↓</div>
+</header>
+
+<!-- PORTRAIT -->
+<section class="portrait-section">
+  <div class="container fade">
+    <div class="portrait">
+      <img src="./images/photo03.jpg" alt="Portrait">
+    </div>
+    <p class="life-dates">1960 — 2024</p>
+    <p class="tribute">
+      A beautiful soul whose warmth touched everyone she met. 
+      Mother, grandmother, friend — her love knew no bounds, 
+      and her spirit lives on in the hearts of all who knew her.
+    </p>
+  </div>
+</section>
+
+<!-- LAST MEAL -->
+<section class="last-meal">
+  <div class="container">
+    <h2>A Sacred Moment</h2>
+    <div class="meal-grid fade">
+      <div class="meal-photo">
+        <img src="./images/photo17.jpg" alt="The last meal">
+      </div>
+      <div class="meal-story">
+        <h3>The Last Meal</h3>
+        <p>After seven days of waiting, thanks to the grace of such a loving father, he finally let me cook for her.</p>
+        <p>Who would have thought it would be her last meal?</p>
+        <p>That simple act of love became one of our most precious final moments together. This gift, I will treasure forever.</p>
+        <span class="heart">♥</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section">
+  <div class="container">
+    <h2>Memories Through the Years</h2>
+    <div class="gallery">
+      <div class="gallery-item big" onclick="openLB('./images/photo03.jpg')">
+        <img src="./images/photo03.jpg" alt="Youth portrait">
+      </div>
+      <div class="gallery-item" onclick="openLB('./images/photo02.jpg')">
+        <img src="./images/photo02.jpg" alt="Young mother">
+      </div>
+      <div class="gallery-item" onclick="openLB('./images/photo01.jpg')">
+        <img src="./images/photo01.jpg" alt="Mother and daughter">
+      </div>
+      <div class="gallery-item" onclick="openLB('./images/photo09.jpg')">
+        <img src="./images/photo09.jpg" alt="Family 80s">
+      </div>
+      <div class="gallery-item" onclick="openLB('./images/photo05.jpg')">
+        <img src="./images/photo05.jpg" alt="Old West">
+      </div>
+      <div class="gallery-item" onclick="openLB('./images/photo06.jpg')">
+        <img src="./images/photo06.jpg" alt="Christmas">
+      </div>
+      <div class="gallery-item" onclick="openLB('./images/photo07.jpg')">
+        <img src="./images/photo07.jpg" alt="Grandma love">
+      </div>
+      <div class="gallery-item" onclick="openLB('./images/photo16.jpg')">
+        <img src="./images/photo16.jpg" alt="Porch fun">
+      </div>
+      <div class="gallery-item" onclick="openLB('./images/photo10.jpg')">
+        <img src="./images/photo10.jpg" alt="Portrait">
+      </div>
+      <div class="gallery-item" onclick="openLB('./images/photo04.jpg')">
+        <img src="./images/photo04.jpg" alt="Redwoods">
+      </div>
+      <div class="gallery-item" onclick="openLB('./images/photo08.jpg')">
+        <img src="./images/photo08.jpg" alt="Wisconsin">
+      </div>
+      <div class="gallery-item" onclick="openLB('./images/photo20.jpg')">
+        <img src="./images/photo20.jpg" alt="Sunset">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMORIAL -->
+<section class="memorial-section">
+  <div class="container fade">
+    <h2>Forever in Our Hearts</h2>
+    <div class="memorial-photo">
+      <img src="./images/photo13.jpg" alt="Memorial">
+    </div>
+    <p class="packers">A Green Bay Packers fan until the very end. 💚💛</p>
+  </div>
+</section>
+
+<!-- CHRISTMAS -->
+<section class="christmas">
+  <div class="container fade">
+    <div class="xmas-decor">🎄 ⭐ 🎄</div>
+    <h2>First Christmas in Heaven</h2>
+    <div class="letter">
+      <p>Dear Mom,</p>
+      <p>This Christmas feels different without you here. The chair where you sat, the laugh that filled the room, the way you made everything feel like home.</p>
+      <p>I keep thinking about that last meal I made for you—how Dad finally said yes after seven days, and I got to take care of you one more time. I didn't know it would be our goodbye, but I'm so grateful it happened.</p>
+      <p>I know you're watching over us now, probably cheering on the Packers from the best seat in the house.</p>
+      <p>Until we meet again, we carry you with us—in every tradition, every memory, every moment of love.</p>
+      <p class="sig">Merry Christmas, Mom.<br>We love you forever. 💕</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="final-dates">January 29, 1960 — November 18, 2024</p>
+  <p>Made with love, Christmas 2024 💕</p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb" onclick="closeLB()">
+  <button class="lightbox-close">&times;</button>
+  <img src="" id="lb-img" alt="Photo">
+</div>
+
+<script>
+// Snow
+(function(){
+  const c = document.getElementById('snow');
+  const f = ['❄','❅','❆','✦'];
+  for(let i=0; i<50; i++){
+    const s = document.createElement('span');
+    s.className = 'flake';
+    s.textContent = f[Math.floor(Math.random()*f.length)];
+    s.style.left = Math.random()*100+'%';
+    s.style.animationDuration = (Math.random()*5+5)+'s';
+    s.style.animationDelay = Math.random()*5+'s';
+    s.style.fontSize = (Math.random()*0.8+0.5)+'rem';
+    s.style.opacity = Math.random()*0.5+0.5;
+    c.appendChild(s);
+  }
+})();
+
+// Lightbox
+function openLB(src){ 
+  document.getElementById('lb-img').src = src; 
+  document.getElementById('lb').classList.add('active'); 
+}
+function closeLB(){ 
+  document.getElementById('lb').classList.remove('active'); 
+}
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeLB(); });
+
+// Fade in
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show'); });
+}, {threshold: 0.1});
+document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
