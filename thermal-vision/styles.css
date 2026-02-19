@@ -1,0 +1,117 @@
+:root {
+  --tv-hot: #ff4d4d;
+  --tv-orange: #ff8a00;
+  --tv-yellow: #ffd857;
+  --tv-green: #00d48c;
+  --tv-cyan: #00d9ff;
+  --tv-blue: #2366ff;
+  --tv-purple: #8c52ff;
+  --tv-magenta: #ff3cb5;
+  --tv-bg: #07090f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Orbitron', system-ui, sans-serif;
+  background: radial-gradient(circle at top, #11172b 0%, #07090f 60%, #030409 100%);
+  color: #ecf8ff;
+  min-height: 100vh;
+}
+
+.tv-grid {
+  background-image:
+    linear-gradient(rgba(37, 58, 90, 0.25) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 58, 90, 0.25) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+
+.glass {
+  background: linear-gradient(160deg, rgba(16, 27, 50, 0.76), rgba(8, 13, 27, 0.72));
+  border: 1px solid rgba(125, 237, 255, 0.35);
+  box-shadow: 0 0 40px rgba(0, 212, 255, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+.scan-text {
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: #8af2ff;
+  text-shadow: 0 0 12px rgba(89, 226, 255, 0.6);
+}
+
+.title-glow {
+  text-shadow:
+    0 0 10px rgba(0, 217, 255, 0.5),
+    0 0 24px rgba(255, 76, 140, 0.38),
+    0 0 40px rgba(255, 132, 0, 0.25);
+}
+
+.thermal-border {
+  border-image: linear-gradient(90deg, var(--tv-cyan), var(--tv-magenta), var(--tv-orange)) 1;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.nav-pill {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+}
+
+.bottom-nav {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 1rem;
+  z-index: 60;
+}
+
+.page-hero {
+  min-height: 60vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.page-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(5,8,17,.88), rgba(5,8,17,.35));
+  pointer-events: none;
+}
+
+.intelligence-bubble {
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 999px;
+  padding: .3rem .7rem;
+  font-size: .7rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+}
+
+.intelligence-dot {
+  width: .65rem;
+  height: .65rem;
+  border-radius: 999px;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.research-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 10px 28px rgba(7, 223, 255, .16);
+}
+
+@media (max-width: 767px) {
+  .nav-pill { display: none; }
+}
+
+@media (min-width: 768px) {
+  .bottom-nav { display: none; }
+}

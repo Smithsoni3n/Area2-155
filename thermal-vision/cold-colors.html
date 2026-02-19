@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thermal Vision | Cold Colors</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="tv-grid">
+  <nav class="nav-pill glass rounded-full px-5 py-2 text-xs md:text-sm"><div class="flex gap-5"><a href="index.html">Thermal Vision</a><a href="hot-colors.html">Hot</a><a href="cold-colors.html" class="text-thermal-cyan">Cold</a><a href="interactive.html">Interactive</a><a href="resources.html">Resources</a></div></nav>
+
+  <section class="page-hero" style="background:linear-gradient(120deg,#051938,#005d9c,#008fc9,#5930aa);">
+    <div class="relative z-10 max-w-6xl mx-auto px-6">
+      <p class="scan-text text-xs">Thermal Spectrum / Cold Zone</p>
+      <h1 class="title-glow text-5xl md:text-7xl font-extrabold mt-4">Cold Colors</h1>
+      <p class="max-w-2xl mt-4 text-cyan-50">Blue, cyan, and purple are typically tied to calmness, trust, and perceptual distance, ideal for cooling and focus narratives.</p>
+    </div>
+  </section>
+
+  <main class="max-w-6xl mx-auto px-6 py-14 grid gap-6 md:grid-cols-2">
+    <article class="glass rounded-2xl p-6 research-card transition">
+      <h2 class="text-2xl text-thermal-cyan font-bold">Blue: trust and regulation</h2>
+      <p class="mt-3">Blue environments are linked to reduced tension and improved trust perception in multiple UX and environmental studies.</p>
+      <a class="text-thermal-cyan text-sm" href="https://doi.org/10.1016/j.jenvp.2015.12.003" target="_blank">Study link</a>
+    </article>
+    <article class="glass rounded-2xl p-6 research-card transition">
+      <h2 class="text-2xl text-thermal-blue font-bold">Cyan: clarity and refresh</h2>
+      <p class="mt-3">Cyan is often interpreted as breathable, clean, and technologically transparent, useful in interface communication.</p>
+      <a class="text-thermal-cyan text-sm" href="https://doi.org/10.1080/00140139.2014.1001444" target="_blank">Study link</a>
+    </article>
+    <article class="glass rounded-2xl p-6 research-card transition">
+      <h2 class="text-2xl text-thermal-purple font-bold">Purple: reflection and creativity</h2>
+      <p class="mt-3">Purple ranges can signal mystery and imaginative framing while preserving a cooler emotional register than hot tones.</p>
+      <a class="text-thermal-cyan text-sm" href="https://doi.org/10.1016/j.chb.2016.09.010" target="_blank">Study link</a>
+    </article>
+    <article class="glass rounded-2xl p-6 research-card transition">
+      <h2 class="text-2xl text-thermal-green font-bold">Cooling Demos</h2>
+      <p class="mt-3">In thermal wildlife scans, peripheral vegetation and non-active body zones map to cooler hues and lower activation interpretation.</p>
+    </article>
+
+    <section class="glass rounded-2xl p-6 md:col-span-2">
+      <h3 class="text-xl font-bold">Color Intelligence System</h3>
+      <div class="flex flex-wrap gap-3 mt-4">
+        <span class="intelligence-bubble"><span class="intelligence-dot bg-cyan-400"></span>Cooling</span><span class="intelligence-bubble"><span class="intelligence-dot bg-blue-500"></span>Focus</span><span class="intelligence-bubble"><span class="intelligence-dot bg-purple-500"></span>Reflective</span><span class="intelligence-bubble"><span class="intelligence-dot bg-green-400"></span>Neutral</span>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav glass rounded-full px-4 py-3"><div class="flex gap-5 text-xs"><a href="index.html">🏠</a><a href="hot-colors.html">🔥</a><a href="cold-colors.html">❄️</a><a href="interactive.html">🧪</a><a href="resources.html">📚</a></div></nav>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

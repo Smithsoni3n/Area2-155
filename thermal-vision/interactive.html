@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thermal Vision | Interactive Lab</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="tv-grid">
+  <nav class="nav-pill glass rounded-full px-5 py-2 text-xs md:text-sm"><div class="flex gap-5"><a href="index.html">Thermal Vision</a><a href="hot-colors.html">Hot</a><a href="cold-colors.html">Cold</a><a href="interactive.html" class="text-thermal-green">Interactive</a><a href="resources.html">Resources</a></div></nav>
+
+  <main class="max-w-6xl mx-auto px-6 pt-28 pb-20" x-data="{temp:32,
+    get state(){if(this.temp<0) return 'Deep Cold'; if(this.temp<25) return 'Cool Stability'; if(this.temp<45) return 'Neutral Active'; if(this.temp<70) return 'High Arousal'; return 'Extreme Heat';},
+    get tone(){if(this.temp<0) return '#2366ff'; if(this.temp<25) return '#00d9ff'; if(this.temp<45) return '#00d48c'; if(this.temp<70) return '#ff8a00'; return '#ff4d4d';},
+    get guidance(){if(this.temp<0) return 'Use blue/purple communication and reassurance cues.'; if(this.temp<25) return 'Maintain trust-centric cyan palette and measured typography rhythm.'; if(this.temp<45) return 'Balanced green/yellow zones support neutral engagement.'; if(this.temp<70) return 'Increase hierarchy and contrast for urgency and attention.'; return 'Critical mode: strongest red hierarchy, fast-call actions, explicit messaging.';}
+  }">
+    <section class="glass rounded-3xl p-7 md:p-10">
+      <h1 class="title-glow text-4xl md:text-6xl font-extrabold">Interactive Thermal Lab</h1>
+      <p class="mt-4 text-slate-200">Drag from -40°C to 100°C and map psychological implications in real time.</p>
+      <div class="mt-8">
+        <input type="range" min="-40" max="100" x-model="temp" class="w-full" />
+        <div class="mt-4 grid md:grid-cols-3 gap-4">
+          <div class="glass rounded-xl p-4"><p class="text-xs">Temperature</p><p class="text-2xl font-bold" x-text="temp + '°C'"></p></div>
+          <div class="glass rounded-xl p-4"><p class="text-xs">State</p><p class="text-2xl font-bold" x-text="state" :style="'color:'+tone"></p></div>
+          <div class="glass rounded-xl p-4"><p class="text-xs">Guidance</p><p class="text-sm" x-text="guidance"></p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="glass rounded-3xl p-7 md:p-10 mt-8">
+      <h2 class="text-2xl font-bold">Arousal Curve</h2>
+      <canvas id="arousalChart" class="mt-5"></canvas>
+    </section>
+
+    <section class="glass rounded-3xl p-7 md:p-10 mt-8">
+      <h3 class="text-xl font-bold">Shared Color Intelligence System</h3>
+      <div class="flex flex-wrap gap-3 mt-4">
+        <span class="intelligence-bubble"><span class="intelligence-dot bg-red-500"></span>Survival Alert</span><span class="intelligence-bubble"><span class="intelligence-dot bg-orange-400"></span>Action Bias</span><span class="intelligence-bubble"><span class="intelligence-dot bg-yellow-300"></span>Core Signal</span><span class="intelligence-bubble"><span class="intelligence-dot bg-green-400"></span>Balanced State</span><span class="intelligence-bubble"><span class="intelligence-dot bg-cyan-400"></span>Cooling</span><span class="intelligence-bubble"><span class="intelligence-dot bg-blue-500"></span>Focus</span><span class="intelligence-bubble"><span class="intelligence-dot bg-purple-500"></span>Reflective</span><span class="intelligence-bubble"><span class="intelligence-dot bg-pink-500"></span>Social Emotion</span>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav glass rounded-full px-4 py-3"><div class="flex gap-5 text-xs"><a href="index.html">🏠</a><a href="hot-colors.html">🔥</a><a href="cold-colors.html">❄️</a><a href="interactive.html">🧪</a><a href="resources.html">📚</a></div></nav>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

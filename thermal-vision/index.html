@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thermal Vision | Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            thermal: {
+              hot: '#ff4d4d', orange: '#ff8a00', yellow: '#ffd857', green: '#00d48c',
+              cyan: '#00d9ff', blue: '#2366ff', purple: '#8c52ff', magenta: '#ff3cb5'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="tv-grid">
+  <nav class="nav-pill glass rounded-full px-5 py-2 text-xs md:text-sm">
+    <div class="flex items-center gap-5">
+      <a href="index.html" class="text-thermal-cyan">Thermal Vision</a>
+      <a href="hot-colors.html">Hot</a>
+      <a href="cold-colors.html">Cold</a>
+      <a href="interactive.html">Interactive</a>
+      <a href="resources.html">Resources</a>
+    </div>
+  </nav>
+
+  <header class="relative min-h-screen overflow-hidden">
+    <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline>
+      <source src="https://cdn.coverr.co/videos/coverr-aerial-view-of-jungle-trees-1579/1080p.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-slate-900/70 to-slate-950"></div>
+    <div id="particles" class="absolute inset-0"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-14 min-h-screen flex flex-col justify-center">
+      <p class="scan-text fade-up text-xs md:text-sm">SCAN COMPLETE - ENTER SITE</p>
+      <h1 class="fade-up title-glow text-5xl md:text-7xl xl:text-8xl font-extrabold mt-4">THERMAL VISION</h1>
+      <p class="fade-up max-w-3xl mt-6 text-base md:text-xl text-cyan-100/90">A typography-first thermal spectrum experience using wildlife visuals to explain infrared color mapping, emotional signaling, and evidence-based color psychology.</p>
+      <a href="interactive.html" class="fade-up pulse-cta mt-8 w-[350px] h-[70px] thermal-border rounded-full grid place-items-center text-lg font-bold bg-slate-900/70">Start Color Intelligence System</a>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 pb-24 -mt-8 relative z-20">
+    <section class="glass rounded-3xl p-7 md:p-10 fade-up">
+      <h2 class="text-2xl md:text-3xl font-bold text-thermal-yellow">Intro: Thermal Vision + Color Psychology</h2>
+      <p class="mt-4 leading-relaxed text-slate-200">Thermal cameras translate infrared energy into false-color palettes. In jungle monitoring, gorillas and big cats become living heat maps: warmer cores often map toward red/orange while cooler limbs and environment shift toward cyan/blue. This site connects those thermal signatures to psychological responses documented in environmental and color-emotion research.</p>
+    </section>
+
+    <section class="mt-10 grid md:grid-cols-2 xl:grid-cols-4 gap-5">
+      <a href="hot-colors.html" class="research-card fade-up glass rounded-2xl p-5 block transition duration-300">
+        <h3 class="text-xl font-bold text-thermal-hot">Hot Colors</h3>
+        <p class="text-sm mt-2 text-slate-200">Red, orange, magenta and arousal, urgency, risk, appetite, and dominance signals.</p>
+      </a>
+      <a href="cold-colors.html" class="research-card fade-up glass rounded-2xl p-5 block transition duration-300">
+        <h3 class="text-xl font-bold text-thermal-cyan">Cold Colors</h3>
+        <p class="text-sm mt-2 text-slate-200">Blue, cyan, violet and calmness, trust, restoration, and cognitive stabilization.</p>
+      </a>
+      <a href="interactive.html" class="research-card fade-up glass rounded-2xl p-5 block transition duration-300">
+        <h3 class="text-xl font-bold text-thermal-green">Interactive Lab</h3>
+        <p class="text-sm mt-2 text-slate-200">Slide through temperature states and watch the psychological model update live.</p>
+      </a>
+      <a href="resources.html" class="research-card fade-up glass rounded-2xl p-5 block transition duration-300">
+        <h3 class="text-xl font-bold text-thermal-purple">Research Resources</h3>
+        <p class="text-sm mt-2 text-slate-200">Academic links, design stack details, and typography process notes for class review.</p>
+      </a>
+    </section>
+
+    <section class="mt-10 glass rounded-3xl p-7 md:p-10 fade-up">
+      <h2 class="text-2xl font-bold">Color Intelligence System</h2>
+      <div class="flex flex-wrap gap-3 mt-5">
+        <span class="intelligence-bubble"><span class="intelligence-dot bg-thermal-hot"></span>Survival Alert</span>
+        <span class="intelligence-bubble"><span class="intelligence-dot bg-thermal-orange"></span>Predator Motion</span>
+        <span class="intelligence-bubble"><span class="intelligence-dot bg-thermal-yellow"></span>Core Heat</span>
+        <span class="intelligence-bubble"><span class="intelligence-dot bg-thermal-green"></span>Neutral Recovery</span>
+        <span class="intelligence-bubble"><span class="intelligence-dot bg-thermal-cyan"></span>Cooling Context</span>
+        <span class="intelligence-bubble"><span class="intelligence-dot bg-thermal-blue"></span>Cognitive Focus</span>
+        <span class="intelligence-bubble"><span class="intelligence-dot bg-thermal-purple"></span>Night Adaptation</span>
+        <span class="intelligence-bubble"><span class="intelligence-dot bg-thermal-magenta"></span>Social Signal</span>
+      </div>
+      <p class="mt-4 text-sm text-slate-300">Live area: feature gorilla thermal sequence links to your external wildlife stream or repository page by editing one URL in this card.</p>
+      <a href="https://example.com" class="inline-flex mt-4 px-4 py-2 rounded-full thermal-border text-sm">Open Gorilla Live Area</a>
+    </section>
+  </main>
+
+  <nav class="bottom-nav glass rounded-full px-4 py-3">
+    <div class="flex items-center gap-5 text-xs">
+      <a href="index.html">🏠</a><a href="hot-colors.html">🔥</a><a href="cold-colors.html">❄️</a><a href="interactive.html">🧪</a><a href="resources.html">📚</a>
+    </div>
+  </nav>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

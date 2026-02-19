@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thermal Vision | Hot Colors</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="tv-grid">
+  <nav class="nav-pill glass rounded-full px-5 py-2 text-xs md:text-sm"><div class="flex gap-5"><a href="index.html">Thermal Vision</a><a href="hot-colors.html" class="text-thermal-hot">Hot</a><a href="cold-colors.html">Cold</a><a href="interactive.html">Interactive</a><a href="resources.html">Resources</a></div></nav>
+
+  <section class="page-hero" style="background:linear-gradient(120deg,#430808,#8e1d09,#ff6b00,#ff3860);">
+    <div class="relative z-10 max-w-6xl mx-auto px-6">
+      <p class="scan-text text-xs">Thermal Spectrum / Hot Zone</p>
+      <h1 class="title-glow text-5xl md:text-7xl font-extrabold mt-4">Hot Colors</h1>
+      <p class="max-w-2xl mt-4 text-red-50">Red-orange-magenta hues often communicate urgency, stimulation, and physical activation in both thermal imaging and emotional color perception studies.</p>
+    </div>
+  </section>
+
+  <main class="max-w-6xl mx-auto px-6 py-14 space-y-6">
+    <article class="glass rounded-2xl p-6 md:p-8 research-card transition">
+      <h2 class="text-2xl font-bold text-thermal-hot">Red: Threat, Power, Action</h2>
+      <p class="mt-3">High-energy warm tones are associated with increased physiological arousal and attention capture.</p>
+      <p class="mt-2 text-sm text-slate-300">Source: Elliot, A. J., & Maier, M. A. (2014). Color psychology.</p>
+      <a class="text-thermal-cyan text-sm" href="https://doi.org/10.1146/annurev-psych-010213-115035" target="_blank">View DOI</a>
+    </article>
+
+    <article class="glass rounded-2xl p-6 md:p-8 research-card transition">
+      <h2 class="text-2xl font-bold text-thermal-orange">Orange: Warmth, sociability, appetite</h2>
+      <p class="mt-3">Orange is frequently used to convey engagement and social energy in branded and wayfinding environments.</p>
+      <p class="mt-2 text-sm text-slate-300">Source: Labrecque, L. I., et al. (2013), color in marketing.</p>
+      <a class="text-thermal-cyan text-sm" href="https://doi.org/10.1509/jmr.10.0392" target="_blank">View DOI</a>
+    </article>
+
+    <article class="glass rounded-2xl p-6 md:p-8 research-card transition">
+      <h2 class="text-2xl font-bold text-thermal-magenta">Pink/Magenta: social-emotional signaling</h2>
+      <p class="mt-3">Magenta/pink variations can increase perceived empathy, care cues, and stylized emotional intensity depending on context.</p>
+      <p class="mt-2 text-sm text-slate-300">Source: Palmer, S. E., & Schloss, K. B. (2010), ecological valence theory.</p>
+      <a class="text-thermal-cyan text-sm" href="https://doi.org/10.1073/pnas.0906172107" target="_blank">View DOI</a>
+    </article>
+
+    <section class="glass rounded-2xl p-6">
+      <h3 class="text-xl font-bold">Color Intelligence System</h3>
+      <div class="flex flex-wrap gap-3 mt-4">
+        <span class="intelligence-bubble"><span class="intelligence-dot bg-red-500"></span>Alert</span><span class="intelligence-bubble"><span class="intelligence-dot bg-orange-400"></span>Drive</span><span class="intelligence-bubble"><span class="intelligence-dot bg-pink-500"></span>Emotion</span>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav glass rounded-full px-4 py-3"><div class="flex gap-5 text-xs"><a href="index.html">🏠</a><a href="hot-colors.html">🔥</a><a href="cold-colors.html">❄️</a><a href="interactive.html">🧪</a><a href="resources.html">📚</a></div></nav>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
