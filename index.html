@@ -3,94 +3,637 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Elemental Icons — Premium Icon Store</title>
+  <meta name="description" content="Infrared Jungle — The Science of Thermal Color Altitude. Interactive LUT data visualization." />
+  <title>Infrared Jungle — The Science of Altitude</title>
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN (no build step needed for GitHub Pages) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ═══════════════ HEADER ═══════════════ -->
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="logo">
-        <span class="logo-icon">◈</span>
-        <span class="logo-text">Elemental Icons</span>
+  <!-- ══════════ GLOBAL OVERLAYS ══════════ -->
+  <div class="grid-overlay" aria-hidden="true"></div>
+  <div class="scan-beam" aria-hidden="true"></div>
+  <div class="noise-layer" aria-hidden="true"></div>
+
+  <!-- ══════════ NAV ══════════ -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-brand">
+      <span class="nav-dot" aria-hidden="true"></span>
+      <span class="nav-title">INFRARED JUNGLE</span>
+    </div>
+    <ul class="nav-links" role="list">
+      <li><a href="#flip">FLIP</a></li>
+      <li><a href="#altitude">ALTITUDE</a></li>
+      <li><a href="#gallery">GALLERY</a></li>
+      <li><a href="#facts">SCIENCE</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══════════ TICKER ══════════ -->
+  <div class="ticker-wrap" aria-label="Thermal data ticker" role="marquee">
+    <div class="ticker-inner">
+      <span>◈ SOLAR YELLOW — PEAK 100%</span>
+      <span class="ticker-sep">|</span>
+      <span>◈ THERMAL ORANGE — 75–90% VITALITY</span>
+      <span class="ticker-sep">|</span>
+      <span>◈ ELECTRIC MOSS — 40–60% BASELINE</span>
+      <span class="ticker-sep">|</span>
+      <span>◈ FOREST GREEN — 20–30% ABSORPTION</span>
+      <span class="ticker-sep">|</span>
+      <span>◈ SHADOW PURPLE — 0–10% VOID</span>
+      <span class="ticker-sep">|</span>
+      <span>◈ INFRARED RADIATION → STATISTICAL COLOR LUT</span>
+      <span class="ticker-sep">|</span>
+      <!-- duplicate for seamless loop -->
+      <span>◈ SOLAR YELLOW — PEAK 100%</span>
+      <span class="ticker-sep">|</span>
+      <span>◈ THERMAL ORANGE — 75–90% VITALITY</span>
+      <span class="ticker-sep">|</span>
+      <span>◈ ELECTRIC MOSS — 40–60% BASELINE</span>
+      <span class="ticker-sep">|</span>
+      <span>◈ FOREST GREEN — 20–30% ABSORPTION</span>
+      <span class="ticker-sep">|</span>
+      <span>◈ SHADOW PURPLE — 0–10% VOID</span>
+      <span class="ticker-sep">|</span>
+      <span>◈ INFRARED RADIATION → STATISTICAL COLOR LUT</span>
+      <span class="ticker-sep">|</span>
+    </div>
+  </div>
+
+
+  <!-- ══════════ SECTION 1: HERO ══════════ -->
+  <section id="hero" class="hero-section" aria-labelledby="hero-title">
+
+    <!-- Real jungle photo background with parallax -->
+    <div class="hero-bg" id="heroBg" aria-hidden="true">
+      <img
+        src="https://images.unsplash.com/photo-1536147116438-62679a5e01f2?w=1800&q=80&auto=format&fit=crop"
+        alt="Dense tropical jungle canopy"
+        class="hero-bg-img"
+      />
+      <div class="hero-bg-gradient"></div>
+      <div class="hero-bg-radial"></div>
+    </div>
+
+    <!-- HUD corner decorations -->
+    <div class="hud-corner hud-tl" aria-hidden="true"></div>
+    <div class="hud-corner hud-tr" aria-hidden="true"></div>
+
+    <!-- Leaf decorations -->
+    <span class="deco-leaf leaf-1" aria-hidden="true">🌿</span>
+    <span class="deco-leaf leaf-2" aria-hidden="true">🍃</span>
+    <span class="deco-leaf leaf-3" aria-hidden="true">🌿</span>
+    <span class="deco-leaf leaf-4" aria-hidden="true">🍃</span>
+
+    <!-- Hero content -->
+    <div class="hero-content">
+      <p class="hero-eyebrow fade-up">// LUT CLASSIFICATION SYSTEM</p>
+      <h1 id="hero-title" class="hero-title fade-up delay-1">
+        INFRARED<br/>
+        <span class="hero-title-accent">JUNGLE</span>
+      </h1>
+      <p class="hero-subtitle fade-up delay-2">THE SCIENCE OF ALTITUDE</p>
+      <p class="hero-body fade-up delay-3">
+        Thermal cameras translate invisible infrared radiation into a statistical
+        color hierarchy — mapping temperature intensity onto a Look-Up Table your
+        brain is hardwired to decode.
+      </p>
+      <div class="hero-cta fade-up delay-4">
+        <a href="#flip" class="btn btn-yellow">▶ VIEW THERMAL FLIP</a>
+        <a href="#altitude" class="btn btn-purple">◈ ALTITUDE DATA</a>
+        <a href="#gallery" class="btn btn-moss">⬡ JUNGLE GALLERY</a>
       </div>
-      <nav class="header-nav">
-        <button class="nav-link active" data-view="store">Store</button>
-        <button class="nav-link" data-view="cart">
-          Cart
-          <span class="cart-badge" id="cartBadge">0</span>
+      <div class="hero-scroll fade-up delay-5" aria-hidden="true">
+        <span>SCROLL</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════ SECTION 2: STATS STRIP ══════════ -->
+  <section id="stats" class="stats-section photo-section" aria-label="Key statistics">
+    <img
+      src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1800&q=70&auto=format&fit=crop"
+      alt="Lush jungle undergrowth"
+      class="section-bg-photo"
+    />
+    <div class="section-overlay overlay-dark"></div>
+    <div class="section-overlay overlay-purple-tint"></div>
+
+    <div class="stats-content section-content">
+      <div class="stat-item">
+        <p class="stat-number stat-yellow">30</p>
+        <p class="stat-label">SHADES OF GRAY<br/>HUMAN EYE SEES</p>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item">
+        <p class="stat-number stat-orange">1000%</p>
+        <p class="stat-label">INCREASE IN<br/>DATA BANDWIDTH</p>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item">
+        <p class="stat-number stat-accent">5</p>
+        <p class="stat-label">COLOR ALTITUDE<br/>BANDS IN LUT</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+
+  <!-- ══════════ SECTION 3: HERO FLIP ══════════ -->
+  <section id="flip" class="flip-section" aria-labelledby="flip-title">
+
+    <!-- faint bg photo -->
+    <div class="flip-section-bg" aria-hidden="true">
+      <img
+        src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=1400&q=60&auto=format&fit=crop"
+        alt=""
+      />
+    </div>
+
+    <div class="section-inner">
+      <header class="section-header">
+        <p class="section-eyebrow">// VISUALIZATION MODULE</p>
+        <h2 id="flip-title" class="section-title">THE HERO FLIP</h2>
+        <p class="section-subtext">
+          "Translating invisible Infrared data into a visible statistical hierarchy"
+        </p>
+      </header>
+
+      <!-- 3D Flip Card -->
+      <div class="flip-wrap neon-border floating" id="flipWrap" aria-label="Thermal vision toggle card">
+        <div class="flip-card" id="flipCard" role="img" aria-label="Jungle scene — click to toggle thermal vision">
+
+          <!-- FRONT: Normal jungle photo -->
+          <div class="flip-face flip-front">
+            <img
+              src="https://images.unsplash.com/photo-1597979798667-f95c6f6e98a8?w=1200&q=80&auto=format&fit=crop"
+              alt="Normal jungle canopy — visible light spectrum"
+              class="flip-photo"
+            />
+            <div class="flip-color-grade flip-normal-grade"></div>
+            <div class="hud-corner hud-tl"></div>
+            <div class="hud-corner hud-tr"></div>
+            <div class="hud-corner hud-bl"></div>
+            <div class="hud-corner hud-br"></div>
+            <div class="flip-label flip-label-tl">
+              <span class="dot-pulse"></span>
+              <span>◉ NORMAL VISION</span>
+            </div>
+            <div class="flip-meta flip-meta-bl">
+              <p class="flip-meta-key">VIS SPECTRUM</p>
+              <p class="flip-meta-val">400–700 nm</p>
+            </div>
+            <div class="flip-meta flip-meta-br">
+              <p class="flip-meta-key">CLICK TO SCAN →</p>
+            </div>
+          </div>
+
+          <!-- BACK: Same photo with thermal CSS effect -->
+          <div class="flip-face flip-back">
+            <img
+              src="https://images.unsplash.com/photo-1597979798667-f95c6f6e98a8?w=1200&q=80&auto=format&fit=crop"
+              alt="Jungle canopy in thermal infrared vision"
+              class="flip-photo flip-photo-thermal"
+            />
+            <div class="thermal-color-overlay"></div>
+            <div class="thermal-scanlines"></div>
+            <div class="thermal-vignette"></div>
+            <div class="hud-corner hud-tl hud-yellow"></div>
+            <div class="hud-corner hud-tr hud-yellow"></div>
+            <div class="hud-corner hud-bl hud-yellow"></div>
+            <div class="hud-corner hud-br hud-yellow"></div>
+            <!-- Thermal label -->
+            <div class="flip-label flip-label-tl flip-label-thermal">
+              <span class="dot-pulse dot-yellow"></span>
+              <span>◉ THERMAL VISION</span>
+            </div>
+            <!-- IR range -->
+            <div class="flip-label flip-label-tr flip-label-ir">IR 8–14µm</div>
+            <!-- Crosshair -->
+            <div class="thermal-crosshair" aria-hidden="true"></div>
+            <!-- Temp legend -->
+            <ul class="thermal-legend" aria-label="Temperature legend">
+              <li><span class="legend-dot dot-yellow-solid"></span><span class="legend-text text-yellow">100% PEAK</span></li>
+              <li><span class="legend-dot dot-orange-solid"></span><span class="legend-text text-orange">75% VITAL</span></li>
+              <li><span class="legend-dot dot-moss-solid"></span><span class="legend-text text-moss">40% BASE</span></li>
+              <li><span class="legend-dot dot-accent-solid"></span><span class="legend-text text-accent">0% VOID</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-cta">
+        <button class="btn btn-yellow" id="flipBtn" aria-pressed="false">
+          ▶ ACTIVATE THERMAL VISION
         </button>
-      </nav>
-    </div>
-  </header>
-
-  <!-- ═══════════════ HERO ═══════════════ -->
-  <section class="hero">
-    <div class="hero-inner">
-      <p class="hero-tag">Premium Digital Icons</p>
-      <h1 class="hero-title">The Periodic<br />Collection</h1>
-      <p class="hero-sub">Curated icon sets inspired by the building blocks of the universe.</p>
-    </div>
-    <div class="hero-glow"></div>
-  </section>
-
-  <!-- ═══════════════ STORE VIEW ═══════════════ -->
-  <main class="store-view" id="storeView">
-
-    <!-- Category Tabs -->
-    <div class="tab-bar">
-      <button class="tab active" data-cat="alkali">Alkali Metals</button>
-      <button class="tab" data-cat="transition">Transition Metals</button>
-      <button class="tab" data-cat="noble">Noble Gases</button>
-    </div>
-
-    <!-- Alkali Metals -->
-    <section class="product-grid visible" id="grid-alkali"></section>
-
-    <!-- Transition Metals -->
-    <section class="product-grid" id="grid-transition"></section>
-
-    <!-- Noble Gases -->
-    <section class="product-grid" id="grid-noble"></section>
-
-  </main>
-
-  <!-- ═══════════════ CART VIEW ═══════════════ -->
-  <section class="cart-view hidden" id="cartView">
-    <h2 class="cart-title">Your Cart</h2>
-    <div class="cart-items" id="cartItems"></div>
-    <div class="cart-footer" id="cartFooter">
-      <div class="cart-subtotal">
-        Subtotal: <span id="cartSubtotal">$0</span>
       </div>
-      <button class="btn-checkout" id="btnCheckout">Checkout</button>
-    </div>
-    <div class="cart-empty hidden" id="cartEmpty">
-      <p>Your cart is empty.</p>
-      <button class="btn-back" id="btnBackToStore">Browse the Collection</button>
     </div>
   </section>
 
-  <!-- ═══════════════ CONFIRMATION VIEW ═══════════════ -->
-  <section class="confirm-view hidden" id="confirmView">
-    <div class="confirm-card">
-      <div class="confirm-icon">✓</div>
-      <h2 class="confirm-title">Order Confirmed</h2>
-      <p class="confirm-msg">Thank you for your purchase! Your premium icons are on their way.</p>
-      <p class="confirm-total" id="confirmTotal"></p>
-      <button class="btn-back" id="btnBackFromConfirm">Continue Shopping</button>
+  <div class="section-divider" aria-hidden="true"></div>
+
+
+  <!-- ══════════ SECTION 4: ALTITUDE BUTTONS ══════════ -->
+  <section id="altitude" class="altitude-section photo-section" aria-labelledby="altitude-title">
+    <img
+      src="https://images.unsplash.com/photo-1484591974057-265bb767ef71?w=1600&q=70&auto=format&fit=crop"
+      alt="Dense tropical jungle vegetation"
+      class="section-bg-photo"
+      style="filter: brightness(0.15) saturate(1.8);"
+    />
+    <div class="section-overlay overlay-dark"></div>
+
+    <div class="section-inner section-content">
+      <header class="section-header">
+        <p class="section-eyebrow">// STATISTICAL COLOR ALTITUDE</p>
+        <h2 id="altitude-title" class="section-title">INTERACTIVE LUT DATA</h2>
+        <p class="section-subtext">
+          Select any thermal color band to explore how your brain decodes infrared statistics
+        </p>
+      </header>
+
+      <!-- 5 Altitude rows — JS opens modals on click -->
+      <div class="altitude-rows" role="list">
+
+        <article class="alt-row alt-row-yellow" role="listitem" data-color="yellow"
+          tabindex="0" aria-label="Solar Yellow — Peak 100% altitude. Click to explore.">
+          <div class="alt-orb orb-yellow" aria-hidden="true"></div>
+          <div class="alt-info">
+            <div class="alt-name-row">
+              <h3 class="alt-name text-yellow">Solar Yellow</h3>
+              <span class="alt-pct mono-yellow">100% PEAK</span>
+            </div>
+            <div class="alt-bar-wrap" aria-hidden="true">
+              <div class="alt-bar-fill bar-yellow" style="width:100%;"></div>
+            </div>
+          </div>
+          <button class="btn btn-yellow btn-sm" aria-label="Explore Solar Yellow data">◈ EXPLORE</button>
+        </article>
+
+        <article class="alt-row alt-row-orange" role="listitem" data-color="orange"
+          tabindex="0" aria-label="Thermal Orange — 75 to 90 percent. Click to explore.">
+          <div class="alt-orb orb-orange" aria-hidden="true"></div>
+          <div class="alt-info">
+            <div class="alt-name-row">
+              <h3 class="alt-name text-orange">Thermal Orange</h3>
+              <span class="alt-pct mono-orange">75–90% HIGH</span>
+            </div>
+            <div class="alt-bar-wrap" aria-hidden="true">
+              <div class="alt-bar-fill bar-orange" style="width:82%;"></div>
+            </div>
+          </div>
+          <button class="btn btn-orange btn-sm" aria-label="Explore Thermal Orange data">◈ EXPLORE</button>
+        </article>
+
+        <article class="alt-row alt-row-moss" role="listitem" data-color="moss"
+          tabindex="0" aria-label="Electric Moss — 40 to 60 percent. Click to explore.">
+          <div class="alt-orb orb-moss" aria-hidden="true"></div>
+          <div class="alt-info">
+            <div class="alt-name-row">
+              <h3 class="alt-name text-moss">Electric Moss</h3>
+              <span class="alt-pct mono-moss">40–60% MID</span>
+            </div>
+            <div class="alt-bar-wrap" aria-hidden="true">
+              <div class="alt-bar-fill bar-moss" style="width:50%;"></div>
+            </div>
+          </div>
+          <button class="btn btn-moss btn-sm" aria-label="Explore Electric Moss data">◈ EXPLORE</button>
+        </article>
+
+        <article class="alt-row alt-row-green" role="listitem" data-color="green"
+          tabindex="0" aria-label="Forest Green — 20 to 30 percent. Click to explore.">
+          <div class="alt-orb orb-green" aria-hidden="true"></div>
+          <div class="alt-info">
+            <div class="alt-name-row">
+              <h3 class="alt-name text-green">Forest Green</h3>
+              <span class="alt-pct mono-green">20–30% LOW</span>
+            </div>
+            <div class="alt-bar-wrap" aria-hidden="true">
+              <div class="alt-bar-fill bar-green" style="width:25%;"></div>
+            </div>
+          </div>
+          <button class="btn btn-green btn-sm" aria-label="Explore Forest Green data">◈ EXPLORE</button>
+        </article>
+
+        <article class="alt-row alt-row-purple" role="listitem" data-color="purple"
+          tabindex="0" aria-label="Shadow Purple — 0 to 10 percent. Click to explore.">
+          <div class="alt-orb orb-purple" aria-hidden="true"></div>
+          <div class="alt-info">
+            <div class="alt-name-row">
+              <h3 class="alt-name text-accent">Shadow Purple</h3>
+              <span class="alt-pct mono-accent">0–10% BASE</span>
+            </div>
+            <div class="alt-bar-wrap" aria-hidden="true">
+              <div class="alt-bar-fill bar-purple" style="width:5%;"></div>
+            </div>
+          </div>
+          <button class="btn btn-purple btn-sm" aria-label="Explore Shadow Purple data">◈ EXPLORE</button>
+        </article>
+
+      </div>
     </div>
   </section>
 
-  <!-- ═══════════════ FOOTER ═══════════════ -->
-  <footer class="site-footer">
-    <p>&copy; 2025 Elemental Icons &mdash; A CIS-260 Project</p>
+  <div class="section-divider" aria-hidden="true"></div>
+
+
+  <!-- ══════════ SECTION 5: GALLERY ══════════ -->
+  <section id="gallery" class="gallery-section" aria-labelledby="gallery-title">
+    <div class="section-inner">
+      <header class="section-header">
+        <p class="section-eyebrow">// FIELD SPECIMENS</p>
+        <h2 id="gallery-title" class="section-title">JUNGLE GALLERY</h2>
+        <p class="section-subtext">
+          Real jungle environments — each tagged with its dominant thermal altitude signature
+        </p>
+      </header>
+
+      <div class="gallery-grid" role="list">
+
+        <article class="gallery-card neon-border" role="listitem" data-gallery="0"
+          tabindex="0" aria-label="Canopy Heat Zone. Thermal Orange dominant. Click to learn more.">
+          <div class="gallery-photo-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1504198322253-cfa87a0ff60f?w=700&q=80&auto=format&fit=crop"
+              alt="Tropical rainforest canopy with warm light"
+              class="gallery-photo"
+            />
+          </div>
+          <div class="gallery-overlay"></div>
+          <span class="gallery-badge badge-orange">75–90% VITAL</span>
+          <div class="gallery-info">
+            <h3 class="gallery-card-title">Canopy Heat Zone</h3>
+            <p class="gallery-card-sub">THERMAL ORANGE DOMINANT</p>
+          </div>
+        </article>
+
+        <article class="gallery-card neon-border" role="listitem" data-gallery="1"
+          tabindex="0" aria-label="River Thermal Void. Shadow Purple dominant. Click to learn more.">
+          <div class="gallery-photo-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1542401886-65d6c61db217?w=700&q=80&auto=format&fit=crop"
+              alt="Misty jungle river winding through dense forest"
+              class="gallery-photo"
+            />
+          </div>
+          <div class="gallery-overlay"></div>
+          <span class="gallery-badge badge-purple">0–10% VOID</span>
+          <div class="gallery-info">
+            <h3 class="gallery-card-title">River Thermal Void</h3>
+            <p class="gallery-card-sub">SHADOW PURPLE DOMINANT</p>
+          </div>
+        </article>
+
+        <article class="gallery-card neon-border" role="listitem" data-gallery="2"
+          tabindex="0" aria-label="Undergrowth Baseline. Electric Moss dominant. Click to learn more.">
+          <div class="gallery-photo-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1416169607655-0c2b3ce2e1cc?w=700&q=80&auto=format&fit=crop"
+              alt="Dense green jungle undergrowth and foliage"
+              class="gallery-photo"
+            />
+          </div>
+          <div class="gallery-overlay"></div>
+          <span class="gallery-badge badge-moss">40–60% BASE</span>
+          <div class="gallery-info">
+            <h3 class="gallery-card-title">Undergrowth Baseline</h3>
+            <p class="gallery-card-sub">ELECTRIC MOSS DOMINANT</p>
+          </div>
+        </article>
+
+        <article class="gallery-card neon-border" role="listitem" data-gallery="3"
+          tabindex="0" aria-label="Wildlife Heat Signature. Solar Yellow dominant. Click to learn more.">
+          <div class="gallery-photo-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1518378188049-8e11c5bc741b?w=700&q=80&auto=format&fit=crop"
+              alt="Tropical wildlife in the jungle"
+              class="gallery-photo"
+            />
+          </div>
+          <div class="gallery-overlay"></div>
+          <span class="gallery-badge badge-yellow">100% PEAK</span>
+          <div class="gallery-info">
+            <h3 class="gallery-card-title">Wildlife Heat Signature</h3>
+            <p class="gallery-card-sub">SOLAR YELLOW DOMINANT</p>
+          </div>
+        </article>
+
+        <article class="gallery-card neon-border" role="listitem" data-gallery="4"
+          tabindex="0" aria-label="Root System Absorption. Forest Green dominant. Click to learn more.">
+          <div class="gallery-photo-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1588392382834-a891154bca4d?w=700&q=80&auto=format&fit=crop"
+              alt="Dark jungle floor with tangled tree roots"
+              class="gallery-photo"
+            />
+          </div>
+          <div class="gallery-overlay"></div>
+          <span class="gallery-badge badge-green">20–30% LOW</span>
+          <div class="gallery-info">
+            <h3 class="gallery-card-title">Root System Absorption</h3>
+            <p class="gallery-card-sub">FOREST GREEN DOMINANT</p>
+          </div>
+        </article>
+
+        <article class="gallery-card neon-border" role="listitem" data-gallery="5"
+          tabindex="0" aria-label="Solar Penetration Zones. Full LUT spectrum. Click to learn more.">
+          <div class="gallery-photo-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=700&q=80&auto=format&fit=crop"
+              alt="Sunlight breaking through dense jungle canopy"
+              class="gallery-photo"
+            />
+          </div>
+          <div class="gallery-overlay"></div>
+          <span class="gallery-badge badge-yellow">MIXED ALTITUDE</span>
+          <div class="gallery-info">
+            <h3 class="gallery-card-title">Solar Penetration Zones</h3>
+            <p class="gallery-card-sub">FULL LUT SPECTRUM</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+
+  <!-- ══════════ SECTION 6: SCIENCE FACTS ══════════ -->
+  <section id="facts" class="facts-section" aria-labelledby="facts-title">
+    <div class="facts-section-bg" aria-hidden="true">
+      <img
+        src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1600&q=60&auto=format&fit=crop"
+        alt=""
+      />
+    </div>
+
+    <div class="section-inner section-content">
+      <header class="section-header">
+        <p class="section-eyebrow">// KEY SCIENCE FACTS</p>
+        <h2 id="facts-title" class="section-title">DATA BANDWIDTH</h2>
+      </header>
+
+      <div class="facts-grid">
+
+        <article class="fact-card neon-border">
+          <div class="fact-photo-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?w=600&q=75&auto=format&fit=crop"
+              alt="Close-up of a human eye"
+              class="fact-photo fact-photo-eye"
+            />
+          </div>
+          <div class="fact-body">
+            <h3 class="fact-title fact-title-yellow">The Contrast Fact</h3>
+            <p class="fact-text">
+              The human eye can only distinguish about
+              <strong class="text-yellow">30 shades of gray</strong>,
+              but can perceive millions of colors. Mapping heat to color altitude
+              increases the brain's data bandwidth by over
+              <strong class="text-yellow">1000%</strong>.
+            </p>
+          </div>
+        </article>
+
+        <article class="fact-card neon-border">
+          <div class="fact-photo-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1610296669228-602fa827fc1f?w=600&q=75&auto=format&fit=crop"
+              alt="Warm orange light radiating"
+              class="fact-photo fact-photo-orange"
+            />
+          </div>
+          <div class="fact-body">
+            <h3 class="fact-title fact-title-orange">The Priority Fact</h3>
+            <p class="fact-text">
+              Our brains process
+              <strong class="text-orange">Yellow and Orange</strong>
+              faster than any other color — they occupy the highest frequency in our
+              "alertness" spectrum, a survival response hardwired over millennia.
+            </p>
+          </div>
+        </article>
+
+        <article class="fact-card neon-border">
+          <div class="fact-photo-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=75&auto=format&fit=crop"
+              alt="Digital data streams and circuits"
+              class="fact-photo fact-photo-data"
+            />
+          </div>
+          <div class="fact-body">
+            <h3 class="fact-title fact-title-moss">The Mapping Fact</h3>
+            <p class="fact-text">
+              Thermal cameras don't see color at all. They use a
+              <strong class="text-moss">mathematical algorithm</strong>
+              to paint each pixel based on Infrared Radiation intensity —
+              raw invisible data made visible.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+
+  <!-- ══════════ SECTION 7: SPECTRUM BAR ══════════ -->
+  <section id="spectrum" class="spectrum-section" aria-labelledby="spectrum-title">
+    <div class="section-inner" style="text-align:center;">
+      <p class="section-eyebrow" style="margin-bottom:1.5rem;">// FULL THERMAL SPECTRUM</p>
+      <div class="spectrum-bar-wrap">
+        <span class="spectrum-label spectrum-label-top">LUT COLOR RANGE</span>
+        <div class="spectrum-bar" role="img" aria-label="Full thermal spectrum from 0 percent shadow purple to 100 percent solar yellow"></div>
+        <span class="spectrum-label spectrum-label-min">0% MIN</span>
+        <span class="spectrum-label spectrum-label-max">100% MAX</span>
+      </div>
+      <div class="spectrum-labels-row">
+        <span class="text-accent">SHADOW VOID</span>
+        <span class="text-green">COOL DENSE</span>
+        <span class="text-moss">AMBIENT BASE</span>
+        <span class="text-orange">ACTIVE LIFE</span>
+        <span class="text-yellow">PEAK HEAT</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer class="site-footer photo-section" role="contentinfo">
+    <img
+      src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1600&q=60&auto=format&fit=crop"
+      alt="Jungle horizon at dusk"
+      class="section-bg-photo"
+      style="filter: brightness(0.18) saturate(1.4);"
+    />
+    <div class="section-overlay overlay-dark"></div>
+    <div class="footer-content section-content">
+      <div class="footer-dot" aria-hidden="true"></div>
+      <p class="footer-brand">INFRARED JUNGLE</p>
+      <p class="footer-sub">THE SCIENCE OF ALTITUDE</p>
+      <p class="footer-version">LUT CLASSIFICATION SYSTEM v2.4.1</p>
+      <p class="footer-credit">Photos: Unsplash Open License</p>
+    </div>
   </footer>
 
-  <script src="app.js"></script>
+
+  <!-- ══════════ ALTITUDE MODAL ══════════ -->
+  <div
+    id="altModal"
+    class="modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="altModalTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-box neon-border" id="altModalBox">
+      <button
+        class="modal-close"
+        id="altModalClose"
+        aria-label="Close altitude data modal"
+      >✕</button>
+      <div id="altModalContent"></div>
+    </div>
+  </div>
+
+
+  <!-- ══════════ GALLERY MODAL ══════════ -->
+  <div
+    id="galModal"
+    class="modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="galModalTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-box modal-box-wide neon-border" id="galModalBox">
+      <button
+        class="modal-close"
+        id="galModalClose"
+        aria-label="Close gallery modal"
+      >✕</button>
+      <div id="galModalContent"></div>
+    </div>
+  </div>
+
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>
