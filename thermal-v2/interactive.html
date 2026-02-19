@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Lab | thermal-v2</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { theme: { extend: { colors: { thermal: { cyan: '#2de2e6', mint: '#4fffb0', amber: '#ffc857', hot: '#ff5f6d', magenta: '#ff3cac', violet: '#7f5af0' } } } } };</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body
+  data-page="interactive"
+  class="thermal-grid min-h-screen pb-24"
+  x-data="{ temp: 30, get state(){ return this.temp < 0 ? 'Extreme Cold' : this.temp < 30 ? 'Cool' : this.temp < 60 ? 'Balanced Warm' : 'High Heat'; }, get guide(){ return this.temp < 0 ? 'Use deep blue space and slower pacing.' : this.temp < 30 ? 'Use cyan contrast for clarity.' : this.temp < 60 ? 'Blend amber and violet for active learning.' : 'Reserve red/pink for critical action points.'; }, get bg(){ return this.temp < 0 ? 'from-blue-950 to-cyan-900' : this.temp < 30 ? 'from-sky-950 to-cyan-800' : this.temp < 60 ? 'from-violet-900 to-amber-800' : 'from-rose-950 to-orange-700'; } }"
+>
+  <nav class="floating-nav glass fixed left-1/2 top-5 z-40 hidden -translate-x-1/2 gap-2 rounded-full px-4 py-2 text-sm md:flex">
+    <a data-nav="home" href="index.html" class="rounded-full px-4 py-2">Thermal Vision</a>
+    <a data-nav="hot" href="hot-colors.html" class="rounded-full px-4 py-2">Hot Colors</a>
+    <a data-nav="cold" href="cold-colors.html" class="rounded-full px-4 py-2">Cold Colors</a>
+    <a data-nav="interactive" href="interactive.html" class="rounded-full px-4 py-2">Interactive Lab</a>
+    <a data-nav="resources" href="resources.html" class="rounded-full px-4 py-2">Research</a>
+  </nav>
+
+  <main class="mx-auto max-w-6xl px-6 pb-20 pt-24">
+    <section class="glass rounded-3xl p-8">
+      <h1 class="orbiton text-4xl md:text-5xl">Thermal Slider Lab</h1>
+      <p class="mt-2 text-slate-300">Interactive calibration from -40°C to 100°C for emotional intensity and typography pacing.</p>
+      <input type="range" min="-40" max="100" x-model="temp" class="mt-8 w-full accent-pink-500" />
+      <div class="mt-6 grid gap-4 md:grid-cols-3">
+        <div class="glass rounded-2xl p-4"><p class="text-xs text-slate-400">Temperature</p><p class="orbiton text-3xl" x-text="temp + '°C'"></p></div>
+        <div class="glass rounded-2xl p-4"><p class="text-xs text-slate-400">State</p><p class="orbiton text-2xl" x-text="state"></p></div>
+        <div class="glass rounded-2xl p-4"><p class="text-xs text-slate-400">Guidance</p><p class="text-sm" x-text="guide"></p></div>
+      </div>
+    </section>
+    <section class="mt-8 rounded-3xl border border-cyan-300/35 bg-gradient-to-r p-8" :class="bg">
+      <h2 class="orbiton text-2xl">Live Thermal Atmosphere</h2>
+      <p class="mt-2 text-slate-100">The background adapts in real time to simulate psychological temperature shifts.</p>
+    </section>
+    <section class="glass mt-8 rounded-3xl p-8">
+      <h2 class="orbiton mb-4 text-2xl">Arousal Curve</h2>
+      <canvas id="arousalChart" height="120"></canvas>
+    </section>
+    <section class="glass relative mt-8 overflow-hidden rounded-3xl p-8">
+      <div id="intelligence-bubbles" class="absolute inset-0"></div>
+      <h3 class="orbiton text-2xl">Color Intelligence Module</h3>
+      <p class="mt-2 text-slate-300">Interactive mode links thermal values to legibility pressure, urgency, and emotional readiness.</p>
+    </section>
+  </main>
+  <nav class="bottom-nav glass fixed inset-x-0 bottom-0 z-50 grid grid-cols-5 py-2 text-center text-xs md:hidden">
+    <a data-nav="home" href="index.html" class="rounded-xl py-2">🏠<br />Home</a>
+    <a data-nav="hot" href="hot-colors.html" class="rounded-xl py-2">🔥<br />Hot</a>
+    <a data-nav="cold" href="cold-colors.html" class="rounded-xl py-2">❄️<br />Cold</a>
+    <a data-nav="interactive" href="interactive.html" class="rounded-xl py-2">🎛️<br />Lab</a>
+    <a data-nav="resources" href="resources.html" class="rounded-xl py-2">🦍<br />Live</a>
+  </nav>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

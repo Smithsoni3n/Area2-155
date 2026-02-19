@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cold Colors | thermal-v2</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { theme: { extend: { colors: { thermal: { cyan: '#2de2e6', mint: '#4fffb0', amber: '#ffc857', hot: '#ff5f6d', magenta: '#ff3cac', violet: '#7f5af0' } } } } };</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="cold" class="thermal-grid min-h-screen pb-24">
+  <nav class="floating-nav glass fixed left-1/2 top-5 z-40 hidden -translate-x-1/2 gap-2 rounded-full px-4 py-2 text-sm md:flex">
+    <a data-nav="home" href="index.html" class="rounded-full px-4 py-2">Thermal Vision</a>
+    <a data-nav="hot" href="hot-colors.html" class="rounded-full px-4 py-2">Hot Colors</a>
+    <a data-nav="cold" href="cold-colors.html" class="rounded-full px-4 py-2">Cold Colors</a>
+    <a data-nav="interactive" href="interactive.html" class="rounded-full px-4 py-2">Interactive Lab</a>
+    <a data-nav="resources" href="resources.html" class="rounded-full px-4 py-2">Research</a>
+  </nav>
+
+  <main class="mx-auto max-w-6xl px-6 pb-20 pt-24">
+    <section class="rounded-3xl border border-cyan-300/35 bg-gradient-to-r from-sky-950 via-cyan-900 to-violet-900 p-8 md:p-12">
+      <p class="orbiton text-xs tracking-[0.28em] text-cyan-300">COLD THERMAL BAND</p>
+      <h1 class="orbiton mt-3 text-4xl font-extrabold md:text-6xl">Blue • Cyan • Purple Psychology</h1>
+      <p class="mt-4 max-w-3xl text-slate-200">Cool thermal colors signal lower temperatures and lower tension states. They are ideal for deep reading, trust formation, and scientific interface tone.</p>
+    </section>
+    <section class="mt-9 grid gap-6 md:grid-cols-2">
+      <article class="research-card glass rounded-2xl p-6">
+        <h2 class="orbiton text-2xl text-sky-300">Blue = Trust + Cognitive Control</h2>
+        <p class="mt-2 text-slate-300">Blue contexts are often associated with calm attention and stable decision behavior.</p>
+        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4383146/" class="text-thermal-cyan underline" target="_blank">Study source</a>
+      </article>
+      <article class="research-card glass rounded-2xl p-6">
+        <h2 class="orbiton text-2xl text-cyan-300">Cyan = Technical Clarity</h2>
+        <p class="mt-2 text-slate-300">Cyan has a clean analytical identity, effective for overlays, legends, and guided instructions.</p>
+        <a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2022.887994/full" class="text-thermal-cyan underline" target="_blank">Study source</a>
+      </article>
+      <article class="research-card glass rounded-2xl p-6 md:col-span-2">
+        <h2 class="orbiton text-2xl text-violet-300">Purple = Reflection + Imagination</h2>
+        <p class="mt-2 text-slate-300">Purple bridges cool confidence with expressive depth and works as an excellent transition hue between cold and hot zones.</p>
+      </article>
+    </section>
+    <section class="mt-8 grid gap-4 md:grid-cols-3">
+      <div class="glass rounded-2xl p-5">Cooling Demo A: Low-arousal lecture mood.</div>
+      <div class="glass rounded-2xl p-5">Cooling Demo B: Scientific display hierarchy.</div>
+      <div class="glass rounded-2xl p-5">Cooling Demo C: Reading-comfort typography.</div>
+    </section>
+    <section class="glass relative mt-10 overflow-hidden rounded-3xl p-8">
+      <div id="intelligence-bubbles" class="absolute inset-0"></div>
+      <h3 class="orbiton text-2xl">Color Intelligence Module</h3>
+      <p class="mt-2 text-slate-300">Cold palettes carry educational authority and lower visual fatigue for long sessions.</p>
+    </section>
+  </main>
+  <nav class="bottom-nav glass fixed inset-x-0 bottom-0 z-50 grid grid-cols-5 py-2 text-center text-xs md:hidden">
+    <a data-nav="home" href="index.html" class="rounded-xl py-2">🏠<br />Home</a>
+    <a data-nav="hot" href="hot-colors.html" class="rounded-xl py-2">🔥<br />Hot</a>
+    <a data-nav="cold" href="cold-colors.html" class="rounded-xl py-2">❄️<br />Cold</a>
+    <a data-nav="interactive" href="interactive.html" class="rounded-xl py-2">🎛️<br />Lab</a>
+    <a data-nav="resources" href="resources.html" class="rounded-xl py-2">🦍<br />Live</a>
+  </nav>
+  <script src="main.js"></script>
+</body>
+</html>
