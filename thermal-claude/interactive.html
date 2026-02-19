@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Scanner — Thermal Vision</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Exo+2:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: { orbitron: ['Orbitron','sans-serif'], exo: ['Exo 2','sans-serif'] } } } }
+  </script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:#030712;font-family:'Exo 2',sans-serif;overflow-x:hidden;cursor:crosshair;}
+
+    .desktop-nav{position:fixed;top:28px;left:50%;transform:translateX(-50%);z-index:100;background:rgba(3,7,18,0.85);backdrop-filter:blur(20px);border:1px solid rgba(57,255,20,0.3);border-radius:50px;padding:10px 32px;display:flex;gap:28px;align-items:center;}
+    .desktop-nav a{font-family:'Orbitron',sans-serif;font-size:0.65rem;letter-spacing:0.2em;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.3s;}
+    .desktop-nav a:hover,.desktop-nav a.active{color:#39ff14;text-shadow:0 0 15px rgba(57,255,20,0.8);}
+    .desktop-nav .nav-logo{font-size:0.75rem;font-weight:900;color:#39ff14;text-shadow:0 0 15px rgba(57,255,20,0.8);}
+
+    .mobile-nav{position:fixed;bottom:0;left:0;right:0;z-index:100;background:rgba(3,7,18,0.95);backdrop-filter:blur(20px);border-top:1px solid rgba(57,255,20,0.2);padding:8px 0;display:none;}
+    @media(max-width:768px){.mobile-nav{display:flex;}.desktop-nav{display:none!important;}body{padding-bottom:80px;}}
+    .mobile-nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;text-decoration:none;padding:8px 0;color:rgba(255,255,255,0.4);font-family:'Orbitron',sans-serif;font-size:0.5rem;letter-spacing:0.1em;transition:color 0.3s;}
+    .mobile-nav-item:hover,.mobile-nav-item.active{color:#39ff14;}
+    .mobile-nav-item svg{width:22px;height:22px;}
+
+    .section-label{font-family:'Orbitron',sans-serif;font-size:0.65rem;letter-spacing:0.4em;opacity:0.8;}
+
+    /* SLIDER */
+    .temp-slider{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:50px;outline:none;cursor:pointer;transition:all 0.3s;}
+    .temp-slider::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;border-radius:50%;cursor:pointer;border:3px solid #030712;box-shadow:0 0 15px currentColor;transition:all 0.3s;}
+    .temp-slider::-moz-range-thumb{width:28px;height:28px;border-radius:50%;cursor:pointer;border:3px solid #030712;box-shadow:0 0 15px currentColor;}
+
+    /* THERMAL FRAME */
+    .thermal-frame{border-radius:16px;overflow:hidden;position:relative;transition:all 0.8s ease;border-width:2px;border-style:solid;}
+
+    /* ANIMAL SVG OVERLAY */
+    .animal-overlay{position:absolute;inset:0;pointer-events:none;transition:opacity 0.5s;}
+
+    /* SCAN LINE */
+    .scan-moving{position:absolute;left:0;right:0;height:3px;animation:scanDown 3s linear infinite;pointer-events:none;}
+    @keyframes scanDown{0%{top:0;opacity:1;}95%{opacity:1;}100%{top:100%;opacity:0;}}
+
+    .intel-bubble-sm{width:72px;height:72px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:transform 0.3s;border-width:2px;border-style:solid;text-decoration:none;}
+    .intel-bubble-sm:hover{transform:scale(1.15);}
+    .intel-module{background:rgba(255,255,255,0.02);border:1px solid rgba(57,255,20,0.15);border-radius:16px;padding:2.5rem;}
+
+    /* DATA CARD */
+    .data-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:1.5rem;transition:all 0.4s;}
+  </style>
+</head>
+<body>
+
+  <!-- DESKTOP NAV -->
+  <nav class="desktop-nav">
+    <span class="nav-logo">⬡ TV</span>
+    <a href="../index.html">HOME</a>
+    <a href="hot-colors.html">HOT</a>
+    <a href="cold-colors.html">COLD</a>
+    <a href="interactive.html" class="active">INTERACT</a>
+    <a href="resources.html">RESEARCH</a>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <nav class="mobile-nav">
+    <a href="../index.html" class="mobile-nav-item"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955a1.126 1.126 0 011.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>HOME</a>
+    <a href="hot-colors.html" class="mobile-nav-item"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"/></svg>HOT</a>
+    <a href="cold-colors.html" class="mobile-nav-item"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>COLD</a>
+    <a href="interactive.html" class="mobile-nav-item active"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5"/></svg>INTERACT</a>
+    <a href="resources.html" class="mobile-nav-item"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>RESEARCH</a>
+  </nav>
+
+  <!-- MAIN INTERACTIVE SECTION -->
+  <div x-data="thermalScanner()" x-init="init()" class="min-h-screen pt-32 pb-24 px-6">
+    
+    <!-- HERO TEXT -->
+    <div class="text-center mb-16 max-w-3xl mx-auto">
+      <span class="section-label mb-4 block" :style="`color: ${color}`">▶ LIVE THERMAL SCANNER</span>
+      <h1 class="font-orbitron font-black leading-none mb-4" :style="`font-size: clamp(2.5rem, 7vw, 6rem); color: ${color}; filter: drop-shadow(0 0 30px ${color}80);`" x-text="colorName"></h1>
+      <p class="font-exo text-white/50 text-base" x-text="description"></p>
+    </div>
+
+    <!-- SCANNER + CONTROLS -->
+    <div class="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12 items-start mb-16">
+      
+      <!-- THERMAL DISPLAY -->
+      <div>
+        <div class="thermal-frame" :style="`background: ${bgGradient}; border-color: ${color}40; box-shadow: 0 0 40px ${color}25;`" style="aspect-ratio:4/3;">
+          <div class="scan-moving" :style="`background: linear-gradient(90deg,transparent,${color},${color},transparent); box-shadow: 0 0 10px ${color};`"></div>
+          
+          <!-- ANIMAL SVG -->
+          <svg viewBox="0 0 400 300" class="w-full h-full absolute inset-0">
+            <defs>
+              <radialGradient id="dynBody" cx="50%" cy="55%" r="40%">
+                <stop offset="0%" :stop-color="hotColor"/>
+                <stop offset="40%" :stop-color="midColor"/>
+                <stop offset="100%" :stop-color="coldColor" stop-opacity="0.6"/>
+              </radialGradient>
+              <filter id="glow2"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <!-- Jungle background elements -->
+            <rect width="400" height="300" :fill="envColor" opacity="0.95"/>
+            <!-- Leaf silhouettes -->
+            <ellipse cx="30" cy="80" rx="60" ry="25" :fill="leafColor" opacity="0.6" transform="rotate(-30 30 80)"/>
+            <ellipse cx="370" cy="60" rx="55" ry="20" :fill="leafColor" opacity="0.5" transform="rotate(20 370 60)"/>
+            <ellipse cx="20" cy="250" rx="70" ry="22" :fill="leafColor" opacity="0.7" transform="rotate(15 20 250)"/>
+            <ellipse cx="380" cy="280" rx="60" ry="18" :fill="leafColor" opacity="0.6" transform="rotate(-10 380 280)"/>
+            <!-- Gorilla body -->
+            <ellipse cx="200" cy="195" rx="80" ry="70" fill="url(#dynBody)" filter="url(#glow2)"/>
+            <!-- Head -->
+            <ellipse cx="200" cy="115" rx="55" ry="50" :fill="midColor" filter="url(#glow2)" opacity="0.85"/>
+            <!-- Arms cool -->
+            <ellipse cx="105" cy="200" rx="25" ry="55" :fill="coldColor" opacity="0.7" transform="rotate(-12 105 200)"/>
+            <ellipse cx="295" cy="200" rx="25" ry="55" :fill="coldColor" opacity="0.7" transform="rotate(12 295 200)"/>
+            <!-- Eyes - always hotspots -->
+            <circle cx="180" cy="105" r="7" :fill="hotColor" filter="url(#glow2)" opacity="0.95"/>
+            <circle cx="220" cy="105" r="7" :fill="hotColor" filter="url(#glow2)" opacity="0.95"/>
+            <!-- Thermal grid overlay -->
+            <g stroke-width="0.5" opacity="0.12" :stroke="color">
+              <line x1="0" y1="60" x2="400" y2="60"/>
+              <line x1="0" y1="120" x2="400" y2="120"/>
+              <line x1="0" y1="180" x2="400" y2="180"/>
+              <line x1="0" y1="240" x2="400" y2="240"/>
+              <line x1="80" y1="0" x2="80" y2="300"/>
+              <line x1="160" y1="0" x2="160" y2="300"/>
+              <line x1="240" y1="0" x2="240" y2="300"/>
+              <line x1="320" y1="0" x2="320" y2="300"/>
+            </g>
+            <!-- Labels -->
+            <text x="8" y="16" font-family="monospace" font-size="9" :fill="color" opacity="0.7">THERMAL SCAN ACTIVE</text>
+            <text x="8" y="292" font-family="monospace" font-size="8" fill="#ffffff" opacity="0.3" x-text="`AMBIENT: ${Math.round(temp * 0.3)}°C | CORE: ${temp}°C`"></text>
+          </svg>
+
+          <!-- TEMP READOUT -->
+          <div class="absolute top-4 right-4 text-right">
+            <div class="font-orbitron font-black text-4xl" :style="`color: ${color}; text-shadow: 0 0 20px ${color};`" x-text="`${temp}°C`"></div>
+            <div class="font-orbitron text-xs text-white/40 tracking-widest" x-text="state"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTROLS -->
+      <div class="flex flex-col gap-8">
+        <!-- TEMP SLIDER -->
+        <div>
+          <div class="flex justify-between items-center mb-3">
+            <span class="font-orbitron text-xs text-white/50 tracking-widest">TEMPERATURE</span>
+            <span class="font-orbitron font-black text-2xl" :style="`color:${color};text-shadow:0 0 15px ${color};`" x-text="`${temp}°C`"></span>
+          </div>
+          <input 
+            type="range" min="-40" max="100" step="1"
+            x-model.number="temp"
+            class="temp-slider w-full"
+            :style="`background: linear-gradient(90deg, #7b2fbe, #1e90ff, #00e5ff, #39ff14, #f5e642, #ffaa00, #ff6600, #ff1a1a); --thumb-color: ${color};`"
+          />
+          <div class="flex justify-between font-orbitron text-xs text-white/30 mt-2">
+            <span>−40°C</span><span>0°C</span><span>+50°C</span><span>+100°C</span>
+          </div>
+        </div>
+
+        <!-- COLOR INFO -->
+        <div class="data-card" :style="`border-color: ${color}30;`">
+          <div class="font-orbitron text-xs mb-3 tracking-widest" :style="`color:${color}`" x-text="colorName.toUpperCase() + ' ZONE'"></div>
+          <p class="font-exo text-white/60 text-sm leading-relaxed" x-text="psychology"></p>
+        </div>
+
+        <!-- PHYSIOLOGICAL DATA -->
+        <div class="grid grid-cols-3 gap-3">
+          <div class="data-card text-center" :style="`border-color: ${color}20;`">
+            <div class="font-orbitron font-black text-xl mb-1" :style="`color:${color}`" x-text="heartRate + ' bpm'"></div>
+            <div class="font-exo text-white/40 text-xs">Heart Rate</div>
+          </div>
+          <div class="data-card text-center" :style="`border-color: ${color}20;`">
+            <div class="font-orbitron font-black text-xl mb-1" :style="`color:${color}`" x-text="arousal + '%'"></div>
+            <div class="font-exo text-white/40 text-xs">Arousal</div>
+          </div>
+          <div class="data-card text-center" :style="`border-color: ${color}20;`">
+            <div class="font-orbitron font-black text-xl mb-1" :style="`color:${color}`" x-text="calm + '%'"></div>
+            <div class="font-exo text-white/40 text-xs">Calm</div>
+          </div>
+        </div>
+
+        <!-- THERMAL STATE CARD -->
+        <div class="data-card" :style="`background: ${color}08; border-color: ${color}30;`">
+          <div class="font-orbitron text-xs text-white/40 mb-2 tracking-widest">WILDLIFE CONTEXT</div>
+          <p class="font-exo text-white/70 text-sm leading-relaxed" x-text="wildlifeContext"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- AROUSAL CURVE CHART -->
+    <div class="max-w-4xl mx-auto mb-16">
+      <div class="data-card" style="border-color:rgba(57,255,20,0.15);">
+        <div class="font-orbitron text-xs text-green-400 mb-4 tracking-widest">AROUSAL CURVE — COLOR PSYCHOLOGY RESEARCH</div>
+        <canvas id="arousalChart" height="200"></canvas>
+        <p class="font-exo text-white/30 text-xs mt-3 text-center">Based on Russell's (1980) Circumplex Model of Affect and Elliot et al. (2007) color-arousal research.</p>
+      </div>
+    </div>
+
+    <!-- INTELLIGENCE MODULE -->
+    <div class="max-w-4xl mx-auto">
+      <div class="intel-module">
+        <div class="text-center mb-6">
+          <span class="font-orbitron text-xs tracking-widest" style="color:#39ff14;letter-spacing:0.4em;">INTELLIGENCE SYSTEM</span>
+          <h2 class="font-orbitron font-black text-2xl text-white mt-2">FULL THERMAL SPECTRUM</h2>
+        </div>
+        <div class="flex flex-wrap justify-center gap-3 mb-6">
+          <a href="cold-colors.html#violet" class="intel-bubble-sm" style="background:radial-gradient(circle,rgba(75,0,130,0.6),rgba(30,0,60,0.9));border-color:#7b2fbe;"><span style="font-family:'Orbitron',sans-serif;font-size:0.5rem;color:#c084fc;letter-spacing:0.1em;">VIOLET</span><span style="font-family:'Exo 2',sans-serif;font-size:0.45rem;color:rgba(255,255,255,0.3);">−40°C</span></a>
+          <a href="cold-colors.html#blue" class="intel-bubble-sm" style="background:radial-gradient(circle,rgba(0,0,180,0.6),rgba(0,0,60,0.9));border-color:#1e90ff;"><span style="font-family:'Orbitron',sans-serif;font-size:0.5rem;color:#60a5fa;letter-spacing:0.1em;">BLUE</span><span style="font-family:'Exo 2',sans-serif;font-size:0.45rem;color:rgba(255,255,255,0.3);">−10°C</span></a>
+          <a href="cold-colors.html#cyan" class="intel-bubble-sm" style="background:radial-gradient(circle,rgba(0,180,210,0.6),rgba(0,60,80,0.9));border-color:#00e5ff;"><span style="font-family:'Orbitron',sans-serif;font-size:0.5rem;color:#00e5ff;letter-spacing:0.1em;">CYAN</span><span style="font-family:'Exo 2',sans-serif;font-size:0.45rem;color:rgba(255,255,255,0.3);">10°C</span></a>
+          <a href="interactive.html" class="intel-bubble-sm" style="background:radial-gradient(circle,rgba(0,160,0,0.6),rgba(0,40,0,0.9));border-color:#39ff14;box-shadow:0 0 12px rgba(57,255,20,0.3);"><span style="font-family:'Orbitron',sans-serif;font-size:0.5rem;color:#39ff14;letter-spacing:0.1em;">GREEN</span><span style="font-family:'Exo 2',sans-serif;font-size:0.45rem;color:rgba(255,255,255,0.3);">25°C</span></a>
+          <a href="interactive.html" class="intel-bubble-sm" style="background:radial-gradient(circle,rgba(200,200,0,0.6),rgba(60,60,0,0.9));border-color:#f5e642;box-shadow:0 0 12px rgba(245,230,66,0.3);"><span style="font-family:'Orbitron',sans-serif;font-size:0.5rem;color:#fde047;letter-spacing:0.1em;">YELLOW</span><span style="font-family:'Exo 2',sans-serif;font-size:0.45rem;color:rgba(255,255,255,0.3);">35°C</span></a>
+          <a href="hot-colors.html#orange" class="intel-bubble-sm" style="background:radial-gradient(circle,rgba(220,120,0,0.6),rgba(60,30,0,0.9));border-color:#ffaa00;"><span style="font-family:'Orbitron',sans-serif;font-size:0.5rem;color:#fbbf24;letter-spacing:0.1em;">AMBER</span><span style="font-family:'Exo 2',sans-serif;font-size:0.45rem;color:rgba(255,255,255,0.3);">45°C</span></a>
+          <a href="hot-colors.html#orange" class="intel-bubble-sm" style="background:radial-gradient(circle,rgba(255,80,0,0.6),rgba(80,20,0,0.9));border-color:#ff6600;"><span style="font-family:'Orbitron',sans-serif;font-size:0.5rem;color:#fb923c;letter-spacing:0.1em;">ORANGE</span><span style="font-family:'Exo 2',sans-serif;font-size:0.45rem;color:rgba(255,255,255,0.3);">55°C</span></a>
+          <a href="hot-colors.html#red" class="intel-bubble-sm" style="background:radial-gradient(circle,rgba(255,0,0,0.6),rgba(100,0,0,0.9));border-color:#ff1a1a;"><span style="font-family:'Orbitron',sans-serif;font-size:0.5rem;color:#f87171;letter-spacing:0.1em;">RED</span><span style="font-family:'Exo 2',sans-serif;font-size:0.45rem;color:rgba(255,255,255,0.3);">70°C+</span></a>
+        </div>
+        <div class="h-3 rounded-full" style="background:linear-gradient(90deg,#7b2fbe,#1e90ff,#00e5ff,#39ff14,#f5e642,#ffaa00,#ff6600,#ff1a1a);"></div>
+        <div class="flex justify-between mt-2 font-orbitron text-xs text-white/20"><span>−40°C</span><span>AMBIENT</span><span>BODY HEAT</span><span>70°C+</span></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="border-t border-white/10 py-10 px-6 text-center" style="background:#030712;">
+    <div class="font-orbitron text-green-400 text-sm mb-2 tracking-widest">⬡ THERMAL VISION — INTERACTIVE SCANNER</div>
+    <p class="font-exo text-white/30 text-xs">Typography & Color Psychology · Academic Research Project</p>
+  </footer>
+
+  <script>
+    function thermalScanner() {
+      return {
+        temp: 25,
+        get color() { return this._getColor(this.temp); },
+        get colorName() { return this._getColorName(this.temp); },
+        get bgGradient() { return this._getBg(this.temp); },
+        get hotColor() { return this._getHot(this.temp); },
+        get midColor() { return this._getMid(this.temp); },
+        get coldColor() { return this._getCold(this.temp); },
+        get envColor() { return this._getEnv(this.temp); },
+        get leafColor() { return this._getLeaf(this.temp); },
+        get description() { return this._getDesc(this.temp); },
+        get psychology() { return this._getPsych(this.temp); },
+        get wildlifeContext() { return this._getWildlife(this.temp); },
+        get state() { return this._getState(this.temp); },
+        get heartRate() { 
+          if (this.temp < -10) return 52;
+          if (this.temp < 10) return 58;
+          if (this.temp < 25) return 64;
+          if (this.temp < 40) return 72;
+          if (this.temp < 60) return 84;
+          return 96;
+        },
+        get arousal() {
+          if (this.temp < -10) return 15;
+          if (this.temp < 10) return 25;
+          if (this.temp < 25) return 40;
+          if (this.temp < 40) return 55;
+          if (this.temp < 60) return 75;
+          return 92;
+        },
+        get calm() { return 100 - this.arousal; },
+
+        _getColor(t) {
+          if (t < -20) return '#7b2fbe';
+          if (t < 0) return '#1e90ff';
+          if (t < 15) return '#00e5ff';
+          if (t < 30) return '#39ff14';
+          if (t < 40) return '#f5e642';
+          if (t < 55) return '#ffaa00';
+          if (t < 70) return '#ff6600';
+          return '#ff1a1a';
+        },
+        _getColorName(t) {
+          if (t < -20) return 'VIOLET';
+          if (t < 0) return 'BLUE';
+          if (t < 15) return 'CYAN';
+          if (t < 30) return 'GREEN';
+          if (t < 40) return 'YELLOW';
+          if (t < 55) return 'AMBER';
+          if (t < 70) return 'ORANGE';
+          return 'RED';
+        },
+        _getBg(t) {
+          if (t < 0) return 'radial-gradient(ellipse at 40% 50%, rgba(30,144,255,0.3) 0%, #030712 70%)';
+          if (t < 25) return 'radial-gradient(ellipse at 40% 50%, rgba(0,229,255,0.25) 0%, #030712 70%)';
+          if (t < 40) return 'radial-gradient(ellipse at 40% 50%, rgba(57,255,20,0.2) 0%, #030712 70%)';
+          if (t < 60) return 'radial-gradient(ellipse at 40% 50%, rgba(255,170,0,0.25) 0%, #0a0500 70%)';
+          return 'radial-gradient(ellipse at 40% 50%, rgba(255,26,26,0.35) 0%, #0a0000 70%)';
+        },
+        _getHot(t) {
+          if (t < 0) return '#1e90ff';
+          if (t < 25) return '#00e5ff';
+          if (t < 40) return '#f5e642';
+          if (t < 60) return '#ff6600';
+          return '#ff1a1a';
+        },
+        _getMid(t) {
+          if (t < 0) return '#7b2fbe';
+          if (t < 25) return '#1e90ff';
+          if (t < 40) return '#39ff14';
+          if (t < 60) return '#ffaa00';
+          return '#ff6600';
+        },
+        _getCold(t) {
+          if (t < 0) return '#050010';
+          if (t < 25) return '#000d1a';
+          if (t < 40) return '#001a00';
+          return '#0a0000';
+        },
+        _getEnv(t) {
+          if (t < 0) return '#000a0f';
+          if (t < 25) return '#010a08';
+          return '#0a0200';
+        },
+        _getLeaf(t) {
+          if (t < 0) return '#001020';
+          if (t < 25) return '#001510';
+          return '#150500';
+        },
+        _getState(t) {
+          if (t < -20) return 'BELOW THERMAL FLOOR';
+          if (t < 0) return 'SUB-ZERO AMBIENT';
+          if (t < 15) return 'COOL ENVIRONMENT';
+          if (t < 30) return 'TEMPERATE ZONE';
+          if (t < 40) return 'WARM SURFACE';
+          if (t < 55) return 'ELEVATED HEAT';
+          if (t < 70) return 'HIGH METABOLIC ACTIVITY';
+          return 'PEAK THERMAL SIGNATURE';
+        },
+        _getDesc(t) {
+          if (t < 0) return 'Sub-zero thermal signature. Deep blue-violet in false-color mapping.';
+          if (t < 15) return 'Cool ambient zone. Cyan/teal represents jungle air and leaf surfaces.';
+          if (t < 30) return 'Temperate surface. Green maps to resting body temperature.';
+          if (t < 40) return 'Warm zone. Yellow-amber marks moderate metabolic output.';
+          if (t < 60) return 'Hot zone. Orange maps to active muscles and face of large mammals.';
+          return 'Peak thermal signature. Red-white indicates maximum heat output.';
+        },
+        _getPsych(t) {
+          if (t < 0) return 'Violet and deep blue trigger the lowest arousal response. Blood pressure and heart rate decrease. Associated with sleep, mystery, and the void.';
+          if (t < 15) return 'Cyan-blue produces cognitive clarity and reduced cortisol. Hospital environments use this range for patient recovery. Trust and calm are maximized.';
+          if (t < 30) return 'Green represents ecological safety — the color of food sources, clear passage, and biological equilibrium. Heart rate stabilizes. Creative thinking improves.';
+          if (t < 40) return 'Yellow activates moderate alertness without threatening. Associated with optimism, caution signals, and social engagement. Decision-making accelerates.';
+          if (t < 60) return 'Orange triggers appetite signals, social behavior, and moderate urgency. Athletes in orange environments show improved output. Interaction frequency increases.';
+          return 'Red triggers the fastest autonomic nervous system response. Heart rate, blood pressure, and testosterone all measurably increase within seconds of exposure.';
+        },
+        _getWildlife(t) {
+          if (t < 0) return 'Ground frost, exposed rock, cold water sources in the jungle. No biological thermal signature present.';
+          if (t < 15) return 'Dense canopy shade, humid air between leaves, the breath of a resting animal on a cool morning.';
+          if (t < 30) return 'Ambient jungle ground temperature, outer fur of a resting gorilla, leafy forest floor.';
+          if (t < 40) return 'Gorilla outer body surface at rest. Jaguar\'s fur-covered exterior. Primate hands and feet during activity.';
+          if (t < 60) return 'Active muscle tissue beneath fur. The face and nose of a large mammal breathing hard after movement.';
+          return 'Core body heat of a primate in peak activity. Facial skin of an excited great ape. Post-sprint muscle tissue in big cats.';
+        },
+
+        init() {
+          setTimeout(() => { this.drawChart(); }, 100);
+        },
+
+        drawChart() {
+          const ctx = document.getElementById('arousalChart').getContext('2d');
+          const temps = [-40,-20,0,10,25,35,45,55,70,100];
+          const arousalVals = [10,18,25,35,48,58,72,80,90,95];
+          const colors = temps.map(t => this._getColor(t));
+
+          new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: temps.map(t => t + '°C'),
+              datasets: [{
+                label: 'Psychological Arousal',
+                data: arousalVals,
+                borderColor: 'rgba(57,255,20,0.8)',
+                backgroundColor: 'rgba(57,255,20,0.05)',
+                borderWidth: 2,
+                fill: true,
+                tension: 0.4,
+                pointBackgroundColor: colors,
+                pointBorderColor: colors,
+                pointRadius: 8,
+                pointHoverRadius: 12,
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: true,
+              plugins: {
+                legend: { labels: { color: 'rgba(255,255,255,0.5)', font: { family: 'Orbitron', size: 10 } } },
+                tooltip: {
+                  backgroundColor: 'rgba(3,7,18,0.9)',
+                  borderColor: 'rgba(57,255,20,0.3)',
+                  borderWidth: 1,
+                  titleColor: '#39ff14',
+                  bodyColor: 'rgba(255,255,255,0.6)',
+                }
+              },
+              scales: {
+                x: { ticks: { color: 'rgba(255,255,255,0.4)', font: { family: 'Orbitron', size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } },
+                y: {
+                  ticks: { color: 'rgba(255,255,255,0.4)', font: { family: 'Orbitron', size: 9 }, callback: v => v + '%' },
+                  grid: { color: 'rgba(255,255,255,0.05)' },
+                  min: 0, max: 100
+                }
+              }
+            }
+          });
+        }
+      }
+    }
+  </script>
+</body>
+</html>
