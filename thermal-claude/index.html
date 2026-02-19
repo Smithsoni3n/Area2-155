@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thermal Vision — Color Intelligence</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Exo+2:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { orbitron: ['Orbitron','sans-serif'], exo: ['Exo 2','sans-serif'] },
+          colors: {
+            thermal: {
+              black: '#030712',
+              void: '#050b14',
+              cold: '#0d1f3c',
+              ice: '#1e90ff',
+              cyan: '#00e5ff',
+              green: '#39ff14',
+              yellow: '#f5e642',
+              amber: '#ffaa00',
+              orange: '#ff6600',
+              red: '#ff1a1a',
+              plasma: '#ff00aa',
+            }
+          },
+          animation: {
+            'scan': 'scan 3s linear infinite',
+            'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            scan: { '0%': { top: '-5%' }, '100%': { top: '105%' } },
+            pulseGlow: { '0%,100%': { textShadow: '0 0 20px #39ff14, 0 0 40px #39ff14' }, '50%': { textShadow: '0 0 40px #00e5ff, 0 0 80px #00e5ff' } },
+            float: { '0%,100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-20px)' } },
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --thermal-scan: #00e5ff;
+      --thermal-hot: #ff6600;
+      --thermal-cold: #1e90ff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: #030712; font-family: 'Exo 2', sans-serif; overflow-x: hidden; cursor: crosshair; }
+    
+    /* SCAN LINE */
+    .scan-line {
+      position: absolute; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, #00e5ff, #39ff14, #00e5ff, transparent);
+      box-shadow: 0 0 20px #00e5ff, 0 0 40px #39ff14;
+      animation: scan 4s linear infinite;
+      pointer-events: none; z-index: 20;
+    }
+    @keyframes scan { 0% { top: 0; opacity: 1; } 95% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
+
+    /* HERO */
+    .hero-bg {
+      background: radial-gradient(ellipse at 20% 50%, rgba(30,144,255,0.25) 0%, transparent 50%),
+                  radial-gradient(ellipse at 80% 30%, rgba(255,102,0,0.2) 0%, transparent 50%),
+                  radial-gradient(ellipse at 50% 80%, rgba(57,255,20,0.1) 0%, transparent 50%),
+                  linear-gradient(135deg, #030712 0%, #050b14 50%, #0d1f3c 100%);
+    }
+    .hero-grid {
+      background-image: linear-gradient(rgba(0,229,255,0.05) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(0,229,255,0.05) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* TITLE GLOW */
+    .thermal-title {
+      background: linear-gradient(135deg, #00e5ff 0%, #39ff14 30%, #ffaa00 60%, #ff6600 80%, #ff1a1a 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      filter: drop-shadow(0 0 30px rgba(0,229,255,0.6));
+    }
+    .subtitle-glow { color: #00e5ff; text-shadow: 0 0 20px rgba(0,229,255,0.8); }
+
+    /* CTA PILL */
+    .cta-pill {
+      width: 350px; height: 70px; display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, rgba(0,229,255,0.15), rgba(57,255,20,0.1));
+      border: 2px solid #00e5ff; border-radius: 50px; position: relative; overflow: hidden;
+      transition: all 0.4s ease; cursor: pointer; text-decoration: none;
+    }
+    .cta-pill::before {
+      content: ''; position: absolute; inset: 0; border-radius: 50px;
+      background: linear-gradient(90deg, transparent, rgba(0,229,255,0.3), transparent);
+      transform: translateX(-100%); transition: transform 0.6s ease;
+    }
+    .cta-pill:hover::before { transform: translateX(100%); }
+    .cta-pill:hover { border-color: #39ff14; box-shadow: 0 0 40px rgba(0,229,255,0.5), 0 0 80px rgba(57,255,20,0.3); transform: scale(1.03); }
+    .cta-pill span { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.2em; color: #00e5ff; position: relative; z-index: 1; }
+
+    /* THERMAL BADGE */
+    .thermal-badge {
+      display: inline-block; padding: 4px 16px; border: 1px solid rgba(57,255,20,0.5);
+      background: rgba(57,255,20,0.1); border-radius: 4px; color: #39ff14;
+      font-family: 'Orbitron', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em;
+    }
+
+    /* NAV CARDS */
+    .nav-card {
+      position: relative; overflow: hidden; border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);
+      transition: all 0.4s ease; cursor: pointer; text-decoration: none; display: block;
+    }
+    .nav-card::before {
+      content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity 0.4s;
+    }
+    .nav-card.hot::before { background: linear-gradient(135deg, rgba(255,102,0,0.2), rgba(255,26,26,0.15)); }
+    .nav-card.cold::before { background: linear-gradient(135deg, rgba(30,144,255,0.2), rgba(0,229,255,0.15)); }
+    .nav-card.interactive::before { background: linear-gradient(135deg, rgba(57,255,20,0.2), rgba(245,230,66,0.15)); }
+    .nav-card.resources::before { background: linear-gradient(135deg, rgba(255,0,170,0.2), rgba(255,102,0,0.15)); }
+    .nav-card:hover::before { opacity: 1; }
+    .nav-card:hover { transform: translateY(-8px); border-color: rgba(0,229,255,0.4); box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+    .nav-card .card-temp {
+      font-family: 'Orbitron', sans-serif; font-size: 2.5rem; font-weight: 900; line-height: 1;
+    }
+
+    /* INTELLIGENCE SECTION */
+    .intel-bubble {
+      width: 120px; height: 120px; border-radius: 50%; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease;
+      border: 2px solid transparent; position: relative; text-align: center;
+    }
+    .intel-bubble:hover { transform: scale(1.15); }
+    .intel-bubble .temp-label {
+      font-family: 'Orbitron', sans-serif; font-size: 0.6rem; letter-spacing: 0.15em; margin-top: 4px;
+    }
+
+    /* MOBILE NAV */
+    .mobile-nav {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(3,7,18,0.95); backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(0,229,255,0.2); padding: 8px 0;
+      display: none;
+    }
+    @media(max-width:768px){
+      .mobile-nav { display: flex; }
+      .desktop-nav { display: none !important; }
+      body { padding-bottom: 80px; }
+    }
+    .mobile-nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px; text-decoration: none; padding: 8px 0; color: rgba(255,255,255,0.5); font-family: 'Orbitron', sans-serif; font-size: 0.5rem; letter-spacing: 0.1em; transition: color 0.3s; }
+    .mobile-nav-item:hover, .mobile-nav-item.active { color: #00e5ff; }
+    .mobile-nav-item svg { width: 22px; height: 22px; }
+
+    /* DESKTOP PILL NAV */
+    .desktop-nav {
+      position: fixed; top: 32px; left: 50%; transform: translateX(-50%); z-index: 100;
+      background: rgba(3,7,18,0.85); backdrop-filter: blur(20px);
+      border: 1px solid rgba(0,229,255,0.25); border-radius: 50px;
+      padding: 10px 32px; display: flex; gap: 32px; align-items: center;
+    }
+    .desktop-nav a { font-family: 'Orbitron', sans-serif; font-size: 0.65rem; letter-spacing: 0.2em; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.3s; }
+    .desktop-nav a:hover, .desktop-nav a.active { color: #00e5ff; text-shadow: 0 0 15px rgba(0,229,255,0.8); }
+    .desktop-nav .nav-logo { font-size: 0.75rem; font-weight: 900; color: #39ff14; text-shadow: 0 0 15px rgba(57,255,20,0.8); }
+
+    /* PARTICLES */
+    #particles { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+
+    /* SECTION TITLE */
+    .section-label { font-family: 'Orbitron', sans-serif; font-size: 0.65rem; letter-spacing: 0.4em; color: #39ff14; opacity: 0.8; }
+
+    /* GORILLA AREA */
+    .gorilla-zone {
+      position: relative; overflow: hidden;
+      background: linear-gradient(135deg, #0d1f3c 0%, #030712 50%, #1a0a00 100%);
+      border-top: 1px solid rgba(0,229,255,0.15);
+      border-bottom: 1px solid rgba(255,102,0,0.15);
+    }
+    .gorilla-gradient {
+      background: radial-gradient(ellipse at 30% 50%, rgba(30,144,255,0.3) 0%, transparent 55%),
+                  radial-gradient(ellipse at 70% 50%, rgba(255,102,0,0.3) 0%, transparent 55%);
+    }
+    .gorilla-text-gradient {
+      background: linear-gradient(135deg, #1e90ff, #00e5ff, #ff6600, #ff1a1a);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+  </style>
+</head>
+<body class="bg-thermal-black">
+
+  <!-- DESKTOP PILL NAV -->
+  <nav class="desktop-nav" id="desktopNav">
+    <span class="nav-logo">⬡ TV</span>
+    <a href="index.html" class="active">HOME</a>
+    <a href="thermal-vision/hot-colors.html">HOT</a>
+    <a href="thermal-vision/cold-colors.html">COLD</a>
+    <a href="thermal-vision/interactive.html">INTERACT</a>
+    <a href="thermal-vision/resources.html">RESEARCH</a>
+  </nav>
+
+  <!-- MOBILE BOTTOM NAV -->
+  <nav class="mobile-nav">
+    <a href="index.html" class="mobile-nav-item active">
+      <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955a1.126 1.126 0 011.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      HOME
+    </a>
+    <a href="thermal-vision/hot-colors.html" class="mobile-nav-item">
+      <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"/></svg>
+      HOT
+    </a>
+    <a href="thermal-vision/cold-colors.html" class="mobile-nav-item">
+      <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+      COLD
+    </a>
+    <a href="thermal-vision/interactive.html" class="mobile-nav-item">
+      <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5"/></svg>
+      INTERACT
+    </a>
+    <a href="thermal-vision/resources.html" class="mobile-nav-item">
+      <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
+      RESEARCH
+    </a>
+  </nav>
+
+  <!-- ============ HERO SECTION ============ -->
+  <section class="relative min-h-screen hero-bg hero-grid flex flex-col items-center justify-center overflow-hidden" id="hero">
+    <div id="particles"></div>
+    <div class="scan-line"></div>
+
+    <!-- SCAN COMPLETE BADGE -->
+    <div class="thermal-badge mb-8 z-10 opacity-0" id="scanBadge">
+      ▶ SCAN COMPLETE — ENTER SITE
+    </div>
+
+    <!-- MAIN TITLE -->
+    <div class="text-center z-10 px-6 max-w-5xl" id="heroTitle">
+      <h1 class="thermal-title font-orbitron font-black leading-none mb-4" style="font-size: clamp(3rem, 8vw, 8rem); letter-spacing: -0.02em;">
+        THERMAL<br/>VISION
+      </h1>
+      <p class="subtitle-glow font-orbitron font-semibold mb-2" style="font-size: clamp(0.8rem, 2vw, 1.2rem); letter-spacing: 0.5em;">
+        COLOR INTELLIGENCE SYSTEM
+      </p>
+      <p class="font-exo text-white/50 text-base max-w-xl mx-auto mb-10 leading-relaxed" id="heroCopy">
+        Explore how thermal infrared colors map temperature ranges and psychologically 
+        influence the human nervous system — from freezing blue to scorching red.
+      </p>
+
+      <!-- CTA PILL -->
+      <div class="flex justify-center mb-4">
+        <a href="thermal-vision/hot-colors.html" class="cta-pill" id="ctaPill">
+          <span>⬡ BEGIN THERMAL SCAN</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- SCROLL HINT -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-thermal-cyan/40 font-orbitron text-xs tracking-widest flex flex-col items-center gap-2 animate-bounce">
+      <span>SCROLL</span>
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- ============ GORILLA / ENTER SECTION ============ -->
+  <section class="gorilla-zone py-24 relative">
+    <div class="gorilla-gradient absolute inset-0 pointer-events-none"></div>
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        
+        <!-- THERMAL ANIMAL VISUAL -->
+        <div class="relative order-2 md:order-1">
+          <div class="relative rounded-2xl overflow-hidden border border-thermal-cyan/20" style="aspect-ratio:4/3; background: linear-gradient(135deg, #0d1f3c, #1a0a00);">
+            <!-- Simulated thermal animal silhouette with CSS -->
+            <div class="absolute inset-0 flex items-center justify-center">
+              <!-- Gorilla thermal signature -->
+              <svg viewBox="0 0 400 300" class="w-full h-full opacity-90">
+                <defs>
+                  <radialGradient id="bodyGrad" cx="50%" cy="55%" r="40%">
+                    <stop offset="0%" stop-color="#ff1a1a" stop-opacity="0.9"/>
+                    <stop offset="30%" stop-color="#ff6600" stop-opacity="0.8"/>
+                    <stop offset="60%" stop-color="#ffaa00" stop-opacity="0.7"/>
+                    <stop offset="100%" stop-color="#1e90ff" stop-opacity="0.5"/>
+                  </radialGradient>
+                  <radialGradient id="faceGrad" cx="50%" cy="40%" r="35%">
+                    <stop offset="0%" stop-color="#ff6600" stop-opacity="1"/>
+                    <stop offset="50%" stop-color="#ffaa00" stop-opacity="0.8"/>
+                    <stop offset="100%" stop-color="#39ff14" stop-opacity="0.5"/>
+                  </radialGradient>
+                  <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#0d1f3c" stop-opacity="1"/>
+                    <stop offset="100%" stop-color="#030712" stop-opacity="1"/>
+                  </radialGradient>
+                  <filter id="glow"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                </defs>
+                <rect width="400" height="300" fill="url(#bgGrad)"/>
+                <!-- Cool ambient background shapes -->
+                <ellipse cx="80" cy="200" rx="60" ry="80" fill="#1e4a8a" opacity="0.4"/>
+                <ellipse cx="330" cy="220" rx="50" ry="70" fill="#0d3260" opacity="0.3"/>
+                <!-- Body warm mass -->
+                <ellipse cx="200" cy="200" rx="90" ry="80" fill="url(#bodyGrad)" filter="url(#glow)"/>
+                <!-- Head -->
+                <ellipse cx="200" cy="110" rx="60" ry="55" fill="url(#faceGrad)" filter="url(#glow)"/>
+                <!-- Arms - cool -->
+                <ellipse cx="100" cy="200" rx="30" ry="60" fill="#1e90ff" opacity="0.6" transform="rotate(-15 100 200)"/>
+                <ellipse cx="300" cy="200" rx="30" ry="60" fill="#39a5ff" opacity="0.6" transform="rotate(15 300 200)"/>
+                <!-- Eyes - hotspots -->
+                <circle cx="175" cy="100" r="8" fill="#ff1a1a" filter="url(#glow)" opacity="0.95"/>
+                <circle cx="225" cy="100" r="8" fill="#ff1a1a" filter="url(#glow)" opacity="0.95"/>
+                <!-- Grid overlay -->
+                <g stroke="#00e5ff" stroke-width="0.5" opacity="0.15">
+                  <line x1="0" y1="50" x2="400" y2="50"/>
+                  <line x1="0" y1="100" x2="400" y2="100"/>
+                  <line x1="0" y1="150" x2="400" y2="150"/>
+                  <line x1="0" y1="200" x2="400" y2="200"/>
+                  <line x1="0" y1="250" x2="400" y2="250"/>
+                  <line x1="50" y1="0" x2="50" y2="300"/>
+                  <line x1="100" y1="0" x2="100" y2="300"/>
+                  <line x1="150" y1="0" x2="150" y2="300"/>
+                  <line x1="200" y1="0" x2="200" y2="300"/>
+                  <line x1="250" y1="0" x2="250" y2="300"/>
+                  <line x1="300" y1="0" x2="300" y2="300"/>
+                  <line x1="350" y1="0" x2="350" y2="300"/>
+                </g>
+                <!-- Temp markers -->
+                <text x="8" y="18" fill="#00e5ff" font-family="monospace" font-size="10" opacity="0.7">THERMAL SCAN — PRIMATE</text>
+                <text x="8" y="285" fill="#39ff14" font-family="monospace" font-size="9" opacity="0.7">20°C ←————————————→ 50°C</text>
+                <rect x="8" y="260" width="12" height="12" fill="#1e90ff" opacity="0.8"/>
+                <rect x="24" y="260" width="12" height="12" fill="#39ff14" opacity="0.8"/>
+                <rect x="40" y="260" width="12" height="12" fill="#ffaa00" opacity="0.8"/>
+                <rect x="56" y="260" width="12" height="12" fill="#ff1a1a" opacity="0.8"/>
+              </svg>
+            </div>
+            <!-- Scan overlay animation -->
+            <div class="scan-line" style="animation-duration:3s;"></div>
+            <div class="absolute top-3 right-3 thermal-badge" style="font-size:0.55rem;">LIVE FEED</div>
+          </div>
+          <p class="text-white/40 text-xs font-exo text-center mt-3 italic">Thermal view of a primate — hot core (red/orange) vs cool limbs (blue/cyan)</p>
+        </div>
+
+        <!-- TEXT -->
+        <div class="order-1 md:order-2">
+          <span class="section-label">MODULE 001</span>
+          <h2 class="font-orbitron font-black text-4xl md:text-5xl mt-3 mb-6 leading-tight gorilla-text-gradient">
+            THERMAL<br/>VISION<br/>EXPLAINED
+          </h2>
+          <p class="font-exo text-white/70 text-base leading-relaxed mb-6">
+            Thermal cameras detect infrared radiation invisible to the human eye and map 
+            temperature differences to a visible color spectrum. This false-color visualization 
+            reveals the metabolic heat signature of living creatures in their environment.
+          </p>
+          <div class="space-y-3">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full flex-shrink-0" style="background: radial-gradient(circle, #1e90ff, #0d3260); box-shadow: 0 0 12px rgba(30,144,255,0.5);"></div>
+              <div><span class="font-orbitron text-thermal-ice font-bold text-sm">BLUE/PURPLE</span> <span class="font-exo text-white/60 text-sm">— Cool zones 20–30°C. Ambient air, foliage, extremities.</span></div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full flex-shrink-0" style="background: radial-gradient(circle, #39ff14, #1a5c00); box-shadow: 0 0 12px rgba(57,255,20,0.5);"></div>
+              <div><span class="font-orbitron text-thermal-green font-bold text-sm">GREEN/YELLOW</span> <span class="font-exo text-white/60 text-sm">— Moderate 30–40°C. Outer body surface, resting zones.</span></div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full flex-shrink-0" style="background: radial-gradient(circle, #ff6600, #5c1a00); box-shadow: 0 0 12px rgba(255,102,0,0.5);"></div>
+              <div><span class="font-orbitron text-thermal-orange font-bold text-sm">RED/ORANGE</span> <span class="font-exo text-white/60 text-sm">— Hot zones 40–50°C. Active muscles, face, core.</span></div>
+            </div>
+          </div>
+          <a href="thermal-vision/interactive.html" class="cta-pill mt-8 inline-flex" style="width:280px; height:56px;">
+            <span style="font-size:0.8rem;">EXPLORE INTERACTIVE SCANNER</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NAVIGATION CARDS ============ -->
+  <section class="py-24 px-6" style="background: linear-gradient(180deg, #030712 0%, #050b14 100%);">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="section-label">NAVIGATE</span>
+        <h2 class="font-orbitron font-black text-3xl md:text-4xl mt-3 text-white">
+          SELECT YOUR <span style="color:#00e5ff;">SPECTRUM</span>
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- HOT CARD -->
+        <a href="thermal-vision/hot-colors.html" class="nav-card hot p-6 group">
+          <div class="card-temp mb-3" style="background: linear-gradient(135deg,#ff6600,#ff1a1a); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">50°</div>
+          <div class="thermal-badge mb-4" style="border-color:rgba(255,102,0,0.5); background:rgba(255,102,0,0.1); color:#ff6600;">HOT COLORS</div>
+          <h3 class="font-orbitron font-bold text-white text-lg mb-2">Red · Orange · Pink</h3>
+          <p class="font-exo text-white/50 text-sm leading-relaxed">Psychology of heat, urgency, and arousal. How warm tones accelerate the nervous system.</p>
+          <div class="mt-6 font-orbitron text-xs text-orange-400 flex items-center gap-2 group-hover:gap-4 transition-all">ENTER <span>→</span></div>
+        </a>
+
+        <!-- COLD CARD -->
+        <a href="thermal-vision/cold-colors.html" class="nav-card cold p-6 group">
+          <div class="card-temp mb-3" style="background: linear-gradient(135deg,#1e90ff,#00e5ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">−20°</div>
+          <div class="thermal-badge mb-4" style="border-color:rgba(30,144,255,0.5); background:rgba(30,144,255,0.1); color:#1e90ff;">COLD COLORS</div>
+          <h3 class="font-orbitron font-bold text-white text-lg mb-2">Blue · Cyan · Purple</h3>
+          <p class="font-exo text-white/50 text-sm leading-relaxed">The calming science of cool tones. How cold colors reduce cortisol and slow heart rate.</p>
+          <div class="mt-6 font-orbitron text-xs text-blue-400 flex items-center gap-2 group-hover:gap-4 transition-all">ENTER <span>→</span></div>
+        </a>
+
+        <!-- INTERACTIVE CARD -->
+        <a href="thermal-vision/interactive.html" class="nav-card interactive p-6 group">
+          <div class="card-temp mb-3" style="background: linear-gradient(135deg,#39ff14,#f5e642); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">25°</div>
+          <div class="thermal-badge mb-4" style="border-color:rgba(57,255,20,0.5); background:rgba(57,255,20,0.1); color:#39ff14;">INTERACTIVE</div>
+          <h3 class="font-orbitron font-bold text-white text-lg mb-2">Live Temperature Slider</h3>
+          <p class="font-exo text-white/50 text-sm leading-relaxed">Drag through the thermal spectrum. Watch colors shift and learn psychological effects in real time.</p>
+          <div class="mt-6 font-orbitron text-xs text-green-400 flex items-center gap-2 group-hover:gap-4 transition-all">ENTER <span>→</span></div>
+        </a>
+
+        <!-- RESOURCES CARD -->
+        <a href="thermal-vision/resources.html" class="nav-card resources p-6 group">
+          <div class="card-temp mb-3" style="background: linear-gradient(135deg,#ff00aa,#ff6600); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">REF</div>
+          <div class="thermal-badge mb-4" style="border-color:rgba(255,0,170,0.5); background:rgba(255,0,170,0.1); color:#ff00aa;">RESEARCH</div>
+          <h3 class="font-orbitron font-bold text-white text-lg mb-2">Academic Sources</h3>
+          <p class="font-exo text-white/50 text-sm leading-relaxed">Peer-reviewed studies, citations, and the full technology stack powering this experience.</p>
+          <div class="mt-6 font-orbitron text-xs text-pink-400 flex items-center gap-2 group-hover:gap-4 transition-all">ENTER <span>→</span></div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COLOR INTELLIGENCE SYSTEM ============ -->
+  <section class="py-24 px-6" style="background: #030712; border-top: 1px solid rgba(0,229,255,0.1);">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="section-label">INTELLIGENCE SYSTEM</span>
+        <h2 class="font-orbitron font-black text-3xl md:text-4xl mt-3 text-white">
+          THE THERMAL <span class="thermal-title">SPECTRUM</span>
+        </h2>
+        <p class="font-exo text-white/50 text-base mt-4 max-w-xl mx-auto">Eight color nodes map from absolute cold to plasma-hot. Each carries unique psychological data.</p>
+      </div>
+
+      <!-- 8 BUBBLES -->
+      <div class="flex flex-wrap justify-center gap-6 mb-16" id="intelligenceBubbles">
+        <div class="intel-bubble" style="background:radial-gradient(circle,rgba(75,0,130,0.6),rgba(30,0,60,0.9));border-color:#7b2fbe;box-shadow:0 0 20px rgba(123,47,190,0.4);">
+          <span style="font-size:1.5rem;">⬡</span>
+          <span class="temp-label" style="color:#c084fc;">VIOLET</span>
+          <span style="font-family:'Exo 2';font-size:0.6rem;color:rgba(255,255,255,0.4);">−40°C</span>
+        </div>
+        <div class="intel-bubble" style="background:radial-gradient(circle,rgba(0,0,180,0.6),rgba(0,0,60,0.9));border-color:#1e90ff;box-shadow:0 0 20px rgba(30,144,255,0.4);">
+          <span style="font-size:1.5rem;">⬡</span>
+          <span class="temp-label" style="color:#60a5fa;">BLUE</span>
+          <span style="font-family:'Exo 2';font-size:0.6rem;color:rgba(255,255,255,0.4);">−10°C</span>
+        </div>
+        <div class="intel-bubble" style="background:radial-gradient(circle,rgba(0,180,210,0.6),rgba(0,60,80,0.9));border-color:#00e5ff;box-shadow:0 0 20px rgba(0,229,255,0.4);">
+          <span style="font-size:1.5rem;">⬡</span>
+          <span class="temp-label" style="color:#00e5ff;">CYAN</span>
+          <span style="font-family:'Exo 2';font-size:0.6rem;color:rgba(255,255,255,0.4);">10°C</span>
+        </div>
+        <div class="intel-bubble" style="background:radial-gradient(circle,rgba(0,160,0,0.6),rgba(0,40,0,0.9));border-color:#39ff14;box-shadow:0 0 20px rgba(57,255,20,0.4);">
+          <span style="font-size:1.5rem;">⬡</span>
+          <span class="temp-label" style="color:#39ff14;">GREEN</span>
+          <span style="font-family:'Exo 2';font-size:0.6rem;color:rgba(255,255,255,0.4);">25°C</span>
+        </div>
+        <div class="intel-bubble" style="background:radial-gradient(circle,rgba(200,200,0,0.6),rgba(60,60,0,0.9));border-color:#f5e642;box-shadow:0 0 20px rgba(245,230,66,0.4);">
+          <span style="font-size:1.5rem;">⬡</span>
+          <span class="temp-label" style="color:#fde047;">YELLOW</span>
+          <span style="font-family:'Exo 2';font-size:0.6rem;color:rgba(255,255,255,0.4);">35°C</span>
+        </div>
+        <div class="intel-bubble" style="background:radial-gradient(circle,rgba(220,120,0,0.6),rgba(60,30,0,0.9));border-color:#ffaa00;box-shadow:0 0 20px rgba(255,170,0,0.4);">
+          <span style="font-size:1.5rem;">⬡</span>
+          <span class="temp-label" style="color:#fbbf24;">AMBER</span>
+          <span style="font-family:'Exo 2';font-size:0.6rem;color:rgba(255,255,255,0.4);">45°C</span>
+        </div>
+        <div class="intel-bubble" style="background:radial-gradient(circle,rgba(255,80,0,0.6),rgba(80,20,0,0.9));border-color:#ff6600;box-shadow:0 0 20px rgba(255,102,0,0.4);">
+          <span style="font-size:1.5rem;">⬡</span>
+          <span class="temp-label" style="color:#fb923c;">ORANGE</span>
+          <span style="font-family:'Exo 2';font-size:0.6rem;color:rgba(255,255,255,0.4);">55°C</span>
+        </div>
+        <div class="intel-bubble" style="background:radial-gradient(circle,rgba(255,0,0,0.6),rgba(100,0,0,0.9));border-color:#ff1a1a;box-shadow:0 0 20px rgba(255,26,26,0.4);">
+          <span style="font-size:1.5rem;">⬡</span>
+          <span class="temp-label" style="color:#f87171;">RED</span>
+          <span style="font-family:'Exo 2';font-size:0.6rem;color:rgba(255,255,255,0.4);">70°C+</span>
+        </div>
+      </div>
+
+      <!-- SPECTRUM BAR -->
+      <div class="max-w-2xl mx-auto">
+        <div class="h-4 rounded-full" style="background:linear-gradient(90deg,#7b2fbe,#1e90ff,#00e5ff,#39ff14,#f5e642,#ffaa00,#ff6600,#ff1a1a); box-shadow: 0 0 30px rgba(255,102,0,0.3), 0 0 60px rgba(30,144,255,0.2);"></div>
+        <div class="flex justify-between mt-2 font-orbitron text-xs text-white/30">
+          <span>−40°C</span><span>0°C</span><span>25°C</span><span>70°C+</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 py-12 px-6 text-center" style="background:#030712;">
+    <div class="font-orbitron text-thermal-cyan text-sm mb-2 tracking-widest">⬡ THERMAL VISION</div>
+    <p class="font-exo text-white/30 text-xs">Typography & Color Psychology · Academic Research Project</p>
+    <p class="font-exo text-white/20 text-xs mt-1">Orbitron + Exo 2 · Tailwind CSS · GSAP · Chart.js · Alpine.js</p>
+  </footer>
+
+  <script>
+    // GSAP INTRO ANIMATIONS
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from('#scanBadge', { opacity: 0, y: -20, duration: 0.8, delay: 0.3, onComplete: () => document.getElementById('scanBadge').style.opacity = 1 });
+    gsap.from('#heroTitle', { opacity: 0, y: 40, duration: 1, delay: 0.8, ease: 'power3.out' });
+    gsap.from('#heroCopy', { opacity: 0, y: 20, duration: 0.8, delay: 1.4 });
+    gsap.from('#ctaPill', { opacity: 0, scale: 0.8, duration: 0.6, delay: 1.8 });
+
+    // INTELLIGENCE BUBBLES ENTRANCE
+    gsap.from('#intelligenceBubbles .intel-bubble', {
+      scrollTrigger: { trigger: '#intelligenceBubbles', start: 'top 80%' },
+      opacity: 0, scale: 0.5, stagger: 0.08, duration: 0.5, ease: 'back.out(1.7)'
+    });
+
+    // NAV CARD ANIMATIONS
+    gsap.from('.nav-card', {
+      scrollTrigger: { trigger: '.nav-card', start: 'top 85%' },
+      opacity: 0, y: 50, stagger: 0.1, duration: 0.7, ease: 'power2.out'
+    });
+
+    // PARTICLES
+    tsParticles.load("particles", {
+      fullScreen: false,
+      background: { color: "transparent" },
+      particles: {
+        number: { value: 60, density: { enable: true, area: 900 } },
+        color: { value: ["#00e5ff","#39ff14","#ff6600","#ff1a1a","#1e90ff"] },
+        shape: { type: "circle" },
+        opacity: { value: 0.4, random: true, animation: { enable: true, speed: 0.5, minimumValue: 0.1 } },
+        size: { value: 2, random: true },
+        move: { enable: true, speed: 0.4, direction: "none", random: true, outMode: "out" },
+        links: { enable: true, distance: 120, color: "#00e5ff", opacity: 0.1, width: 1 }
+      },
+      interactivity: {
+        events: { onHover: { enable: true, mode: "repulse" } },
+        modes: { repulse: { distance: 80 } }
+      }
+    });
+  </script>
+</body>
+</html>
