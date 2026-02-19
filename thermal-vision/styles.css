@@ -1,0 +1,68 @@
+:root {
+  --bg: #04060d;
+  --glass: rgba(5, 10, 22, 0.68);
+  --cyan: #2de2e6;
+  --hot: #ff5f6d;
+  --amber: #ffc857;
+}
+
+* { box-sizing: border-box; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: radial-gradient(circle at top, #0f172a 0%, #020617 50%, #01020a 100%);
+  color: #e2e8f0;
+}
+
+.orbiton { font-family: 'Orbitron', sans-serif; }
+
+.glass {
+  background: var(--glass);
+  border: 1px solid rgba(45, 226, 230, 0.35);
+  backdrop-filter: blur(14px);
+}
+
+.scan-line {
+  position: absolute;
+  inset-inline: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #2de2e6, transparent);
+  box-shadow: 0 0 24px #2de2e6;
+  animation: scan 4s linear infinite;
+}
+
+@keyframes scan {
+  0% { top: 10%; opacity: .2; }
+  50% { opacity: .9; }
+  100% { top: 90%; opacity: .2; }
+}
+
+.card-glow:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 95, 109, .7);
+  box-shadow: 0 18px 40px rgba(255, 95, 109, .25);
+}
+
+.thermal-grid {
+  background-image:
+      linear-gradient(rgba(45, 226, 230, .06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(45, 226, 230, .06) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.floating-nav a.active,
+.bottom-nav a.active {
+  color: #020617;
+  background: linear-gradient(135deg, #2de2e6, #4fffb0);
+}
+
+.intelligence-bubble {
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: .65; }
+  50% { transform: scale(1.35); opacity: 1; }
+}
+
+.swiper { width: 100%; padding-bottom: 2rem; }
+.swiper-slide { height: auto; }

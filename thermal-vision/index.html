@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Thermal Vision | Jungle Spectrum Interface</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { thermal:{ cyan:'#2de2e6', mint:'#4fffb0', amber:'#ffc857', hot:'#ff5f6d', magenta:'#ff3cac', violet:'#7f5af0'}}}}};
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="home" class="min-h-screen thermal-grid">
+  <nav class="floating-nav hidden md:flex fixed top-5 left-1/2 -translate-x-1/2 z-40 glass rounded-full px-4 py-2 gap-2 text-sm">
+    <a data-nav="home" href="index.html" class="px-4 py-2 rounded-full">Thermal Vision</a>
+    <a data-nav="hot" href="hot-colors.html" class="px-4 py-2 rounded-full">Hot Colors</a>
+    <a data-nav="cold" href="cold-colors.html" class="px-4 py-2 rounded-full">Cold Colors</a>
+    <a data-nav="interactive" href="interactive.html" class="px-4 py-2 rounded-full">Interactive Lab</a>
+    <a data-nav="resources" href="resources.html" class="px-4 py-2 rounded-full">Research</a>
+  </nav>
+
+  <main class="relative min-h-screen overflow-hidden">
+    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-50" poster="https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=1600&q=80">
+      <source src="https://cdn.coverr.co/videos/coverr-tropical-jungle-aerial-1579/1080p.mp4" type="video/mp4">
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/65 via-slate-950/75 to-black/90"></div>
+    <div id="particles" class="absolute inset-0"></div>
+    <span class="scan-line"></span>
+
+    <section class="relative z-10 max-w-6xl mx-auto px-6 pt-32 pb-24 text-center">
+      <p class="orbiton tracking-[0.35em] text-thermal-cyan text-xs md:text-sm mb-6">SCAN COMPLETE — ENTER SITE</p>
+      <h1 class="hero-title orbiton text-5xl md:text-8xl font-extrabold text-white leading-tight drop-shadow-[0_0_22px_rgba(45,226,230,.5)]">THERMAL VISION</h1>
+      <p class="hero-copy max-w-3xl mx-auto mt-6 text-lg md:text-2xl text-slate-200">A typography-forward, jungle-inspired thermal color museum exploring <span class="text-thermal-amber font-semibold">infrared science</span> and <span class="text-thermal-hot font-semibold">color psychology</span> through gorillas, big cats, and immersive data storytelling.</p>
+      <a href="#cards" class="scan-cta mt-10 inline-flex w-[350px] max-w-full h-[70px] items-center justify-center rounded-full bg-gradient-to-r from-thermal-cyan to-thermal-hot text-slate-950 text-lg font-extrabold orbiton tracking-wider">ENTER THERMAL EXPERIENCE</a>
+
+      <div id="cards" class="grid md:grid-cols-2 xl:grid-cols-4 gap-5 mt-14 text-left">
+        <a href="hot-colors.html" class="nav-card card-glow glass rounded-2xl p-5 transition-all duration-300">
+          <p class="orbiton text-thermal-hot text-sm">01 HOT BAND</p>
+          <h2 class="text-xl font-bold mt-2">Red • Orange • Pink</h2>
+          <p class="mt-2 text-slate-300">Learn how warm thermal hues increase urgency, arousal, appetite, and attention.</p>
+        </a>
+        <a href="cold-colors.html" class="nav-card card-glow glass rounded-2xl p-5 transition-all duration-300">
+          <p class="orbiton text-sky-300 text-sm">02 COLD BAND</p>
+          <h2 class="text-xl font-bold mt-2">Blue • Cyan • Violet</h2>
+          <p class="mt-2 text-slate-300">Explore cooling tones tied to safety, focus, trust, and pain reduction.</p>
+        </a>
+        <a href="interactive.html" class="nav-card card-glow glass rounded-2xl p-5 transition-all duration-300">
+          <p class="orbiton text-thermal-mint text-sm">03 LAB</p>
+          <h2 class="text-xl font-bold mt-2">Interactive Thermal Dial</h2>
+          <p class="mt-2 text-slate-300">Drag from -40°C to 100°C and watch guidance, mood, and arousal update live.</p>
+        </a>
+        <a href="resources.html" class="nav-card card-glow glass rounded-2xl p-5 transition-all duration-300">
+          <p class="orbiton text-thermal-amber text-sm">04 REFERENCES</p>
+          <h2 class="text-xl font-bold mt-2">Color Intelligence System</h2>
+          <p class="mt-2 text-slate-300">Academic studies, citations, and visual sources for typography-class rigor.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="relative z-10 mx-auto max-w-6xl px-6 pb-28">
+      <div class="glass rounded-3xl p-8 md:p-10 relative overflow-hidden">
+        <div id="intelligence-bubbles" class="absolute inset-0 pointer-events-none"></div>
+        <h3 class="orbiton text-2xl md:text-3xl">Global Color Intelligence System</h3>
+        <p class="mt-3 max-w-3xl text-slate-300">This system maps thermal frequencies to emotional outcomes using peer-reviewed evidence in environmental psychology, healthcare color studies, and visual cognition. In wildlife thermal imaging, similar ramps reveal respiration stress, muscle exertion, and habitat comfort zones.</p>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav md:hidden fixed bottom-0 inset-x-0 z-50 glass grid grid-cols-5 text-xs text-center py-2">
+    <a data-nav="home" href="index.html" class="rounded-xl py-2">🏠<br>Home</a><a data-nav="hot" href="hot-colors.html" class="rounded-xl py-2">🔥<br>Hot</a><a data-nav="cold" href="cold-colors.html" class="rounded-xl py-2">❄️<br>Cold</a><a data-nav="interactive" href="interactive.html" class="rounded-xl py-2">🎛️<br>Lab</a><a data-nav="resources" href="resources.html" class="rounded-xl py-2">📚<br>Refs</a>
+  </nav>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
