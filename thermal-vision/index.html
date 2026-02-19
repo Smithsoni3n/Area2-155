@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thermal Vision | Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Orbitron', 'Montserrat', 'sans-serif'],
+            body: ['Rajdhani', 'Roboto', 'sans-serif']
+          },
+          colors: {
+            thermal: {
+              pink: '#ff3ca6', orange: '#ff7b39', red: '#ff3b30', cyan: '#00e5ff',
+              blue: '#1d4ed8', indigo: '#4338ca', purple: '#8b5cf6', yellow: '#ffe66d'
+            }
+          },
+          boxShadow: {
+            glow: '0 0 20px rgba(0,229,255,.6),0 0 40px rgba(255,60,166,.45)'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <style>
+    body{background:#060710;color:#e5f8ff}.scan-grid{background-image:linear-gradient(rgba(0,229,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,.09) 1px,transparent 1px);background-size:42px 42px}
+  </style>
+</head>
+<body class="font-body" x-data="thermalApp()">
+  <div id="particles-js" class="fixed inset-0 -z-10"></div>
+
+  <nav class="hidden md:flex fixed top-5 left-1/2 -translate-x-1/2 z-50 rounded-full border border-cyan-300/40 bg-black/45 backdrop-blur px-6 py-3 gap-5 text-sm">
+    <a href="index.html" class="text-cyan-300">Home</a><a href="hot-colors.html">Hot</a><a href="cold-colors.html">Cold</a><a href="interactive.html">Interactive</a><a href="resources.html">Research</a>
+  </nav>
+  <nav class="md:hidden fixed bottom-0 inset-x-0 z-50 bg-black/80 border-t border-cyan-200/20 py-2">
+    <div class="grid grid-cols-5 text-center text-xs"><a href="index.html" class="text-cyan-300">🏠<br>Home</a><a href="hot-colors.html">🔥<br>Hot</a><a href="cold-colors.html">❄️<br>Cold</a><a href="interactive.html">🎚️<br>Lab</a><a href="resources.html">📚<br>Data</a></div>
+  </nav>
+
+  <header class="relative h-screen overflow-hidden">
+    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
+      <source src="https://cdn.coverr.co/videos/coverr-sci-fi-face-scan-1579/1080p.mp4" type="video/mp4">
+    </video>
+    <div class="absolute inset-0 bg-black/45"></div>
+    <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 scan-grid">
+      <p class="tracking-[0.4em] text-cyan-200 mb-3">NEUROCHROMATIC ANALYSIS TERMINAL</p>
+      <h1 class="font-heading text-5xl md:text-8xl font-extrabold text-white drop-shadow-[0_0_18px_rgba(255,60,166,.9)]">THERMAL VISION</h1>
+      <p class="max-w-2xl mt-4 text-lg md:text-2xl">How heat-mapped color spectra influence arousal, attention, trust, and performance.</p>
+      <a href="#intro" class="mt-8 h-[70px] w-[350px] rounded-full border-2 border-cyan-300 bg-gradient-to-r from-thermal-red via-thermal-orange to-thermal-pink flex items-center justify-center font-heading tracking-widest text-sm md:text-base shadow-glow">SCAN COMPLETE - ENTER SITE</a>
+    </div>
+  </header>
+
+  <main id="intro" class="px-6 md:px-16 py-16 space-y-16">
+    <section data-aos="fade-up" class="max-w-5xl mx-auto">
+      <h2 class="font-heading text-3xl mb-4 text-cyan-300">Thermal Vision + Color Psychology</h2>
+      <p class="text-lg leading-relaxed">Thermal imagery maps energy into color gradients; human cognition maps color to meaning. Research shows warm hues can elevate perceived excitement and urgency, while cool hues support perceived calmness and cognitive control. This project combines psychophysiology, design theory, and visual rhetoric for a typography-forward exploration of thermal color language.</p>
+    </section>
+
+    <section class="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <a href="hot-colors.html" class="rounded-2xl p-6 bg-gradient-to-br from-red-500/20 to-orange-500/20 border border-red-300/40" data-aos="zoom-in">🔥 <h3 class="font-heading mt-2">Hot Colors</h3><p>Red, orange, pink research</p></a>
+      <a href="cold-colors.html" class="rounded-2xl p-6 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-300/40" data-aos="zoom-in" data-aos-delay="100">❄️ <h3 class="font-heading mt-2">Cold Colors</h3><p>Blue, cyan, purple studies</p></a>
+      <a href="interactive.html" class="rounded-2xl p-6 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-indigo-300/40" data-aos="zoom-in" data-aos-delay="200">🎚️ <h3 class="font-heading mt-2">Interactive Lab</h3><p>Temperature slider + chart</p></a>
+      <a href="resources.html" class="rounded-2xl p-6 bg-gradient-to-br from-yellow-400/20 to-pink-500/20 border border-yellow-300/40" data-aos="zoom-in" data-aos-delay="300">📚 <h3 class="font-heading mt-2">Research Hub</h3><p>Academic citations + gallery</p></a>
+    </section>
+
+    <section data-aos="fade-up" class="max-w-6xl mx-auto">
+      <h2 class="font-heading text-3xl mb-6 text-center">Color Intelligence System</h2>
+      <div class="grid grid-cols-4 md:grid-cols-8 gap-3 mb-6">
+        <template x-for="color in colors" :key="color.name">
+          <button @click="selected=color" class="h-16 w-16 md:h-20 md:w-20 rounded-full border-2 border-white/40 mx-auto" :style="`background:${color.hex}`"></button>
+        </template>
+      </div>
+      <div class="rounded-2xl border border-cyan-300/40 bg-black/40 p-6" x-show="selected" x-transition>
+        <h3 class="font-heading text-2xl" x-text="selected.name"></h3>
+        <p><strong>Thermal Signature:</strong> <span x-text="selected.temp"></span></p>
+        <p><strong>Historical Record:</strong> <span x-text="selected.history"></span></p>
+        <p><strong>Psychological Effect:</strong> <span x-text="selected.effect"></span></p>
+        <p><strong>Real-World Applications:</strong> <span x-text="selected.use"></span></p>
+        <p><strong>Intelligence Brief:</strong> <span x-text="selected.brief"></span></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    function thermalApp(){
+      return {selected:null,colors:[
+        {name:'Hot Pink',hex:'#ff3ca6',temp:'34–42°C',history:'The term "hot pink" surged in U.S. fashion discourse in the 1940s–50s.',effect:'High arousal and novelty cueing; increases visual salience in cluttered fields.',use:'Beauty branding, event posters, nightlife UI accents.',brief:'Pink with high saturation is often perceived as energetic rather than soothing.'},
+        {name:'Orange',hex:'#ff7b39',temp:'38–52°C',history:'Orange entered English color lexicons after the fruit name in the 16th century.',effect:'Associated with warmth and social stimulation; can increase perceived friendliness.',use:'Food delivery apps, CTA highlights, sport products.',brief:'Warm orange can increase perceived room temperature by several degrees in experiments.'},
+        {name:'Red',hex:'#ff3b30',temp:'45–100°C',history:'Red pigments are among the earliest human colorants (ochre >100,000 years).',effect:'Elliot & Maier (2014) connect red with heightened vigilance, threat cues, and dominance contexts.',use:'Warnings, clearance pricing, performance branding.',brief:'Red can impair test performance in evaluative contexts yet improve attention to detail.'},
+        {name:'Cyan',hex:'#00e5ff',temp:'0–18°C',history:'"Cyan" entered modern technical color vocabularies with print and optics in 19th–20th c.',effect:'Perceived as clean and technological; supports trust and freshness judgments.',use:'Health-tech dashboards, fintech interfaces, scanner UIs.',brief:'Cyan often improves readability on dark backgrounds in digital interfaces.'},
+        {name:'Blue',hex:'#1d4ed8',temp:'-10–12°C',history:'Blue naming expanded with lapis and indigo trade networks across antiquity and medieval periods.',effect:'Mehta & Zhu (2009): blue contexts improved creative task performance vs. red in several studies.',use:'Enterprise software, productivity tools, institutional identities.',brief:'Blue is consistently rated as the most liked color across many populations.'},
+        {name:'Indigo',hex:'#4338ca',temp:'-20–8°C',history:'Natural indigo dye trade profoundly shaped African, Indian, and European textile economies.',effect:'Deep cool tones can signal depth, seriousness, and cognitive distance.',use:'Luxury tech, educational brands, data-visual themes.',brief:'Indigo has historically signaled prestige due to dye scarcity and labor intensity.'},
+        {name:'Purple',hex:'#8b5cf6',temp:'-5–15°C',history:'Tyrian purple in antiquity was associated with imperial status due to extreme production cost.',effect:'Often read as imaginative and reflective; useful for premium/creative positioning.',use:'Music platforms, innovation labs, cosmetics.',brief:'Purple blends red arousal cues with blue control cues in user perception.'},
+        {name:'Yellow',hex:'#ffe66d',temp:'24–36°C',history:'Yellow ochre is among humanity’s oldest pigments in cave and body art traditions.',effect:'Strong attention capture and optimism signaling at moderate saturation.',use:'Wayfinding, caution icons, educational highlights.',brief:'High-luminance yellow improves peripheral detectability but can induce visual fatigue if overused.'}
+      ]}
+    }
+    AOS.init({duration:900,once:false});
+    particlesJS('particles-js',{particles:{number:{value:60},color:{value:['#ff3ca6','#ff7b39','#00e5ff','#1d4ed8']},shape:{type:'circle'},opacity:{value:.35},size:{value:3},move:{enable:true,speed:1.4}},interactivity:{events:{onhover:{enable:true,mode:'repulse'}}}});
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from('h1',{y:40,opacity:0,duration:1.2});
+    anime({targets:'a[href="#intro"]',scale:[1,.98,1],duration:2400,loop:true,easing:'easeInOutSine'});
+  </script>
+</body>
+</html>
