@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hot Colors | thermal-v2</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { thermal: { cyan: '#2de2e6', mint: '#4fffb0', amber: '#ffc857', hot: '#ff5f6d', magenta: '#ff3cac', violet: '#7f5af0' } } } } };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="hot" class="thermal-grid min-h-screen pb-24">
+  <nav class="floating-nav glass fixed left-1/2 top-5 z-40 hidden -translate-x-1/2 gap-2 rounded-full px-4 py-2 text-sm md:flex">
+    <a data-nav="home" href="index.html" class="rounded-full px-4 py-2">Thermal Vision</a>
+    <a data-nav="hot" href="hot-colors.html" class="rounded-full px-4 py-2">Hot Colors</a>
+    <a data-nav="cold" href="cold-colors.html" class="rounded-full px-4 py-2">Cold Colors</a>
+    <a data-nav="interactive" href="interactive.html" class="rounded-full px-4 py-2">Interactive Lab</a>
+    <a data-nav="resources" href="resources.html" class="rounded-full px-4 py-2">Research</a>
+  </nav>
+
+  <main class="mx-auto max-w-6xl px-6 pb-20 pt-24">
+    <section class="rounded-3xl border border-rose-400/35 bg-gradient-to-r from-rose-950 via-orange-900 to-pink-900 p-8 md:p-12">
+      <p class="orbiton text-xs tracking-[0.28em] text-thermal-amber">HOT THERMAL BAND</p>
+      <h1 class="orbiton mt-3 text-4xl font-extrabold md:text-6xl">Red • Orange • Pink Psychology</h1>
+      <p class="mt-4 max-w-3xl text-slate-200">Warm thermal frequencies are high-energy visual signals. They increase urgency, action tendency, and emotional intensity in both environmental and interface design.</p>
+    </section>
+    <section class="mt-9 grid gap-6 md:grid-cols-2">
+      <article class="research-card glass rounded-2xl p-6">
+        <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=900&q=80" alt="gorilla thermal style" class="h-52 w-full rounded-xl object-cover" />
+        <h2 class="orbiton mt-4 text-2xl text-rose-300">Red = Alert + Arousal</h2>
+        <p class="mt-2 text-slate-300">Elliot & Maier (2014) summarize that red can increase vigilance and physiological activation in evaluative contexts.</p>
+        <a href="https://www.annualreviews.org/doi/10.1146/annurev-psych-010213-115035" class="text-thermal-cyan underline" target="_blank">Study source</a>
+      </article>
+      <article class="research-card glass rounded-2xl p-6">
+        <img src="https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?auto=format&fit=crop&w=900&q=80" alt="big cat in warm tones" class="h-52 w-full rounded-xl object-cover" />
+        <h2 class="orbiton mt-4 text-2xl text-orange-300">Orange = Momentum + Social Heat</h2>
+        <p class="mt-2 text-slate-300">Orange hues often communicate movement and extroversion, making them effective for dynamic CTA zones.</p>
+        <a href="https://www.sciencedirect.com/science/article/pii/S0272494418307637" class="text-thermal-cyan underline" target="_blank">Study source</a>
+      </article>
+      <article class="research-card glass rounded-2xl p-6 md:col-span-2">
+        <h2 class="orbiton text-2xl text-pink-300">Pink = Social Safety + Empathy</h2>
+        <p class="mt-2 text-slate-300">Pink balances heat with emotional softness. In typography systems, pink accents can preserve urgency while reducing perceived aggression.</p>
+      </article>
+    </section>
+    <section class="glass relative mt-10 overflow-hidden rounded-3xl p-8">
+      <div id="intelligence-bubbles" class="absolute inset-0"></div>
+      <h3 class="orbiton text-2xl">Color Intelligence Module</h3>
+      <p class="mt-2 text-slate-300">Use hot hues sparingly for maximum hierarchy contrast: alerts, critical action prompts, and energetic transitions.</p>
+    </section>
+  </main>
+  <nav class="bottom-nav glass fixed inset-x-0 bottom-0 z-50 grid grid-cols-5 py-2 text-center text-xs md:hidden">
+    <a data-nav="home" href="index.html" class="rounded-xl py-2">🏠<br />Home</a>
+    <a data-nav="hot" href="hot-colors.html" class="rounded-xl py-2">🔥<br />Hot</a>
+    <a data-nav="cold" href="cold-colors.html" class="rounded-xl py-2">❄️<br />Cold</a>
+    <a data-nav="interactive" href="interactive.html" class="rounded-xl py-2">🎛️<br />Lab</a>
+    <a data-nav="resources" href="resources.html" class="rounded-xl py-2">🦍<br />Live</a>
+  </nav>
+  <script src="main.js"></script>
+</body>
+</html>
