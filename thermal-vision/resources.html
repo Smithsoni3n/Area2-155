@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thermal Vision | Resources</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script><script defer src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script><script defer src="assets/js/main.js"></script>
+</head>
+<body>
+<header class="fixed z-40 top-4 left-1/2 -translate-x-1/2 hidden md:block"><nav class="pill-nav rounded-full px-6 py-3 text-xs uppercase tracking-[0.3em] flex gap-5"><a href="index.html">Home</a><a href="hot-colors.html">Hot Colors</a><a href="cold-colors.html">Cold Colors</a><a href="interactive.html">Interactive</a><a href="resources.html" class="text-thermal-solar">Resources</a></nav></header>
+<main class="pt-28 px-5 md:px-10 pb-24 max-w-7xl mx-auto">
+<section class="thermal-panel rounded-3xl p-10"><h1 data-hero-title class="glow-title text-4xl md:text-6xl font-black uppercase">Research + Build Resources</h1><p class="mt-4">Professional references for thermal color psychology, wildlife perception, and typographic system design.</p></section>
+<section class="grid lg:grid-cols-3 gap-5 mt-9">
+  <a data-card class="card rounded-2xl p-6" target="_blank" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4383146/"><h2 class="font-bold text-xl">Color and emotion associations</h2><p class="mt-2">Large-scale evidence for emotion-color pairings across contexts.</p></a>
+  <a data-card class="card rounded-2xl p-6" target="_blank" href="https://doi.org/10.1037/0033-295X.108.3.483"><h2 class="font-bold text-xl">Color-in-context theory</h2><p class="mt-2">Framework for red/blue influences in achievement and behavior.</p></a>
+  <a data-card class="card rounded-2xl p-6" target="_blank" href="https://www.frontiersin.org/articles/10.3389/fpsyg.2022.1008100/full"><h2 class="font-bold text-xl">Modern color psychology review</h2><p class="mt-2">Contemporary findings and cautions around simplistic color claims.</p></a>
+</section>
+<section class="mt-10">
+  <div class="swiper rounded-2xl border border-cyan-400/30">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?auto=compress&cs=tinysrgb&w=1600" class="w-full h-[360px] object-cover" alt="Jungle wildlife"></div>
+      <div class="swiper-slide"><img src="https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg?auto=compress&cs=tinysrgb&w=1600" class="w-full h-[360px] object-cover" alt="Big cat"></div>
+      <div class="swiper-slide"><img src="https://images.pexels.com/photos/4577794/pexels-photo-4577794.jpeg?auto=compress&cs=tinysrgb&w=1600" class="w-full h-[360px] object-cover" alt="Gorilla"></div>
+    </div>
+  </div>
+</section>
+<section class="mt-12 card rounded-2xl p-6"><h2 class="text-2xl font-bold">Project Stack</h2><p class="mt-3">Tailwind CDN, Orbitron typography, GSAP + Anime.js motion, Alpine interactive states, Chart.js data visualization, Swiper media gallery, responsive flex/grid layout for GitHub Pages deployment.</p></section>
+<section class="mt-12"><h3 class="text-2xl font-bold mb-4 text-thermal-frost">Color Intelligence System</h3><div data-intelligence class="intelligence-grid"></div></section>
+</main>
+<nav class="mobile-nav fixed md:hidden bottom-0 left-0 right-0 z-40 px-3 py-2"><div class="grid grid-cols-5 text-center text-xs"><a href="index.html">🏠<span class="block">Home</span></a><a href="hot-colors.html">🔥<span class="block">Hot</span></a><a href="cold-colors.html">❄️<span class="block">Cold</span></a><a href="interactive.html">🎛️<span class="block">Lab</span></a><a href="resources.html">📚<span class="block">Refs</span></a></div></nav>
+<script>document.addEventListener('DOMContentLoaded',()=>new Swiper('.swiper',{loop:true,autoplay:{delay:2600}}));</script>
+</body></html>

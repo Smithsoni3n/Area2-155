@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thermal Vision | Interactive Lab</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="assets/css/styles.css" />
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+  <script defer src="assets/js/main.js"></script>
+</head>
+<body x-data="thermalLab()" x-init="init()">
+<header class="fixed z-40 top-4 left-1/2 -translate-x-1/2 hidden md:block"><nav class="pill-nav rounded-full px-6 py-3 text-xs uppercase tracking-[0.3em] flex gap-5"><a href="index.html">Home</a><a href="hot-colors.html">Hot Colors</a><a href="cold-colors.html">Cold Colors</a><a href="interactive.html" class="text-thermal-solar">Interactive</a><a href="resources.html">Resources</a></nav></header>
+<main class="pt-28 px-5 md:px-10 pb-24 max-w-6xl mx-auto">
+<section class="thermal-panel rounded-3xl p-8" :style="`background:${bg}`">
+<h1 class="text-4xl md:text-6xl font-black uppercase">Thermal Interactive Lab</h1>
+<p class="mt-3">Move the slider (-40°C to 100°C) to simulate thermal perception and psychological state shifts.</p>
+<div class="mt-7"><label class="block mb-2 font-bold">Temperature: <span x-text="temp + '°C'" class="text-thermal-solar"></span></label><input class="range-track w-full" type="range" min="-40" max="100" x-model="temp" @input="update()"></div>
+<div class="grid md:grid-cols-2 gap-5 mt-7">
+  <article class="card rounded-2xl p-5"><h2 class="text-xl font-bold mb-2">State</h2><p x-text="state"></p></article>
+  <article class="card rounded-2xl p-5"><h2 class="text-xl font-bold mb-2">Guidance</h2><p x-text="guide"></p></article>
+</div>
+</section>
+<section class="mt-10 card rounded-2xl p-6"><h2 class="text-2xl font-bold mb-4">Arousal Curve</h2><canvas id="arousalChart" height="120"></canvas></section>
+<section class="mt-12"><h3 class="text-2xl font-bold mb-4 text-thermal-frost">Color Intelligence System</h3><div data-intelligence class="intelligence-grid"></div></section>
+</main>
+<nav class="mobile-nav fixed md:hidden bottom-0 left-0 right-0 z-40 px-3 py-2"><div class="grid grid-cols-5 text-center text-xs"><a href="index.html">🏠<span class="block">Home</span></a><a href="hot-colors.html">🔥<span class="block">Hot</span></a><a href="cold-colors.html">❄️<span class="block">Cold</span></a><a href="interactive.html">🎛️<span class="block">Lab</span></a><a href="resources.html">📚<span class="block">Refs</span></a></div></nav>
+<script>
+function thermalLab(){
+  return {
+    temp: 28,
+    state: 'Baseline vigilance',
+    guide: 'Neutral-green thermal windows maintain readability and decision balance.',
+    bg: 'linear-gradient(145deg, rgba(34,197,94,.28), rgba(2,6,23,.85))',
+    chart: null,
+    init(){ this.update(); this.buildChart(); },
+    update(){
+      const t = Number(this.temp);
+      if (t < 0){ this.state='Cold suppression'; this.guide='Use cyan/blue type accents for calm, long-form concentration.'; this.bg='linear-gradient(145deg, rgba(56,189,248,.36), rgba(30,64,175,.38), rgba(2,6,23,.88))'; }
+      else if (t < 30){ this.state='Focused equilibrium'; this.guide='Green-yellow mids support information scanning without overload.'; this.bg='linear-gradient(145deg, rgba(132,204,22,.30), rgba(34,197,94,.25), rgba(2,6,23,.88))'; }
+      else if (t < 60){ this.state='Warm activation'; this.guide='Orange accents raise urgency and action readiness.'; this.bg='linear-gradient(145deg, rgba(249,115,22,.34), rgba(234,88,12,.28), rgba(2,6,23,.88))'; }
+      else { this.state='High arousal alert'; this.guide='Red-hot zones are ideal for warnings and critical calls to action.'; this.bg='linear-gradient(145deg, rgba(244,63,94,.4), rgba(251,113,133,.28), rgba(2,6,23,.9))'; }
+      if(this.chart){
+        this.chart.data.datasets[0].data=[5,15,35,55,75,92,88,72,50];
+        this.chart.options.plugins.title.text=`Arousal index at ${t}°C`;
+        this.chart.update();
+      }
+    },
+    buildChart(){
+      const ctx = document.getElementById('arousalChart');
+      this.chart = new Chart(ctx, {
+        type: 'line',
+        data: { labels:['-40','-20','0','20','40','60','80','90','100'], datasets:[{label:'Arousal', data:[5,15,35,55,75,92,88,72,50], borderColor:'#f97316', tension:.35}]},
+        options:{responsive:true, plugins:{legend:{display:false}, title:{display:true, text:'Arousal index'}}, scales:{y:{min:0,max:100}}}
+      })
+    }
+  }
+}
+</script>
+</body></html>
