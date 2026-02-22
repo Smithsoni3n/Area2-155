@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>THERMAΛ — Living Color Observatory · Typography 260</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-home">
+
+<div class="video-bg-global">
+  <video autoplay muted loop playsinline preload="auto">
+    <source src="gorilla.mp4" type="video/mp4">
+  </video>
+</div>
+<div id="reticle"></div>
+<div id="reticle-tl"></div><div id="reticle-tr"></div>
+<div id="reticle-bl"></div><div id="reticle-br"></div>
+<div id="reticle-dot"></div>
+<canvas id="heat-canvas"></canvas>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">THERMA<span class="lam">Λ</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="hot-colors.html">Hot Band</a></li>
+    <li><a href="cold-colors.html">Cold Band</a></li>
+    <li><a href="interactive.html">Live Lab</a></li>
+    <li><a href="resources.html">Research</a></li>
+  </ul>
+  <div class="nav-badge" id="navBadge">CURSOR: 20°C</div>
+  <button class="nav-toggle" id="navToggle">☰</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <canvas id="particle-canvas"></canvas>
+  <div class="hero-content">
+    <p class="hero-pretag">THERMAL SPECTRUM · TYPOGRAPHY 260 · OLYMPIC COLLEGE</p>
+    <h1 class="hero-title">
+      <span class="t1">THERMAΛ</span>
+      <span class="t2">COLOR OBSERVATORY</span>
+    </h1>
+    <p class="hero-sub">Where Light Becomes Heat · Science Becomes Design · Vision Becomes Understanding</p>
+    <div class="hero-cta-group">
+      <a href="#scanner" class="btn-hot">SCAN ANIMALS →</a>
+      <a href="#lab" class="btn-ghost">OPEN THE LAB</a>
+    </div>
+  </div>
+  <div class="hero-tempbar">
+    <div class="tempbar-val h">+100°C</div>
+    <div class="tempbar-label">THERMAL SCALE</div>
+    <div class="tempbar-grad"></div>
+    <div class="tempbar-label">INFRARED</div>
+    <div class="tempbar-val c">−40°C</div>
+  </div>
+</section>
+
+<!-- JELLYFISH — EXOTIC THERMAL VIDEO -->
+<section class="jellyfish-section page-section">
+  <div class="container">
+    <p class="sec-label reveal">Thermal Energy in Motion</p>
+    <h2 class="sec-title reveal">Bioluminescence — nature's <span style="color:rgba(200,210,255,.3);font-weight:100;">own thermal display</span></h2>
+    <div class="divider reveal"></div>
+    <div class="jellyfish-grid">
+      <div class="jellyfish-card reveal">
+        <video autoplay muted loop playsinline preload="auto">
+          <source src="jellyfish.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="jellyfish-info reveal">
+        <h3>Living Light · Living Heat</h3>
+        <p>Jellyfish use bioluminescence — converting chemical energy directly into cold light. Unlike thermal cameras that detect infrared heat emission, bioluminescence is light produced at ambient body temperature through luciferase enzyme reactions. This is why jellyfish glow cyan-blue: they emit light at 480nm, the precise wavelength of their internal chemical reaction.</p>
+        <p>In thermal imaging, cold-blooded marine animals like jellyfish appear nearly invisible — their bodies match the surrounding ocean temperature. Only their metabolically active organs — the bell muscles and gonads — show as faint warm signatures above the ambient water temperature.</p>
+        <p style="font-family:'Share Tech Mono',monospace;font-size:.65rem;letter-spacing:.1em;color:var(--accent);margin-top:1rem;">BODY TEMP: ~15°C · OCEAN: 12°C · GLOW: 480nm CYAN</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECTRUM -->
+<section class="section-dark page-section">
+  <div class="container">
+    <p class="sec-label reveal">The Electromagnetic Spectrum</p>
+    <h2 class="sec-title reveal">Every color is energy.<br><span style="color:rgba(200,210,255,.3);font-weight:100;">Frequency determines everything.</span></h2>
+    <div class="divider reveal"></div>
+    <div class="reveal">
+      <div class="spectrum-bar-full"></div>
+      <div class="spectrum-markers">
+        <div class="sm">RADIO</div><div class="sm">MICRO</div><div class="sm">FAR IR</div>
+        <div class="sm">THERMAL IR</div><div class="sm hi">VISIBLE</div>
+        <div class="sm">NEAR UV</div><div class="sm">UV</div><div class="sm">X-RAY</div><div class="sm">GAMMA</div>
+      </div>
+    </div>
+    <div class="spectrum-grid">
+      <div class="explain-block reveal">
+        <h3 style="background:linear-gradient(90deg,#ff1a00,#ff9900);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Why thermal imaging uses hot colors</h3>
+        <p>Thermal cameras detect infrared radiation — electromagnetic waves just below visible red at 700nm–1mm wavelengths. Scientists needed a visual language for invisible data, so they mapped it to colors our brains already use emotionally: <strong style="color:#ff5500">red for hot, blue for cold.</strong></p>
+        <p>This alignment between human psychology and physics is profound. Our brains evolved to associate red-orange with fire and danger. Thermal cameras made that intuition scientifically precise.</p>
+        <ul class="wl-list">
+          <li><span class="wl-dot" style="background:#ff1a00;color:#ff1a00"></span>700nm+ · Deep Red · Near Infrared · Body heat signatures</li>
+          <li><span class="wl-dot" style="background:#ff5500;color:#ff5500"></span>780nm–3μm · Short-wave IR · Flames, heated metal</li>
+          <li><span class="wl-dot" style="background:#ff9900;color:#ff9900"></span>3–8μm · Mid-wave IR · Industrial heat sources</li>
+          <li><span class="wl-dot" style="background:#ffdd00;color:#ffdd00"></span>8–14μm · Long-wave IR · Room temperature objects</li>
+        </ul>
+      </div>
+      <div class="explain-block reveal">
+        <h3 style="background:linear-gradient(90deg,#00ffcc,#0044ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Why cold maps to blue and violet</h3>
+        <p>Blue and violet represent minimal heat radiation. This aligns perfectly with human psychology: blue is universally associated with cold water, ice, night — all low-energy environments. The FLIR Rainbow palette runs from deep violet (coldest) through blue, cyan, green, yellow, orange to white (hottest).</p>
+        <ul class="wl-list">
+          <li><span class="wl-dot" style="background:#5500cc;color:#5500cc"></span>Near zero · −40°C surface · Minimal emission · Deep violet</li>
+          <li><span class="wl-dot" style="background:#0044ff;color:#0044ff"></span>0–10°C · Frost, ice surfaces · Low radiation · Dark blue</li>
+          <li><span class="wl-dot" style="background:#00aaff;color:#00aaff"></span>10–20°C · Cool ambient · Moderate radiation · Cyan</li>
+          <li><span class="wl-dot" style="background:#00ffcc;color:#00ffcc"></span>20–30°C · Room temperature · Cyan-green transition</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THERMAL PHOTO GALLERY -->
+<section class="section-mid page-section">
+  <div class="container">
+    <p class="sec-label reveal">Real Thermal Wildlife Photography</p>
+    <h2 class="sec-title reveal">What FLIR cameras actually <span style="color:rgba(200,210,255,.3);font-weight:100;">see in the wild</span></h2>
+    <div class="divider reveal"></div>
+    <div class="gallery-grid">
+      <div class="gallery-card reveal">
+        <div class="gallery-img-wrap"><img src="img-lion-rainbow.png" alt="Lion thermal FLIR Rainbow palette"></div>
+        <div class="gallery-caption">
+          <h4>Lion · FLIR Rainbow Palette</h4>
+          <p>RAINBOW PALETTE · WHITE-HOT HEAD · BLUE COOL BODY · CORE TEMP ~38.5°C — The mane acts as insulation. Exposed face and eyes glow white-orange. Each color band ≈ 2–4°C.</p>
+        </div>
+      </div>
+      <div class="gallery-card reveal">
+        <div class="gallery-img-wrap"><img src="img-lion-ironbow.png" alt="Lion thermal FLIR Ironbow palette"></div>
+        <div class="gallery-caption">
+          <h4>Lion · Ironbow Palette</h4>
+          <p>IRONBOW PALETTE · HEATED IRON SCALE — Mimics glowing metal. Eyes reach maximum temperature while heavy mane fur appears near-black — perfect biological insulation made visible.</p>
+        </div>
+      </div>
+      <div class="gallery-card reveal">
+        <div class="gallery-img-wrap"><img src="img-wolf-arctic.png" alt="Wolf thermal Arctic palette"></div>
+        <div class="gallery-caption">
+          <h4>Wolf · Arctic Cold Palette</h4>
+          <p>ARCTIC PALETTE · INVERTED SCALE — Cold reads bright, hot reads dark. The wolf glows cyan-white while the frozen forest appears deep blue-purple. Used to detect cold anomalies.</p>
+        </div>
+      </div>
+      <div class="gallery-card reveal">
+        <div class="gallery-img-wrap"><img src="img-coyote-palettes.png" alt="Coyote across all 5 FLIR palette modes"></div>
+        <div class="gallery-caption">
+          <h4>Coyote · All 5 Thermal Palettes</h4>
+          <p>WHITE HOT · BLACK HOT · RED HOT · COLOR · HOT TARGET HIGHLIGHT — Same animal, five readings. Identical data, five visual languages. Each designed for a different scientific application.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANIMAL SCANNER -->
+<section class="section-panel page-section" id="scanner">
+  <div class="container">
+    <p class="sec-label reveal">Interactive Thermal Scanner</p>
+    <h2 class="sec-title reveal">Drag to reveal<br><span style="color:rgba(200,210,255,.3);font-weight:100;">each animal's heat signature</span></h2>
+    <div class="divider reveal"></div>
+    <div class="scanner-grid">
+      <div class="scanner-card reveal">
+        <div class="scanner-card-inner" id="sci-lion"
+          onmouseenter="showBeam('lion')" onmouseleave="hideBeam('lion')" onmousemove="moveBeam(event,'lion')"
+          ontouchstart="showBeam('lion')" ontouchmove="touchBeam(event,'lion')" ontouchend="hideBeam('lion')">
+          <div class="vis-layer vis-normal" id="vn-lion"><img src="img-lion-ironbow.png" alt="Lion normal" style="filter:saturate(0) brightness(.65);"></div>
+          <div class="vis-layer vis-thermal" id="vt-lion"><img src="img-lion-ironbow.png" alt="Lion thermal Ironbow"></div>
+          <div class="scan-beam" id="sb-lion"></div>
+          <div class="scan-label nl">NORMAL</div><div class="scan-label tl">THERMAL · IRONBOW</div>
+          <div class="scan-hint" id="sh-lion">← DRAG TO REVEAL HEAT →</div>
+        </div>
+        <div class="scanner-info">
+          <div class="aname">African Lion</div>
+          <div class="asci">Panthera leo · Core: 38.5°C · Ironbow</div>
+          <div class="chips"><span class="chip chip-h">EYES: 39°C</span><span class="chip chip-h">FACE: 37°C</span><span class="chip chip-c">MANE: 28°C</span></div>
+          <p>The lion's mane is extreme natural insulation — near-black in Ironbow while face and eyes glow yellow-white. The eyes are always the hottest point: blood-rich, metabolically active, and uninsulated by fur.</p>
+        </div>
+      </div>
+      <div class="scanner-card reveal">
+        <div class="scanner-card-inner" id="sci-wolf"
+          onmouseenter="showBeam('wolf')" onmouseleave="hideBeam('wolf')" onmousemove="moveBeam(event,'wolf')"
+          ontouchstart="showBeam('wolf')" ontouchmove="touchBeam(event,'wolf')" ontouchend="hideBeam('wolf')">
+          <div class="vis-layer vis-normal" id="vn-wolf"><img src="img-wolf-arctic.png" alt="Wolf normal" style="filter:saturate(0) brightness(.6);"></div>
+          <div class="vis-layer vis-thermal" id="vt-wolf"><img src="img-wolf-arctic.png" alt="Wolf Arctic thermal"></div>
+          <div class="scan-beam" id="sb-wolf"></div>
+          <div class="scan-label nl">NORMAL</div><div class="scan-label tl">THERMAL · ARCTIC</div>
+          <div class="scan-hint" id="sh-wolf">← DRAG TO REVEAL HEAT →</div>
+        </div>
+        <div class="scanner-info">
+          <div class="aname">Gray Wolf</div>
+          <div class="asci">Canis lupus · Core: 38.8°C · Arctic palette</div>
+          <div class="chips"><span class="chip chip-h">HEAD: 38°C</span><span class="chip chip-c">FUR: 24°C</span><span class="chip chip-c">ENV: −5°C</span></div>
+          <p>Wolf fur creates a thermal barrier so effective that snow can rest on a sleeping wolf without melting. In Arctic palette the body glows cyan-white against the frozen deep-blue environment.</p>
+        </div>
+      </div>
+      <div class="scanner-card reveal">
+        <div class="scanner-card-inner" id="sci-coyote"
+          onmouseenter="showBeam('coyote')" onmouseleave="hideBeam('coyote')" onmousemove="moveBeam(event,'coyote')"
+          ontouchstart="showBeam('coyote')" ontouchmove="touchBeam(event,'coyote')" ontouchend="hideBeam('coyote')">
+          <div class="vis-layer vis-normal" id="vn-coyote"><img src="img-lion-rainbow.png" alt="Reference normal" style="filter:saturate(0) brightness(.55);"></div>
+          <div class="vis-layer vis-thermal" id="vt-coyote"><img src="img-coyote-palettes.png" alt="Coyote all palettes"></div>
+          <div class="scan-beam" id="sb-coyote"></div>
+          <div class="scan-label nl">NORMAL</div><div class="scan-label tl">5 PALETTE MODES</div>
+          <div class="scan-hint" id="sh-coyote">← DRAG TO REVEAL →</div>
+        </div>
+        <div class="scanner-info">
+          <div class="aname">Coyote · All 5 Palettes</div>
+          <div class="asci">Canis latrans · Core: 38.3°C · Multi-palette</div>
+          <div class="chips"><span class="chip chip-h">WHITE HOT</span><span class="chip chip-h">RED HOT</span><span class="chip chip-c">ARCTIC</span></div>
+          <p>Same animal across all 5 FLIR palette modes — identical temperature data, five completely different visual readings. Each palette is a design decision: White Hot for detail, Red Hot for intensity, Color for full mapping.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLOR BANDS -->
+<section class="section-dark page-section">
+  <div class="container">
+    <p class="sec-label reveal">The Two Thermal Hemispheres</p>
+    <h2 class="sec-title reveal">Heat and Cold —<span style="color:rgba(200,210,255,.3);font-weight:100;"> why they work differently in design</span></h2>
+    <div class="divider reveal"></div>
+  </div>
+  <div style="max-width:1200px;margin:0 auto;padding:0 2.5rem;">
+    <div class="bands-grid reveal">
+      <div class="band-panel">
+        <div class="band-bg-hot"></div><div class="band-orb orb-hot"></div>
+        <div class="band-num">01</div>
+        <div class="band-swatches">
+          <div class="bs" style="background:#ff1a00;"></div><div class="bs" style="background:#ff5500;"></div>
+          <div class="bs" style="background:#ff9900;"></div><div class="bs" style="background:#ffdd00;"></div>
+          <div class="bs" style="background:#ff2266;"></div><div class="bs" style="background:#8b1a00;"></div>
+        </div>
+        <div class="band-tag bt-hot">HOT BAND · 620nm → 750nm+</div>
+        <h2 class="bh-hot">Red · Orange<br>Pink · Flame</h2>
+        <p>Hot colors are high-energy electromagnetic waves. Physical reality maps directly to human psychology — our brains are wired to treat red-orange as urgent and activating.</p>
+        <ul class="band-facts">
+          <li><span class="bf-dot dot-hot"></span><strong style="color:#dde0f5">Red (700nm)</strong> activates the amygdala in under 80ms — faster than any other color. Universal for stop, danger, and emergency across every culture.</li>
+          <li><span class="bf-dot dot-hot"></span><strong style="color:#dde0f5">Orange (620nm)</strong> stimulates L and M cones simultaneously — the brain reads this as food and energy. Every major fast food chain uses this scientifically documented response.</li>
+          <li><span class="bf-dot dot-hot"></span><strong style="color:#dde0f5">Yellow (580nm)</strong> sits at the photopic sensitivity peak — the most detectable wavelength in daylight. Emergency vests and school buses are yellow by scientific mandate.</li>
+        </ul>
+        <a href="hot-colors.html" class="band-link bl-hot">EXPLORE HOT BAND →</a>
+      </div>
+      <div class="band-panel">
+        <div class="band-bg-cold"></div><div class="band-orb orb-cold"></div>
+        <div class="band-num">02</div>
+        <div class="band-swatches">
+          <div class="bs" style="background:#00ffcc;"></div><div class="bs" style="background:#00aaff;"></div>
+          <div class="bs" style="background:#0044ff;"></div><div class="bs" style="background:#5500cc;"></div>
+          <div class="bs" style="background:#002855;"></div><div class="bs" style="background:#00ffee;"></div>
+        </div>
+        <div class="band-tag bt-cold">COLD BAND · 380nm → 500nm</div>
+        <h2 class="bh-cold">Blue · Cyan<br>Violet · Frost</h2>
+        <p>Cold colors are lower-energy waves. Less energy per photon — and this registers in human cognition as calming, safe, and trustworthy. Blue is the world's most universally liked color.</p>
+        <ul class="band-facts">
+          <li><span class="bf-dot dot-cold"></span><strong style="color:#dde0f5">Blue (450nm)</strong> activates ipRGCs — a third photoreceptor type connected directly to the circadian clock. It measurably lowers blood pressure and heart rate.</li>
+          <li><span class="bf-dot dot-cold"></span><strong style="color:#dde0f5">Cyan (495nm)</strong> has the highest legibility in high-glare environments — dominant in airport signage and emergency wayfinding worldwide.</li>
+          <li><span class="bf-dot dot-cold"></span><strong style="color:#dde0f5">Violet (400nm)</strong> carries maximum visible photon energy. In thermal maps: the coldest zones near absolute zero emission.</li>
+        </ul>
+        <a href="cold-colors.html" class="band-link bl-cold">EXPLORE COLD BAND →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY COLORS -->
+<section class="section-mid page-section">
+  <div class="container">
+    <p class="sec-label reveal">Color Science · Visual Psychology</p>
+    <h2 class="sec-title reveal">Why each color does <span style="color:rgba(200,210,255,.3);font-weight:100;">what it does to your brain</span></h2>
+    <div class="divider reveal"></div>
+    <div class="why-grid">
+      <div class="why-card reveal"><span class="why-icon">🔴</span><h3>Red — Maximum Urgency</h3><p>700nm. Photons trigger L-cone cells most aggressively. The brain processes red before any other color — it literally arrives first. Used in warnings and emergencies because the neural response is biological, not learned.</p><div class="why-stat">700nm · L-CONE DOMINANT · RESPONSE &lt;80ms · AMYGDALA ACTIVATION</div></div>
+      <div class="why-card reveal"><span class="why-icon">🟠</span><h3>Orange — Energy & Appetite</h3><p>620nm. Activates both L and M cones simultaneously — dual stimulation the brain reads as high-energy and food-associated. Rare in nature outside ripe fruit. Every major fast food chain exploits this measured effect.</p><div class="why-stat">620nm · L+M DUAL CONE · APPETITE +15% · FAST FOOD STANDARD</div></div>
+      <div class="why-card reveal"><span class="why-icon">🟡</span><h3>Yellow — First to Fire</h3><p>580nm. The peak of the human photopic sensitivity curve — the most detectable wavelength in daylight. Your eye is physically optimized for this frequency. Emergency vehicles and safety equipment are yellow because physics demands it.</p><div class="why-stat">580nm · PHOTOPIC PEAK · FASTEST DAYLIGHT DETECTION</div></div>
+      <div class="why-card reveal"><span class="why-icon">🟢</span><h3>Green — Center & Balance</h3><p>530nm. Mathematical center of the visible spectrum. Stimulates M-cones at peak response — humans have more M-cones than L or S-cones, so green is what we're optimized for. Universal "go" and "safe" signal across all cultures.</p><div class="why-stat">530nm · M-CONE PEAK · MOST ABUNDANT CONE TYPE · UNIVERSAL SAFE</div></div>
+      <div class="why-card reveal"><span class="why-icon">🔵</span><h3>Blue — Trust & Calm</h3><p>450nm. Activates S-cones AND intrinsically photosensitive retinal ganglion cells (ipRGCs) that regulate the circadian rhythm. Measurably lowers cortisol, blood pressure, and heart rate. The world's most universally liked color.</p><div class="why-stat">450nm · S-CONE + ipRGC · BLOOD PRESSURE −5 TO −7mmHg</div></div>
+      <div class="why-card reveal"><span class="why-icon">🟣</span><h3>Violet — Edge of Sight</h3><p>400nm — the very boundary of human visual perception. Highest energy of visible light. Because violet is rare in nature, the brain assigns it to elevated abstract concepts: creativity, royalty, and mystery.</p><div class="why-stat">380–400nm · S-CONE · HIGHEST VISIBLE PHOTON ENERGY</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEMPERATURE LAB -->
+<section class="section-panel page-section" id="lab">
+  <div class="container">
+    <p class="sec-label reveal">Interactive Temperature Lab</p>
+    <h2 class="sec-title reveal">Drag the spectrum.<br><span style="color:rgba(200,210,255,.3);font-weight:100;">Watch everything change.</span></h2>
+    <div class="divider reveal"></div>
+    <div class="lab-wrapper reveal">
+      <div class="lab-display" id="labDisplay">
+        <div class="lab-chip" id="labChip"></div>
+        <div class="lab-temp-big" id="labBig">+20°C</div>
+        <div class="lab-zone" id="labZone">COMFORT ZONE</div>
+        <div class="lab-mood" id="labMood">Neutral · Balanced</div>
+        <div class="lab-desc" id="labDesc">Room temperature — the baseline of human thermal comfort. Neither stimulating nor sedating. In thermal imaging this zone appears cyan-green, marking the transition between warm and cool radiation bands.</div>
+      </div>
+      <div>
+        <div class="lab-track">
+          <input type="range" class="lab-slider" id="labSlider" min="-40" max="100" value="20" oninput="updateLab(this.value)">
+        </div>
+        <div class="slider-labels">
+          <span>−40°C ARCTIC</span><span>0°C FREEZE</span><span>+37°C BODY</span><span>+100°C BOIL</span>
+        </div>
+      </div>
+      <div class="lab-refs">
+        <button class="lab-ref-btn" onclick="setLab(-40)"><span class="ri">🧊</span><span class="rn">ARCTIC ZONE</span><span class="rt">−40°C</span></button>
+        <button class="lab-ref-btn" onclick="setLab(0)"><span class="ri">❄️</span><span class="rn">FREEZE POINT</span><span class="rt">0°C</span></button>
+        <button class="lab-ref-btn" onclick="setLab(20)"><span class="ri">🌿</span><span class="rn">ROOM TEMP</span><span class="rt">+20°C</span></button>
+        <button class="lab-ref-btn" onclick="setLab(37)"><span class="ri">🫀</span><span class="rn">BODY TEMP</span><span class="rt">+37°C</span></button>
+        <button class="lab-ref-btn" onclick="setLab(60)"><span class="ri">☀️</span><span class="rn">HOT SURFACE</span><span class="rt">+60°C</span></button>
+        <button class="lab-ref-btn" onclick="setLab(100)"><span class="ri">♨️</span><span class="rn">BOILING POINT</span><span class="rt">+100°C</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">THERMA<span class="lam">Λ</span></div>
+        <p style="font-family:'Share Tech Mono',monospace;font-size:.55rem;color:rgba(200,210,255,.22);letter-spacing:.12em;margin-top:.4rem;">LIVING COLOR OBSERVATORY</p>
+      </div>
+      <div class="footer-info">
+        <p>TYPOGRAPHY 260 · OLYMPIC COLLEGE · 2025</p>
+        <p>ORBITRON + SHARE TECH MONO + EXO 2</p>
+        <p><a href="hot-colors.html">HOT BAND</a> · <a href="cold-colors.html">COLD BAND</a> · <a href="interactive.html">LAB</a> · <a href="resources.html">RESEARCH</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>
