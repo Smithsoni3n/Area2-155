@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hot Colors — Red · Orange · Yellow · THERMAΛ</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-hot">
+
+<div class="video-bg-global">
+  <video autoplay muted loop playsinline preload="auto">
+    <source src="gorilla.mp4" type="video/mp4">
+  </video>
+</div>
+<div id="reticle"></div><div id="reticle-tl"></div><div id="reticle-tr"></div>
+<div id="reticle-bl"></div><div id="reticle-br"></div><div id="reticle-dot"></div>
+<canvas id="heat-canvas"></canvas>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">THERMA<span class="lam">Λ</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="hot-colors.html">Hot Band</a></li>
+    <li><a href="cold-colors.html">Cold Band</a></li>
+    <li><a href="interactive.html">Live Lab</a></li>
+    <li><a href="resources.html">Research</a></li>
+  </ul>
+  <div class="nav-badge" id="navBadge">CURSOR: 20°C</div>
+  <button class="nav-toggle" id="navToggle">☰</button>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <p class="ph-tag reveal">[ HOT BAND · 620nm → 750nm+ · THERMAL HIGH ]</p>
+    <h1 class="reveal">Red · Orange<br>Yellow · Flame</h1>
+    <p class="page-hero-desc reveal">The high-energy end of the visible spectrum — where heat becomes color, and color becomes urgency. Every warm-toned color in the thermal scale maps to a documented physiological response in the human brain.</p>
+  </div>
+</div>
+
+<!-- JELLYFISH WIDE — fire palette -->
+<section class="jellyfish-section page-section">
+  <div class="container">
+    <p class="sec-label reveal">Thermal Energy · Fire Palette</p>
+    <h2 class="sec-title reveal">Fire — the original <span style="color:rgba(200,210,255,.3);font-weight:100;">hot color spectrum</span></h2>
+    <div class="divider reveal"></div>
+    <div class="jellyfish-wide reveal">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="jellyfish.mp4" type="video/mp4">
+      </video>
+    </div>
+    <p class="reveal" style="font-size:.9rem;font-weight:300;color:var(--text-muted);line-height:1.82;max-width:700px;margin-top:1.5rem;">The warm glow of bioluminescence echoes the evolutionary reason our brains respond to hot colors — both signal life, energy, and chemical activity. Before fire was controlled, living glowing organisms were the only warm light source in the natural world. Our neural response to warm colors was shaped by millions of years of survival around exactly this kind of light.</p>
+  </div>
+</section>
+
+<!-- RED SCIENCE -->
+<section class="section-dark page-section">
+  <div class="container">
+    <p class="sec-label reveal">Red — 700nm Wavelength</p>
+    <h2 class="sec-title reveal" style="background:linear-gradient(90deg,#ff1a00,#ff5500);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">The most urgent<br>color in existence</h2>
+    <div class="divider reveal"></div>
+    <div class="two-col">
+      <div class="text-block reveal">
+        <h3 style="color:#ff2200;">Physics of Red</h3>
+        <p>Red occupies 620–750nm on the electromagnetic spectrum — the longest visible wavelength before infrared. Red photons carry less energy per photon than blue, but they are the gateway between visible light and thermal radiation. Every object warm enough to glow begins by emitting deep red before transitioning through orange to yellow-white at extreme temperatures.</p>
+        <p>In thermal imaging, deep red represents core body temperature zones — the transition from cool ambient to warm biological tissue. A FLIR camera reading an animal at 34–38°C renders it in exactly this deep orange-red range.</p>
+        <ul class="fact-list">
+          <li><span class="fdot"></span>700nm: Longest visible wavelength before near-infrared</li>
+          <li><span class="fdot"></span>Amygdala activation: &lt;80ms — faster than any other color</li>
+          <li><span class="fdot"></span>Heart rate increase: documented in controlled studies</li>
+          <li><span class="fdot"></span>Universal danger/stop signal across all documented cultures</li>
+        </ul>
+      </div>
+      <div class="text-block reveal">
+        <h3 style="color:#ff2200;">Psychology of Red</h3>
+        <p>Red triggers the amygdala — the brain's threat assessment center — in under 80 milliseconds. This is faster than conscious awareness. The response is not learned: it is hard-wired from millions of years of associating red with blood, fire, and danger. In design, this makes red the most powerful color available for capturing immediate attention.</p>
+        <p>In typography, red should be used sparingly and intentionally. A single red element in a black-and-white composition will immediately become the primary focal point regardless of its size or position in the layout.</p>
+        <ul class="fact-list">
+          <li><span class="fdot"></span>Increases physical strength output in athletes (red jersey effect)</li>
+          <li><span class="fdot"></span>Reduces analytical performance — narrows cognitive focus</li>
+          <li><span class="fdot"></span>Increases appetite through association with ripe fruit</li>
+          <li><span class="fdot"></span>Source: Elliot & Maier, 2014 — Color and Psychological Functioning</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOT COLOR SWATCHES -->
+<section class="section-mid page-section">
+  <div class="container">
+    <p class="sec-label reveal">Hot Band Swatches · Full Thermal Range</p>
+    <h2 class="sec-title reveal">Every warm color — <span style="color:rgba(200,210,255,.3);font-weight:100;">science and application</span></h2>
+    <div class="divider reveal"></div>
+    <div class="swatch-grid">
+      <div class="swatch-card reveal">
+        <div class="swatch-color" style="background:#ff1a00;"></div>
+        <div class="swatch-meta"><h4 style="color:#ff1a00;">Deep Red</h4><div class="hex">#FF1A00 · 700nm</div><p>Maximum urgency. Amygdala activation. Used in emergency systems, stop signals, and danger marking across all cultures.</p></div>
+      </div>
+      <div class="swatch-card reveal">
+        <div class="swatch-color" style="background:#ff5500;"></div>
+        <div class="swatch-meta"><h4 style="color:#ff5500;">Hot Orange</h4><div class="hex">#FF5500 · 620nm</div><p>Dual L+M cone stimulation. The brain reads orange as food and energy — the most appetizing color in the visible spectrum.</p></div>
+      </div>
+      <div class="swatch-card reveal">
+        <div class="swatch-color" style="background:#ff9900;"></div>
+        <div class="swatch-meta"><h4 style="color:#ff9900;">Thermal Orange</h4><div class="hex">#FF9900 · 610nm</div><p>Body temperature range in FLIR imaging (34–39°C). The color of mammalian life when viewed through a thermal camera.</p></div>
+      </div>
+      <div class="swatch-card reveal">
+        <div class="swatch-color" style="background:#ffdd00;"></div>
+        <div class="swatch-meta"><h4 style="color:#ffdd00;">Thermal Yellow</h4><div class="hex">#FFDD00 · 580nm</div><p>Photopic sensitivity peak. The most detectable color in daylight. Emergency yellow is scientifically mandated, not stylistic.</p></div>
+      </div>
+      <div class="swatch-card reveal">
+        <div class="swatch-color" style="background:#ff2266;"></div>
+        <div class="swatch-meta"><h4 style="color:#ff2266;">Baker-Miller Pink</h4><div class="hex">#FF2266 · 680nm</div><p>Reduces physical aggression within 15 minutes of exposure. Used in holding cells — effect is physiological, not suggestion.</p></div>
+      </div>
+      <div class="swatch-card reveal">
+        <div class="swatch-color" style="background:#ffffff; border:1px solid rgba(255,255,255,.15);"></div>
+        <div class="swatch-meta"><h4 style="color:#e0e0e0;">FLIR White Hot</h4><div class="hex">#FFFFFF · MAX TEMP</div><p>Maximum infrared emission — white saturation in FLIR cameras represents the highest measurable temperature. Plasma and flame.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORANGE SCIENCE -->
+<section class="section-panel page-section">
+  <div class="container">
+    <p class="sec-label reveal">Orange & Yellow — The Energy Colors</p>
+    <h2 class="sec-title reveal">Dual-channel stimulation — <span style="color:rgba(200,210,255,.3);font-weight:100;">why orange is unforgettable</span></h2>
+    <div class="divider reveal"></div>
+    <div class="two-col">
+      <div class="text-block reveal">
+        <h3 style="color:#ff9900;">Orange — The Appetite Color</h3>
+        <p>Orange at 620nm stimulates both L-cone (long wavelength) and M-cone (medium wavelength) cells simultaneously. This dual activation is rare — most colors stimulate only one or two cone types selectively. The brain interprets dual L+M stimulation as high-energy content that needs to be consumed.</p>
+        <p>Orange is rare in nature outside of ripe fruit — which is exactly why the brain evolved to prioritize it. Ripe tropical fruit represents the highest caloric density in a natural diet. Orange says "eat this now" at a neurological level.</p>
+        <ul class="fact-list">
+          <li><span class="fdot"></span>620nm: L+M cone dual stimulation</li>
+          <li><span class="fdot"></span>Appetite increase: documented +10–15% in controlled studies</li>
+          <li><span class="fdot"></span>Used by McDonald's, Burger King, Dunkin', Fanta, Amazon</li>
+          <li><span class="fdot"></span>Most commonly used color in food packaging worldwide</li>
+        </ul>
+      </div>
+      <div class="text-block reveal">
+        <h3 style="color:#ffdd00;">Yellow — Maximum Visibility</h3>
+        <p>Yellow at 580nm sits at the exact peak of the photopic luminosity function — the mathematical curve describing the human eye's sensitivity to different wavelengths in daylight. At this frequency, the eye is 30x more sensitive to contrast than it is at blue or red wavelengths.</p>
+        <p>This is not a cultural choice. Emergency vehicles, school buses, safety vests, and hazard markings are yellow across every country on Earth because physics mandates maximum detection speed. Yellow is the only color in design that is regulated by its wavelength physics rather than convention.</p>
+        <ul class="fact-list">
+          <li><span class="fdot"></span>580nm: Absolute peak of photopic sensitivity curve</li>
+          <li><span class="fdot"></span>30x contrast sensitivity advantage over blue wavelengths</li>
+          <li><span class="fdot"></span>ANSI/ISO mandates yellow for Class 1 safety equipment</li>
+          <li><span class="fdot"></span>Fastest detected color in peripheral vision</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">THERMA<span class="lam">Λ</span></div>
+        <p style="font-family:'Share Tech Mono',monospace;font-size:.55rem;color:rgba(200,210,255,.22);letter-spacing:.12em;margin-top:.4rem;">HOT BAND · RED · ORANGE · YELLOW</p>
+      </div>
+      <div class="footer-info">
+        <p>TYPOGRAPHY 260 · OLYMPIC COLLEGE · 2025</p>
+        <p><a href="index.html">HOME</a> · <a href="cold-colors.html">COLD BAND →</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>
