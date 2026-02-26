@@ -1,0 +1,10 @@
+:root{--f:"Courier New",monospace}*{box-sizing:border-box}body{margin:0;background:#081119;color:#e8f3fc;font-family:var(--f);overflow:hidden}
+.slide{position:absolute;inset:0;display:grid;place-items:center;opacity:0;pointer-events:none;transition:.45s}.slide.active{opacity:1;pointer-events:auto}
+.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.wash{position:absolute;inset:0}.steel{background:rgba(55,97,133,.45)}.amber{background:rgba(147,99,41,.4)}.iron{background:rgba(73,77,83,.5)}
+.card{position:relative;width:min(92vw,940px);min-height:72vh;perspective:1100px;z-index:2;cursor:pointer}.face{position:absolute;inset:0;background:rgba(5,14,20,.72);border:2px solid #9cb9cf;padding:1rem 1rem 3.2rem;display:grid;gap:.6rem;transition:transform .7s;backface-visibility:hidden}.drape{transform:rotateY(180deg)}.card.flip .dock{transform:rotateY(180deg)}.card.flip .drape{transform:rotateY(360deg)}
+img{width:100%;height:44vh;object-fit:cover;border:1px solid #87a7bd}h2{margin:0;text-transform:uppercase;font-size:clamp(1rem,2vw,1.45rem);letter-spacing:.08em}p{margin:0;line-height:1.4;font-size:clamp(.85rem,1.6vw,1rem)}
+.pulse{position:absolute;right:1rem;bottom:1rem;background:#163246;color:#deedf8;border:1px solid #9cb9cf;padding:.35rem .6rem;font-family:var(--f);animation:pulse 1.3s infinite}@keyframes pulse{50%{transform:scale(1.08)}}
+.nav{position:fixed;bottom:.8rem;left:50%;transform:translateX(-50%);z-index:4;display:flex;gap:.7rem;align-items:center;background:rgba(5,12,18,.85);border:1px solid #8fadc3;padding:.4rem .8rem}
+button{font-family:var(--f);background:#123044;color:#e8f3fc;border:1px solid #8fadc3}#shiftCursor{position:fixed;left:0;top:0;transform:translate(-50%,-50%);pointer-events:none;z-index:8;border:1px solid #eaf5ff;padding:.2rem .4rem;font-size:.72rem;background:#06111b}#shiftCursor.hot{transform:translate(-50%,-50%) scale(1.25);background:#eff7ff;color:#04111a}
+#fact{font-family:var(--f);background:#0a1924;color:#e2effa;border:1px solid #8fadc3;max-width:420px}
+@media (max-width:760px){.card{min-height:79vh}img{height:36vh}}
