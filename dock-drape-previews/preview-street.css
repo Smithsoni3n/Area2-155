@@ -1,0 +1,23 @@
+:root { --wash: rgba(81, 146, 181, .5); }
+*{box-sizing:border-box}
+body{margin:0;background:#0c0b0a;color:#f3efe6;font-family:monospace;display:grid;grid-template-columns:220px 1fr;min-height:100vh;cursor:none}
+.rail{padding:1rem;background:rgba(20,15,12,.95);display:flex;flex-direction:column;gap:.6rem;border-right:1px solid #57463d;z-index:2}
+.rail h1{margin:0;font-size:1.4rem;letter-spacing:.1rem;text-transform:uppercase}
+.rail button{background:#261b15;color:#f6dfbf;border:1px solid #6f5748;padding:.55rem;text-align:left}
+.stage{position:relative;overflow:hidden}
+.frame{position:absolute;inset:0;opacity:0;transform:translateX(4%);transition:.5s}
+.frame.on{opacity:1;transform:none}
+.frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.frame::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--wash),rgba(0,0,0,.7))}
+.panel{position:relative;z-index:1;height:100%;display:grid;place-items:center}
+.sheet{width:min(77vw,680px);background:rgba(8,8,8,.86);padding:1rem;border:1px solid #b09176;border-radius:8px;position:absolute;display:grid;gap:.6rem;transition: transform .75s}
+.sheet img{width:100%;height:min(46vh,360px);object-fit:cover;border:1px solid #b09176}
+.panel.show-f .male{transform:rotateY(180deg);opacity:0}
+.panel.show-f .female{transform:rotateY(0deg);opacity:1}
+.female{transform:rotateY(-180deg);opacity:0}
+.dot{width:18px;height:18px;border-radius:50%;background:#ffcc91;display:inline-block;animation: blip 1.4s infinite;justify-self:end}
+@keyframes blip{50%{transform:scale(1.4);box-shadow:0 0 0 7px rgba(255,204,145,.2)}}
+.note{position:fixed;bottom:1rem;right:1rem;max-width:320px;padding:.7rem .9rem;background:#130e0b;border:1px solid #8f735b;display:none}
+.pointer{position:fixed;width:42px;height:42px;border-radius:50%;border:2px solid #ffdbba;display:grid;place-items:center;pointer-events:none;z-index:9;transform:translate(-50%,-50%)}
+.pointer.big{width:66px;height:66px}
+@media (max-width:900px){body{grid-template-columns:1fr}.rail{position:fixed;left:0;right:0;bottom:0;flex-direction:row;flex-wrap:wrap;justify-content:center}}

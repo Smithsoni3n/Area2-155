@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dock + Drape | Harbor Shift Preview A</title>
+  <link rel="stylesheet" href="preview-harbor.css" />
+</head>
+<body>
+  <div class="binary-cursor" id="binaryCursor"><span id="cursorLabel">DOCK</span></div>
+  <header>
+    <h1>DOCK + DRAPE</h1>
+    <p>Bremerton Workforce Archive · 1960s to 1970s</p>
+  </header>
+
+  <main class="slideshow" id="slideshow">
+    <section class="slide active" data-era="1960-1964" data-water="steel">
+      <video autoplay muted loop playsinline class="bg-video">
+        <source src="https://cdn.coverr.co/videos/coverr-boat-in-the-sea-1579/1080p.mp4" type="video/mp4">
+      </video>
+      <article class="flip-card" data-default="dock">
+        <div class="flip-inner">
+          <div class="face front">
+            <h2>PSNS Dungarees · Early 60s</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/U.S._Navy_Chief_Petty_Officer_in_working_uniform_1960s.jpg" alt="US Navy working uniform from 1960s" />
+            <p>Puget Sound Naval Shipyard was Bremerton's top employer, and blue chambray + denim dungarees were standard yard wear.</p>
+            <button class="hotspot" data-fact="Dock Fact: PSNS maintained aircraft carriers and submarines around-the-clock in this era.">Pulse Fact</button>
+          </div>
+          <div class="face back">
+            <h2>Clinical Whites · Early 60s</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/52/U.S._Navy_nurse_in_1960s_uniform.jpg" alt="Nursing whites uniform historical" />
+            <p>Crisp nursing whites symbolized discipline; starch and polished shoes matched the military-adjacent hospital culture.</p>
+            <button class="hotspot" data-fact="Drape Humor: One lint speck on white fabric? That's a full inspection event.">Pulse Fact</button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-era="1965-1969" data-water="amber">
+      <video autoplay muted loop playsinline class="bg-video">
+        <source src="https://cdn.coverr.co/videos/coverr-gas-station-at-night-1681/1080p.mp4" type="video/mp4">
+      </video>
+      <article class="flip-card" data-default="dock">
+        <div class="flip-inner">
+          <div class="face front">
+            <h2>Service Bay Gear · Late 60s</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Gas_station_attendant_1960s.jpg" alt="1960s gas station attendant uniform" />
+            <p>In Bremerton's car-heavy corridors, attendants wore branded shirts, caps, and grease-resistant work slacks.</p>
+            <button class="hotspot" data-fact="Dock Humor: Free windshield wipe came with exactly zero small talk if you were late to shift.">Pulse Fact</button>
+          </div>
+          <div class="face back">
+            <h2>Retail & Stewardess Style</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Stewardess_uniform_1960s.jpg" alt="1960s stewardess uniform" />
+            <p>Structured dresses, neck scarves, and polished grooming mirrored Bremerton's expanding service economy and travel ties.</p>
+            <button class="hotspot" data-fact="Drape Fact: Uniform grooming codes were often stricter than job manuals.">Pulse Fact</button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-era="1970-1979" data-water="iron">
+      <video autoplay muted loop playsinline class="bg-video">
+        <source src="https://cdn.coverr.co/videos/coverr-foggy-sea-5589/1080p.mp4" type="video/mp4">
+      </video>
+      <article class="flip-card" data-default="dock">
+        <div class="flip-inner">
+          <div class="face front">
+            <h2>Maritime / Logging Rugged</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Logger_workwear_1970s.jpg" alt="1970s rugged workwear" />
+            <p>Oilskin coats, denim, and heavy boots dominated maritime and logging routes feeding Kitsap's industrial chain.</p>
+            <button class="hotspot" data-fact="Dock Fact: Rain gear wasn't fashion—it was survival for rotating shift work.">Pulse Fact</button>
+          </div>
+          <div class="face back">
+            <h2>Shipyard Coveralls · 70s</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Female_shipyard_worker_coveralls.jpg" alt="Female shipyard coveralls" />
+            <p>Women in technical and yard support roles adopted heavy-duty coveralls built for welding zones and wet weather.</p>
+            <button class="hotspot" data-fact="Drape Humor: Coveralls had two settings: too hot in July, too cold in January.">Pulse Fact</button>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <nav class="controls">
+    <button id="prevBtn">⟵ Era</button>
+    <button id="toggleBtn">Binary Shift ⇄</button>
+    <button id="nextBtn">Era ⟶</button>
+  </nav>
+
+  <dialog id="factModal"><p id="factText"></p><button id="closeFact">Close</button></dialog>
+
+  <script src="preview-harbor.js"></script>
+</body>
+</html>
