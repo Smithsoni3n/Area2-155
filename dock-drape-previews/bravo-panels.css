@@ -1,0 +1,15 @@
+:root{--f:"Lucida Console",monospace}
+*{box-sizing:border-box}body{margin:0;font-family:var(--f);background:#02070b;color:#e8f4ff}
+header{position:fixed;top:0;z-index:5;width:100%;padding:.5rem 1rem;background:rgba(0,0,0,.65);backdrop-filter:blur(6px)}h1,p{margin:.25rem 0}
+#reel{display:grid;grid-template-columns:repeat(3,minmax(260px,1fr));height:100vh;padding-top:84px}
+.panel{position:relative;overflow:hidden;border-left:1px solid rgba(255,255,255,.25)}
+.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.tint{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8),rgba(0,0,0,.2))}
+.flipbox{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);width:min(92%,360px);height:min(80%,620px);transform-style:preserve-3d;transition:transform .8s}
+.flipbox.flipped{transform:translate(-50%,-50%) rotateY(180deg)}
+.face{position:absolute;inset:0;background:rgba(5,15,24,.82);border:1px solid #9bb8ce;padding:.8rem;display:grid;grid-template-rows:auto 1fr auto auto;gap:.5rem;backface-visibility:hidden}
+.face img{width:100%;height:300px;object-fit:cover;border:1px solid #6f8ca0}.face h2{font-size:1rem;margin:0;text-transform:uppercase}
+.face p{font-size:.85rem;line-height:1.35;margin:0}.female{transform:rotateY(180deg)}
+.blip{justify-self:end;background:#133044;color:#d7e7f4;border:1px solid #8fb2ca;padding:.3rem .5rem;animation:p 1.2s infinite} @keyframes p{50%{transform:scale(1.1)}}
+#reactiveCursor{position:fixed;left:0;top:0;transform:translate(-50%,-50%);pointer-events:none;z-index:9;border:1px solid #dce9f7;padding:.2rem .45rem;background:#02070b}
+#reactiveCursor.grow{transform:translate(-50%,-50%) scale(1.5);background:#eaf4ff;color:#051018}
+@media(max-width:980px){#reel{grid-template-columns:1fr;height:auto;min-height:100vh}.panel{height:100vh}}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DOCK + DRAPE — Alpha Archive</title>
+  <link rel="stylesheet" href="alpha-grid.css" />
+</head>
+<body>
+  <div class="cursor" id="cursor">SHIFT</div>
+  <main class="slideshow" id="slideshow">
+    <section class="slide active" data-era="1960-1964">
+      <video autoplay muted loop playsinline class="bg-video">
+        <source src="https://player.vimeo.com/external/434045526.sd.mp4?s=6313f2e20289fbfa2cbf4af136fd9f01b25345f0&profile_id=139&oauth2_token_id=57447761" type="video/mp4" />
+      </video>
+      <div class="overlay steel"></div>
+      <article class="artifact-card" data-flip-card>
+        <div class="card-face card-front">
+          <h2>Early 1960s: PSNS Dungarees</h2>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/US_Navy_100906-N-3408P-130_Aviation_Structural_Mechanic_Airman_Joseph_Borelli%2C_assigned_to_the_Argonauts_of_Patrol_Squadron_%28VP%29_4%2C_cleans_the_flight_deck_as_part_of_his_daily_duties.jpg" alt="Navy work dungarees" />
+          <p>Puget Sound Naval Shipyard remained one of Bremerton's largest employers, with tradesmen reporting in denim dungarees and utility shirts for maintenance-heavy shifts.</p>
+          <button class="hotspot" data-fact="1962 punch cards ruled the clock. If your card bent, your boss knew before you did.">⚓ Dock Fact</button>
+        </div>
+        <div class="card-face card-back">
+          <h2>Early 1960s: Clinical Whites</h2>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/U.S._Navy_hospital_corpsmen.jpg" alt="Nursing whites with caps" />
+          <p>Regional clinics and naval hospital staff wore heavily starched white uniforms, with caps and polished shoes reflecting strict cleanliness standards.</p>
+          <button class="hotspot" data-fact="Starched caps stayed crisp through eight-hour rounds—like carrying a folded newspaper on your head.">🩺 Drape Fact</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-era="1965-1969">
+      <video autoplay muted loop playsinline class="bg-video">
+        <source src="https://player.vimeo.com/external/371433846.sd.mp4?s=2364ef52eb6ce57dc4f66cf4e6f0d95dbf2d5cde&profile_id=139&oauth2_token_id=57447761" type="video/mp4" />
+      </video>
+      <div class="overlay amber"></div>
+      <article class="artifact-card" data-flip-card>
+        <div class="card-face card-front">
+          <h2>Late 1960s: Service Station Shift</h2>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Gas_station_attendant_1966.jpg" alt="1960s gas station uniform" />
+          <p>As car ownership surged around Kitsap County, station attendants wore logo shirts, caps, and durable cotton trousers for full-service fueling culture.</p>
+          <button class="hotspot" data-fact="Full service meant windshield, oil check, and a smile—before your coffee even cooled.">⛽ Dock Fact</button>
+        </div>
+        <div class="card-face card-back">
+          <h2>Late 1960s: Retail & Stewardess Precision</h2>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Stewardess_showing_new_uniform_1968.jpg" alt="1960s stewardess style uniform" />
+          <p>Professional women in retail and aviation-adjacent services often wore coordinated tailoring, gloves, and practical heels to signal polished reliability.</p>
+          <button class="hotspot" data-fact="Those matching gloves looked elegant and also hid the ink from writing receipts all day.">👜 Drape Fact</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="slide" data-era="1970-1979">
+      <video autoplay muted loop playsinline class="bg-video">
+        <source src="https://player.vimeo.com/external/445690438.sd.mp4?s=13ce2f5df5f9ed5dbc6d82af6f5d56be4bb86fd5&profile_id=139&oauth2_token_id=57447761" type="video/mp4" />
+      </video>
+      <div class="overlay iron"></div>
+      <article class="artifact-card" data-flip-card>
+        <div class="card-face card-front">
+          <h2>1970s: Maritime & Logging Toughwear</h2>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Logger%2C_Washington_state%2C_1972.jpg" alt="1970s logging gear" />
+          <p>Heavy wool layers, waxed jackets, and work boots defined Pacific Northwest fieldwear as maritime and timber labor demanded weatherproof durability.</p>
+          <button class="hotspot" data-fact="If your jacket could stand up by itself after rain, it was probably the right jacket.">🌲 Dock Fact</button>
+        </div>
+        <div class="card-face card-back">
+          <h2>1970s: Women in Shipyard Coveralls</h2>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Female_shipyard_worker.jpg" alt="Woman in shipyard coveralls" />
+          <p>By the 1970s, more women entered industrial roles, adopting steel-toe boots and coveralls suited for welding, fabrication, and dockside mechanics.</p>
+          <button class="hotspot" data-fact="Coveralls had one universal law: the right pocket always held a tape measure and two mysteries.">🔧 Drape Fact</button>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <nav class="controls">
+    <button id="prev">←</button>
+    <span id="eraLabel">1960-1964</span>
+    <button id="next">→</button>
+  </nav>
+  <dialog id="factBox"></dialog>
+  <script src="alpha-grid.js"></script>
+</body>
+</html>
