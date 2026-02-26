@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dock + Drape | Fogline Preview C</title>
+  <link rel="stylesheet" href="preview-fog.css">
+</head>
+<body>
+  <div class="cursor" id="cursor">DOCK</div>
+  <main id="deck">
+    <section class="pane visible" data-tint="steel">
+      <video autoplay muted loop playsinline><source src="https://cdn.coverr.co/videos/coverr-ocean-wave-1600/1080p.mp4" type="video/mp4"></video>
+      <div class="card-wrap">
+        <div class="flip" id="flip0">
+          <figure class="side male">
+            <h2>Early 60s: Yard Dungarees</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/US_Navy_working_dungarees_1960.jpg" alt="Navy dungarees era uniform">
+            <figcaption>Chambray shirts and utility denim were practical for wet dock labor in Bremerton's climate.</figcaption>
+            <button class="ping" data-msg="Fact: The naval yard's shift rhythm influenced downtown schedules.">?</button>
+          </figure>
+          <figure class="side female">
+            <h2>Early 60s: Nursing Whites</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/Navy_nurse_historical_uniform.jpg" alt="Historical nursing uniform">
+            <figcaption>Hospital-adjacent roles favored starched whites, caps, and polished leather shoes.</figcaption>
+            <button class="ping" data-msg="Humor: White uniforms and Bremerton rain were never friends.">?</button>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="pane" data-tint="amber">
+      <video autoplay muted loop playsinline><source src="https://cdn.coverr.co/videos/coverr-motorbike-reflections-8386/1080p.mp4" type="video/mp4"></video>
+      <div class="card-wrap">
+        <div class="flip" id="flip1">
+          <figure class="side male">
+            <h2>Late 60s: Station Utility</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gas_attendant_historic_uniform.jpg" alt="Service station uniform details">
+            <figcaption>Branded jackets and caps represented technical trust at local service stations.</figcaption>
+            <button class="ping" data-msg="Fact: Uniform branding doubled as neighborhood advertising.">?</button>
+          </figure>
+          <figure class="side female">
+            <h2>Late 60s: Professional Service</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/1960s_womens_uniform.jpg" alt="Professional women uniform 1960s">
+            <figcaption>Retail/stewardess styling emphasized precision tailoring and strict grooming standards.</figcaption>
+            <button class="ping" data-msg="Humor: A scarf knot could be inspected like military hardware.">?</button>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="pane" data-tint="iron">
+      <video autoplay muted loop playsinline><source src="https://cdn.coverr.co/videos/coverr-rain-on-a-car-window-9715/1080p.mp4" type="video/mp4"></video>
+      <div class="card-wrap">
+        <div class="flip" id="flip2">
+          <figure class="side male">
+            <h2>1970s: Maritime / Logging</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Maritime_worker_rain_gear.jpg" alt="Rugged maritime workwear">
+            <figcaption>Oilskin, wool layers, and reinforced boots met marine-weather realities.</figcaption>
+            <button class="ping" data-msg="Fact: Regional logging and ship traffic linked supply chains through Kitsap.">?</button>
+          </figure>
+          <figure class="side female">
+            <h2>1970s: Industrial Coveralls</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Woman_in_coveralls_industry.jpg" alt="Woman in heavy duty coveralls">
+            <figcaption>Women in industrial settings wore heavier coveralls as technical roles expanded.</figcaption>
+            <button class="ping" data-msg="Humor: Coveralls had room for tools, not for dry socks.">?</button>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <button id="back">Previous</button>
+    <button id="shift">Binary Toggle ⇄</button>
+    <button id="forward">Next</button>
+  </footer>
+  <div id="toast"></div>
+  <script src="preview-fog.js"></script>
+</body>
+</html>
