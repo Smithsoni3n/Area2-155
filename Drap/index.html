@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dock+Drape Bravo Reel</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="reactiveCursor">⇄</div>
+<header><h1>Bremerton Uniform Reel 1960s–1970s</h1><p>Tap card body to switch Dock ↔ Drape</p></header>
+<section id="reel"></section>
+<template id="panelTpl">
+  <article class="panel">
+    <video muted autoplay loop playsinline class="bg"></video>
+    <div class="tint"></div>
+    <div class="flipbox" role="button" tabindex="0">
+      <div class="face male"></div>
+      <div class="face female"></div>
+    </div>
+  </article>
+</template>
+<script src="script.js"></script>
+</body>
+</html>

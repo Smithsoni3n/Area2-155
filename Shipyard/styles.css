@@ -1,0 +1,20 @@
+:root{--f:"Andale Mono",monospace}
+*{box-sizing:border-box}
+body{margin:0;display:grid;grid-template-columns:220px 1fr;min-height:100vh;font-family:var(--f);background:#000c12;color:#ddedf8}
+.timeline{display:flex;flex-direction:column;gap:.75rem;padding:1rem;background:linear-gradient(#03111b,#0a222f)}
+.timeline button{font-family:var(--f);padding:.7rem;background:#0f2f42;color:#d7e9f8;border:1px solid #8ab0ca}
+#console{position:relative;overflow:hidden}
+.scene{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .45s}.scene.active{opacity:1;pointer-events:auto}
+.scene video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.wash{position:absolute;inset:0}
+.deck{position:relative;z-index:2;height:100%;display:grid;place-items:center;padding:1rem}
+.shell{width:min(90vw,850px);background:rgba(2,13,20,.72);border:2px solid #8aadc5;display:grid;grid-template-columns:1fr 1fr}
+.shell.flipped .dock{transform:rotateY(180deg)}.shell.flipped .drape{transform:rotateY(360deg)}
+.panel{grid-column:1/-1;grid-row:1;backface-visibility:hidden;transition:transform .7s;padding:1rem;display:grid;gap:.55rem}
+.drape{transform:rotateY(180deg)}
+.panel img{width:100%;height:340px;object-fit:cover;border:1px solid #68879b}
+.tag{font-size:.85rem;letter-spacing:.08em;text-transform:uppercase}.ping{justify-self:start;padding:.3rem .55rem;border:1px solid #89aec8;background:#12384f;color:#def0ff;animation:bounce 1.4s infinite}
+@keyframes bounce{50%{transform:translateY(-3px)}}
+#shiftCursor{position:fixed;left:0;top:0;transform:translate(-50%,-50%);pointer-events:none;border:1px solid #e6f4ff;padding:.2rem .5rem;background:#04131c;font-size:.75rem}
+#shiftCursor.live{background:#e6f4ff;color:#00121c;transform:translate(-50%,-50%) scale(1.35)}
+@media (max-width:900px){body{grid-template-columns:1fr}.timeline{flex-direction:row;overflow:auto}.shell{grid-template-columns:1fr}.panel img{height:250px}}
