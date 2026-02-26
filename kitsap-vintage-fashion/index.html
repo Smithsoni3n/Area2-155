@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kitsap Vintage Fashion 1960s–70s</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <p class="eyebrow">Local history showcase</p>
+      <h1>Kitsap Vintage Fashion 1960s–70s</h1>
+      <p class="intro">
+        This educational page introduces style shifts from the 1960s into the 1970s. During years shaped by the Vietnam War,
+        civil rights activism, the hippie movement, and the Nixon era, clothing became a powerful way for people to express
+        identity, protest, freedom, and social change.
+      </p>
+      <p class="credit">Photography credit: Interactive Web Design Graduate Michael Martin.</p>
+    </header>
+
+    <nav class="main-nav" aria-label="Primary">
+      <a href="#wireframe-home">Wireframe Home</a>
+      <a href="#featured-item">Featured Item</a>
+    </nav>
+
+    <main>
+      <section id="wireframe-home" class="panel">
+        <h2>Wireframe-style homepage layout</h2>
+        <div class="wireframe-grid" role="presentation">
+          <article class="wire-box">
+            <h3>Hero Block</h3>
+            <p>Large heading + quick context about 1960s–70s fashion in Kitsap and beyond.</p>
+          </article>
+          <article class="wire-box">
+            <h3>Era Highlights</h3>
+            <p>Mini timeline: Mod looks, antiwar influences, denim growth, and disco-inspired textures.</p>
+          </article>
+          <article class="wire-box">
+            <h3>Featured Garment</h3>
+            <p>Lead visitors to one detailed item with a photo slideshow and notes.</p>
+          </article>
+          <article class="wire-box">
+            <h3>Learning Notes</h3>
+            <p>Simple prompts for students and families to discuss color, cut, and cultural context.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="featured-item" class="panel">
+        <h2>Featured fashion item: Suede Fringe Vest</h2>
+        <p>
+          Fringe vests became symbols of counterculture styling in the late 1960s and early 1970s, often paired with denim,
+          boots, and layered accessories.
+        </p>
+
+        <div class="slideshow" aria-label="Suede Fringe Vest photo slideshow">
+          <button class="slide-btn" id="prevBtn" aria-label="Previous photo">◀</button>
+
+          <figure>
+            <img id="slideImage" src="assets/item1-01.jpg" alt="Suede fringe vest front view" />
+            <figcaption id="slideCaption">View 1: Front detail and fringe texture.</figcaption>
+          </figure>
+
+          <button class="slide-btn" id="nextBtn" aria-label="Next photo">▶</button>
+        </div>
+
+        <div class="dots" role="tablist" aria-label="Choose slide">
+          <button class="dot active" data-index="0" aria-label="Show slide 1"></button>
+          <button class="dot" data-index="1" aria-label="Show slide 2"></button>
+          <button class="dot" data-index="2" aria-label="Show slide 3"></button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Built as a standalone static project for local fashion history learning.</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
