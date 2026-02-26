@@ -1,9 +1,0 @@
-:root{--f:"Lucida Console",monospace}*{box-sizing:border-box}body{margin:0;background:#020a10;color:#e3f0fb;font-family:var(--f)}
-header{position:fixed;top:0;left:0;right:0;z-index:6;background:rgba(2,8,14,.78);border-bottom:1px solid #88a8c0;padding:.5rem 1rem}h1,p{margin:.2rem 0}
-#wall{display:grid;grid-template-columns:repeat(3,1fr);height:100vh;padding-top:82px}.era{position:relative;overflow:hidden;border-right:1px solid rgba(255,255,255,.2)}.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.tint{position:absolute;inset:0}
-.flip{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);width:min(92%,360px);height:min(80%,620px);transform-style:preserve-3d;transition:transform .8s;cursor:pointer}.flip.go{transform:translate(-50%,-50%) rotateY(180deg)}
-.panel{position:absolute;inset:0;background:rgba(5,15,25,.85);border:1px solid #8eaec5;padding:.8rem;display:grid;grid-template-rows:auto 1fr auto auto;gap:.45rem;backface-visibility:hidden}.f{transform:rotateY(180deg)}
-.panel img{width:100%;height:300px;object-fit:cover;border:1px solid #6f90a7}.panel h2{font-size:1rem;margin:0;text-transform:uppercase}.panel p{margin:0;font-size:.85rem;line-height:1.35}
-.dot{justify-self:end;font-family:var(--f);background:#123347;color:#dcedf9;border:1px solid #8eaec5;padding:.28rem .5rem;animation:dot 1.3s infinite}@keyframes dot{50%{transform:scale(1.1)}}
-#cursor{position:fixed;left:0;top:0;z-index:9;pointer-events:none;border:1px solid #e8f4ff;padding:.2rem .45rem;transform:translate(-50%,-50%);background:#020a10}#cursor.on{transform:translate(-50%,-50%) scale(1.35);background:#eef7ff;color:#041018}
-@media (max-width:980px){#wall{grid-template-columns:1fr;height:auto;min-height:100vh}.era{height:100vh}}
