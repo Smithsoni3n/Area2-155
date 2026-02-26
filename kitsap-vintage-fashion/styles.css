@@ -1,0 +1,149 @@
+:root {
+  --bg: #f6f1e6;
+  --text: #1f1d19;
+  --panel: #fffaf0;
+  --line: #8c6a43;
+  --rust: #a44a2f;
+  --olive: #5f6b3b;
+  --mustard: #b5882d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.site-header,
+main,
+.site-footer {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.site-header h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin: 0.2rem 0 0.8rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--olive);
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.intro,
+.credit {
+  max-width: 72ch;
+}
+
+.credit {
+  font-weight: 700;
+  color: var(--rust);
+}
+
+.main-nav {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 1rem 1rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--text);
+  background: #efe4cf;
+  border: 2px solid var(--line);
+  padding: 0.55rem 0.9rem;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.panel {
+  background: var(--panel);
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.wireframe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+
+.wire-box {
+  border: 2px dashed var(--mustard);
+  background: #fff;
+  padding: 0.8rem;
+  min-height: 140px;
+}
+
+.slideshow {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+figure {
+  margin: 0;
+  border: 2px solid var(--line);
+  background: #fff;
+  padding: 0.5rem;
+}
+
+img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  display: block;
+  background: #e8e1d1;
+}
+
+.slide-btn {
+  border: 2px solid var(--line);
+  background: #f0dbc3;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 1.1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dots {
+  margin-top: 0.8rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid #4d463c;
+  background: #cdbf9d;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: var(--rust);
+}
+
+.site-footer {
+  color: #4b4338;
+}
