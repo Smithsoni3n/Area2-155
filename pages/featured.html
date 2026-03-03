@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Featured Item | Kitsap Vintage Fashion</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header"><div class="nav-wrap">
+  <a class="brand" href="../index.html">Kitsap Vintage Fashion</a>
+  <nav class="site-nav" aria-label="Primary"><ul>
+    <li><a href="../index.html">Home</a></li><li><a href="context.html">Era Context</a></li>
+    <li><a href="gallery.html">Gallery</a></li><li><a href="featured.html" aria-current="page">Featured</a></li>
+    <li><a href="builder.html">Outfit Builder</a></li><li><a href="about.html">About & Credits</a></li>
+  </ul></nav>
+  <div class="toggles" role="group" aria-label="Accessibility options">
+    <button class="toggle-btn" type="button" data-toggle="text-size" aria-pressed="false">Text size: Normal</button>
+    <button class="toggle-btn" type="button" data-toggle="contrast" aria-pressed="false">High contrast: Off</button>
+  </div>
+</div></header>
+<main id="main-content" class="grid two">
+  <section class="panel slideshow" data-slideshow tabindex="0" aria-label="Featured fashion slideshow">
+    <h1>Featured Piece: Pacific Check Coat</h1>
+    <div class="slide-viewport">
+      <img data-slide-image src="../assets/images/featured-wool-check-coat.jpg" alt="Featured fashion image">
+    </div>
+    <div class="slide-controls">
+      <button class="btn" type="button" data-slide="prev" aria-label="Show previous featured image">◀ Previous</button>
+      <button class="btn" type="button" data-slide="next" aria-label="Show next featured image">Next ▶</button>
+    </div>
+    <p class="slide-caption" data-slide-caption>Caption text</p>
+  </section>
+  <aside class="panel" aria-label="Item details">
+    <h2>Details panel</h2>
+    <ul>
+      <li><strong>Decade:</strong> Early 1970s</li>
+      <li><strong>Materials:</strong> Wool blend, satin lining, metal zipper</li>
+      <li><strong>Style notes:</strong> Big checks, earthy orange/brown tones, structured shoulders</li>
+      <li><strong>Regional context:</strong> Practical warmth for ferry rides and rainy weather</li>
+    </ul>
+  </aside>
+</main>
+<footer class="site-footer"><p><a href="../CREDITS.md">Open Credits file</a></p></footer>
+<script src="../js/app.js"></script>
+<script src="../js/slideshow.js"></script>
+</body>
+</html>

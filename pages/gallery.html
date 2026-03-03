@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fashion Gallery | Kitsap Vintage Fashion</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header"><div class="nav-wrap">
+  <a class="brand" href="../index.html">Kitsap Vintage Fashion</a>
+  <nav class="site-nav" aria-label="Primary"><ul>
+    <li><a href="../index.html">Home</a></li><li><a href="context.html">Era Context</a></li>
+    <li><a href="gallery.html" aria-current="page">Gallery</a></li><li><a href="featured.html">Featured</a></li>
+    <li><a href="builder.html">Outfit Builder</a></li><li><a href="about.html">About & Credits</a></li>
+  </ul></nav>
+  <div class="toggles" role="group" aria-label="Accessibility options">
+    <button class="toggle-btn" type="button" data-toggle="text-size" aria-pressed="false">Text size: Normal</button>
+    <button class="toggle-btn" type="button" data-toggle="contrast" aria-pressed="false">High contrast: Off</button>
+  </div>
+</div></header>
+<main id="main-content">
+  <h1>Fashion Gallery</h1>
+  <p>Filter vintage pieces by type. Add matching files to <code>/assets/images/</code> using names listed in <code>IMAGE_SOURCES.md</code>.</p>
+  <div class="filters" role="toolbar" aria-label="Gallery filter buttons">
+    <button class="btn filter-btn active" data-filter="all">All</button>
+    <button class="btn filter-btn" data-filter="dresses">Dresses</button>
+    <button class="btn filter-btn" data-filter="jackets">Jackets</button>
+    <button class="btn filter-btn" data-filter="accessories">Accessories</button>
+  </div>
+  <section class="card-grid" aria-live="polite">
+    <article class="card" data-type="dresses"><img src="../assets/images/gallery-floral-maxi-dress.jpg" alt="Floral maxi dress from the 1970s"><h3>Floral Maxi Dress</h3><p>Flowy silhouette with bright print.</p></article>
+    <article class="card" data-type="jackets"><img src="../assets/images/gallery-suede-fringe-jacket.jpg" alt="Suede fringe jacket with western influence"><h3>Suede Fringe Jacket</h3><p>Texture-forward layer for cool weather.</p></article>
+    <article class="card" data-type="accessories"><img src="../assets/images/gallery-beaded-necklace.jpg" alt="Colorful beaded necklace"><h3>Beaded Necklace</h3><p>Handmade style with natural tones.</p></article>
+    <article class="card" data-type="jackets"><img src="../assets/images/gallery-denim-work-jacket.jpg" alt="Classic denim work jacket"><h3>Denim Work Jacket</h3><p>Practical and timeless Pacific Northwest staple.</p></article>
+    <article class="card" data-type="dresses"><img src="../assets/images/gallery-mod-shift-dress.jpg" alt="Mod shift dress with geometric print"><h3>Mod Shift Dress</h3><p>Clean lines and high-energy graphics.</p></article>
+    <article class="card" data-type="accessories"><img src="../assets/images/gallery-wide-brim-hat.jpg" alt="Wide-brim felt hat"><h3>Wide-Brim Hat</h3><p>A dramatic accessory from the era.</p></article>
+  </section>
+</main>
+<footer class="site-footer"><p><a href="../CREDITS.md">Open Credits file</a></p></footer>
+<script src="../js/app.js"></script>
+</body>
+</html>
