@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Share Your Story — Navy and Sashes Visual History Project</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ░░ NAVIGATION BAR (empty, as specified) ░░ -->
+  <nav class="navbar" aria-label="Site navigation">
+    <div class="navbar-inner">
+      <span class="nav-wordmark">NAVY &amp; SASHES</span>
+    </div>
+  </nav>
+
+  <!-- ░░ DECORATIVE SIDE PANELS ░░ -->
+  <div class="side-panel side-panel--left" aria-hidden="true">
+    <div class="side-image" style="background-image: url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&q=80&auto=format&fit=crop');"></div>
+    <div class="side-overlay"></div>
+    <div class="side-label">Kitsap County · 1960s</div>
+  </div>
+  <div class="side-panel side-panel--right" aria-hidden="true">
+    <div class="side-image" style="background-image: url('https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=400&q=80&auto=format&fit=crop');"></div>
+    <div class="side-overlay"></div>
+    <div class="side-label">1970s · Living Memory</div>
+  </div>
+
+  <!-- ░░ MAIN CONTENT ░░ -->
+  <main class="main-wrapper">
+
+    <!-- HERO HEADER -->
+    <header class="page-header">
+      <div class="header-ornament" aria-hidden="true">✦ ✦ ✦</div>
+      <p class="project-eyebrow">Navy and Sashes Visual History Project</p>
+      <h1 class="page-title">Share Your<br/><em>Story</em></h1>
+      <div class="title-rule" aria-hidden="true"></div>
+    </header>
+
+    <!-- INTRO SECTION -->
+    <section class="intro-section">
+      <p class="intro-text">
+        The <strong>NAVY AND SASHES Visual History Project</strong> celebrates lived experiences of work, identity, and style across Kitsap County from the 1960s–1970s. Your story helps preserve the voices that shaped our region's cultural and labor history.
+      </p>
+    </section>
+
+    <!-- PROMPTS GUIDE -->
+    <section class="prompts-section">
+      <p class="prompts-guidance">
+        Share whatever feels meaningful to you. These prompts are optional — use any of them, all of them, or none at all.
+      </p>
+      <ul class="prompts-list" aria-label="Optional story prompts">
+        <li><span class="prompt-bullet" aria-hidden="true">◆</span>A memory</li>
+        <li><span class="prompt-bullet" aria-hidden="true">◆</span>A moment</li>
+        <li><span class="prompt-bullet" aria-hidden="true">◆</span>A feeling</li>
+        <li><span class="prompt-bullet" aria-hidden="true">◆</span>A workplace experience</li>
+        <li><span class="prompt-bullet" aria-hidden="true">◆</span>A family story</li>
+        <li><span class="prompt-bullet" aria-hidden="true">◆</span>A description of clothing or uniforms</li>
+        <li><span class="prompt-bullet" aria-hidden="true">◆</span>A tradition or event</li>
+        <li><span class="prompt-bullet" aria-hidden="true">◆</span>Anything that shaped your identity</li>
+      </ul>
+    </section>
+
+    <!-- DIVIDER -->
+    <div class="section-divider" aria-hidden="true">
+      <span class="divider-line"></span>
+      <span class="divider-glyph">❧</span>
+      <span class="divider-line"></span>
+    </div>
+
+    <!-- STORY FORM -->
+    <!--
+      NOTE: This form uses mailto: for submission.
+      File attachments cannot be sent automatically via mailto: —
+      users must attach photos manually in their email client after the form opens.
+    -->
+    <form
+      class="story-form"
+      action="mailto:reisecrystal@gmail.com"
+      method="POST"
+      enctype="text/plain"
+      aria-label="Story submission form"
+    >
+
+      <!-- FIELD 1: BACKGROUND -->
+      <div class="field-group">
+        <label class="field-label" for="background">
+          <span class="field-number">01</span>
+          Background
+        </label>
+        <p class="field-hint">Set the scene for us — time, place, and context.</p>
+        <textarea
+          id="background"
+          name="Background"
+          class="field-textarea"
+          rows="5"
+          placeholder="Where and when your story takes place."
+        ></textarea>
+      </div>
+
+      <!-- FIELD 2: CONTEXT -->
+      <div class="field-group">
+        <label class="field-label" for="context">
+          <span class="field-number">02</span>
+          Context
+        </label>
+        <p class="field-hint">Tell us about the world around your story.</p>
+        <textarea
+          id="context"
+          name="Context"
+          class="field-textarea"
+          rows="5"
+          placeholder="Workplace, role, community, or environment."
+        ></textarea>
+      </div>
+
+      <!-- FIELD 3: DETAILS -->
+      <div class="field-group">
+        <label class="field-label" for="details">
+          <span class="field-number">03</span>
+          Details
+        </label>
+        <p class="field-hint">The small things are what we remember most.</p>
+        <textarea
+          id="details"
+          name="Details"
+          class="field-textarea"
+          rows="5"
+          placeholder="Clothing, tools, routines, challenges, or meaningful moments."
+        ></textarea>
+      </div>
+
+      <!-- FIELD 4: REFLECTION -->
+      <div class="field-group">
+        <label class="field-label" for="reflection">
+          <span class="field-number">04</span>
+          Reflection
+        </label>
+        <p class="field-hint">What does this story hold for you now?</p>
+        <textarea
+          id="reflection"
+          name="Reflection"
+          class="field-textarea"
+          rows="5"
+          placeholder="What this story means to you today."
+        ></textarea>
+      </div>
+
+      <!-- FIELD 5: PHOTO UPLOAD -->
+      <!--
+        IMPORTANT TECHNICAL NOTE:
+        The mailto: protocol cannot automatically attach files from an <input type="file">.
+        After clicking "Submit My Story," the user's email client will open with the form text.
+        The user must manually attach any photos before sending the email.
+      -->
+      <div class="field-group field-group--upload">
+        <label class="field-label" for="photos">
+          <span class="field-number">05</span>
+          Photos
+          <span class="field-label-optional">(optional)</span>
+        </label>
+        <p class="field-hint">Do you have images that tell part of the story?</p>
+
+        <div class="upload-box">
+          <div class="upload-icon" aria-hidden="true">✦</div>
+          <input
+            type="file"
+            id="photos"
+            name="photos"
+            accept=".jpg,.jpeg,.png"
+            multiple
+            class="file-input"
+            aria-describedby="photo-helper"
+          />
+          <label for="photos" class="upload-label-btn">Choose Images</label>
+        </div>
+
+        <p class="file-helper" id="photo-helper">
+          Upload up to 3 images (JPG or PNG). After clicking submit, your email app will open — please attach these images manually before sending.
+        </p>
+      </div>
+
+      <!-- DIVIDER -->
+      <div class="section-divider section-divider--form" aria-hidden="true">
+        <span class="divider-line"></span>
+        <span class="divider-glyph">✦</span>
+        <span class="divider-line"></span>
+      </div>
+
+      <!-- SUBMIT AREA -->
+      <div class="submit-area">
+        <button type="submit" class="submit-btn">
+          <span class="submit-btn-text">Submit My Story</span>
+          <span class="submit-btn-arrow" aria-hidden="true">→</span>
+        </button>
+        <p class="submit-subtext">Your words could be the light someone needs today.</p>
+      </div>
+
+    </form>
+
+    <!-- POST-SUBMISSION MESSAGE (visible for context; shown after submit in supported environments) -->
+    <div class="thankyou-message" role="status" aria-live="polite">
+      <div class="thankyou-glyph" aria-hidden="true">✦</div>
+      <p class="thankyou-text">Thank you for sharing your story! We'll review it and let you know when it's live.</p>
+    </div>
+
+  </main>
+
+  <!-- ░░ FOOTER ░░ -->
+  <footer class="site-footer">
+    <div class="footer-rule" aria-hidden="true"></div>
+    <div class="footer-inner">
+      <p class="footer-project">This page is part of the <em>NAVY AND SASHES Visual History Project.</em></p>
+      <p class="footer-location">KITSAP COUNTY &nbsp;·&nbsp; 1960s – 1970s</p>
+    </div>
+    <div class="footer-ornament" aria-hidden="true">✦ ✦ ✦</div>
+  </footer>
+
+</body>
+</html>
