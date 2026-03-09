@@ -11,14 +11,14 @@
 </head>
 <body>
 
-  <!-- ░░ NAVIGATION BAR (empty, as specified) ░░ -->
+
   <nav class="navbar" aria-label="Site navigation">
     <div class="navbar-inner">
       <span class="nav-wordmark">NAVY &amp; SASHES</span>
     </div>
   </nav>
 
-  <!-- ░░ DECORATIVE SIDE PANELS ░░ -->
+
   <div class="side-panel side-panel--left" aria-hidden="true">
     <div class="side-image" style="background-image: url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&q=80&auto=format&fit=crop');"></div>
     <div class="side-overlay"></div>
@@ -30,10 +30,10 @@
     <div class="side-label">1970s · Living Memory</div>
   </div>
 
-  <!-- ░░ MAIN CONTENT ░░ -->
+
   <main class="main-wrapper">
 
-    <!-- HERO HEADER -->
+
     <header class="page-header">
       <div class="header-ornament" aria-hidden="true">✦ ✦ ✦</div>
       <p class="project-eyebrow">Navy and Sashes Visual History Project</p>
@@ -41,17 +41,135 @@
       <div class="title-rule" aria-hidden="true"></div>
     </header>
 
-    <!-- INTRO SECTION -->
+
     <section class="intro-section">
       <p class="intro-text">
-        The <strong>NAVY AND SASHES Visual History Project</strong> celebrates lived experiences of work, identity, and style across Kitsap County from the 1960s–1970s. Your story helps preserve the voices that shaped our region's cultural and labor history.
+        The <strong>NAVY AND SASHES Visual History Project</strong> Honoring the lived experiences of ourselves, our friends, and our families who shaped our community!   <form
+      class="story-form"
+      action="mailto:reisecrystal@gmail.com"
+      method="POST"
+      enctype="text/plain"
+      aria-label="Story submission form"
+    >
+
+      
+      <div class="field-group">
+        <label class="field-label" for="background">
+          <span class="field-number">01</span>
+          Background
+        </label>
+        <p class="field-hint">Set the scene for us — time, place, and context.</p>
+        <textarea
+          id="background"
+          name="Background"
+          class="field-textarea"
+          rows="5"
+          placeholder="Where and when your story takes place."
+        ></textarea>
+      </div>
+
+      <!-- FIELD 2: CONTEXT -->
+      <div class="field-group">
+        <label class="field-label" for="context">
+          <span class="field-number">02</span>
+          Context
+        </label>
+        <p class="field-hint">Tell us about the world around your story.</p>
+        <textarea
+          id="context"
+          name="Context"
+          class="field-textarea"
+          rows="5"
+          placeholder="Workplace, role, community, or environment."
+        ></textarea>
+      </div>
+
+      <!-- FIELD 3: DETAILS -->
+      <div class="field-group">
+        <label class="field-label" for="details">
+          <span class="field-number">03</span>
+          Details
+        </label>
+        <p class="field-hint">The small things are what we remember most.</p>
+        <textarea
+          id="details"
+          name="Details"
+          class="field-textarea"
+          rows="5"
+          placeholder="Clothing, tools, routines, challenges, or meaningful moments."
+        ></textarea>
+      </div>
+
+      <!-- FIELD 4: REFLECTION -->
+      <div class="field-group">
+        <label class="field-label" for="reflection">
+          <span class="field-number">04</span>
+          Reflection
+        </label>
+        <p class="field-hint">What does this story hold for you now?</p>
+        <textarea
+          id="reflection"
+          name="Reflection"
+          class="field-textarea"
+          rows="5"
+          placeholder="What this story means to you today."
+        ></textarea>
+      </div>
+
+ 
+      -->
+      <div class="field-group field-group--upload">
+        <label class="field-label" for="photos">
+          <span class="field-number">05</span>
+          Photos
+          <span class="field-label-optional">(optional)</span>
+        </label>
+        <p class="field-hint">Do you have images that tell part of the story?</p>
+
+        <div class="upload-box">
+          <div class="upload-icon" aria-hidden="true">✦</div>
+          <input
+            type="file"
+            id="photos"
+            name="photos"
+            accept=".jpg,.jpeg,.png"
+            multiple
+            class="file-input"
+            aria-describedby="photo-helper"
+          />
+          <label for="photos" class="upload-label-btn">Choose Images</label>
+        </div>
+
+        <p class="file-helper" id="photo-helper">
+          Upload up to 3 images (JPG or PNG). After clicking submit, your email app will open — please attach these images manually before sending.
+        </p>
+      </div>
+
+      <!-- DIVIDER -->
+      <div class="section-divider section-divider--form" aria-hidden="true">
+        <span class="divider-line"></span>
+        <span class="divider-glyph">✦</span>
+        <span class="divider-line"></span>
+      </div>
+
+      <!-- SUBMIT AREA -->
+      <div class="submit-area">
+        <button type="submit" class="submit-btn">
+          <span class="submit-btn-text">Submit My Story</span>
+          <span class="submit-btn-arrow" aria-hidden="true">→</span>
+        </button>
+        <p class="submit-subtext">Your words could be the light someone needs today.</p>
+      </div>
+
+    </form>
+style across Kitsap County from the 1960s–1970s. Your story helps preserve the voices that shaped our region's cultural and labor history.
       </p>
     </section>
 
     <!-- PROMPTS GUIDE -->
     <section class="prompts-section">
       <p class="prompts-guidance">
-        Share whatever feels meaningful to you. These prompts are optional — use any of them, all of them, or none at all.
+        Share whatever feels meaningful to you!!! These prompts are optional!!! Use any of them, all of them <3 
       </p>
       <ul class="prompts-list" aria-label="Optional story prompts">
         <li><span class="prompt-bullet" aria-hidden="true">◆</span>A memory</li>
@@ -72,93 +190,133 @@
       <span class="divider-line"></span>
     </div>
 
-   
-<form name="share-your-story"
+    <form
+      class="story-form"
+      action="mailto:reisecrystal@gmail.com"
       method="POST"
-      enctype="multipart/form-data"
-      netlify
-      netlify-honeypot="bot-field">
+      enctype="text/plain"
+      aria-label="Story submission form"
+    >
 
-  <input type="hidden" name="form-name" value="share-your-story">
-  <input type="hidden" name="bot-field">
+      <!-- FIELD 1: BACKGROUND -->
+      <div class="field-group">
+        <label class="field-label" for="background">
+          <span class="field-number">01</span>
+          Background
+        </label>
+        <p class="field-hint">Set the "Time Capsule"(time, place, context.)</p>
+        <textarea
+          id="background"
+          name="Background"
+          class="field-textarea"
+          rows="5"
+          placeholder="Where and when your story takes place."
+        ></textarea>
+      </div>
 
-  <!-- 01 NAME -->
-  <div class="field-group">
-    <label class="field-label" for="name">
-      <span class="field-number">01</span>
-      Name
-    </label>
-    <input id="name" name="name" type="text" required>
-  </div>
+    
+      <div class="field-group">
+        <label class="field-label" for="context">
+          <span class="field-number">02</span>
+          Context
+        </label>
+        <p class="field-hint">Tell The World about your story.</p>
+        <textarea
+          id="context"
+          name="Context"
+          class="field-textarea"
+          rows="5"
+          placeholder="Workplace, role, community, or environment."
+        ></textarea>
+      </div>
 
-  <!-- 02 EMAIL -->
-  <div class="field-group">
-    <label class="field-label" for="email">
-      <span class="field-number">02</span>
-      Email
-    </label>
-    <input id="email" name="email" type="email" required>
-  </div>
-
-  <!-- 03 STORY -->
-  <div class="field-group">
-    <label class="field-label" for="story">
-      <span class="field-number">03</span>
-      Your Story
-    </label>
-    <textarea id="story" name="story" required></textarea>
-  </div>
-
-  <!-- 04 REFLECTION -->
-  <div class="field-group">
-    <label class="field-label" for="reflection">
-      <span class="field-number">04</span>
-      Reflection
-    </label>
-    <textarea id="reflection" name="reflection"></textarea>
-  </div>
-
-  <!-- 05 PHOTOS (optional) -->
-  <div class="field-group field-group--upload">
-    <label class="field-label" for="photos">
-      <span class="field-number">05</span>
-      PHOTOS <span class="field-label-optional">(optional)</span>
-    </label>
-
-    <p class="field-hint">Do you have images that tell part of the story?</p>
-
-    <div class="upload-box original-style">
-      <label for="photos" class="upload-btn">CHOOSE IMAGES</label>
-      <input
-        type="file"
-        id="photos"
-        name="photos"
-        accept=".jpg,.jpeg,.png"
-        multiple
-        class="file-input"
-      />
-    </div>
-
-    <p class="file-helper">
-      Upload up to 3 images (JPG or PNG).
-    </p>
-  </div>
-
-  <!-- SUBMIT -->
-  <button type="submit" class="submit-btn">Submit</button>
-
-</form>
+      <div class="field-group">
+        <label class="field-label" for="details">
+          <span class="field-number">03</span>
+          Details
+        </label>
+        <p class="field-hint">The small things are what we remember most.</p>
+        <textarea
+          id="details"
+          name="Details"
+          class="field-textarea"
+          rows="5"
+          placeholder="Clothing, tools, routines, challenges, or meaningful moments."
+        ></textarea>
+      </div>
 
 
-    <!-- POST-SUBMISSION MESSAGE (visible for context; shown after submit in supported environments) -->
+      <div class="field-group">
+        <label class="field-label" for="reflection">
+          <span class="field-number">04</span>
+          Reflection
+        </label>
+        <p class="field-hint">What does this story hold for you now?</p>
+        <textarea
+          id="reflection"
+          name="Reflection"
+          class="field-textarea"
+          rows="5"
+          placeholder="What this story means to you today."
+        ></textarea>
+      </div>
+
+ 
+      -->
+      <div class="field-group field-group--upload">
+        <label class="field-label" for="photos">
+          <span class="field-number">05</span>
+          Photos
+          <span class="field-label-optional">(optional)</span>
+        </label>
+        <p class="field-hint">Do you have images that tell part of the story?</p>
+
+        <div class="upload-box">
+          <div class="upload-icon" aria-hidden="true">✦</div>
+          <input
+            type="file"
+            id="photos"
+            name="photos"
+            accept=".jpg,.jpeg,.png"
+            multiple
+            class="file-input"
+            aria-describedby="photo-helper"
+          />
+          <label for="photos" class="upload-label-btn">Choose Images</label>
+        </div>
+
+        <p class="file-helper" id="photo-helper">
+         Drop or Upload up to 3 images here!(JPG or PNG).
+        </p>
+      </div>
+
+      <!-- DIVIDER -->
+      <div class="section-divider section-divider--form" aria-hidden="true">
+        <span class="divider-line"></span>
+        <span class="divider-glyph">✦</span>
+        <span class="divider-line"></span>
+      </div>
+
+      <!-- SUBMIT AREA -->
+      <div class="submit-area">
+        <button type="submit" class="submit-btn">
+          <span class="submit-btn-text">Submit My Story</span>
+          <span class="submit-btn-arrow" aria-hidden="true">→</span>
+        </button>
+        <p class="submit-subtext">Your words could be the light someone needs today.</p>
+      </div>
+
+    </form>
+
+  
     <div class="thankyou-message" role="status" aria-live="polite">
       <div class="thankyou-glyph" aria-hidden="true">✦</div>
-      <p class="thankyou-text">Thank you for sharing your story! We'll review it and let you know when it's live.</p>
+      <p class="thankyou-text">Thank you for sharing your story!</p>
     </div>
 
   </main>
 
-  <!-- ░░ FOOTER ░░ -->
+
   <footer class="site-footer">
     <div class="footer-rule" aria-hidden="true"></div>
     <div class="footer-inner">
