@@ -73,106 +73,79 @@
     </div>
 
    
-<form action="https://formspree.io/f/mvzwzynr"
+<form name="share-your-story"
       method="POST"
       enctype="multipart/form-data"
-      class="story-form"
-      aria-label="Story submission form">
+      netlify
+      netlify-honeypot="bot-field">
 
-  <!-- FIELD 1: BACKGROUND -->
+  <input type="hidden" name="form-name" value="share-your-story">
+  <input type="hidden" name="bot-field">
+
+  <!-- 01 NAME -->
   <div class="field-group">
-    <label class="field-label" for="background">
+    <label class="field-label" for="name">
       <span class="field-number">01</span>
-      Background
+      Name
     </label>
-    <p class="field-hint">Set the scene for us — time, place, and context.</p>
-    <textarea
-      id="background"
-      name="Background"
-      class="field-textarea"
-      rows="5"
-      placeholder="Where and when your story takes place."
-    ></textarea>
+    <input id="name" name="name" type="text" required>
   </div>
 
-  <!-- FIELD 2: CONTEXT -->
+  <!-- 02 EMAIL -->
   <div class="field-group">
-    <label class="field-label" for="context">
+    <label class="field-label" for="email">
       <span class="field-number">02</span>
-      Context
+      Email
     </label>
-    <p class="field-hint">Tell us about the world around your story.</p>
-    <textarea
-      id="context"
-      name="Context"
-      class="field-textarea"
-      rows="5"
-      placeholder="Workplace, role, community, or environment."
-    ></textarea>
+    <input id="email" name="email" type="email" required>
   </div>
 
-  <!-- FIELD 3: DETAILS -->
+  <!-- 03 STORY -->
   <div class="field-group">
-    <label class="field-label" for="details">
+    <label class="field-label" for="story">
       <span class="field-number">03</span>
-      Details
+      Your Story
     </label>
-    <p class="field-hint">The small things are what we remember most.</p>
-    <textarea
-      id="details"
-      name="Details"
-      class="field-textarea"
-      rows="5"
-      placeholder="Clothing, tools, routines, challenges, or meaningful moments."
-    ></textarea>
+    <textarea id="story" name="story" required></textarea>
   </div>
 
-  <!-- FIELD 4: REFLECTION -->
+  <!-- 04 REFLECTION -->
   <div class="field-group">
     <label class="field-label" for="reflection">
       <span class="field-number">04</span>
       Reflection
     </label>
-    <p class="field-hint">What does this story hold for you now?</p>
-    <textarea
-      id="reflection"
-      name="Reflection"
-      class="field-textarea"
-      rows="5"
-      placeholder="What this story means to you today."
-    ></textarea>
+    <textarea id="reflection" name="reflection"></textarea>
   </div>
 
-  <!-- FIELD 5: PHOTOS -->
+  <!-- 05 PHOTOS (optional) -->
   <div class="field-group field-group--upload">
     <label class="field-label" for="photos">
       <span class="field-number">05</span>
-      Photos <span class="field-label-optional">(optional)</span>
+      PHOTOS <span class="field-label-optional">(optional)</span>
     </label>
-    <p class="field-hint">Upload up to 3 images (JPG or PNG).</p>
-    <input
-      type="file"
-      id="photos"
-      name="photos"
-      accept=".jpg,.jpeg,.png"
-      multiple
-      class="file-input"
-    />
+
+    <p class="field-hint">Do you have images that tell part of the story?</p>
+
+    <div class="upload-box original-style">
+      <label for="photos" class="upload-btn">CHOOSE IMAGES</label>
+      <input
+        type="file"
+        id="photos"
+        name="photos"
+        accept=".jpg,.jpeg,.png"
+        multiple
+        class="file-input"
+      />
+    </div>
+
+    <p class="file-helper">
+      Upload up to 3 images (JPG or PNG).
+    </p>
   </div>
 
-  <!-- Hidden fields -->
-  <input type="hidden" name="_replyto" value="reisecrystal@gmail.com">
-  <input type="hidden" name="_subject" value="New Story Submission">
-  <input type="hidden" name="_redirect" value="https://smithsoni3n.github.io/Area2-155/share-your-story/thank-you.html">
-
-  <!-- SUBMIT AREA -->
-  <div class="submit-area">
-    <button type="submit" class="submit-btn">
-      <span class="submit-btn-text">Submit My Story</span>
-      <span class="submit-btn-arrow" aria-hidden="true">→</span>
-    </button>
-    <p class="submit-subtext">Your words could be the light someone needs today.</p>
-  </div>
+  <!-- SUBMIT -->
+  <button type="submit" class="submit-btn">Submit</button>
 
 </form>
 
