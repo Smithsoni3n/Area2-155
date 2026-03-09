@@ -72,135 +72,110 @@
       <span class="divider-line"></span>
     </div>
 
-    <!-- STORY FORM -->
-    <!--
-      NOTE: This form uses mailto: for submission.
-      File attachments cannot be sent automatically via mailto: —
-      users must attach photos manually in their email client after the form opens.
-    -->
-    <form
-      class="story-form"
-      action="mailto:reisecrystal@gmail.com"
+   
+<form action="https://formspree.io/f/mvzwzynr"
       method="POST"
-      enctype="text/plain"
-      aria-label="Story submission form"
-    >
+      enctype="multipart/form-data"
+      class="story-form"
+      aria-label="Story submission form">
 
-      <!-- FIELD 1: BACKGROUND -->
-      <div class="field-group">
-        <label class="field-label" for="background">
-          <span class="field-number">01</span>
-          Background
-        </label>
-        <p class="field-hint">Set the scene for us — time, place, and context.</p>
-        <textarea
-          id="background"
-          name="Background"
-          class="field-textarea"
-          rows="5"
-          placeholder="Where and when your story takes place."
-        ></textarea>
-      </div>
+  <!-- FIELD 1: BACKGROUND -->
+  <div class="field-group">
+    <label class="field-label" for="background">
+      <span class="field-number">01</span>
+      Background
+    </label>
+    <p class="field-hint">Set the scene for us — time, place, and context.</p>
+    <textarea
+      id="background"
+      name="Background"
+      class="field-textarea"
+      rows="5"
+      placeholder="Where and when your story takes place."
+    ></textarea>
+  </div>
 
-      <!-- FIELD 2: CONTEXT -->
-      <div class="field-group">
-        <label class="field-label" for="context">
-          <span class="field-number">02</span>
-          Context
-        </label>
-        <p class="field-hint">Tell us about the world around your story.</p>
-        <textarea
-          id="context"
-          name="Context"
-          class="field-textarea"
-          rows="5"
-          placeholder="Workplace, role, community, or environment."
-        ></textarea>
-      </div>
+  <!-- FIELD 2: CONTEXT -->
+  <div class="field-group">
+    <label class="field-label" for="context">
+      <span class="field-number">02</span>
+      Context
+    </label>
+    <p class="field-hint">Tell us about the world around your story.</p>
+    <textarea
+      id="context"
+      name="Context"
+      class="field-textarea"
+      rows="5"
+      placeholder="Workplace, role, community, or environment."
+    ></textarea>
+  </div>
 
-      <!-- FIELD 3: DETAILS -->
-      <div class="field-group">
-        <label class="field-label" for="details">
-          <span class="field-number">03</span>
-          Details
-        </label>
-        <p class="field-hint">The small things are what we remember most.</p>
-        <textarea
-          id="details"
-          name="Details"
-          class="field-textarea"
-          rows="5"
-          placeholder="Clothing, tools, routines, challenges, or meaningful moments."
-        ></textarea>
-      </div>
+  <!-- FIELD 3: DETAILS -->
+  <div class="field-group">
+    <label class="field-label" for="details">
+      <span class="field-number">03</span>
+      Details
+    </label>
+    <p class="field-hint">The small things are what we remember most.</p>
+    <textarea
+      id="details"
+      name="Details"
+      class="field-textarea"
+      rows="5"
+      placeholder="Clothing, tools, routines, challenges, or meaningful moments."
+    ></textarea>
+  </div>
 
-      <!-- FIELD 4: REFLECTION -->
-      <div class="field-group">
-        <label class="field-label" for="reflection">
-          <span class="field-number">04</span>
-          Reflection
-        </label>
-        <p class="field-hint">What does this story hold for you now?</p>
-        <textarea
-          id="reflection"
-          name="Reflection"
-          class="field-textarea"
-          rows="5"
-          placeholder="What this story means to you today."
-        ></textarea>
-      </div>
+  <!-- FIELD 4: REFLECTION -->
+  <div class="field-group">
+    <label class="field-label" for="reflection">
+      <span class="field-number">04</span>
+      Reflection
+    </label>
+    <p class="field-hint">What does this story hold for you now?</p>
+    <textarea
+      id="reflection"
+      name="Reflection"
+      class="field-textarea"
+      rows="5"
+      placeholder="What this story means to you today."
+    ></textarea>
+  </div>
 
-      <!-- FIELD 5: PHOTO UPLOAD -->
-      <!--
-        IMPORTANT TECHNICAL NOTE:
-        The mailto: protocol cannot automatically attach files from an <input type="file">.
-        After clicking "Submit My Story," the user's email client will open with the form text.
-        The user must manually attach any photos before sending the email.
-      -->
-      <div class="field-group field-group--upload">
-        <label class="field-label" for="photos">
-          <span class="field-number">05</span>
-          Photos
-          <span class="field-label-optional">(optional)</span>
-        </label>
-        <p class="field-hint">Do you have images that tell part of the story?</p>
+  <!-- FIELD 5: PHOTOS -->
+  <div class="field-group field-group--upload">
+    <label class="field-label" for="photos">
+      <span class="field-number">05</span>
+      Photos <span class="field-label-optional">(optional)</span>
+    </label>
+    <p class="field-hint">Upload up to 3 images (JPG or PNG).</p>
+    <input
+      type="file"
+      id="photos"
+      name="photos"
+      accept=".jpg,.jpeg,.png"
+      multiple
+      class="file-input"
+    />
+  </div>
 
-        <div class="upload-box">
-          <div class="upload-icon" aria-hidden="true">✦</div>
-          <input
-            type="file"
-            id="photos"
-            name="photos"
-            accept=".jpg,.jpeg,.png"
-            multiple
-            class="file-input"
-            aria-describedby="photo-helper"
-          />
-          <label for="photos" class="upload-label-btn">Choose Images</label>
-        </div>
+  <!-- Hidden fields -->
+  <input type="hidden" name="_replyto" value="reisecrystal@gmail.com">
+  <input type="hidden" name="_subject" value="New Story Submission">
+  <input type="hidden" name="_redirect" value="https://smithsoni3n.github.io/Area2-155/share-your-story/thank-you.html">
 
-        <p class="file-helper" id="photo-helper">
-          Upload up to 3 images (JPG or PNG). After clicking submit, your email app will open — please attach these images manually before sending.
-        </p>
-      </div>
+  <!-- SUBMIT AREA -->
+  <div class="submit-area">
+    <button type="submit" class="submit-btn">
+      <span class="submit-btn-text">Submit My Story</span>
+      <span class="submit-btn-arrow" aria-hidden="true">→</span>
+    </button>
+    <p class="submit-subtext">Your words could be the light someone needs today.</p>
+  </div>
 
-      <!-- DIVIDER -->
-      <div class="section-divider section-divider--form" aria-hidden="true">
-        <span class="divider-line"></span>
-        <span class="divider-glyph">✦</span>
-        <span class="divider-line"></span>
-      </div>
+</form>
 
-      <!-- SUBMIT AREA -->
-      <div class="submit-area">
-        <button type="submit" class="submit-btn">
-          <span class="submit-btn-text">Submit My Story</span>
-          <span class="submit-btn-arrow" aria-hidden="true">→</span>
-        </button>
-        <p class="submit-subtext">Your words could be the light someone needs today.</p>
-      </div>
-
-    </form>
 
     <!-- POST-SUBMISSION MESSAGE (visible for context; shown after submit in supported environments) -->
     <div class="thankyou-message" role="status" aria-live="polite">
