@@ -412,6 +412,7 @@ body::before {
 }
 
 /* ── TEXTAREA ─────────────────────────────────────────────────── */
+.field-input,
 .field-textarea {
   width: 100%;
   background: var(--col-field-bg);
@@ -423,17 +424,22 @@ body::before {
   font-size: 1.05rem;
   font-weight: 300;
   line-height: 1.7;
-  resize: vertical;
-  min-height: 110px;
   transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
   outline: none;
 }
 
+.field-textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.field-input::placeholder,
 .field-textarea::placeholder {
   color: rgba(230, 217, 255, 0.32);
   font-style: italic;
 }
 
+.field-input:focus,
 .field-textarea:focus {
   border-color: var(--col-field-focus);
   background: rgba(253, 247, 255, 0.09);
@@ -602,8 +608,74 @@ body::before {
   padding: 2.2rem 2rem;
   margin-top: 2rem;
   text-align: center;
-  /* Static display for GitHub Pages (no JS needed to reveal) */
-  /* If you add JS, toggle a hidden class on this element after submit */
+}
+
+/* ── THANK YOU PAGE SECTION ──────────────────────────────────── */
+.thankyou-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  width: 100%;
+  background: var(--col-card-bg);
+  border: 1px solid var(--col-card-border);
+  border-radius: var(--radius-card);
+  padding: 3rem 2.4rem;
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  text-align: center;
+  animation: fadeInUp 0.75s ease both;
+  animation-delay: 0.15s;
+}
+
+.thankyou-heading {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--col-gold-light);
+  margin-top: 0.5rem;
+}
+
+.thankyou-body {
+  font-family: var(--font-body);
+  font-size: 1.12rem;
+  font-weight: 400;
+  line-height: 1.78;
+  color: var(--col-lavender);
+}
+
+.thankyou-body strong {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--col-gold-light);
+  letter-spacing: 0.04em;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--col-gold-light);
+  background: rgba(212, 165, 116, 0.14);
+  border: 1px solid rgba(212, 165, 116, 0.4);
+  border-radius: 2rem;
+  padding: 0.7rem 2rem;
+  margin-top: 0.5rem;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.back-link:hover {
+  background: rgba(212, 165, 116, 0.26);
+  border-color: var(--col-gold);
+  color: var(--col-warm-white);
 }
 
 .thankyou-glyph {
