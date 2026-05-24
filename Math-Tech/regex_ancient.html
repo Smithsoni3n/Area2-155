@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Codex of Patterns — CIS 124 Module 7</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+:root {
+  --parchment:     #f2e8d0;
+  --parchment-dark:#e4d4a8;
+  --parchment-deep:#d4bc80;
+  --ink:           #2c1810;
+  --ink-faded:     #5c3d28;
+  --ink-light:     #8b6340;
+  --gold:          #b8860b;
+  --gold-bright:   #d4a017;
+  --gold-pale:     #e8d080;
+  --crimson:       #8b1a1a;
+  --stone:         #c8b89a;
+  --stone-dark:    #a09070;
+  --shadow:        rgba(44,24,16,0.35);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #1a1208;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% 0%, #2d1f0a 0%, transparent 70%),
+    url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h10v10H0zm20 0h10v10H20zm40 0h10v10H40zm60 0h10v10H60zm80 0h10v10H80zm100 0h10v10h-10zM10 20h10v10H10zm40 20h10v10H40zm60 0h10v10H60zM0 40h10v10H0zm80 20h10v10H80zm20-20h10v10h-10zM0 80h10v10H0zm40 0h10v10H40zm80 0h10v10H80zm-60 20h10v10H60zm40 0h10v10h-10zM0 100h10v10H0zm100 0h10v10h-10z' fill='%23b8860b' fill-opacity='0.04'/%3E%3C/svg%3E");
+  font-family: 'Crimson Text', serif;
+  min-height: 100vh;
+  color: var(--ink);
+}
+
+/* ── PAPYRUS SCROLL WRAPPER ── */
+.scroll-wrapper {
+  max-width: 900px;
+  margin: 40px auto;
+  position: relative;
+}
+
+/* Scroll end caps */
+.scroll-cap {
+  height: 32px;
+  background: linear-gradient(90deg,
+    #6b4c20 0%, #a07030 8%, #c8963c 20%, #b07828 50%, #c8963c 80%, #a07030 92%, #6b4c20 100%);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5), inset 0 2px 4px rgba(255,200,80,0.3);
+  position: relative;
+  z-index: 2;
+}
+.scroll-cap::before,.scroll-cap::after {
+  content:'';
+  position:absolute;
+  top:50%;transform:translateY(-50%);
+  width:28px;height:28px;
+  background: radial-gradient(circle, #d4a040 30%, #8b5e20 100%);
+  border-radius:50%;
+  box-shadow:0 2px 8px rgba(0,0,0,0.5);
+}
+.scroll-cap::before{left:12px;}
+.scroll-cap::after{right:12px;}
+
+/* Main parchment body */
+.parchment {
+  background:
+    linear-gradient(180deg,
+      rgba(210,190,140,0.6) 0%,
+      rgba(0,0,0,0) 4%,
+      rgba(0,0,0,0) 96%,
+      rgba(210,190,140,0.6) 100%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 28px,
+      rgba(180,150,90,0.07) 28px,
+      rgba(180,150,90,0.07) 29px
+    ),
+    linear-gradient(
+      105deg,
+      #ede0bc 0%,
+      #f5ecce 15%,
+      #efe3c0 30%,
+      #f8f0d8 50%,
+      #ede0bc 65%,
+      #f2e8cc 80%,
+      #e8dab8 100%
+    );
+  padding: 48px 56px;
+  box-shadow:
+    inset 0 0 60px rgba(150,110,40,0.25),
+    inset 0 0 120px rgba(100,70,20,0.12),
+    0 8px 40px rgba(0,0,0,0.6),
+    0 2px 8px rgba(0,0,0,0.4);
+  position: relative;
+}
+
+/* Parchment edge burn effect */
+.parchment::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(ellipse 90% 10% at 50% 0%, rgba(150,100,30,0.18) 0%, transparent 100%),
+    radial-gradient(ellipse 90% 10% at 50% 100%, rgba(150,100,30,0.18) 0%, transparent 100%),
+    radial-gradient(ellipse 8% 90% at 0% 50%, rgba(120,80,20,0.15) 0%, transparent 100%),
+    radial-gradient(ellipse 8% 90% at 100% 50%, rgba(120,80,20,0.15) 0%, transparent 100%);
+  pointer-events:none;
+}
+
+/* ── ORNAMENTAL BORDER ── */
+.border-frame {
+  border: 2px solid var(--gold);
+  padding: 32px 36px;
+  position: relative;
+  box-shadow: inset 0 0 0 4px rgba(184,134,11,0.15);
+}
+
+/* Corner ornaments */
+.border-frame::before,.border-frame::after {
+  content: '✦';
+  position:absolute;
+  font-size:18px;
+  color:var(--gold);
+  line-height:1;
+}
+.border-frame::before { top:-10px; left:50%; transform:translateX(-50%); background:var(--parchment); padding:0 8px; }
+.border-frame::after  { bottom:-10px; left:50%; transform:translateX(-50%); background:var(--parchment); padding:0 8px; }
+
+.corner { position:absolute; width:20px; height:20px; border-color:var(--gold-bright); border-style:solid; }
+.corner-tl { top:-2px;  left:-2px;  border-width:3px 0 0 3px; }
+.corner-tr { top:-2px;  right:-2px; border-width:3px 3px 0 0; }
+.corner-bl { bottom:-2px; left:-2px;  border-width:0 0 3px 3px; }
+.corner-br { bottom:-2px; right:-2px; border-width:0 3px 3px 0; }
+
+/* ── HEADER ── */
+.codex-header { text-align:center; margin-bottom:36px; }
+
+.codex-seal {
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  font-family:'Cinzel',serif;
+  font-size:10px;
+  letter-spacing:4px;
+  color:var(--gold);
+  text-transform:uppercase;
+  margin-bottom:12px;
+}
+.codex-seal::before,.codex-seal::after {
+  content:'';
+  display:block;
+  width:60px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+
+.codex-title {
+  font-family:'Cinzel',serif;
+  font-size:clamp(1.8rem,4vw,2.8rem);
+  font-weight:900;
+  color:var(--ink);
+  line-height:1.15;
+  letter-spacing:2px;
+  text-shadow:1px 1px 0 rgba(184,134,11,0.3);
+}
+
+.codex-title span {
+  color:var(--crimson);
+}
+
+.codex-subtitle {
+  font-family:'IM Fell English',serif;
+  font-size:1rem;
+  color:var(--ink-faded);
+  margin-top:8px;
+  font-style:italic;
+}
+
+.divider-ornament {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:20px 0;
+  color:var(--gold);
+  font-size:14px;
+}
+.divider-ornament::before,.divider-ornament::after {
+  content:'';
+  flex:1;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold-bright),var(--gold),transparent);
+}
+
+/* ── NAV PAGES ── */
+.page-nav {
+  display:flex;
+  gap:0;
+  margin-bottom:32px;
+  border:1px solid var(--gold);
+  border-radius:4px;
+  overflow:hidden;
+}
+
+.page-btn {
+  flex:1;
+  padding:12px 20px;
+  font-family:'Cinzel',serif;
+  font-size:13px;
+  letter-spacing:2px;
+  background:transparent;
+  color:var(--ink-faded);
+  border:none;
+  cursor:pointer;
+  transition:all 0.25s;
+  text-transform:uppercase;
+  border-right:1px solid var(--gold);
+  position:relative;
+}
+.page-btn:last-child { border-right:none; }
+.page-btn:hover { background:rgba(184,134,11,0.12); color:var(--ink); }
+.page-btn.active {
+  background:linear-gradient(180deg, rgba(184,134,11,0.22), rgba(184,134,11,0.08));
+  color:var(--crimson);
+  font-weight:700;
+}
+.page-btn.active::after {
+  content:'';
+  position:absolute;
+  bottom:0;left:0;right:0;
+  height:2px;
+  background:var(--gold-bright);
+}
+
+/* ── PAGES ── */
+.page { display:none; }
+.page.active { display:block; animation:fadeIn 0.4s ease; }
+
+@keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+
+/* ── SECTION HEADING ── */
+.section-heading {
+  font-family:'Cinzel',serif;
+  font-size:1rem;
+  font-weight:700;
+  color:var(--crimson);
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin:32px 0 16px;
+  padding-bottom:8px;
+  border-bottom:1px solid var(--parchment-deep);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.section-heading::before {
+  content:'◆';
+  color:var(--gold);
+  font-size:10px;
+}
+
+/* ── Q&A ENTRIES ── */
+.qa-entry {
+  margin-bottom:20px;
+  padding:16px 20px;
+  background:rgba(180,150,80,0.08);
+  border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;
+  transition:background 0.2s;
+}
+.qa-entry:hover { background:rgba(180,150,80,0.14); }
+
+.qa-number {
+  font-family:'Cinzel',serif;
+  font-size:9px;
+  letter-spacing:3px;
+  color:var(--gold);
+  text-transform:uppercase;
+  margin-bottom:5px;
+}
+
+.qa-question {
+  font-family:'Crimson Text',serif;
+  font-size:1.05rem;
+  color:var(--ink);
+  line-height:1.6;
+  margin-bottom:10px;
+}
+
+.qa-answer-row {
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.answer-glyph {
+  font-family:'Cinzel',serif;
+  font-size:9px;
+  letter-spacing:2px;
+  color:var(--ink-light);
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
+.answer-code {
+  font-family:'IM Fell English',serif;
+  font-size:1.15rem;
+  font-weight:600;
+  color:var(--crimson);
+  background:rgba(139,26,26,0.07);
+  padding:3px 14px;
+  border:1px solid rgba(139,26,26,0.2);
+  border-radius:3px;
+  letter-spacing:1px;
+}
+
+/* ── STUDY GUIDE TABLE ── */
+.ref-table {
+  width:100%;
+  border-collapse:collapse;
+  margin:16px 0 28px;
+  font-family:'Crimson Text',serif;
+}
+
+.ref-table thead tr {
+  background:linear-gradient(180deg,rgba(184,134,11,0.2),rgba(184,134,11,0.08));
+  border-bottom:2px solid var(--gold);
+}
+
+.ref-table thead th {
+  font-family:'Cinzel',serif;
+  font-size:9px;
+  letter-spacing:3px;
+  color:var(--crimson);
+  text-transform:uppercase;
+  padding:10px 14px;
+  text-align:left;
+}
+
+.ref-table tbody tr {
+  border-bottom:1px solid rgba(180,150,80,0.25);
+  transition:background 0.15s;
+}
+.ref-table tbody tr:hover { background:rgba(180,150,80,0.1); }
+
+.ref-table tbody td {
+  padding:9px 14px;
+  font-size:1rem;
+  vertical-align:middle;
+}
+
+.td-symbol {
+  font-family:'IM Fell English',serif;
+  font-size:1.15rem;
+  font-weight:600;
+  color:var(--crimson);
+  letter-spacing:1px;
+}
+
+.td-meaning { color:var(--ink); }
+.td-example { color:var(--ink-faded); font-style:italic; font-size:0.92rem; }
+
+/* ── CONCEPT ENTRIES ── */
+.concept-entry {
+  margin-bottom:18px;
+  padding:16px 20px;
+  background:rgba(180,150,80,0.06);
+  border:1px solid rgba(180,150,80,0.25);
+  border-radius:4px;
+}
+
+.concept-title {
+  font-family:'Cinzel',serif;
+  font-size:0.85rem;
+  font-weight:700;
+  color:var(--gold);
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:7px;
+}
+
+.concept-body {
+  font-family:'Crimson Text',serif;
+  font-size:1rem;
+  color:var(--ink-faded);
+  line-height:1.7;
+}
+
+.concept-body code {
+  font-family:'IM Fell English',serif;
+  font-size:1em;
+  color:var(--crimson);
+  background:rgba(139,26,26,0.08);
+  padding:1px 6px;
+  border-radius:2px;
+}
+
+/* ── EXPLANATION TABLE ── */
+.exp-table {
+  width:100%;
+  border-collapse:collapse;
+  font-family:'Crimson Text',serif;
+  margin:16px 0;
+}
+
+.exp-table thead tr {
+  background:linear-gradient(180deg,rgba(184,134,11,0.18),rgba(184,134,11,0.06));
+  border-bottom:2px solid var(--gold);
+}
+
+.exp-table thead th {
+  font-family:'Cinzel',serif;
+  font-size:9px;
+  letter-spacing:3px;
+  color:var(--crimson);
+  text-transform:uppercase;
+  padding:10px 14px;
+  text-align:left;
+}
+
+.exp-table tbody tr {
+  border-bottom:1px solid rgba(180,150,80,0.2);
+  transition:background 0.15s;
+}
+.exp-table tbody tr:hover { background:rgba(180,150,80,0.09); }
+
+.exp-table tbody td {
+  padding:9px 14px;
+  font-size:0.98rem;
+  vertical-align:top;
+  line-height:1.55;
+}
+
+.td-qnum {
+  font-family:'Cinzel',serif;
+  font-size:0.8rem;
+  color:var(--gold);
+  font-weight:700;
+  white-space:nowrap;
+}
+
+.td-ans {
+  font-family:'IM Fell English',serif;
+  font-size:1.05rem;
+  color:var(--crimson);
+  font-weight:600;
+  white-space:nowrap;
+}
+
+.td-why { color:var(--ink-faded); }
+
+/* ── FOOTER ── */
+.codex-footer {
+  text-align:center;
+  margin-top:32px;
+  padding-top:16px;
+  border-top:1px solid rgba(180,150,80,0.35);
+}
+
+.footer-text {
+  font-family:'Cinzel',serif;
+  font-size:9px;
+  letter-spacing:3px;
+  color:var(--gold);
+  text-transform:uppercase;
+}
+
+/* ── ROMAN NUMERALS decoration ── */
+.roman-strip {
+  display:flex;
+  justify-content:center;
+  gap:24px;
+  margin:10px 0 20px;
+  font-family:'Cinzel',serif;
+  font-size:11px;
+  letter-spacing:3px;
+  color:var(--stone-dark);
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:640px){
+  .parchment { padding:28px 24px; }
+  .border-frame { padding:20px 16px; }
+  .codex-title { font-size:1.5rem; }
+  .qa-answer-row { flex-direction:column; align-items:flex-start; }
+}
+</style>
+</head>
+<body>
+
+<div class="scroll-wrapper">
+  <div class="scroll-cap"></div>
+
+  <div class="parchment">
+    <div class="border-frame">
+      <div class="corner corner-tl"></div>
+      <div class="corner corner-tr"></div>
+      <div class="corner corner-bl"></div>
+      <div class="corner corner-br"></div>
+
+      <!-- HEADER -->
+      <div class="codex-header">
+        <div class="codex-seal">
+          <span>Ancient Codex</span>
+        </div>
+        <h1 class="codex-title">The Book of <span>Patterns</span></h1>
+        <p class="codex-subtitle">CIS 124 — Module VII — Regular Expressions</p>
+        <div class="roman-strip">
+          <span>I</span><span>II</span><span>III</span><span>IV</span>
+          <span>V</span><span>VI</span><span>VII</span><span>VIII</span>
+          <span>IX</span><span>X</span>
+        </div>
+        <div class="divider-ornament">✦ ✦ ✦</div>
+      </div>
+
+      <!-- PAGE NAV -->
+      <div class="page-nav">
+        <button class="page-btn active" onclick="showPage('answers',this)">Tablet I — Homework Answers</button>
+        <button class="page-btn" onclick="showPage('study',this)">Tablet II — Study Guide</button>
+      </div>
+
+      <!-- ═══════════════ PAGE 1: ANSWERS ═══════════════ -->
+      <div class="page active" id="page-answers">
+
+        <div class="section-heading">Part I — Questions I Through X</div>
+
+        <div class="qa-entry">
+          <div class="qa-number">Question I</div>
+          <div class="qa-question">Write a regular expression that finds three digits, followed by a dash, followed by three digits, followed by a dash, followed by four digits (an American phone number).</div>
+          <div class="qa-answer-row"><span class="answer-glyph">Answer →</span><span class="answer-code">\d{3}-\d{3}-\d{4}</span></div>
+        </div>
+
+        <div class="qa-entry">
+          <div class="qa-number">Question II</div>
+          <div class="qa-question">Write a regular expression that finds all instances of the separate word "color".</div>
+          <div class="qa-answer-row"><span class="answer-glyph">Answer →</span><span class="answer-code">\bcolor\b</span></div>
+        </div>
+
+        <div class="qa-entry">
+          <div class="qa-number">Question III</div>
+          <div class="qa-question">Write a regular expression that finds all instances of the array of characters "colour" even when it is a substring inside of a larger string.</div>
+          <div class="qa-answer-row"><span class="answer-glyph">Answer →</span><span class="answer-code">colour</span></div>
+        </div>
+
+        <div class="qa-entry">
+          <div class="qa-number">Question IV</div>
+          <div class="qa-question">Write a regular expression that finds all instances of "car" when it appears as a separate word, but does NOT find "car" when it is inside another word such as "carnival" or "caricature".</div>
+          <div class="qa-answer-row"><span class="answer-glyph">Answer →</span><span class="answer-code">\bcar\b</span></div>
+        </div>
+
+        <div class="qa-entry">
+          <div class="qa-number">Question V</div>
+          <div class="qa-question">Write a regular expression that finds all instances of "Car" (with the capital letter C) when it appears as the first word on a line.</div>
+          <div class="qa-answer-row"><span class="answer-glyph">Answer →</span><span class="answer-code">^Car</span></div>
+        </div>
+
+        <div class="qa-entry">
+          <div class="qa-number">Question VI</div>
+          <div class="qa-question">Write a regular expression that finds all instances of "car" (with the lower-case letter c) when it appears as the last word on a line.</div>
+          <div class="qa-answer-row"><span class="answer-glyph">Answer →</span><span class="answer-code">car$</span></div>
+        </div>
+
+        <div class="qa-entry">
+          <div class="qa-number">Question VII</div>
+          <div class="qa-question">Write a regular expression that finds all instances of the string "zz" such as in the word pizzazz.</div>
+          <div class="qa-answer-row"><span class="answer-glyph">Answer →</span><span class="answer-code">zz</span></div>
+        </div>
+
+        <div class="qa-entry">
+          <div class="qa-number">Question VIII</div>
+          <div class="qa-question">Write a regular expression that finds all instances of the binary number "1101" when it appears as a separate array of characters or as a substring within another larger array of characters.</div>
+          <div class="qa-answer-row"><span class="answer-glyph">Answer →</span><span class="answer-code">1101</span></div>
+        </div>
+
+        <div class="qa-entry">
+          <div class="qa-number">Question IX</div>
+          <div class="qa-question">Write a regular expression that finds all instances of the binary number "1101" but only when it appears as a separate array of characters (not as a substring).</div>
+          <div class="qa-answer-row"><span class="answer-glyph">Answer →</span><span class="answer-code">\b1101\b</span></div>
+        </div>
+
+        <div class="qa-entry">
+          <div class="qa-number">Question X</div>
+          <div class="qa-question">Write a regular expression that finds all instances of the array of characters "CaMelcaSE" even when it is a substring of a longer array of characters.</div>
+          <div class="qa-answer-row"><span class="answer-glyph">Answer →</span><span class="answer-code">CaMelcaSE</span></div>
+        </div>
+
+        <div class="section-heading">Part II — Questions XI Through XXV</div>
+
+        <div class="qa-entry">
+          <div class="qa-number">Question XI</div>
+          <div class="qa-question">Write a regular expression that finds all strings that consist of two NON-digit characters that are right next to each other.</div>
+          <div class="qa-answer-row"><span class="answer-glyph">Answer →</span><span class="answer-code">\D\D</span></div>
+        </div>
+
+        <div class="qa-entry">
+          <div class="qa-number">Question XII</div>
+          <div class="qa-question">Write a regular expression that finds all individual word characters in a given sample of text.</div>
+          <div class="qa-answer-row"><span class="answer-glyph">Answer →</span><span class="answer-code">\w</span></div>
+        </div>
+
+        <div class="qa-entry">
+          <div class="qa-number">Question XIII</div>
+          <div class="qa-question">Write a regular expression that finds all individual non-word characters in a given sample of text.</div>
+          <div class="qa-answer-row"><span class="answer-glyph">Answer →</span><span class="answer-code">\W</span></div>
+        </div>
+
+        <div class="qa-entry">
+          <div class="qa-number">Question XIV</div>
+          <div class="qa-question">Write a regular expression that finds all individual non-space characters in a given sample of text.</div>
+          <div class="qa-answer-row"><span class="answer-glyph">Answer →</span><span class="answer-code">\S</span></div>
+        </div>
+
+        <div class="qa-entry">
+          <div class="qa-number">Question XV</div>
+          <div class="qa-question">Write a regular expression that finds all individual space characters in a given sample of text.</div>
+          <div class="qa-answer-row"><span class="answer-glyph">Answer →</span><span class="answer-code">\s</span></div>
+        </div>
+
+        <div class="qa-entry">
+          <div class="qa-number">Question XVI</div>
+          <div class="qa-question">Write a regular expression that matches the word cat, in lower-case, but only when the letters are separated by a single space (e.g. c a t). This array of characters should not be a substring of another larger array of characters.</div>
+          <div class="qa-answer-row"><span class="answer-glyph">Answer →</span><span class="answer-code">\bc a t\b</span></div>
+        </div>
+
+        <div class="qa-entry">
+          <div class="qa-number">Question XVII</div>
+          <div class="qa-question">Write a regular expression that matches prices in the following format: a dollar sign, followed by the number 9, followed by any other single number, followed by a single period character, followed by any two numbers (e.g. $94.12, $90.20, $99.99).</div>
+          <div class="qa-answer-row"><span class="answer-glyph">Answer →</span><span class="answer-code">\$9\d\.\d{2}</span></div>
+        </div>
+
+        <div class="qa-entry">
+          <div class="qa-number">Question XVIII</div>
+          <div class="qa-question">Write a regular expression that matches three numbers followed by three letters followed by three numbers, even when such an array of characters is a substring of another array of characters.</div>
+          <div class="qa-answer-row"><span class="answer-glyph">Answer →</span><span class="answer-code">\d{3}[a-zA-Z]{3}\d{3}</span></div>
+        </div>
+
+        <div class="qa-entry">
+          <div class="qa-number">Question XIX</div>
+          <div class="qa-question">Write a regular expression that matches the phrase "Nota Bene" but only when the two words appear adjacent to each other. This should be a case-sensitive search.</div>
+          <div class="qa-answer-row"><span class="answer-glyph">Answer →</span><span class="answer-code">Nota Bene</span></div>
+        </div>
+
+        <div class="qa-entry">
+          <div class="qa-number">Question XX</div>
+          <div class="qa-question">Write a regular expression that matches the period character, but only when it appears as the last character on the line.</div>
+          <div class="qa-answer-row"><span class="answer-glyph">Answer →</span><span class="answer-code">\.$</span></div>
+        </div>
+
+        <div class="qa-entry">
+          <div class="qa-number">Question XXI</div>
+          <div class="qa-question">Write a regular expression that will find all individual characters of any type, except line-ending types of characters (e.g. newline character).</div>
+          <div class="qa-answer-row"><span class="answer-glyph">Answer →</span><span class="answer-code">.</span></div>
+        </div>
+
+        <div class="qa-entry">
+          <div class="qa-number">Question XXII</div>
+          <div class="qa-question">Write a regular expression that will find the word "The" only when it appears as the first word on a line.</div>
+          <div class="qa-answer-row"><span class="answer-glyph">Answer →</span><span class="answer-code">^The\b</span></div>
+        </div>
+
+        <div class="qa-entry">
+          <div class="qa-number">Question XXIII</div>
+          <div class="qa-question">Write a regular expression that will find the word "end" only when it appears as the last word on a line.</div>
+          <div class="qa-answer-row"><span class="answer-glyph">Answer →</span><span class="answer-code">\bend$</span></div>
+        </div>
+
+        <div class="qa-entry">
+          <div class="qa-number">Question XXIV</div>
+          <div class="qa-question">Write a regular expression that will find all strings of characters that start with the lowercase letter "h", followed by a single character, and ending with the lower-case letter "t" (e.g. hat, hot, hit) — including substrings.</div>
+          <div class="qa-answer-row"><span class="answer-glyph">Answer →</span><span class="answer-code">h.t</span></div>
+        </div>
+
+        <div class="qa-entry">
+          <div class="qa-number">Question XXV</div>
+          <div class="qa-question">Write a regular expression that will only find whole words that start with the lower-case letter "h", followed by a single character, and ending with the lower-case letter "t" (e.g. hat, hot, hit).</div>
+          <div class="qa-answer-row"><span class="answer-glyph">Answer →</span><span class="answer-code">\bh.t\b</span></div>
+        </div>
+
+        <div class="divider-ornament" style="margin-top:32px">✦ ✦ ✦</div>
+
+      </div><!-- /page-answers -->
+
+
+      <!-- ═══════════════ PAGE 2: STUDY GUIDE ═══════════════ -->
+      <div class="page" id="page-study">
+
+        <div class="section-heading">Metacharacter Reference Table</div>
+
+        <table class="ref-table">
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>Name</th>
+              <th>Meaning</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="td-symbol">\d</td><td>Digit</td><td class="td-meaning">Any single digit, 0 through 9</td><td class="td-example">\d{3} matches 206</td></tr>
+            <tr><td class="td-symbol">\D</td><td>Non-Digit</td><td class="td-meaning">Any single character that is NOT a digit</td><td class="td-example">\D\D matches "ab" or "! "</td></tr>
+            <tr><td class="td-symbol">\w</td><td>Word Char</td><td class="td-meaning">Any letter a–z, A–Z, digit 0–9, or underscore</td><td class="td-example">\w matches "a", "Z", "3", "_"</td></tr>
+            <tr><td class="td-symbol">\W</td><td>Non-Word</td><td class="td-meaning">Any character that is NOT a word character</td><td class="td-example">\W matches " ", "!", "@"</td></tr>
+            <tr><td class="td-symbol">\s</td><td>Whitespace</td><td class="td-meaning">Any whitespace: space, tab, newline</td><td class="td-example">\s matches the space in "a b"</td></tr>
+            <tr><td class="td-symbol">\S</td><td>Non-Space</td><td class="td-meaning">Any character that is NOT whitespace</td><td class="td-example">\S matches every visible character</td></tr>
+            <tr><td class="td-symbol">.</td><td>Wildcard</td><td class="td-meaning">Any single character except a newline</td><td class="td-example">h.t matches hat, hot, h@t</td></tr>
+            <tr><td class="td-symbol">^</td><td>Start Anchor</td><td class="td-meaning">Anchors the match to the start of a line</td><td class="td-example">^Car matches "Car" at line start only</td></tr>
+            <tr><td class="td-symbol">$</td><td>End Anchor</td><td class="td-meaning">Anchors the match to the end of a line</td><td class="td-example">car$ matches "car" at line end only</td></tr>
+            <tr><td class="td-symbol">\b</td><td>Word Boundary</td><td class="td-meaning">The position between a word char and a non-word char</td><td class="td-example">\bcar\b matches "car" not "carnival"</td></tr>
+            <tr><td class="td-symbol">{n}</td><td>Quantifier</td><td class="td-meaning">Matches exactly n repetitions of the preceding token</td><td class="td-example">\d{4} matches exactly 4 digits</td></tr>
+            <tr><td class="td-symbol">[abc]</td><td>Character Class</td><td class="td-meaning">Matches any one character listed inside the brackets</td><td class="td-example">[a-zA-Z] matches any letter</td></tr>
+            <tr><td class="td-symbol">\.</td><td>Escaped Period</td><td class="td-meaning">A literal period character (not the wildcard)</td><td class="td-example">\. matches "." in "$94.12"</td></tr>
+            <tr><td class="td-symbol">\$</td><td>Escaped Dollar</td><td class="td-meaning">A literal dollar sign (not the end anchor)</td><td class="td-example">\$9 matches "$9" in "$94.12"</td></tr>
+          </tbody>
+        </table>
+
+        <div class="section-heading">Six Principles of Pattern Logic</div>
+
+        <div class="concept-entry">
+          <div class="concept-title">I. Anchors Govern Position, Not Content</div>
+          <div class="concept-body"><code>^</code> and <code>$</code> do not match characters — they match positions. <code>^</code> means "the position at the start of a line." <code>$</code> means "the position at the end of a line." They anchor your pattern to a specific location in the text.</div>
+        </div>
+
+        <div class="concept-entry">
+          <div class="concept-title">II. Word Boundaries Are Invisible Walls</div>
+          <div class="concept-body"><code>\b</code> matches the invisible boundary between a word character and a non-word character. Placing <code>\b</code> on both sides of a pattern (e.g. <code>\bcar\b</code>) ensures the entire match is a standalone word. Without <code>\b</code>, your pattern will match inside longer words.</div>
+        </div>
+
+        <div class="concept-entry">
+          <div class="concept-title">III. Special Characters Must Be Escaped</div>
+          <div class="concept-body">Several characters have special meaning in regex: <code>.</code> <code>$</code> <code>^</code> <code>\</code> <code>( ) [ ] { }</code> <code>+ * ?</code>. To match any of these literally, place a backslash before them. For example, <code>\.</code> matches an actual period, and <code>\$</code> matches an actual dollar sign.</div>
+        </div>
+
+        <div class="concept-entry">
+          <div class="concept-title">IV. Quantifiers Control Repetition</div>
+          <div class="concept-body"><code>{n}</code> means exactly n times. <code>{n,m}</code> means between n and m times. <code>+</code> means one or more. <code>*</code> means zero or more. <code>?</code> means zero or one. A quantifier always applies to the token immediately preceding it — for example, <code>\d{3}</code> means exactly three digits.</div>
+        </div>
+
+        <div class="concept-entry">
+          <div class="concept-title">V. Character Classes Define a Set of Choices</div>
+          <div class="concept-body">Square brackets define a set: <code>[abc]</code> matches "a", "b", or "c". A hyphen inside brackets defines a range: <code>[a-z]</code> matches any lowercase letter. <code>[a-zA-Z]</code> matches any letter of either case. A caret inside brackets negates the set: <code>[^0-9]</code> means any character that is NOT a digit — equivalent to <code>\D</code>.</div>
+        </div>
+
+        <div class="concept-entry">
+          <div class="concept-title">VI. Regex Is Case-Sensitive by Default</div>
+          <div class="concept-body">"Car" and "car" are treated as entirely different patterns. The pattern <code>^Car</code> will not match a line beginning with "car". To make a pattern case-insensitive, use the <code>/i</code> flag in JavaScript, the <code>(?i)</code> modifier in Python, or the equivalent in your language of choice.</div>
+        </div>
+
+        <div class="section-heading">Question-by-Question Explanations</div>
+
+        <table class="exp-table">
+          <thead>
+            <tr><th>#</th><th>Answer</th><th>Why It Is Correct</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="td-qnum">I</td><td class="td-ans">\d{3}-\d{3}-\d{4}</td><td class="td-why">\d matches any digit. {3} and {4} are quantifiers requiring exactly that many digits. The hyphens are literal characters.</td></tr>
+            <tr><td class="td-qnum">II</td><td class="td-ans">\bcolor\b</td><td class="td-why">Word boundaries on both sides ensure "color" is matched only as a standalone word, not inside "colorful" or "discolor".</td></tr>
+            <tr><td class="td-qnum">III</td><td class="td-ans">colour</td><td class="td-why">No boundaries are needed. A plain literal string matches anywhere it appears, including inside larger strings.</td></tr>
+            <tr><td class="td-qnum">IV</td><td class="td-ans">\bcar\b</td><td class="td-why">\b on both sides guarantees "car" is a whole word. "carnival" and "caricature" are excluded because the boundary condition fails.</td></tr>
+            <tr><td class="td-qnum">V</td><td class="td-ans">^Car</td><td class="td-why">^ is the start-of-line anchor. It matches only when "Car" appears at the very beginning of a line. Case-sensitive — capital C required.</td></tr>
+            <tr><td class="td-qnum">VI</td><td class="td-ans">car$</td><td class="td-why">$ is the end-of-line anchor. "car" must be the last content on the line. Lower-case c is required.</td></tr>
+            <tr><td class="td-qnum">VII</td><td class="td-ans">zz</td><td class="td-why">A two-character literal. Matches two consecutive z characters anywhere — in "pizzazz", "jazz", "buzz", etc.</td></tr>
+            <tr><td class="td-qnum">VIII</td><td class="td-ans">1101</td><td class="td-why">A literal four-character string with no boundaries. Matches "1101" whether standalone or embedded inside a longer string.</td></tr>
+            <tr><td class="td-qnum">IX</td><td class="td-ans">\b1101\b</td><td class="td-why">Word boundaries isolate "1101" as a standalone sequence. "11010" does not match because the boundary after the final 1 fails.</td></tr>
+            <tr><td class="td-qnum">X</td><td class="td-ans">CaMelcaSE</td><td class="td-why">A case-sensitive literal string. The exact mixed-case sequence must appear as written, but it may appear anywhere inside a longer array.</td></tr>
+            <tr><td class="td-qnum">XI</td><td class="td-ans">\D\D</td><td class="td-why">\D matches any single non-digit. Two \D side by side requires two consecutive non-digit characters next to each other.</td></tr>
+            <tr><td class="td-qnum">XII</td><td class="td-ans">\w</td><td class="td-why">\w matches every individual word character — letters a–z, A–Z, digits 0–9, and underscore. Each one is matched separately.</td></tr>
+            <tr><td class="td-qnum">XIII</td><td class="td-ans">\W</td><td class="td-why">\W is the inverse of \w. It matches every character that is not a letter, digit, or underscore — spaces, punctuation, symbols.</td></tr>
+            <tr><td class="td-qnum">XIV</td><td class="td-ans">\S</td><td class="td-why">\S matches every non-whitespace character individually. Every visible character qualifies; spaces and tabs do not.</td></tr>
+            <tr><td class="td-qnum">XV</td><td class="td-ans">\s</td><td class="td-why">\s matches each whitespace character — the space, tab (\t), newline (\n), and carriage return (\r).</td></tr>
+            <tr><td class="td-qnum">XVI</td><td class="td-ans">\bc a t\b</td><td class="td-why">The spaces between the letters are literal single spaces required by the question. \b prevents this from matching as part of a larger array.</td></tr>
+            <tr><td class="td-qnum">XVII</td><td class="td-ans">\$9\d\.\d{2}</td><td class="td-why">\$ matches a literal dollar sign. 9 is literal. \d is any digit. \. is a literal period. \d{2} requires exactly two digits at the end.</td></tr>
+            <tr><td class="td-qnum">XVIII</td><td class="td-ans">\d{3}[a-zA-Z]{3}\d{3}</td><td class="td-why">\d{3} requires 3 digits. [a-zA-Z]{3} requires 3 letters of any case. \d{3} requires 3 more digits. No boundaries — substring match is allowed.</td></tr>
+            <tr><td class="td-qnum">XIX</td><td class="td-ans">Nota Bene</td><td class="td-why">A case-sensitive literal string. The single space between the two words requires them to be directly adjacent with no other characters between them.</td></tr>
+            <tr><td class="td-qnum">XX</td><td class="td-ans">\.$</td><td class="td-why">\. matches a literal period (without the backslash, . is a wildcard). $ anchors it to the end of the line.</td></tr>
+            <tr><td class="td-qnum">XXI</td><td class="td-ans">.</td><td class="td-why">The dot metacharacter matches any single character except newline by default. This is the universal wildcard in regular expressions.</td></tr>
+            <tr><td class="td-qnum">XXII</td><td class="td-ans">^The\b</td><td class="td-why">^ anchors to line start. \b ensures "The" is a complete word — "There" and "Their" are excluded because the word boundary fails after "The".</td></tr>
+            <tr><td class="td-qnum">XXIII</td><td class="td-ans">\bend$</td><td class="td-why">\b ensures "end" is a complete word, excluding "blend" or "fend". $ anchors the match to the very end of the line.</td></tr>
+            <tr><td class="td-qnum">XXIV</td><td class="td-ans">h.t</td><td class="td-why">h is a literal h. The dot matches any single character. t is a literal t. No word boundaries — this matches substrings too, such as "hatter".</td></tr>
+            <tr><td class="td-qnum">XXV</td><td class="td-ans">\bh.t\b</td><td class="td-why">Identical to XXIV but with \b on both sides. Only standalone three-character words matching the pattern h_t will match. "hatter" is excluded.</td></tr>
+          </tbody>
+        </table>
+
+        <div class="divider-ornament" style="margin-top:32px">✦ ✦ ✦</div>
+
+      </div><!-- /page-study -->
+
+      <!-- FOOTER -->
+      <div class="codex-footer">
+        <div class="footer-text">CIS 124 &nbsp;·&nbsp; Module VII &nbsp;·&nbsp; Regular Expressions &nbsp;·&nbsp; The Codex of Patterns</div>
+      </div>
+
+    </div><!-- /border-frame -->
+  </div><!-- /parchment -->
+
+  <div class="scroll-cap"></div>
+</div>
+
+<script>
+function showPage(id, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
