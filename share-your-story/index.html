@@ -75,16 +75,47 @@
   
  <form name="share-your-story"
       method="POST"
+      action="/share-your-story/thank-you.html"
       enctype="multipart/form-data"
-      netlify
+      data-netlify="true"
       netlify-honeypot="bot-field">
 
   <input type="hidden" name="form-name" value="share-your-story">
+  <input type="hidden" name="subject" value="New Story Submission — Navy and Sashes Visual History Project">
   <p hidden>
     <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
   </p>
 
-    
+
+
+      <!-- YOUR INFO -->
+      <div class="field-group field-group--contact">
+        <label class="field-label" for="name">
+          Your Name
+        </label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          class="field-input"
+          placeholder="First and last name"
+          required
+        />
+      </div>
+
+      <div class="field-group field-group--contact">
+        <label class="field-label" for="email">
+          Your Email
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="field-input"
+          placeholder="you@example.com"
+          required
+        />
+      </div>
 
       <!-- FIELD 1: BACKGROUND -->
       <div class="field-group">
@@ -196,11 +227,6 @@
 
     </form>
 
-    <!-- POST-SUBMISSION MESSAGE (visible for context; shown after submit in supported environments) -->
-    <div class="thankyou-message" role="status" aria-live="polite">
-      <div class="thankyou-glyph" aria-hidden="true">✦</div>
-      <p class="thankyou-text">Thank you for sharing your story! We'll review it and let you know when it's live.</p>
-    </div>
 
   </main>
 
